@@ -1,0 +1,47 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { PublicationsData } from '../../../lib/types';
+import Layout from '../Layout.astro';
+import DraftMark from '../components/DraftMark.astro';
+import FigureBlock from '../components/FigureBlock.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+
+interface Props {
+  ctx: ThemeContext;
+  data: PublicationsData;
+}
+const { ctx, data } = Astro.props;
+const { sectionTitles: t } = ctx.site;
+---
+
+<Layout ctx={ctx} title={data.title}>
+  <h1>{data.title}</h1>
+
+  <section aria-labelledby="pubs-highlights">
+    <h2 id="pubs-highlights">{t.highlights}</h2>
+    {data.highlights.map((h) => (
+      <article>
+        <h3>{h.publication.title}</h3>
+        <DraftMark ctx={ctx} placeholder={h.placeholder} />
+        <FigureBlock figure={h.figure} caption={h.blurb} number={h.number} />
+        <PublicationEntry ctx={ctx} pub={h.publication} />
+      </article>
+    ))}
+  </section>
+
+  <section aria-labelledby="pubs-all">
+    <h2 id="pubs-all">{t.allPublications}</h2>
+    {data.byYear.map((group) => (
+      <section aria-labelledby={`year-${group.year}`}>
+        <h3 id={`year-${group.year}`}>{group.year}</h3>
+        <ol>
+          {group.items.map((p) => (
+            <li value={p.number}>
+              <PublicationEntry ctx={ctx} pub={p} />
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+  </section>
+</Layout>

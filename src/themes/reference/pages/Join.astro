@@ -1,0 +1,28 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { JoinData } from '../../../lib/types';
+import Layout from '../Layout.astro';
+import DraftMark from '../components/DraftMark.astro';
+
+interface Props {
+  ctx: ThemeContext;
+  data: JoinData;
+}
+const { ctx, data } = Astro.props;
+const { sectionTitles: t } = ctx.site;
+---
+
+<Layout ctx={ctx} title={data.title} description={data.lede}>
+  <h1>{data.title}</h1>
+  <p>
+    {data.lede} <DraftMark ctx={ctx} placeholder={data.placeholder} />
+  </p>
+  <div set:html={data.bodyHtml} />
+  <section aria-labelledby="join-contact">
+    <h2 id="join-contact">{t.contact}</h2>
+    <p>
+      <a href={`mailto:${data.contact.email}`}>{data.contact.email}</a>
+    </p>
+    {data.contact.address && <address>{data.contact.address}</address>}
+  </section>
+</Layout>

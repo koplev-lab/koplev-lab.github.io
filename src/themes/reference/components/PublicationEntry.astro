@@ -1,0 +1,32 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { PublicationView } from '../../../lib/types';
+
+interface Props {
+  ctx: ThemeContext;
+  pub: PublicationView;
+}
+const { ctx, pub } = Astro.props;
+const { labels } = ctx.site;
+---
+
+<p>
+  {pub.authorsBrief.map((a, i) => (
+    <>
+      {i > 0 && ', '}
+      {a === null ? '…' : a.isMember ? <strong>{a.name}</strong> : a.name}
+    </>
+  ))}
+  .
+  {pub.url ? (
+    <a href={pub.url}>
+      <cite>{pub.title}</cite>
+    </a>
+  ) : (
+    <cite>{pub.title}</cite>
+  )}
+  .{pub.venue && <em>{pub.venue}</em>}({pub.year}).
+  {pub.isPreprint && <span>{labels.preprint}.</span>}
+  {pub.oaUrl && pub.oaUrl !== pub.url && <a href={pub.oaUrl}>{labels.openAccess}</a>}
+  {pub.preprintUrl && <a href={pub.preprintUrl}>{labels.preprint}</a>}
+</p>

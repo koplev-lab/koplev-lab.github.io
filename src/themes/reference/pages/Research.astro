@@ -1,0 +1,35 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { ResearchData } from '../../../lib/types';
+import Layout from '../Layout.astro';
+import DraftMark from '../components/DraftMark.astro';
+import FigureBlock from '../components/FigureBlock.astro';
+
+interface Props {
+  ctx: ThemeContext;
+  data: ResearchData;
+}
+const { ctx, data } = Astro.props;
+---
+
+<Layout ctx={ctx} title={data.title} description={data.lede}>
+  <h1>{data.title}</h1>
+  <p>
+    {data.lede} <DraftMark ctx={ctx} placeholder={data.placeholder} />
+  </p>
+  <Fragment set:html={data.introHtml} />
+  {data.projects.map((p) => (
+    <section aria-labelledby={`project-${p.slug}`}>
+      <h2 id={`project-${p.slug}`}>
+        <a href={ctx.url(p.path)}>{p.title}</a>
+      </h2>
+      <p>
+        {p.summary} <DraftMark ctx={ctx} placeholder={p.placeholder} />
+      </p>
+      <FigureBlock figure={p.figure} />
+      <p>
+        <a href={ctx.url(p.path)}>{ctx.site.labels.readMore}</a>
+      </p>
+    </section>
+  ))}
+</Layout>
