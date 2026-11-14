@@ -1,0 +1,136 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { PublicationsData } from '../../../lib/types';
+import Layout from '../Layout.astro';
+import Caption from '../components/Caption.astro';
+import DraftMark from '../components/DraftMark.astro';
+import FigImage from '../components/FigImage.astro';
+import Panel from '../components/Panel.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import { figureNumber, panels } from '../lib';
+
+interface Props {
+  ctx: ThemeContext;
+  data: PublicationsData;
+}
+const { ctx, data } = Astro.props;
+const { sectionTitles: t } = ctx.site;
+const fig = figureNumber(ctx.site.nav, ctx.currentPath);
+const P = panels([...data.highlights.map((h) => h.blurb), t.allPublications]);
+const pAll = P[data.highlights.length]!;
+---
+
+<Layout ctx={ctx} title={data.title}>
+  <header class="page-head">
+    <h1>{data.title}</h1>
+  </header>
+
+  <h2 class="group">{t.highlights}</h2>
+  <div class="mosaic highlights">
+    {data.highlights.map((h, i) => (
+      <Panel letter={P[i]!.letter} title={h.publication.title}>
+        <DraftMark ctx={ctx} placeholder={h.placeholder} slot="mark" />
+        <FigImage figure={h.figure} ratio="1 / 1" sizes="(min-width: 1100px) 26rem, 100vw" />
+        <p class="finding">{h.blurb}</p>
+        <PublicationEntry ctx={ctx} pub={h.publication} hideTitle />
+      </Panel>
+    ))}
+  </div>
+
+  <div class="mosaic all">
+    <Panel letter={pAll.letter} title={t.allPublications} class="list">
+      {data.byYear.map((group) => (
+        <section class="year" aria-labelledby={`y${group.year}`}>
+          <h3 id={`y${group.year}`} class="tnum">
+            {group.year}
+          </h3>
+          <ol>
+            {group.items.map((p) => (
+              <li>
+                <span class="no tnum" aria-hidden="true">
+                  {p.number}
+                </span>
+                <PublicationEntry ctx={ctx} pub={p} />
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
+    </Panel>
+  </div>
+
+  <Caption fig={fig ? String(fig) : null} title={data.title} panels={P} />
+</Layout>
+
+<style>
+  .page-head {
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-size: var(--s3);
+    font-weight: 400;
+    line-height: 1.18;
+  }
+  .group {
+    margin-bottom: 1.25rem;
+    color: var(--grey);
+    font-weight: 400;
+  }
+  .highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media (max-width: 1099px) {
+    .highlights {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .highlights :global(h2) {
+    font-size: 0.94rem;
+    line-height: 1.35;
+  }
+  .finding {
+    margin: 0.9rem 0 0.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .all {
+    margin-top: var(--row-gap);
+  }
+  .all :global(.list) {
+    grid-column: 1 / -1;
+  }
+  .year {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 10fr);
+    column-gap: var(--gutter);
+    padding-block: 1rem;
+  }
+  .year h3 {
+    font-size: var(--s0);
+  }
+  .year ol {
+    display: grid;
+    gap: 0.9rem;
+    max-width: 92ch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .year li {
+    display: grid;
+    grid-template-columns: 2.5ch minmax(0, 1fr);
+    column-gap: 0.75rem;
+  }
+  .no {
+    color: var(--grey);
+    font-size: 0.88rem;
+    line-height: 1.45;
+    text-align: right;
+  }
+  @media (max-width: 759px) {
+    .year {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 0.5rem;
+    }
+  }
+</style>

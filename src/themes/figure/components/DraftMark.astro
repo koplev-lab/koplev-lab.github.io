@@ -1,0 +1,19 @@
+---
+import type { ThemeContext } from '../../contract';
+
+interface Props {
+  ctx: ThemeContext;
+  placeholder: boolean;
+}
+const { ctx, placeholder } = Astro.props;
+---
+
+{ctx.showDrafts && placeholder && <span class="draft">[{ctx.site.labels.draft}]</span>}
+
+<style>
+  .draft {
+    color: var(--grey);
+    font-size: var(--s-1);
+    font-weight: 400;
+  }
+</style>

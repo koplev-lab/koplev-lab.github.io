@@ -1,0 +1,39 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { PublicationView } from '../../../lib/types';
+import { authorParts } from '../../../lib/authors';
+
+interface Props {
+  ctx: ThemeContext;
+  pub: PublicationView;
+  /** Leave out the title (when it is already a heading above). */
+  hideTitle?: boolean | undefined;
+}
+const { ctx, pub, hideTitle = false } = Astro.props;
+const { labels } = ctx.site;
+const authors = authorParts(pub.authorsBrief);
+---
+
+<p class="ref">
+  <span class="authors">{authors.map((a) => (a.member ? <strong>{a.text}</strong> : a.text))}</span>
+  {!hideTitle && <> {pub.url ? <a href={pub.url}>{pub.title}</a> : <span>{pub.title}</span>}.</>}
+  {pub.venue && <i>{pub.venue}</i>}
+  <span class="tnum">({pub.year})</span>.
+  {hideTitle && pub.url && <a href={pub.url}>doi:{pub.doi}</a>}
+  {pub.isPreprint && <span class="tag">{labels.preprint}.</span>}
+  {pub.preprintUrl && <a href={pub.preprintUrl}>{labels.preprint}</a>}
+</p>
+
+<style>
+  .ref {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+  .authors strong {
+    font-weight: 700;
+  }
+  .tag {
+    color: var(--grey);
+  }
+</style>

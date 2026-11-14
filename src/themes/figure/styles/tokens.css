@@ -1,0 +1,49 @@
+/* Figure theme tokens. See DESIGN.md for the reasoning and contrast ratios. */
+@layer figure.tokens {
+  :root[data-theme='figure'] {
+    --white: #ffffff;
+    --black: #000000;
+    --grey: #6b6b6b;
+    --blue: #0072b2;
+    --empty: #f2f2f2;
+
+    /* Okabe–Ito categorical palette, for data only. */
+    --oi-orange: #e69f00;
+    --oi-sky: #56b4e9;
+    --oi-green: #009e73;
+    --oi-yellow: #f0e442;
+    --oi-blue: #0072b2;
+    --oi-vermilion: #d55e00;
+    --oi-purple: #cc79a7;
+    --oi-black: #000000;
+
+    --font: 'Atkinson Hyperlegible Next Variable', ui-sans-serif, system-ui, sans-serif;
+
+    /* Major third (1.25) from 17px; 1rem = 17px (set on html). */
+    --s-1: 0.8rem; /* 13.6 */
+    --s0: 1rem; /* 17 */
+    --s1: 1.25rem; /* 21.25 */
+    --s2: 1.5625rem; /* 26.6 */
+    --s3: 1.953rem; /* 33.2 */
+
+    --gutter: 16px;
+    --margin: clamp(16px, 4vw, 48px);
+    --row-gap: clamp(40px, 5vw, 64px);
+    --measure: 66ch;
+    --page-max: 84rem;
+
+    /* Data figure (styled by the shared island in Phase 4). */
+    --hero-bg: var(--white);
+    --hero-fg: var(--black);
+    --hero-font: var(--font);
+    --hero-point-size: 2px;
+    --hero-data-1: var(--oi-orange);
+    --hero-data-2: var(--oi-sky);
+    --hero-data-3: var(--oi-green);
+    --hero-data-4: var(--oi-vermilion);
+    --hero-data-5: var(--oi-blue);
+    --hero-data-6: var(--oi-purple);
+    --hero-data-7: var(--oi-black);
+    --hero-data-8: var(--oi-yellow);
+  }
+}

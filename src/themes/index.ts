@@ -4,8 +4,9 @@
  */
 import type { Theme } from './contract';
 import type { ThemeId } from './ids';
+import figure from './figure';
 import reference from './reference';
 
-export const themes = { reference } satisfies Record<ThemeId, Theme>;
+export const themes = { reference, figure } satisfies Record<ThemeId, Theme>;
 
 export const themeList: Theme[] = Object.values(themes);

@@ -1,0 +1,176 @@
+---
+/**
+ * Figure theme: every page is a multi-panel journal figure. See DESIGN.md.
+ */
+import '@fontsource-variable/atkinson-hyperlegible-next/wght.css';
+import '@fontsource-variable/atkinson-hyperlegible-next/wght-italic.css';
+import fontUrl from '@fontsource-variable/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-wght-normal.woff2?url';
+import BaseHead from '../../lib/components/BaseHead.astro';
+import PreviewBar from '../../lib/components/PreviewBar.astro';
+import type { ThemeContext } from '../contract';
+import './styles/tokens.css';
+import './styles/base.css';
+import './styles/print.css';
+
+interface Props {
+  ctx: ThemeContext;
+  title?: string | undefined;
+  description?: string | undefined;
+}
+
+const { ctx, title, description } = Astro.props;
+const { site } = ctx;
+const current = (path: string) =>
+  ctx.currentPath === path
+    ? 'page'
+    : path !== '/' && ctx.currentPath.startsWith(path)
+      ? 'true'
+      : undefined;
+---
+
+<!doctype html>
+<html lang="en" data-theme={ctx.themeId}>
+  <head>
+    <BaseHead ctx={ctx} title={title} description={description} />
+    <link rel="preload" href={fontUrl} as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <PreviewBar ctx={ctx} />
+    <a class="skip" href="#main">
+      {site.labels.skipToContent}
+    </a>
+    <header class="masthead">
+      <a class="lockup" href={ctx.url('/')}>
+        {site.logoSvg && <span class="mark" aria-hidden="true" set:html={site.logoSvg} />}
+        <span>{site.labName}</span>
+      </a>
+      <nav aria-label={site.labels.mainNav}>
+        <ol class="figures">
+          {site.nav.map((item, i) => (
+            <li>
+              <a href={ctx.url(item.path)} aria-current={current(item.path)}>
+                <span class="no">Fig. {i + 1}</span> {item.label}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="colophon">
+      <ul>
+        {site.affiliations.map((a) => (
+          <li>
+            <a href={a.url}>{a.name}</a>
+          </li>
+        ))}
+        <li>
+          <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+        </li>
+      </ul>
+      {site.contact.address && <address>{site.contact.address}</address>}
+    </footer>
+  </body>
+</html>
+
+<style>
+  .skip {
+    position: absolute;
+    left: var(--margin);
+    top: -100px;
+    padding: 6px 10px;
+    background: var(--white);
+  }
+  .skip:focus {
+    top: 8px;
+  }
+  .masthead,
+  main,
+  .colophon {
+    max-width: var(--page-max);
+    margin-inline: auto;
+    padding-inline: var(--margin);
+  }
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 2.5rem;
+    row-gap: 0.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1rem;
+    font-size: 0.88rem;
+  }
+  .lockup {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    color: var(--black);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .mark :global(svg) {
+    height: 18px;
+    width: auto;
+    vertical-align: -3px;
+  }
+  .figures {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .figures a {
+    display: inline-block;
+    padding-block: 4px;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .figures a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+  .no {
+    color: var(--grey);
+    font-variant-numeric: tabular-nums;
+  }
+  .figures a[aria-current] {
+    color: var(--blue);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.3em;
+  }
+  .figures a[aria-current] .no {
+    color: var(--blue);
+  }
+  main {
+    padding-top: clamp(1.5rem, 4vw, 3rem);
+  }
+  .colophon {
+    margin-top: calc(var(--row-gap) * 1.5);
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+    color: var(--grey);
+    font-size: var(--s-1);
+  }
+  .colophon ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .colophon a {
+    display: inline-block;
+    padding-block: 3px;
+  }
+  .colophon address {
+    margin-top: 0.5rem;
+    font-style: normal;
+  }
+</style>

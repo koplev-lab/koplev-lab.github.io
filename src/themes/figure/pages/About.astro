@@ -1,0 +1,94 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { AboutData } from '../../../lib/types';
+import Layout from '../Layout.astro';
+import Caption from '../components/Caption.astro';
+import DraftMark from '../components/DraftMark.astro';
+import Panel from '../components/Panel.astro';
+import { figureNumber, panels } from '../lib';
+
+interface Props {
+  ctx: ThemeContext;
+  data: AboutData;
+}
+const { ctx, data } = Astro.props;
+const { sectionTitles: t, labels } = ctx.site;
+const fig = figureNumber(ctx.site.nav, ctx.currentPath);
+const hasFunders = data.funders.length > 0;
+const P = panels([labels.overview, t.affiliations, ...(hasFunders ? [t.funders] : [])]);
+---
+
+<Layout ctx={ctx} title={data.title} description={data.lede}>
+  <header class="page-head">
+    <h1>{data.title}</h1>
+    <p class="lede">
+      {data.lede} <DraftMark ctx={ctx} placeholder={data.placeholder} />
+    </p>
+  </header>
+
+  <div class="mosaic about">
+    <Panel letter={P[0]!.letter} area="a">
+      <div class="prose" set:html={data.bodyHtml} />
+    </Panel>
+    <Panel letter={P[1]!.letter} area="b" title={t.affiliations}>
+      <ul class="plain">
+        {data.affiliations.map((a) => (
+          <li>
+            <a href={a.url}>{a.name}</a>
+          </li>
+        ))}
+      </ul>
+    </Panel>
+    {hasFunders && (
+      <Panel letter={P[2]!.letter} area="c" title={t.funders}>
+        <ul class="plain">
+          {data.funders.map((f) => (
+            <li>
+              <a href={f.url}>{f.name}</a>
+            </li>
+          ))}
+        </ul>
+      </Panel>
+    )}
+  </div>
+
+  <Caption fig={fig ? String(fig) : null} title={data.title} panels={P} />
+</Layout>
+
+<style>
+  .page-head {
+    max-width: 46rem;
+    margin-bottom: var(--row-gap);
+  }
+  h1 {
+    margin-bottom: 0.75rem;
+    font-size: var(--s3);
+    font-weight: 400;
+    line-height: 1.18;
+  }
+  .lede {
+    font-size: var(--s1);
+    line-height: 1.4;
+  }
+  .about {
+    grid-template-areas:
+      'a a a a a a a . b b b b'
+      'a a a a a a a . c c c c';
+  }
+  @media (max-width: 1099px) {
+    .about {
+      grid-template-areas:
+        'a a a a a a a a a a a a'
+        'b b b b b b c c c c c c';
+    }
+  }
+  .plain {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .plain a {
+    display: inline-block;
+    padding-block: 4px;
+  }
+</style>

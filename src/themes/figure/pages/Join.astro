@@ -1,0 +1,71 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { JoinData } from '../../../lib/types';
+import Layout from '../Layout.astro';
+import Caption from '../components/Caption.astro';
+import DraftMark from '../components/DraftMark.astro';
+import Panel from '../components/Panel.astro';
+import { figureNumber, panels } from '../lib';
+
+interface Props {
+  ctx: ThemeContext;
+  data: JoinData;
+}
+const { ctx, data } = Astro.props;
+const { sectionTitles: t, labels } = ctx.site;
+const fig = figureNumber(ctx.site.nav, ctx.currentPath);
+const P = panels([labels.overview, t.contact]);
+---
+
+<Layout ctx={ctx} title={data.title} description={data.lede}>
+  <header class="page-head">
+    <h1>{data.title}</h1>
+    <p class="lede">
+      {data.lede} <DraftMark ctx={ctx} placeholder={data.placeholder} />
+    </p>
+  </header>
+
+  <div class="mosaic join">
+    <Panel letter={P[0]!.letter} area="a">
+      <div class="prose" set:html={data.bodyHtml} />
+    </Panel>
+    <Panel letter={P[1]!.letter} area="b" title={t.contact}>
+      <p>
+        <a href={`mailto:${data.contact.email}`}>{data.contact.email}</a>
+      </p>
+      {data.contact.address && <address>{data.contact.address}</address>}
+    </Panel>
+  </div>
+
+  <Caption fig={fig ? String(fig) : null} title={data.title} panels={P} />
+</Layout>
+
+<style>
+  .page-head {
+    max-width: 46rem;
+    margin-bottom: var(--row-gap);
+  }
+  h1 {
+    margin-bottom: 0.75rem;
+    font-size: var(--s3);
+    font-weight: 400;
+    line-height: 1.18;
+  }
+  .lede {
+    font-size: var(--s1);
+    line-height: 1.4;
+  }
+  .join {
+    grid-template-areas: 'a a a a a a a . b b b b';
+  }
+  @media (max-width: 1099px) {
+    .join {
+      grid-template-areas:
+        'a a a a a a a a a a a a'
+        'b b b b b b b b b b b b';
+    }
+  }
+  address {
+    font-style: normal;
+  }
+</style>

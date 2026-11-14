@@ -1,0 +1,147 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { MemberView, TeamData } from '../../../lib/types';
+import Layout from '../Layout.astro';
+import Caption from '../components/Caption.astro';
+import DraftMark from '../components/DraftMark.astro';
+import Panel from '../components/Panel.astro';
+import Portrait from '../components/Portrait.astro';
+import { figureNumber, panels } from '../lib';
+
+interface Props {
+  ctx: ThemeContext;
+  data: TeamData;
+}
+const { ctx, data } = Astro.props;
+const { sectionTitles: t, labels } = ctx.site;
+const fig = figureNumber(ctx.site.nav, ctx.currentPath);
+const P = panels([t.currentMembers, t.alumni]);
+const slug = (s: string) => s.toLowerCase().replace(/\W+/g, '-');
+type M = MemberView;
+---
+
+<Layout ctx={ctx} title={data.title}>
+  <header class="page-head">
+    <h1>{data.title}</h1>
+  </header>
+
+  <div class="mosaic team">
+    <Panel letter={P[0]!.letter} title={t.currentMembers} class="current">
+      {data.groups.map((g) => (
+        <section class="group" aria-labelledby={`role-${slug(g.role)}`}>
+          <h3 id={`role-${slug(g.role)}`}>{g.label}</h3>
+          <ul class="members">
+            {g.members.map((m: M) => (
+              <li>
+                <Portrait member={m} />
+                <p class="name">
+                  {m.name} <DraftMark ctx={ctx} placeholder={m.placeholder} />
+                </p>
+                {m.bioHtml && <div class="bio" set:html={m.bioHtml} />}
+                {m.links.length > 0 && (
+                  <ul class="links">
+                    {m.links.map((l) => (
+                      <li>
+                        <a href={l.href}>{l.label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </Panel>
+
+    <Panel letter={P[1]!.letter} title={t.alumni} class="alumni">
+      {data.alumni.length > 0 ? (
+        <ul class="alumni-list">
+          {data.alumni.map((m) => (
+            <li>
+              <span class="name">{m.name}</span> <span class="role">{m.role}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty">{labels.noAlumni}</p>
+      )}
+    </Panel>
+  </div>
+
+  <Caption fig={fig ? String(fig) : null} title={data.title} panels={P} />
+</Layout>
+
+<style>
+  .page-head {
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-size: var(--s3);
+    font-weight: 400;
+    line-height: 1.18;
+  }
+  .team :global(.current),
+  .team :global(.alumni) {
+    grid-column: 1 / -1;
+  }
+  .group + .group {
+    margin-top: 2.5rem;
+  }
+  .group h3 {
+    margin-bottom: 1rem;
+    color: var(--grey);
+    font-weight: 400;
+  }
+  .members {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 2rem var(--gutter);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  @media (max-width: 1099px) {
+    .members {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 759px) {
+    .members {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .name {
+    margin: 0.6rem 0 0.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .bio {
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+  .bio :global(p) {
+    margin-bottom: 0.5em;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.88rem;
+  }
+  .links a {
+    display: inline-block;
+    padding-block: 3px;
+  }
+  .alumni-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .empty {
+    color: var(--grey);
+  }
+</style>

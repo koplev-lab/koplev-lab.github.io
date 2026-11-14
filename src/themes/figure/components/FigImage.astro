@@ -1,0 +1,83 @@
+---
+/**
+ * A figure image at a fixed frame ratio. The image is never cropped: it is
+ * contained on white, like a panel in a printed figure. Credit underneath.
+ */
+import { Picture } from 'astro:assets';
+import type { Figure } from '../../../lib/types';
+
+interface Props {
+  figure: Figure;
+  /** CSS aspect-ratio of the frame, e.g. "4 / 3". Omit to use the image's own. */
+  ratio?: string | undefined;
+  /** Rendered width hint for responsive images. */
+  sizes?: string | undefined;
+  caption?: boolean | undefined;
+  /** Show the credit under the image (off when the page caption carries it). */
+  credit?: boolean | undefined;
+}
+const {
+  figure,
+  ratio,
+  sizes = '(min-width: 1100px) 40rem, 100vw',
+  caption = false,
+  credit = true,
+} = Astro.props;
+const showCredit = credit && figure.credit;
+---
+
+<figure class="fig">
+  <div class:list={['frame', { fixed: !!ratio }]} style={ratio ? `--ratio: ${ratio}` : undefined}>
+    <Picture
+      src={figure.src}
+      alt={figure.alt}
+      widths={[400, 800, 1200, 1800]}
+      sizes={sizes}
+      formats={['avif', 'webp']}
+    />
+  </div>
+  {(caption && figure.caption) || showCredit ? (
+    <figcaption>
+      {caption && figure.caption && <span class="cap">{figure.caption} </span>}
+      {showCredit && <span class="credit">{figure.credit}</span>}
+    </figcaption>
+  ) : null}
+</figure>
+
+<style>
+  .fig {
+    margin: 0;
+  }
+  .frame {
+    background: var(--white);
+  }
+  .frame :global(picture),
+  .frame :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  /* Shared frame height on wider screens so titles in a row line up under the
+     images; images sit on the frame's bottom edge and are never cropped. */
+  @media (min-width: 760px) {
+    .fixed {
+      aspect-ratio: var(--ratio);
+    }
+    .fixed :global(picture) {
+      height: 100%;
+    }
+    .fixed :global(img) {
+      height: 100%;
+      object-fit: contain;
+      object-position: left bottom;
+    }
+  }
+  figcaption {
+    margin-top: 0.4rem;
+    font-size: var(--s-1);
+    line-height: 1.4;
+  }
+  .credit {
+    color: var(--grey);
+  }
+</style>

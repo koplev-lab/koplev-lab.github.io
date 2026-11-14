@@ -1,0 +1,237 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { HomeData } from '../../../lib/types';
+import Layout from '../Layout.astro';
+import Caption from '../components/Caption.astro';
+import DraftMark from '../components/DraftMark.astro';
+import EmptyAxes from '../components/EmptyAxes.astro';
+import FigImage from '../components/FigImage.astro';
+import Panel from '../components/Panel.astro';
+import Portrait from '../components/Portrait.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import { figureNumber, panels } from '../lib';
+
+interface Props {
+  ctx: ThemeContext;
+  data: HomeData;
+}
+const { ctx, data } = Astro.props;
+const { site } = ctx;
+const { sectionTitles: t, labels } = site;
+const nav = Object.fromEntries(site.nav.map((n) => [n.key, n]));
+const fig = figureNumber(site.nav, ctx.currentPath);
+const credits = (items: { figure: { credit?: string | undefined } }[]) =>
+  items
+    .map((i) => i.figure.credit)
+    .filter(Boolean)
+    .join(' ');
+const P = panels([
+  labels.overview,
+  `${data.figure.title}. ${data.figure.caption}`,
+  `${t.projects}. ${credits(data.projects)}`,
+  `${t.highlights}. ${credits(data.highlights)}`,
+  nav.team!.label,
+  t.join,
+]);
+---
+
+<Layout ctx={ctx}>
+  <div class="mosaic home">
+    <Panel letter={P[0]!.letter} area="a" class="overview">
+      <DraftMark ctx={ctx} placeholder={data.placeholder} slot="mark" />
+      <h1>{data.tagline}</h1>
+      <div class="intro" set:html={data.introHtml} />
+      <p class="vision">
+        {data.about.lede}
+        <a href={ctx.url(data.about.path)}>{data.about.title}</a>
+      </p>
+    </Panel>
+
+    <Panel letter={P[1]!.letter} area="b" title={data.figure.title}>
+      <div class="plot">
+        <EmptyAxes />
+        <p class="pending">{labels.figurePending}</p>
+      </div>
+    </Panel>
+
+    <Panel letter={P[2]!.letter} area="c" title={t.projects}>
+      <ol class="multiples projects">
+        {data.projects.map((p) => (
+          <li>
+            <FigImage
+              figure={p.figure}
+              ratio="4 / 3"
+              credit={false}
+              sizes="(min-width: 1100px) 26rem, 100vw"
+            />
+            <h3>
+              <a href={ctx.url(p.path)}>{p.title}</a>{' '}
+              <DraftMark ctx={ctx} placeholder={p.placeholder} />
+            </h3>
+            <p>{p.summary}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="more">
+        <a href={ctx.url(nav.research!.path)}>{labels.allProjects}</a>
+      </p>
+    </Panel>
+
+    <Panel letter={P[3]!.letter} area="d" title={t.highlights}>
+      <ol class="multiples highlights">
+        {data.highlights.map((h) => (
+          <li>
+            <FigImage
+              figure={h.figure}
+              ratio="1 / 1"
+              credit={false}
+              sizes="(min-width: 1100px) 18rem, 100vw"
+            />
+            <p class="finding">
+              {h.blurb} <DraftMark ctx={ctx} placeholder={h.placeholder} />
+            </p>
+            <PublicationEntry ctx={ctx} pub={h.publication} />
+          </li>
+        ))}
+      </ol>
+      <p class="more">
+        <a href={ctx.url(nav.publications!.path)}>{labels.allPublications}</a>
+      </p>
+    </Panel>
+
+    <Panel letter={P[4]!.letter} area="e" title={nav.team!.label}>
+      <ul class="people">
+        {data.members.map((m) => (
+          <li>
+            <Portrait member={m} sizes="(min-width: 1100px) 8rem, 30vw" />
+            <span class="name">{m.name}</span>
+            <span class="role">{m.role}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="more">
+        <a href={ctx.url(nav.team!.path)}>{labels.allMembers}</a>
+      </p>
+    </Panel>
+
+    <Panel letter={P[5]!.letter} area="f" title={t.join}>
+      <p>{data.join.lede}</p>
+      <p class="more">
+        <a href={ctx.url(data.join.path)}>{data.join.title}</a>
+      </p>
+    </Panel>
+  </div>
+
+  <Caption fig={fig ? String(fig) : null} title={site.labName} panels={P} />
+</Layout>
+
+<style>
+  .home {
+    grid-template-areas:
+      'a a a a a b b b b b b b'
+      'c c c c c c c c c c c c'
+      'd d d d d d d d e e e e'
+      'd d d d d d d d f f f f';
+  }
+  @media (max-width: 1099px) {
+    .home {
+      grid-template-areas:
+        'a a a a a a a a a a a a'
+        'b b b b b b b b b b b b'
+        'c c c c c c c c c c c c'
+        'd d d d d d d d d d d d'
+        'e e e e e e e f f f f f';
+    }
+  }
+
+  h1 {
+    max-width: 24ch;
+    margin-bottom: 1.25rem;
+    font-size: var(--s3);
+    font-weight: 400;
+    line-height: 1.18;
+    letter-spacing: -0.005em;
+  }
+  .intro,
+  .vision {
+    max-width: 52ch;
+  }
+  .vision a {
+    white-space: nowrap;
+  }
+
+  .plot {
+    position: relative;
+    aspect-ratio: 4 / 3;
+  }
+  .pending {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    margin: 0;
+    color: var(--grey);
+    font-size: var(--s-1);
+  }
+
+  .multiples {
+    display: grid;
+    gap: 2rem var(--gutter);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .projects {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .multiples h3 {
+    margin: 0.75rem 0 0.25rem;
+  }
+  .multiples h3 a {
+    color: var(--black);
+  }
+  .multiples p {
+    font-size: 0.94rem;
+  }
+  .finding {
+    margin: 0.75rem 0 0.5rem;
+  }
+
+  .people {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem var(--gutter);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .people li {
+    font-size: var(--s-1);
+    line-height: 1.35;
+  }
+  .name {
+    display: block;
+    margin-top: 0.4rem;
+    font-weight: 700;
+  }
+  .role {
+    display: block;
+    color: var(--grey);
+  }
+  .more {
+    margin-top: 1.25rem;
+    font-size: 0.94rem;
+  }
+
+  @media (max-width: 759px) {
+    .projects,
+    .highlights {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .people {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

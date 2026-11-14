@@ -6,7 +6,7 @@ import type { ThemeId } from './themes/ids';
  */
 
 /** Theme used when the THEME env var is not set. Switching the design means changing this one value. */
-export const DEFAULT_THEME: ThemeId = 'reference';
+export const DEFAULT_THEME: ThemeId = 'figure';
 
 /*
  * Inputs that are still unknown (see the Inputs table in PLAN.md).
