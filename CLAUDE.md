@@ -112,19 +112,20 @@ binding summary. When they conflict with any default behaviour, these rules win.
 
 ## 4. Commands
 
-| Command                             | What it does                                            |
-| ----------------------------------- | ------------------------------------------------------- |
-| `npm ci`                            | Install exact dependency versions                       |
-| `npm run dev`                       | Dev server (`THEME=<id> npm run dev` to pick a theme)   |
-| `npm run build`                     | Static build into `dist/`                               |
-| `PREVIEW_THEMES=true npm run build` | Also build every theme under `/themes/<id>/`            |
-| `npm run preview`                   | Serve the built `dist/`                                 |
-| `npm run check`                     | `astro check` (types for `.astro` and `.ts`)            |
-| `npm test`                          | Playwright tests (parity, links, a11y, budgets)         |
-| `npm run pubs`                      | Refresh `src/data/publications.json` from OpenAlex      |
-| `npm run hero:data`                 | Regenerate illustrative `public/data/hero.json`         |
-| `npm run screens`                   | Screenshot every page of every theme at 390/768/1440 px |
-| `npm run format` / `format:check`   | Prettier                                                |
+| Command                             | What it does                                                 |
+| ----------------------------------- | ------------------------------------------------------------ |
+| `npm ci`                            | Install exact dependency versions                            |
+| `npm run dev`                       | Dev server (`THEME=<id> npm run dev` to pick a theme)        |
+| `npm run build`                     | Static build into `dist/`                                    |
+| `PREVIEW_THEMES=true npm run build` | Also build every theme under `/themes/<id>/`                 |
+| `npm run preview`                   | Serve the built `dist/`                                      |
+| `npm run check`                     | `astro check` (types for `.astro` and `.ts`)                 |
+| `npm test`                          | Preview build under `/base-test/`, then all Playwright tests |
+| `npm run test:only`                 | Re-run the tests against the existing `dist/`                |
+| `npm run pubs`                      | Refresh `src/data/publications.json` from OpenAlex           |
+| `npm run hero:data`                 | Regenerate illustrative `public/data/hero.json`              |
+| `npm run screens`                   | Screenshot every page of every theme at 390/768/1440 px      |
+| `npm run format` / `format:check`   | Prettier                                                     |
 
 Env: `THEME`, `PREVIEW_THEMES` (via `astro:env`); `SITE_URL`, `BASE_PATH` (read from the shell in
 `astro.config.ts`).

@@ -24,4 +24,7 @@ jobs:
         run: npm run build
         env:
           PREVIEW_THEMES: 'true'
-      # Added in later phases: parity, link, axe, third-party URL and JS budget tests.
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Tests (parity, links, accessibility, third-party URLs, JS budget)
+        run: npm test
