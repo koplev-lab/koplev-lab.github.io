@@ -12,8 +12,6 @@ interface Props {
   sizes?: string | undefined;
   /** Optional caption text (defaults to the figure's own caption). */
   caption?: string | undefined;
-  /** Figure number shown before the caption. */
-  number?: number | undefined;
   /** Show the credit (off for small thumbnails with a nearby credit). */
   details?: boolean | undefined;
 }
@@ -21,7 +19,6 @@ const {
   figure,
   sizes = '(min-width: 1024px) 50rem, 100vw',
   caption = figure.caption,
-  number,
   details = true,
 } = Astro.props;
 ---
@@ -37,9 +34,8 @@ const {
       class="print-img"
     />
   </div>
-  {(caption || number !== undefined || (details && figure.credit)) && (
+  {(caption || (details && figure.credit)) && (
     <figcaption class="mono">
-      {number !== undefined && <span class="no">Fig. {number}</span>}
       {caption && <span>{caption}</span>}
       {details && figure.credit && <span class="credit">{figure.credit}</span>}
     </figcaption>
@@ -62,10 +58,6 @@ const {
     gap: 0 0.9em;
     margin-top: 0.6rem;
     max-width: 70ch;
-  }
-  .no {
-    color: var(--overprint);
-    font-weight: 700;
   }
   .credit {
     color: var(--overprint-soft);

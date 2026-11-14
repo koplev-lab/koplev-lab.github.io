@@ -66,12 +66,7 @@ const more = data.highlights;
       <ul class="highlights">
         {more.map((h) => (
           <li>
-            <Print
-              figure={h.figure}
-              number={h.number}
-              details={false}
-              sizes="(min-width: 1024px) 24rem, 100vw"
-            />
+            <Print figure={h.figure} details={false} sizes="(min-width: 1024px) 24rem, 100vw" />
             <p class="finding">{h.blurb}</p>
             <PublicationEntry ctx={ctx} pub={h.publication} />
             <p class="credit mono">{h.figure.credit}</p>

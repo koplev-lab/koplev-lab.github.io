@@ -25,7 +25,7 @@ const { sectionTitles: t } = ctx.site;
           {h.publication.title} <DraftMark ctx={ctx} placeholder={h.placeholder} />
         </h3>
         <div class="highlight-body">
-          <Print figure={h.figure} number={h.number} sizes="(min-width: 1024px) 30rem, 100vw" />
+          <Print figure={h.figure} sizes="(min-width: 1024px) 30rem, 100vw" />
           <div class="text">
             <p class="finding">{h.blurb}</p>
             <PublicationEntry ctx={ctx} pub={h.publication} hideTitle />

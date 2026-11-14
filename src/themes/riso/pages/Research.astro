@@ -31,7 +31,7 @@ const { ctx, data } = Astro.props;
           {p.summary} <DraftMark ctx={ctx} placeholder={p.placeholder} />
         </p>
       </div>
-      <Print figure={p.figure} number={p.number} sizes="(min-width: 1024px) 56rem, 100vw" />
+      <Print figure={p.figure} sizes="(min-width: 1024px) 56rem, 100vw" />
       <p class="more">
         <a href={ctx.url(p.path)}>
           {ctx.site.labels.readMore}
