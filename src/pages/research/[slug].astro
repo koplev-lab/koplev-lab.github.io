@@ -1,0 +1,11 @@
+---
+import { THEME } from 'astro:env/server';
+import PageRenderer from '../../lib/components/PageRenderer.astro';
+import { getProjectSlugs } from '../../lib/content';
+
+export async function getStaticPaths() {
+  return (await getProjectSlugs()).map((slug) => ({ params: { slug } }));
+}
+---
+
+<PageRenderer kind="project" slug={Astro.params.slug} themeId={THEME} />

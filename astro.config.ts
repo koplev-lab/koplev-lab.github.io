@@ -1,5 +1,6 @@
 import { defineConfig, envField } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import placeholderReport from './src/integrations/placeholder-report';
 import { THEME_IDS } from './src/themes/ids';
 import { DEFAULT_THEME, PLACEHOLDER_SITE_URL } from './src/site.config';
 
@@ -17,6 +18,7 @@ export default defineConfig({
       // Theme preview pages are not meant to be indexed.
       filter: (page) => !new URL(page).pathname.includes('/themes/'),
     }),
+    placeholderReport(),
   ],
   env: {
     schema: {

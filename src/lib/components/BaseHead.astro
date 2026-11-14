@@ -1,0 +1,33 @@
+---
+/**
+ * Shared <head> essentials. Every theme Layout renders this inside <head>
+ * and adds its own fonts and styles after it.
+ */
+import type { ThemeContext } from '../../themes/contract';
+
+interface Props {
+  ctx: ThemeContext;
+  /** Page title. Omit on the home page to use the lab name alone. */
+  title?: string | undefined;
+  description?: string | undefined;
+}
+
+const { ctx, title, description = ctx.site.description } = Astro.props;
+const fullTitle = title ? `${title} · ${ctx.site.labName}` : ctx.site.labName;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+{ctx.preview ? (
+  <meta name="robots" content="noindex" />
+) : (
+  canonical && <link rel="canonical" href={canonical} />
+)}
+<meta property="og:type" content="website" />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content={ctx.site.labName} />
+{canonical && !ctx.preview && <meta property="og:url" content={canonical} />}

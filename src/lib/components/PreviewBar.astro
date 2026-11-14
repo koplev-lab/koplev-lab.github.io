@@ -1,0 +1,66 @@
+---
+/**
+ * Theme switcher shown only on /themes/<id>/… preview pages. Deliberately
+ * plain and neutral: it is a design-review tool, not part of any theme.
+ * Every theme Layout renders it first inside <body>.
+ */
+import type { ThemeContext } from '../../themes/contract';
+
+interface Props {
+  ctx: ThemeContext;
+}
+const { ctx } = Astro.props;
+const preview = ctx.preview;
+---
+
+{preview && (
+  <nav class="preview-bar" aria-label="Theme preview">
+    <a href={preview.indexUrl}>Theme preview</a>
+    <ul>
+      {preview.themes.map((t) => (
+        <li>
+          <a href={preview.urls[t.id]} aria-current={t.id === ctx.themeId ? 'page' : undefined}>
+            {t.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<style>
+  .preview-bar {
+    all: initial;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    align-items: baseline;
+    padding: 0.375rem 1rem;
+    background: #ffffff;
+    color: #1a1a1a;
+    border-bottom: 1px solid #b5b5b5;
+    font:
+      13px/1.4 ui-sans-serif,
+      system-ui,
+      sans-serif;
+  }
+  .preview-bar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .preview-bar a {
+    color: #1a1a1a;
+  }
+  .preview-bar a[aria-current='page'] {
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .preview-bar a:focus-visible {
+    outline: 2px solid #1a1a1a;
+    outline-offset: 2px;
+  }
+</style>

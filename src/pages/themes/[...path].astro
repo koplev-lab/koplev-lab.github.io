@@ -1,0 +1,49 @@
+---
+/**
+ * Preview mode (PREVIEW_THEMES=true): every page of every theme under
+ * /themes/<id>/…, plus the /themes/ index. Generates nothing otherwise.
+ */
+import { PREVIEW_THEMES } from 'astro:env/server';
+import PageRenderer from '../../lib/components/PageRenderer.astro';
+import PreviewIndex from '../../lib/components/PreviewIndex.astro';
+import { getProjectSlugs } from '../../lib/content';
+import type { PageKind } from '../../lib/pages';
+import { THEME_IDS, type ThemeId } from '../../themes/ids';
+
+export async function getStaticPaths() {
+  if (!PREVIEW_THEMES) return [];
+  const pages: { path: string; kind: PageKind; slug?: string }[] = [
+    { path: '', kind: 'home' },
+    { path: 'research', kind: 'research' },
+    ...(await getProjectSlugs()).map((slug) => ({
+      path: `research/${slug}`,
+      kind: 'project' as const,
+      slug,
+    })),
+    { path: 'publications', kind: 'publications' },
+    { path: 'team', kind: 'team' },
+    { path: 'about', kind: 'about' },
+    { path: 'join', kind: 'join' },
+    { path: '404', kind: 'notFound' },
+  ];
+  return [
+    { params: { path: undefined }, props: { index: true as const } },
+    ...THEME_IDS.flatMap((themeId) =>
+      pages.map((p) => ({
+        params: { path: p.path ? `${themeId}/${p.path}` : themeId },
+        props: { index: false as const, themeId, kind: p.kind, slug: p.slug },
+      })),
+    ),
+  ];
+}
+
+type Props =
+  { index: true } | { index: false; themeId: ThemeId; kind: PageKind; slug?: string | undefined };
+const props = Astro.props as Props;
+---
+
+{props.index ? (
+  <PreviewIndex />
+) : (
+  <PageRenderer kind={props.kind} slug={props.slug} themeId={props.themeId} inPreview />
+)}
