@@ -135,6 +135,21 @@ Mark 18px in `--black`, 8px gap, lab name in Atkinson 700 at 15px, left of the l
 `atkinson-hyperlegible-next-latin-wght-normal` (preloaded, 33 KB) and its italic when gene names
 appear, plus latin-ext only when needed. Two to three files.
 
+## Decisions made while building
+
+Recorded from the review rounds (`tests/screenshots/figure/REVIEW.md`):
+
+- Small multiples (home projects and highlights) carry their image credits in the page caption,
+  journal style; single figures keep the credit under the image.
+- Fixed image frames apply from 760px up (images sit on the frame's bottom edge so titles align);
+  on phones images keep their own proportions. Projects are one per row on phones, people two
+  (team page) or three (home) per row.
+- Images are never cropped by the layout. Source panel letters inside crops were removed from the
+  image files (and the credit says so) so they do not collide with this theme's panel letters.
+- The project pager names neighbouring projects by their figure number ("Fig. 2b …").
+- All global CSS is scoped under `:root[data-theme='figure']` in cascade layers
+  (`figure.tokens`, `figure.base`, `figure.print`).
+
 ## What this theme refuses to do
 
 - No dashboard look: no KPI tiles, no big numbers, no cards with shadows.
