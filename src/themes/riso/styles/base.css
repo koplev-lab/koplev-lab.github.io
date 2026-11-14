@@ -21,7 +21,7 @@
     & h4 {
       margin: 0;
       line-height: 1.05;
-      text-wrap: balance;
+      text-wrap: pretty;
     }
     /* Display headings: Chivo Black, sentence case, Blue ink (large text only). */
     & h1 {
