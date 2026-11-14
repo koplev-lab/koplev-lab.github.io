@@ -83,6 +83,12 @@ Each receives `ctx` (a `ThemeContext`) and, except `NotFound`, a `data` view mod
   optional fields you show, and how, is up to you.
 - **Own your styles**: import CSS only from your theme's `Layout.astro`; keep fonts and decorative
   files in `src/themes/<id>/assets/`. No global CSS outside themes. Self-host fonts.
+- **Scope your global CSS.** Astro bundles the CSS of every component a route imports, and the
+  page renderer imports every theme, so a theme's global CSS can end up on another theme's pages.
+  Set `data-theme={ctx.themeId}` on `<html>` in your Layout and write every global rule under
+  `:root[data-theme='<id>']`, inside a cascade layer (`@layer <id>.base { … }`) so your
+  components' scoped styles still win. See `src/themes/figure/styles/` for an example. Styles in a
+  component's own `<style>` block are already scoped and need nothing extra.
 - **In every Layout**: render `<BaseHead>` inside `<head>` and `<PreviewBar>` first inside
   `<body>` (both in `src/lib/components/`).
 - **Zero JavaScript** on every page except the home page's data figure.

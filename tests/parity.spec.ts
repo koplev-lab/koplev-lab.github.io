@@ -26,6 +26,15 @@ const roots = [
 
 for (const { name, prefix } of roots) {
   test.describe(`parity: ${name}`, () => {
+    if (name !== 'root') {
+      test('scopes its CSS with data-theme', async ({ page }) => {
+        // Theme CSS can be bundled on other themes' pages, so it must be scoped
+        // under :root[data-theme='<id>']; this checks the Layout sets the scope.
+        await page.goto(prefix);
+        await expect(page.locator('html')).toHaveAttribute('data-theme', name);
+      });
+    }
+
     test('home', async ({ page }) => {
       const text = await bodyText(page, prefix);
       expectAll(text, [expected.tagline, ...expected.navLabels], 'home');

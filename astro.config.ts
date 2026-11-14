@@ -13,6 +13,9 @@ export default defineConfig({
   site,
   base,
   output: 'static',
+  // Collapse whitespace like HTML (Astro 7 defaults to JSX-style removal, which drops
+  // spaces between inline elements and is easy to get wrong in themes).
+  compressHTML: true,
   integrations: [
     sitemap({
       // Theme preview pages are not meant to be indexed.
