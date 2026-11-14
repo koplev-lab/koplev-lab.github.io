@@ -1,0 +1,4643 @@
+{
+  "source": "OpenAlex",
+  "orcid": "0000-0002-8586-5614",
+  "count": 40,
+  "items": [
+    {
+      "id": "W7213975043",
+      "doi": "10.1016/j.treopn.2026.09.010",
+      "title": "Cancer-immunity interface: coevolving genomic instability and cell states",
+      "authors": [
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Francesc Muyas",
+          "orcid": "0000-0002-7857-0623"
+        },
+        {
+          "name": "Martin L. Miller"
+        }
+      ],
+      "venue": "Trends Open",
+      "year": 2026,
+      "date": "2026-09-01",
+      "type": "review",
+      "oaUrl": "https://doi.org/10.1016/j.treopn.2026.09.010"
+    },
+    {
+      "id": "W7202272126",
+      "doi": "10.1038/s41590-026-02617-0",
+      "title": "Epigenetic modulation of stromal cell states underpins pathological tissue niches in Crohn’s disease",
+      "authors": [
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Osheen Sharma",
+          "orcid": "0000-0002-9051-3664"
+        },
+        {
+          "name": "Simon Woelfel",
+          "orcid": "0000-0003-2528-0582"
+        },
+        {
+          "name": "Ni Huang"
+        },
+        {
+          "name": "Mathilde Pohin",
+          "orcid": "0000-0003-2809-9498"
+        },
+        {
+          "name": "Adrian Feile",
+          "orcid": "0000-0003-0216-1409"
+        },
+        {
+          "name": "Maria Warschinke"
+        },
+        {
+          "name": "Mikel Rezola Artero",
+          "orcid": "0000-0002-1172-6697"
+        },
+        {
+          "name": "Sharujan Suthakaran",
+          "orcid": "0009-0008-7000-0811"
+        },
+        {
+          "name": "Ioannis Sarropoulos",
+          "orcid": "0000-0002-2242-0562"
+        },
+        {
+          "name": "J. Patrick Pett",
+          "orcid": "0000-0002-5249-444X"
+        },
+        {
+          "name": "Julia Nyman",
+          "orcid": "0009-0000-3285-6602"
+        },
+        {
+          "name": "Tom R Thomas",
+          "orcid": "0000-0002-2188-3784"
+        },
+        {
+          "name": "Duy Pham"
+        },
+        {
+          "name": "Bin Li",
+          "orcid": "0009-0008-3791-0936"
+        },
+        {
+          "name": "Moustafa Attar",
+          "orcid": "0000-0003-4116-1276"
+        },
+        {
+          "name": "Julia Pakpoor"
+        },
+        {
+          "name": "Kate Milosevic-Hutton"
+        },
+        {
+          "name": "Alistair Easton",
+          "orcid": "0000-0001-8148-5406"
+        },
+        {
+          "name": "Matt Butler"
+        },
+        {
+          "name": "James E. Dunford",
+          "orcid": "0000-0002-9932-4042"
+        },
+        {
+          "name": "Martin Philpott",
+          "orcid": "0000-0003-3632-0084"
+        },
+        {
+          "name": "Mark Christopher Coles",
+          "orcid": "0000-0001-8079-9358"
+        },
+        {
+          "name": "Christopher Dominic Buckley",
+          "orcid": "0000-0001-6924-6402"
+        },
+        {
+          "name": "Calliope Athena Dendrou",
+          "orcid": "0000-0003-1179-4021"
+        },
+        {
+          "name": "Khalid Shamiyah",
+          "orcid": "0000-0002-3392-2621"
+        },
+        {
+          "name": "Lorenz Kretschmer",
+          "orcid": "0000-0003-0987-8429"
+        },
+        {
+          "name": "Lisa M. Dratva",
+          "orcid": "0000-0002-2873-6787"
+        },
+        {
+          "name": "Fadi Issa",
+          "orcid": "0000-0002-8279-7732"
+        },
+        {
+          "name": "Joanna Hester",
+          "orcid": "0000-0002-7466-3849"
+        },
+        {
+          "name": "Jens Rittscher",
+          "orcid": "0000-0002-8528-8298"
+        },
+        {
+          "name": "Alissa Walsh"
+        },
+        {
+          "name": "Simon P.L. Travis",
+          "orcid": "0000-0002-2690-4361"
+        },
+        {
+          "name": "Fränze Progatzky",
+          "orcid": "0000-0003-0784-1323"
+        },
+        {
+          "name": "Lukas W. Unger"
+        },
+        {
+          "name": "Mark Bignell"
+        },
+        {
+          "name": "Katherine Baker",
+          "orcid": "0000-0003-4216-6298"
+        },
+        {
+          "name": "Bruce D. George",
+          "orcid": "0000-0002-1522-5312"
+        },
+        {
+          "name": "Hussein Al‐Mossawi",
+          "orcid": "0000-0002-2312-3754"
+        },
+        {
+          "name": "Paul Klenerman",
+          "orcid": "0000-0003-4307-9161"
+        },
+        {
+          "name": "Alexander Sandy Mosig",
+          "orcid": "0000-0002-5687-2444"
+        },
+        {
+          "name": "Udo C. T. Oppermann",
+          "orcid": "0000-0001-9984-5342"
+        },
+        {
+          "name": "Sarah Amalia Teichmann",
+          "orcid": "0000-0002-6294-6366"
+        },
+        {
+          "name": "Fiona M. Powrie",
+          "orcid": "0000-0003-3312-5929"
+        },
+        {
+          "name": "Matthias Friedrich",
+          "orcid": "0000-0002-7551-4853"
+        }
+      ],
+      "venue": "Nature Immunology",
+      "year": 2026,
+      "date": "2026-08-12",
+      "type": "article",
+      "oaUrl": "https://doi.org/10.1038/s41590-026-02617-0"
+    },
+    {
+      "id": "W7165036959",
+      "doi": "10.64898/2026.06.16.732617",
+      "title": "Multimodal Hypersampling of the adult human heart resolves tissue-specific cell states and disease-associated variants",
+      "authors": [
+        {
+          "name": "James J. Cranley",
+          "orcid": "0000-0002-0408-5801"
+        },
+        {
+          "name": "Lukáš Mach",
+          "orcid": "0000-0001-7824-4468"
+        },
+        {
+          "name": "Takahiro Jimba",
+          "orcid": "0000-0002-3757-3959"
+        },
+        {
+          "name": "Kazumasa Kanemaru",
+          "orcid": "0000-0003-0018-8966"
+        },
+        {
+          "name": "Jing Zhao",
+          "orcid": "0000-0003-2906-0616"
+        },
+        {
+          "name": "Shani Perera",
+          "orcid": "0000-0001-8021-2078"
+        },
+        {
+          "name": "Yasemin-Xiomara Zurke",
+          "orcid": "0000-0002-3473-7129"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Sam N. Barnett",
+          "orcid": "0000-0002-8968-4319"
+        },
+        {
+          "name": "Lu Wang",
+          "orcid": "0000-0002-4418-8602"
+        },
+        {
+          "name": "Kenny Roberts",
+          "orcid": "0000-0001-6155-0821"
+        },
+        {
+          "name": "Rakeshlal Kapuge",
+          "orcid": "0009-0001-3394-0387"
+        },
+        {
+          "name": "Laura Richardson",
+          "orcid": "0000-0002-8075-3816"
+        },
+        {
+          "name": "Krzysztof Polański",
+          "orcid": "0000-0002-2586-9576"
+        },
+        {
+          "name": "Claudia I. Semprich",
+          "orcid": "0000-0002-2446-9028"
+        },
+        {
+          "name": "Siew Yen Ho",
+          "orcid": "0000-0002-3913-5637"
+        },
+        {
+          "name": "Jan Lukas Robertus",
+          "orcid": "0000-0003-0433-7965"
+        },
+        {
+          "name": "Monika Madrova",
+          "orcid": "0000-0001-6709-2307"
+        },
+        {
+          "name": "Bulgantamir Tegshjargal"
+        },
+        {
+          "name": "Antonio M. A. Miranda",
+          "orcid": "0000-0003-4281-614X"
+        },
+        {
+          "name": "Ioannis Sarropoulos",
+          "orcid": "0000-0002-2242-0562"
+        },
+        {
+          "name": "Ana-Maria Cujba",
+          "orcid": "0000-0003-3917-6751"
+        },
+        {
+          "name": "Woochan Lee",
+          "orcid": "0000-0002-1092-7331"
+        },
+        {
+          "name": "Anna Wilbrey-Clark",
+          "orcid": "0000-0002-5399-7997"
+        },
+        {
+          "name": "Jack A. Palmer",
+          "orcid": "0009-0008-4405-9959"
+        },
+        {
+          "name": "Joseph Brunet",
+          "orcid": "0000-0002-8424-9510"
+        },
+        {
+          "name": "Rasheda A. Chowdhury",
+          "orcid": "0000-0003-4204-1014"
+        },
+        {
+          "name": "Sanjay Prasad",
+          "orcid": "0000-0002-5637-0727"
+        },
+        {
+          "name": "John Henry Dark",
+          "orcid": "0000-0002-4727-6085"
+        },
+        {
+          "name": "Helle Færk Jørgensen",
+          "orcid": "0000-0002-7909-2977"
+        },
+        {
+          "name": "Michela Noseda",
+          "orcid": "0000-0002-9553-5029"
+        },
+        {
+          "name": "Sarah Amalia Teichmann",
+          "orcid": "0000-0002-6294-6366"
+        }
+      ],
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "date": "2026-06-17",
+      "type": "preprint",
+      "oaUrl": "https://doi.org/10.64898/2026.06.16.732617"
+    },
+    {
+      "id": "W4414477418",
+      "doi": "10.1038/s41590-025-02267-8",
+      "title": "A single-cell and spatial genomics atlas of human skin fibroblasts reveals shared disease-related fibroblast subtypes across tissues",
+      "authors": [
+        {
+          "name": "Lloyd Steele",
+          "orcid": "0000-0003-4745-1338"
+        },
+        {
+          "name": "Bayanne Olabi",
+          "orcid": "0000-0002-4786-7838"
+        },
+        {
+          "name": "Kenny Roberts",
+          "orcid": "0000-0001-6155-0821"
+        },
+        {
+          "name": "Pavel Mazin",
+          "orcid": "0000-0001-9268-3352"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Catherine L. Tudor",
+          "orcid": "0000-0003-2093-9683"
+        },
+        {
+          "name": "Benjamin M. Rumney",
+          "orcid": "0000-0001-7854-9739"
+        },
+        {
+          "name": "Chloe Admane",
+          "orcid": "0009-0005-9327-9008"
+        },
+        {
+          "name": "Treasa Jiang",
+          "orcid": "0009-0002-5786-9340"
+        },
+        {
+          "name": "Donovan Correa‐Gallegos",
+          "orcid": "0000-0001-7028-2478"
+        },
+        {
+          "name": "Keerthi Priya Chakala",
+          "orcid": "0009-0008-1071-8629"
+        },
+        {
+          "name": "Aljes Binkevich",
+          "orcid": "0009-0003-1467-1606"
+        },
+        {
+          "name": "Nusayhah Hudaa Gopee",
+          "orcid": "0000-0001-8507-5682"
+        },
+        {
+          "name": "Alexander V. Predeus",
+          "orcid": "0000-0002-2750-1599"
+        },
+        {
+          "name": "Martin Prete",
+          "orcid": "0000-0002-5946-821X"
+        },
+        {
+          "name": "Elena Winheim",
+          "orcid": "0000-0002-0364-662X"
+        },
+        {
+          "name": "Karl Annusver",
+          "orcid": "0000-0002-9515-7216"
+        },
+        {
+          "name": "Agnes Forsthuber",
+          "orcid": "0000-0001-6396-0090"
+        },
+        {
+          "name": "Luc Francis",
+          "orcid": "0009-0006-2476-025X"
+        },
+        {
+          "name": "Sophie Frech",
+          "orcid": "0000-0002-6190-8595"
+        },
+        {
+          "name": "Clarisse Gânier",
+          "orcid": "0000-0003-1143-7905"
+        },
+        {
+          "name": "Thomas Layton"
+        },
+        {
+          "name": "Yingzi Liu",
+          "orcid": "0000-0002-8704-4756"
+        },
+        {
+          "name": "Hao Yuan",
+          "orcid": "0000-0002-4200-3600"
+        },
+        {
+          "name": "Johann Eli Gudjonsson",
+          "orcid": "0000-0002-0080-0812"
+        },
+        {
+          "name": "Beate M. Lichtenberger",
+          "orcid": "0000-0001-6882-0257"
+        },
+        {
+          "name": "Satveer K. Mahil",
+          "orcid": "0000-0003-4692-3794"
+        },
+        {
+          "name": "Jagdeep Nanchahal",
+          "orcid": "0000-0002-9579-9411"
+        },
+        {
+          "name": "Edel A. O’Toole",
+          "orcid": "0000-0002-4084-4836"
+        },
+        {
+          "name": "Maksim V. Plikus",
+          "orcid": "0000-0002-8845-2559"
+        },
+        {
+          "name": "Yuval Rinkevich",
+          "orcid": "0000-0003-3658-0257"
+        },
+        {
+          "name": "Emanuel Rognoni",
+          "orcid": "0000-0001-6050-2860"
+        },
+        {
+          "name": "Catherine H. Smith",
+          "orcid": "0000-0001-9918-1144"
+        },
+        {
+          "name": "Sarah Amalia Teichmann",
+          "orcid": "0000-0002-6294-6366"
+        },
+        {
+          "name": "Maria Kasper",
+          "orcid": "0000-0002-6117-2717"
+        },
+        {
+          "name": "April Rose Foster",
+          "orcid": "0000-0002-5397-4365"
+        },
+        {
+          "name": "Mohammad Lotfollahi",
+          "orcid": "0000-0001-6858-7985"
+        },
+        {
+          "name": "Muzlifah A. Haniffa",
+          "orcid": "0000-0002-3927-2084"
+        }
+      ],
+      "venue": "Nature Immunology",
+      "year": 2025,
+      "date": "2025-09-24",
+      "type": "article",
+      "oaUrl": "https://doi.org/10.1038/s41590-025-02267-8"
+    },
+    {
+      "id": "W4409340468",
+      "doi": "10.1038/s44161-025-00628-y",
+      "title": "Single-cell RNA sequencing reveals sex differences in the subcellular composition and associated gene-regulatory network activity of human carotid plaques",
+      "authors": [
+        {
+          "name": "Katyayani Sukhavasi",
+          "orcid": "0000-0001-5627-0163"
+        },
+        {
+          "name": "Giuseppe Mocci"
+        },
+        {
+          "name": "Lijiang Ma",
+          "orcid": "0000-0001-6498-5556"
+        },
+        {
+          "name": "Chani J. Hodonsky",
+          "orcid": "0000-0001-8566-5877"
+        },
+        {
+          "name": "Ernest Diez Benavente",
+          "orcid": "0000-0002-4313-4290"
+        },
+        {
+          "name": "Lars Muhl",
+          "orcid": "0000-0003-0952-0507"
+        },
+        {
+          "name": "Jianping Liu",
+          "orcid": "0000-0002-7336-3895"
+        },
+        {
+          "name": "Sonja Gustafsson",
+          "orcid": "0000-0001-5807-7340"
+        },
+        {
+          "name": "Byambajav Buyandelger"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Urban Lendahl",
+          "orcid": "0000-0001-9543-8141"
+        },
+        {
+          "name": "Michael Vanlandewijck",
+          "orcid": "0000-0002-0709-7808"
+        },
+        {
+          "name": "Prosanta Singha",
+          "orcid": "0000-0003-2773-4330"
+        },
+        {
+          "name": "Tiit Örd",
+          "orcid": "0000-0002-3098-1749"
+        },
+        {
+          "name": "Mustafa Beter",
+          "orcid": "0000-0002-9497-3414"
+        },
+        {
+          "name": "Ilakya Selvarajan",
+          "orcid": "0000-0003-3357-9576"
+        },
+        {
+          "name": "Johanna P. Laakkonen",
+          "orcid": "0000-0002-8556-9727"
+        },
+        {
+          "name": "Marika M Väli",
+          "orcid": "0009-0009-0237-3138"
+        },
+        {
+          "name": "Hester M. den Ruijter",
+          "orcid": "0000-0001-9762-014X"
+        },
+        {
+          "name": "Mete Civelek",
+          "orcid": "0000-0002-8141-0284"
+        },
+        {
+          "name": "Ke Hao",
+          "orcid": "0000-0002-1815-9197"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Christer Betsholtz",
+          "orcid": "0000-0002-8494-971X"
+        },
+        {
+          "name": "Heli Järve"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        },
+        {
+          "name": "Clint L. Miller",
+          "orcid": "0000-0003-4276-3607"
+        },
+        {
+          "name": "Casey E. Romanoski",
+          "orcid": "0000-0002-0149-225X"
+        },
+        {
+          "name": "Minna Unelma Kaikkonen",
+          "orcid": "0000-0001-6294-0979"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        }
+      ],
+      "venue": "Nature Cardiovascular Research",
+      "year": 2025,
+      "date": "2025-04-10",
+      "type": "article",
+      "oaUrl": "https://doi.org/10.1038/s44161-025-00628-y"
+    },
+    {
+      "id": "W4404566936",
+      "doi": "10.1038/s41586-024-07944-6",
+      "title": "A spatial human thymus cell atlas mapped to a continuous tissue axis",
+      "authors": [
+        {
+          "name": "Nadav Yayon",
+          "orcid": "0000-0002-7034-0524"
+        },
+        {
+          "name": "Veronika R. Kedlian",
+          "orcid": "0000-0001-6563-0829"
+        },
+        {
+          "name": "Lena Boehme",
+          "orcid": "0000-0001-7593-7533"
+        },
+        {
+          "name": "Chenqu Suo",
+          "orcid": "0000-0002-8813-0875"
+        },
+        {
+          "name": "Brianna T. Wachter",
+          "orcid": "0000-0002-2950-2683"
+        },
+        {
+          "name": "Rebecca T. Beuschel",
+          "orcid": "0000-0002-3882-457X"
+        },
+        {
+          "name": "Oren Amsalem",
+          "orcid": "0000-0002-8070-0378"
+        },
+        {
+          "name": "Krzysztof Polański",
+          "orcid": "0000-0002-2586-9576"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Elizabeth J. Tuck",
+          "orcid": "0000-0002-1837-7549"
+        },
+        {
+          "name": "Emma Dann",
+          "orcid": "0000-0002-7400-7438"
+        },
+        {
+          "name": "Jolien Van Hulle",
+          "orcid": "0000-0001-8844-3700"
+        },
+        {
+          "name": "Shani Perera",
+          "orcid": "0000-0001-7292-2547"
+        },
+        {
+          "name": "Tom Putteman",
+          "orcid": "0000-0001-5098-4317"
+        },
+        {
+          "name": "Alexander V. Predeus",
+          "orcid": "0000-0002-2750-1599"
+        },
+        {
+          "name": "Monika H. Dabrowska"
+        },
+        {
+          "name": "Laura Richardson",
+          "orcid": "0000-0002-8075-3816"
+        },
+        {
+          "name": "Catherine L. Tudor",
+          "orcid": "0000-0003-2093-9683"
+        },
+        {
+          "name": "Alexandra Y. Kreins",
+          "orcid": "0000-0001-8748-5837"
+        },
+        {
+          "name": "Justin Engelbert",
+          "orcid": "0000-0002-4255-9668"
+        },
+        {
+          "name": "Emily Stephenson",
+          "orcid": "0000-0002-4244-4019"
+        },
+        {
+          "name": "Vitalii Kleshchevnikov",
+          "orcid": "0000-0001-9110-7441"
+        },
+        {
+          "name": "Fabrizio De Rita",
+          "orcid": "0000-0002-4717-4644"
+        },
+        {
+          "name": "David Steven Crossland",
+          "orcid": "0000-0003-3517-0483"
+        },
+        {
+          "name": "Marita Bosticardo",
+          "orcid": "0000-0002-1771-4523"
+        },
+        {
+          "name": "Francesca Pala",
+          "orcid": "0000-0003-4537-9061"
+        },
+        {
+          "name": "Elena Prigmore",
+          "orcid": "0000-0001-8870-0316"
+        },
+        {
+          "name": "Nana-Jane Chipampe",
+          "orcid": "0000-0002-8802-0473"
+        },
+        {
+          "name": "Martin Prete",
+          "orcid": "0000-0002-5946-821X"
+        },
+        {
+          "name": "Lijiang Fei",
+          "orcid": "0000-0002-2066-7297"
+        },
+        {
+          "name": "Ken To",
+          "orcid": "0000-0001-9262-7190"
+        },
+        {
+          "name": "Roger A. Barker",
+          "orcid": "0000-0001-8843-7730"
+        },
+        {
+          "name": "Xiaoling He",
+          "orcid": "0009-0004-1002-8418"
+        },
+        {
+          "name": "Filip Van Nieuwerburgh",
+          "orcid": "0000-0001-8815-5485"
+        },
+        {
+          "name": "Omer Ali Bayraktar",
+          "orcid": "0000-0001-6055-277X"
+        },
+        {
+          "name": "Minal J Patel"
+        },
+        {
+          "name": "E. Graham Davies",
+          "orcid": "0000-0001-6838-263X"
+        },
+        {
+          "name": "Muzlifah A. Haniffa",
+          "orcid": "0000-0002-3927-2084"
+        },
+        {
+          "name": "Virginie Uhlmann",
+          "orcid": "0000-0002-2859-9241"
+        },
+        {
+          "name": "Luigi Daniele Notarangelo",
+          "orcid": "0000-0002-8335-0262"
+        },
+        {
+          "name": "Ronald N. Germain",
+          "orcid": "0000-0003-1495-9143"
+        },
+        {
+          "name": "Andrea J. Radtke",
+          "orcid": "0000-0003-4379-8967"
+        },
+        {
+          "name": "John C. Marioni",
+          "orcid": "0000-0001-9092-0852"
+        },
+        {
+          "name": "Tom Taghon",
+          "orcid": "0000-0002-5781-0288"
+        },
+        {
+          "name": "Sarah Amalia Teichmann",
+          "orcid": "0000-0002-6294-6366"
+        }
+      ],
+      "venue": "Nature",
+      "year": 2024,
+      "date": "2024-11-20",
+      "type": "article",
+      "oaUrl": "https://doi.org/10.1038/s41586-024-07944-6"
+    },
+    {
+      "id": "W4404566941",
+      "doi": "10.1038/s41586-024-07571-1",
+      "title": "Single-cell integration reveals metaplasia in inflammatory gut diseases",
+      "authors": [
+        {
+          "name": "Amanda J. Oliver",
+          "orcid": "0000-0003-1690-9027"
+        },
+        {
+          "name": "Ni Huang",
+          "orcid": "0000-0001-8849-038X"
+        },
+        {
+          "name": "Raquel Bartolomé-Casado",
+          "orcid": "0000-0002-8966-9047"
+        },
+        {
+          "name": "Ruoyan Li",
+          "orcid": "0000-0001-5337-9729"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Hogne Røed Nilsen"
+        },
+        {
+          "name": "Madelyn R. Moy",
+          "orcid": "0000-0003-1159-5049"
+        },
+        {
+          "name": "Batuhan Çakır",
+          "orcid": "0000-0003-4513-606X"
+        },
+        {
+          "name": "Krzysztof Polański",
+          "orcid": "0000-0002-2586-9576"
+        },
+        {
+          "name": "Victòria Gudiño",
+          "orcid": "0000-0003-1663-975X"
+        },
+        {
+          "name": "Elisa Melón-Ardanaz",
+          "orcid": "0000-0003-1838-5474"
+        },
+        {
+          "name": "Dinithi Sumanaweera",
+          "orcid": "0000-0003-4515-0988"
+        },
+        {
+          "name": "Daniel Dimitrov",
+          "orcid": "0000-0002-5197-2112"
+        },
+        {
+          "name": "Lisa Marie Milchsack",
+          "orcid": "0009-0003-4284-5263"
+        },
+        {
+          "name": "Michael E. B. FitzPatrick",
+          "orcid": "0000-0003-2365-2012"
+        },
+        {
+          "name": "Nicholas M. Provine",
+          "orcid": "0000-0002-9694-2216"
+        },
+        {
+          "name": "Jacqueline Marcia Boccacino",
+          "orcid": "0000-0001-6813-5217"
+        },
+        {
+          "name": "Emma Dann",
+          "orcid": "0000-0002-7400-7438"
+        },
+        {
+          "name": "Alexander V. Predeus",
+          "orcid": "0000-0002-2750-1599"
+        },
+        {
+          "name": "Ken To",
+          "orcid": "0000-0001-9262-7190"
+        },
+        {
+          "name": "Martin Prete",
+          "orcid": "0000-0002-5946-821X"
+        },
+        {
+          "name": "Jonathan A. Chapman",
+          "orcid": "0000-0003-1068-8278"
+        },
+        {
+          "name": "Andrea C. Masi",
+          "orcid": "0000-0002-4714-9174"
+        },
+        {
+          "name": "Emily Stephenson",
+          "orcid": "0000-0002-4244-4019"
+        },
+        {
+          "name": "Justin Engelbert",
+          "orcid": "0000-0002-4255-9668"
+        },
+        {
+          "name": "Sebastian Lobentanzer",
+          "orcid": "0000-0003-3399-6695"
+        },
+        {
+          "name": "Shani Perera",
+          "orcid": "0000-0001-7292-2547"
+        },
+        {
+          "name": "Laura Richardson",
+          "orcid": "0000-0002-8075-3816"
+        },
+        {
+          "name": "Rakeshlal Kapuge",
+          "orcid": "0009-0001-3394-0387"
+        },
+        {
+          "name": "Anna Wilbrey-Clark",
+          "orcid": "0000-0002-5399-7997"
+        },
+        {
+          "name": "Claudia I. Semprich",
+          "orcid": "0000-0002-2446-9028"
+        },
+        {
+          "name": "Sophie Ellams"
+        },
+        {
+          "name": "Catherine L. Tudor",
+          "orcid": "0000-0003-2093-9683"
+        },
+        {
+          "name": "P. Joseph"
+        },
+        {
+          "name": "Alba Garrido-Trigo"
+        },
+        {
+          "name": "Ana Maria Corraliza",
+          "orcid": "0000-0002-3067-7763"
+        },
+        {
+          "name": "Thomas R. W. Oliver",
+          "orcid": "0000-0003-4306-0102"
+        },
+        {
+          "name": "C. Elizabeth Hook",
+          "orcid": "0000-0002-0450-7656"
+        },
+        {
+          "name": "Kylie Renee James",
+          "orcid": "0000-0002-7107-0650"
+        },
+        {
+          "name": "Krishnaa T. A. Mahbubani",
+          "orcid": "0000-0002-1327-2334"
+        },
+        {
+          "name": "Kourosh Saeb‐Parsy",
+          "orcid": "0000-0002-0633-3696"
+        },
+        {
+          "name": "Matthias Zilbauer",
+          "orcid": "0000-0002-7272-0547"
+        },
+        {
+          "name": "Julio Sáez-Rodríguez",
+          "orcid": "0000-0002-8552-8976"
+        },
+        {
+          "name": "Marte Lie Høivik",
+          "orcid": "0000-0002-0104-465X"
+        },
+        {
+          "name": "Espen S. Bækkevold",
+          "orcid": "0000-0002-5890-9108"
+        },
+        {
+          "name": "Christopher James Stewart",
+          "orcid": "0000-0002-6033-338X"
+        },
+        {
+          "name": "Janet Elizabeth Berrington",
+          "orcid": "0000-0002-6185-2843"
+        },
+        {
+          "name": "Kerstin B. Meyer",
+          "orcid": "0000-0001-5906-1498"
+        },
+        {
+          "name": "Paul Klenerman",
+          "orcid": "0000-0003-4307-9161"
+        },
+        {
+          "name": "Azucena Salas",
+          "orcid": "0000-0003-4572-2907"
+        },
+        {
+          "name": "Muzlifah A. Haniffa",
+          "orcid": "0000-0002-3927-2084"
+        },
+        {
+          "name": "Frode Lars Jahnsen",
+          "orcid": "0000-0003-3843-7171"
+        },
+        {
+          "name": "Rasa Elmentaite",
+          "orcid": "0000-0001-7366-5466"
+        },
+        {
+          "name": "Sarah Amalia Teichmann",
+          "orcid": "0000-0002-6294-6366"
+        }
+      ],
+      "venue": "Nature",
+      "year": 2024,
+      "date": "2024-11-20",
+      "type": "article",
+      "oaUrl": "https://doi.org/10.1038/s41586-024-07571-1"
+    },
+    {
+      "id": "W4402859799",
+      "doi": "10.1016/j.ccell.2024.08.022",
+      "title": "Universal and tissue-specific fibroblasts in chronic inflammation and cancer",
+      "authors": [
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Sarah Amalia Teichmann",
+          "orcid": "0000-0002-6294-6366"
+        }
+      ],
+      "venue": "Cancer Cell",
+      "year": 2024,
+      "date": "2024-09-26",
+      "type": "article",
+      "oaUrl": "https://doi.org/10.1016/j.ccell.2024.08.022"
+    },
+    {
+      "id": "W4394962078",
+      "doi": "10.1161/circresaha.123.323184",
+      "title": "Single-Cell Gene-Regulatory Networks of Advanced Symptomatic Atherosclerosis",
+      "authors": [
+        {
+          "name": "Giuseppe Mocci"
+        },
+        {
+          "name": "Katyayani Sukhavasi",
+          "orcid": "0000-0001-5627-0163"
+        },
+        {
+          "name": "Tiit Örd",
+          "orcid": "0000-0002-3098-1749"
+        },
+        {
+          "name": "Sean Bankier",
+          "orcid": "0000-0001-5069-3165"
+        },
+        {
+          "name": "Prosanta Singha",
+          "orcid": "0000-0003-2773-4330"
+        },
+        {
+          "name": "Uma Thanigai Arasu",
+          "orcid": "0000-0002-5211-1007"
+        },
+        {
+          "name": "Olayinka Oluwasegun Agbabiaje"
+        },
+        {
+          "name": "Petri I. Mäkinen",
+          "orcid": "0000-0003-2123-2962"
+        },
+        {
+          "name": "Lijiang Ma",
+          "orcid": "0000-0001-6498-5556"
+        },
+        {
+          "name": "Chani J. Hodonsky",
+          "orcid": "0000-0001-8566-5877"
+        },
+        {
+          "name": "Rédouane Aherrahrou",
+          "orcid": "0000-0001-8148-9554"
+        },
+        {
+          "name": "Lars Muhl",
+          "orcid": "0000-0003-0952-0507"
+        },
+        {
+          "name": "Jianping Liu",
+          "orcid": "0000-0002-7336-3895"
+        },
+        {
+          "name": "Sonja Gustafsson",
+          "orcid": "0000-0001-5807-7340"
+        },
+        {
+          "name": "Byambajav Byandelger",
+          "orcid": "0000-0003-1863-1102"
+        },
+        {
+          "name": "Ying Wang",
+          "orcid": "0000-0002-1444-5778"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Urban Lendahl",
+          "orcid": "0000-0001-9543-8141"
+        },
+        {
+          "name": "Gary K. Owens",
+          "orcid": "0000-0002-7119-9657"
+        },
+        {
+          "name": "Nicholas James Leeper",
+          "orcid": "0000-0002-0905-2806"
+        },
+        {
+          "name": "Gerard Pasterkamp",
+          "orcid": "0000-0001-5345-1022"
+        },
+        {
+          "name": "Michael Vanlandewijck",
+          "orcid": "0000-0002-0709-7808"
+        },
+        {
+          "name": "Tom Michoel",
+          "orcid": "0000-0003-4749-4725"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Ke Hao",
+          "orcid": "0000-0002-1815-9197"
+        },
+        {
+          "name": "Seppo Ylä‐Herttuala",
+          "orcid": "0000-0001-7593-2708"
+        },
+        {
+          "name": "Marika M Väli",
+          "orcid": "0009-0009-0237-3138"
+        },
+        {
+          "name": "Heli Järve"
+        },
+        {
+          "name": "Michal Mokrý",
+          "orcid": "0000-0002-5298-4852"
+        },
+        {
+          "name": "Mete Civelek",
+          "orcid": "0000-0002-8141-0284"
+        },
+        {
+          "name": "Clint L. Miller",
+          "orcid": "0000-0003-4276-3607"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        },
+        {
+          "name": "Minna Unelma Kaikkonen",
+          "orcid": "0000-0001-6294-0979"
+        },
+        {
+          "name": "Christer Betsholtz",
+          "orcid": "0000-0002-8494-971X"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        }
+      ],
+      "venue": "Circulation Research",
+      "year": 2024,
+      "date": "2024-04-19",
+      "type": "article",
+      "oaUrl": "https://www.ahajournals.org/doi/pdf/10.1161/CIRCRESAHA.123.323184"
+    },
+    {
+      "id": "W4388457128",
+      "doi": "10.1016/j.celrep.2023.113371",
+      "title": "Integration of transcriptomes of senescent cell models with multi-tissue patient samples reveals reduced COL6A3 as an inducer of senescence",
+      "authors": [
+        {
+          "name": "Radoslav Savić",
+          "orcid": "0000-0002-2670-3674"
+        },
+        {
+          "name": "Jialiang Yang",
+          "orcid": "0000-0003-4689-8672"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Mahru C. An"
+        },
+        {
+          "name": "Priyanka L. Patel"
+        },
+        {
+          "name": "Robert O’Brien"
+        },
+        {
+          "name": "Brittany N. Dubose"
+        },
+        {
+          "name": "Tetyana Dodatko"
+        },
+        {
+          "name": "Eduard Rogatsky",
+          "orcid": "0000-0001-6786-5242"
+        },
+        {
+          "name": "Katyayani Sukhavasi",
+          "orcid": "0000-0001-5627-0163"
+        },
+        {
+          "name": "Raili Ermel",
+          "orcid": "0000-0002-2726-2364"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Sander M. Houten",
+          "orcid": "0000-0002-6167-9147"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        },
+        {
+          "name": "Andrew F. Stewart",
+          "orcid": "0000-0001-7866-5959"
+        },
+        {
+          "name": "Christopher B. Yohn",
+          "orcid": "0000-0002-5937-8070"
+        },
+        {
+          "name": "Eric E. Schadt",
+          "orcid": "0000-0002-7892-8808"
+        },
+        {
+          "name": "Rémi-Martin Laberge",
+          "orcid": "0000-0002-5841-5781"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Zhidong Tu",
+          "orcid": "0000-0001-7721-1410"
+        },
+        {
+          "name": "Carmen Argmann",
+          "orcid": "0000-0002-1110-8012"
+        }
+      ],
+      "venue": "Cell Reports",
+      "year": 2023,
+      "date": "2023-11-01",
+      "type": "article",
+      "oaUrl": "https://doi.org/10.1016/j.celrep.2023.113371"
+    },
+    {
+      "id": "W4385719713",
+      "doi": "10.7554/elife.88266.3",
+      "title": "Shared and distinct pathways and networks genetically linked to coronary artery disease between human and mouse",
+      "authors": [
+        {
+          "name": "Zeyneb Kurt",
+          "orcid": "0000-0003-3186-8091"
+        },
+        {
+          "name": "Jenny Yeuk‐Ki Cheng",
+          "orcid": "0009-0009-2248-1697"
+        },
+        {
+          "name": "Caden N. McQuillen",
+          "orcid": "0000-0002-7762-9283"
+        },
+        {
+          "name": "Zara Saleem"
+        },
+        {
+          "name": "Neil Hsu"
+        },
+        {
+          "name": "Nuoya Jiang",
+          "orcid": "0009-0001-9462-0651"
+        },
+        {
+          "name": "Rio Barrere-Cain"
+        },
+        {
+          "name": "Calvin Pan",
+          "orcid": "0000-0002-0752-833X"
+        },
+        {
+          "name": "Oscar Franzén",
+          "orcid": "0000-0002-7573-0812"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Susanna Sue-Ming Wang",
+          "orcid": "0009-0006-0254-8418"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Aldons Jake Lusis",
+          "orcid": "0000-0001-9013-0228"
+        },
+        {
+          "name": "Montgomery Blencowe",
+          "orcid": "0000-0001-7147-1895"
+        },
+        {
+          "name": "Xia Yang",
+          "orcid": "0000-0002-3971-038X"
+        }
+      ],
+      "venue": "eLife",
+      "year": 2023,
+      "date": "2023-08-10",
+      "type": "article",
+      "oaUrl": "https://elifesciences.org/articles/88266.bib",
+      "preprintUrl": "https://doi.org/10.7554/elife.88266.1"
+    },
+    {
+      "id": "W4380051178",
+      "doi": "10.1038/s44161-023-00278-y",
+      "title": "Systems immunology-based drug repurposing framework to target inflammation in atherosclerosis",
+      "authors": [
+        {
+          "name": "Letizia Amadori",
+          "orcid": "0000-0003-1125-4631"
+        },
+        {
+          "name": "Claudia Calcagno",
+          "orcid": "0000-0002-4325-8728"
+        },
+        {
+          "name": "Dawn M. Fernandez",
+          "orcid": "0000-0003-1738-1754"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Nicolas Fernandez",
+          "orcid": "0000-0001-7979-2941"
+        },
+        {
+          "name": "Ravneet Kaur",
+          "orcid": "0000-0003-1278-2516"
+        },
+        {
+          "name": "Pauline Mury",
+          "orcid": "0000-0001-5202-7078"
+        },
+        {
+          "name": "Nayaab S Khan"
+        },
+        {
+          "name": "Swathy Sajja"
+        },
+        {
+          "name": "Roza Shamailova",
+          "orcid": "0000-0002-3749-4556"
+        },
+        {
+          "name": "Yannick Cyr",
+          "orcid": "0000-0002-0715-4112"
+        },
+        {
+          "name": "Minji Jeon",
+          "orcid": "0000-0001-5731-6186"
+        },
+        {
+          "name": "Christopher A. Hill",
+          "orcid": "0000-0003-3302-3658"
+        },
+        {
+          "name": "Peik Sean Chong"
+        },
+        {
+          "name": "Sonum Naidu",
+          "orcid": "0009-0000-2813-8464"
+        },
+        {
+          "name": "Ken Sakurai",
+          "orcid": "0000-0002-6076-7524"
+        },
+        {
+          "name": "Adam Ali Ghotbi",
+          "orcid": "0000-0003-1207-6304"
+        },
+        {
+          "name": "Raphael J. Soler",
+          "orcid": "0000-0003-4543-5684"
+        },
+        {
+          "name": "Natalia Eberhardt",
+          "orcid": "0000-0002-3309-4563"
+        },
+        {
+          "name": "Adeeb H Rahman",
+          "orcid": "0000-0002-8620-3161"
+        },
+        {
+          "name": "Peter L. Faries"
+        },
+        {
+          "name": "Kathryn J. Moore",
+          "orcid": "0000-0003-2505-2547"
+        },
+        {
+          "name": "Zahi Adel Fayad",
+          "orcid": "0000-0002-3439-7347"
+        },
+        {
+          "name": "Avi Ma’ayan",
+          "orcid": "0000-0002-6904-1017"
+        },
+        {
+          "name": "Chiara Giannarelli",
+          "orcid": "0000-0003-2473-6058"
+        }
+      ],
+      "venue": "Nature Cardiovascular Research",
+      "year": 2023,
+      "date": "2023-06-08",
+      "type": "article",
+      "oaUrl": "https://www.nature.com/articles/s44161-023-00278-y.pdf"
+    },
+    {
+      "id": "W4312193141",
+      "doi": "10.1038/s44161-022-00175-w",
+      "title": "Loss of soluble guanylyl cyclase in platelets contributes to atherosclerotic plaque formation and vascular inflammation",
+      "authors": [
+        {
+          "name": "Carina Mauersberger",
+          "orcid": "0000-0003-4241-8854"
+        },
+        {
+          "name": "Hendrik B. Sager",
+          "orcid": "0000-0002-0197-6553"
+        },
+        {
+          "name": "Jana Wobst",
+          "orcid": "0000-0002-4049-1217"
+        },
+        {
+          "name": "Tan An Dang",
+          "orcid": "0009-0005-1770-5765"
+        },
+        {
+          "name": "Laura Lambrecht"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Marlène Stroth"
+        },
+        {
+          "name": "Noomen Bettaga"
+        },
+        {
+          "name": "Jens Schlossmann",
+          "orcid": "0000-0002-2550-6839"
+        },
+        {
+          "name": "Frank Wunder",
+          "orcid": "0000-0002-1311-2357"
+        },
+        {
+          "name": "Andreas Friebe",
+          "orcid": "0000-0001-8178-3948"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Lisa Dietz"
+        },
+        {
+          "name": "Sanne Lidewij Maas",
+          "orcid": "0000-0003-1423-8901"
+        },
+        {
+          "name": "Emiel P. C. van der Vorst",
+          "orcid": "0000-0001-5771-6278"
+        },
+        {
+          "name": "Peter Sandner",
+          "orcid": "0000-0003-2977-7553"
+        },
+        {
+          "name": "Oliver Soehnlein",
+          "orcid": "0000-0002-7854-0694"
+        },
+        {
+          "name": "Heribert Schunkert",
+          "orcid": "0000-0001-6428-3001"
+        },
+        {
+          "name": "Thorsten Kessler",
+          "orcid": "0000-0003-3326-1621"
+        }
+      ],
+      "venue": "Nature Cardiovascular Research",
+      "year": 2022,
+      "date": "2022-12-12",
+      "type": "article",
+      "oaUrl": "https://www.nature.com/articles/s44161-022-00175-w.pdf"
+    },
+    {
+      "id": "W4226027293",
+      "doi": "10.1007/s00395-022-00917-8",
+      "title": "Transcriptome-wide association study of coronary artery disease identifies novel susceptibility genes",
+      "authors": [
+        {
+          "name": "Ling Li",
+          "orcid": "0000-0002-3280-9475"
+        },
+        {
+          "name": "Zhifen Chen",
+          "orcid": "0000-0002-1622-2105"
+        },
+        {
+          "name": "Moritz von Scheidt",
+          "orcid": "0000-0001-7159-8271"
+        },
+        {
+          "name": "Shuangyue Li",
+          "orcid": "0000-0002-7843-8630"
+        },
+        {
+          "name": "Andrea Steiner"
+        },
+        {
+          "name": "Ulrich Güldener",
+          "orcid": "0000-0001-5052-8610"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Angela Ma"
+        },
+        {
+          "name": "Ke Hao",
+          "orcid": "0000-0002-1815-9197"
+        },
+        {
+          "name": "Calvin Pan",
+          "orcid": "0000-0002-0752-833X"
+        },
+        {
+          "name": "Aldons Jake Lusis",
+          "orcid": "0000-0001-9013-0228"
+        },
+        {
+          "name": "Shichao Pang",
+          "orcid": "0000-0002-4111-2864"
+        },
+        {
+          "name": "Thorsten Kessler",
+          "orcid": "0000-0003-3326-1621"
+        },
+        {
+          "name": "Raili Ermel",
+          "orcid": "0000-0002-2726-2364"
+        },
+        {
+          "name": "Katyayani Sukhavasi",
+          "orcid": "0000-0001-5627-0163"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Julien Gagneur",
+          "orcid": "0000-0002-8924-8365"
+        },
+        {
+          "name": "Jeanette Erdmann",
+          "orcid": "0000-0002-4486-6231"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Heribert Schunkert",
+          "orcid": "0000-0001-6428-3001"
+        }
+      ],
+      "venue": "Basic Research in Cardiology",
+      "year": 2022,
+      "date": "2022-02-17",
+      "type": "article",
+      "oaUrl": "https://link.springer.com/content/pdf/10.1007/s00395-022-00917-8.pdf"
+    },
+    {
+      "id": "W4205686247",
+      "doi": "10.1038/s44161-021-00009-1",
+      "title": "A mechanistic framework for cardiometabolic and coronary artery diseases",
+      "authors": [
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Marcus Michael Seldin",
+          "orcid": "0000-0001-8026-4759"
+        },
+        {
+          "name": "Katyayani Sukhavasi",
+          "orcid": "0000-0001-5627-0163"
+        },
+        {
+          "name": "Raili Ermel",
+          "orcid": "0000-0002-2726-2364"
+        },
+        {
+          "name": "Shichao Pang",
+          "orcid": "0000-0002-4111-2864"
+        },
+        {
+          "name": "Lingyao Zeng",
+          "orcid": "0000-0001-9912-1520"
+        },
+        {
+          "name": "Sean Bankier",
+          "orcid": "0000-0001-5069-3165"
+        },
+        {
+          "name": "Antonio Di Narzo",
+          "orcid": "0000-0002-4033-5038"
+        },
+        {
+          "name": "Haoxiang M. Cheng",
+          "orcid": "0000-0002-1393-6006"
+        },
+        {
+          "name": "Vamsidhar Meda"
+        },
+        {
+          "name": "Angela Ma"
+        },
+        {
+          "name": "Husain Ahammad Talukdar",
+          "orcid": "0000-0002-7707-0248"
+        },
+        {
+          "name": "Ariella T. Cohain",
+          "orcid": "0000-0003-2375-0683"
+        },
+        {
+          "name": "Letizia Amadori",
+          "orcid": "0000-0003-1125-4631"
+        },
+        {
+          "name": "Carmen Argmann",
+          "orcid": "0000-0002-1110-8012"
+        },
+        {
+          "name": "Sander M. Houten",
+          "orcid": "0000-0002-6167-9147"
+        },
+        {
+          "name": "Oscar Franzén",
+          "orcid": "0000-0002-7573-0812"
+        },
+        {
+          "name": "Giuseppe Mocci"
+        },
+        {
+          "name": "Omar A. Meelu",
+          "orcid": "0000-0002-3481-2731"
+        },
+        {
+          "name": "Kiyotake Ishikawa",
+          "orcid": "0000-0002-8287-3483"
+        },
+        {
+          "name": "Carl A. Whatling",
+          "orcid": "0000-0001-8777-2115"
+        },
+        {
+          "name": "Anamika Jain"
+        },
+        {
+          "name": "Rajeev Kumar Jain"
+        },
+        {
+          "name": "Li‐Ming Gan",
+          "orcid": "0000-0003-2933-1404"
+        },
+        {
+          "name": "Chiara Giannarelli",
+          "orcid": "0000-0003-2473-6058"
+        },
+        {
+          "name": "Panos Roussos",
+          "orcid": "0000-0002-4640-6239"
+        },
+        {
+          "name": "Ke Hao",
+          "orcid": "0000-0002-1815-9197"
+        },
+        {
+          "name": "Heribert Schunkert",
+          "orcid": "0000-0001-6428-3001"
+        },
+        {
+          "name": "Tom Michoel",
+          "orcid": "0000-0003-4749-4725"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Eric E. Schadt",
+          "orcid": "0000-0002-7892-8808"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        },
+        {
+          "name": "Aldons Jake Lusis",
+          "orcid": "0000-0001-9013-0228"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        }
+      ],
+      "venue": "Nature Cardiovascular Research",
+      "year": 2022,
+      "date": "2022-01-12",
+      "type": "article",
+      "oaUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9583458/"
+    },
+    {
+      "id": "W4200103959",
+      "doi": "10.1161/circgen.121.003365",
+      "title": "Integrative Prioritization of Causal Genes for Coronary Artery Disease",
+      "authors": [
+        {
+          "name": "Ke Hao"
+        },
+        {
+          "name": "Raili Ermel",
+          "orcid": "0000-0002-2726-2364"
+        },
+        {
+          "name": "Katyayani Sukhavasi",
+          "orcid": "0000-0001-5627-0163"
+        },
+        {
+          "name": "Haoxiang Cheng",
+          "orcid": "0000-0002-1393-6006"
+        },
+        {
+          "name": "Lijiang Ma",
+          "orcid": "0000-0001-6498-5556"
+        },
+        {
+          "name": "Ling Li",
+          "orcid": "0000-0002-3280-9475"
+        },
+        {
+          "name": "Letizia Amadori",
+          "orcid": "0000-0003-1125-4631"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Oscar Franzén"
+        },
+        {
+          "name": "Valentina d’Escamard"
+        },
+        {
+          "name": "Nirupama Chandel"
+        },
+        {
+          "name": "Kathryn Wolhuter",
+          "orcid": "0000-0001-6293-9820"
+        },
+        {
+          "name": "Nicole S. Bryce",
+          "orcid": "0000-0001-9799-7393"
+        },
+        {
+          "name": "Vamsidhar R.M. Venkata"
+        },
+        {
+          "name": "Clint L. Miller",
+          "orcid": "0000-0003-4276-3607"
+        },
+        {
+          "name": "Arno Ruusalepp"
+        },
+        {
+          "name": "Heribert Schunkert",
+          "orcid": "0000-0001-6428-3001"
+        },
+        {
+          "name": "Johan L.M. Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Jason C. Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        }
+      ],
+      "venue": "Circulation Genomic and Precision Medicine",
+      "year": 2021,
+      "date": "2021-12-28",
+      "type": "article",
+      "oaUrl": "https://doi.org/10.1161/circgen.121.003365"
+    },
+    {
+      "id": "W3215593397",
+      "doi": "10.1093/cvr/cvab347",
+      "title": "Dynamic changes in chromatin accessibility are associated with the atherogenic transitioning of vascular smooth muscle cells",
+      "authors": [
+        {
+          "name": "Ying Wang",
+          "orcid": "0000-0002-1444-5778"
+        },
+        {
+          "name": "Hua Gao",
+          "orcid": "0000-0002-1029-1476"
+        },
+        {
+          "name": "Fudi Wang",
+          "orcid": "0000-0001-8730-0003"
+        },
+        {
+          "name": "Zhongde Ye",
+          "orcid": "0000-0002-7817-3142"
+        },
+        {
+          "name": "Michal Mokrý",
+          "orcid": "0000-0002-5298-4852"
+        },
+        {
+          "name": "Adam W. Turner",
+          "orcid": "0000-0002-3087-9939"
+        },
+        {
+          "name": "Jianqin Ye",
+          "orcid": "0000-0003-4492-3897"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Lingfeng Luo",
+          "orcid": "0000-0002-0601-0053"
+        },
+        {
+          "name": "Tom Alsaigh",
+          "orcid": "0009-0003-1037-302X"
+        },
+        {
+          "name": "Shaunak Sanjay Adkar",
+          "orcid": "0000-0002-8893-2413"
+        },
+        {
+          "name": "Maria Elishaev",
+          "orcid": "0000-0003-3513-9961"
+        },
+        {
+          "name": "Xiangyu Gao",
+          "orcid": "0000-0002-4757-7582"
+        },
+        {
+          "name": "Lars Mäegdefessel",
+          "orcid": "0000-0001-5228-2634"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Gerard Pasterkamp",
+          "orcid": "0000-0001-5345-1022"
+        },
+        {
+          "name": "Clint L. Miller",
+          "orcid": "0000-0003-4276-3607"
+        },
+        {
+          "name": "Elsie Ross",
+          "orcid": "0000-0002-9366-0109"
+        },
+        {
+          "name": "Nicholas James Leeper",
+          "orcid": "0000-0002-0905-2806"
+        }
+      ],
+      "venue": "Cardiovascular Research",
+      "year": 2021,
+      "date": "2021-11-18",
+      "type": "article",
+      "oaUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9586565/"
+    },
+    {
+      "id": "W3188635696",
+      "doi": "10.1172/jci131178",
+      "title": "Histone deacetylase 9 promotes endothelial-mesenchymal transition and an unfavorable atherosclerotic plaque phenotype",
+      "authors": [
+        {
+          "name": "Laura Lecce"
+        },
+        {
+          "name": "Yang Xu",
+          "orcid": "0000-0003-4669-0003"
+        },
+        {
+          "name": "Bhargavi V’Gangula"
+        },
+        {
+          "name": "Nirupama Chandel"
+        },
+        {
+          "name": "Venu Pothula",
+          "orcid": "0000-0002-5162-007X"
+        },
+        {
+          "name": "Axelle Caudrillier",
+          "orcid": "0009-0001-1607-099X"
+        },
+        {
+          "name": "Maria Paola Santini",
+          "orcid": "0000-0002-9404-2185"
+        },
+        {
+          "name": "Valentina d’Escamard"
+        },
+        {
+          "name": "Delaine K. Ceholski",
+          "orcid": "0000-0001-7183-6284"
+        },
+        {
+          "name": "Przemek A. Gorski"
+        },
+        {
+          "name": "Lijiang Ma",
+          "orcid": "0000-0001-6498-5556"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Martin Mæng Bjørklund",
+          "orcid": "0000-0003-2761-6086"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Manfred Boehm",
+          "orcid": "0000-0002-2251-3638"
+        },
+        {
+          "name": "Jacob Fog Bentzon",
+          "orcid": "0000-0002-3020-5002"
+        },
+        {
+          "name": "Valentín Fuster",
+          "orcid": "0000-0002-9043-9986"
+        },
+        {
+          "name": "Ha Won Kim",
+          "orcid": "0000-0001-6272-4248"
+        },
+        {
+          "name": "Neal L. Weintraub",
+          "orcid": "0000-0002-5138-3705"
+        },
+        {
+          "name": "Andrew Howard Baker",
+          "orcid": "0000-0003-1441-5576"
+        },
+        {
+          "name": "Emily Bernstein",
+          "orcid": "0000-0001-6533-8326"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        }
+      ],
+      "venue": "Journal of Clinical Investigation",
+      "year": 2021,
+      "date": "2021-08-01",
+      "type": "article",
+      "oaUrl": "http://www.jci.org/articles/view/131178/files/pdf"
+    },
+    {
+      "id": "W3125269445",
+      "doi": "10.1161/circulationaha.120.051231",
+      "title": "Sex-Stratified Gene Regulatory Networks Reveal Female Key Driver Genes of Atherosclerosis Involved in Smooth Muscle Cell Phenotype Switching",
+      "authors": [
+        {
+          "name": "Robin J. G. Hartman",
+          "orcid": "0000-0002-0367-652X"
+        },
+        {
+          "name": "Katherine M. Owsiany",
+          "orcid": "0000-0001-7917-3411"
+        },
+        {
+          "name": "Lijiang Ma",
+          "orcid": "0000-0001-6498-5556"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Ke Hao",
+          "orcid": "0000-0002-1815-9197"
+        },
+        {
+          "name": "Lotte Slenders",
+          "orcid": "0000-0003-3794-7604"
+        },
+        {
+          "name": "Mete Civelek",
+          "orcid": "0000-0002-8141-0284"
+        },
+        {
+          "name": "Michal Mokrý",
+          "orcid": "0000-0002-5298-4852"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        },
+        {
+          "name": "Gerard Pasterkamp",
+          "orcid": "0000-0001-5345-1022"
+        },
+        {
+          "name": "Gary K. Owens",
+          "orcid": "0000-0002-7119-9657"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Hester M. den Ruijter",
+          "orcid": "0000-0001-9762-014X"
+        }
+      ],
+      "venue": "Circulation",
+      "year": 2021,
+      "date": "2021-01-27",
+      "type": "article",
+      "oaUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7930467/"
+    },
+    {
+      "id": "W3123120862",
+      "doi": "10.1038/s41467-020-20750-8",
+      "title": "An integrative multiomic network model links lipid metabolism to glucose regulation in coronary artery disease",
+      "authors": [
+        {
+          "name": "Ariella T. Cohain",
+          "orcid": "0000-0003-2375-0683"
+        },
+        {
+          "name": "William T. Barrington"
+        },
+        {
+          "name": "Daniel M. Jordan",
+          "orcid": "0000-0002-5318-8225"
+        },
+        {
+          "name": "Noam D. Beckmann",
+          "orcid": "0000-0002-4258-1574"
+        },
+        {
+          "name": "Carmen Argmann",
+          "orcid": "0000-0002-1110-8012"
+        },
+        {
+          "name": "Sander M. Houten",
+          "orcid": "0000-0002-6167-9147"
+        },
+        {
+          "name": "Alexander W. Charney",
+          "orcid": "0000-0001-8135-6858"
+        },
+        {
+          "name": "Raili Ermel",
+          "orcid": "0000-0002-2726-2364"
+        },
+        {
+          "name": "Katyayani Sukhavasi",
+          "orcid": "0000-0001-5627-0163"
+        },
+        {
+          "name": "Oscar Franzén",
+          "orcid": "0000-0002-7573-0812"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Carl A. Whatling",
+          "orcid": "0000-0001-8777-2115"
+        },
+        {
+          "name": "Gillian M. Belbin",
+          "orcid": "0000-0001-9036-864X"
+        },
+        {
+          "name": "Jialiang Yang",
+          "orcid": "0000-0003-4689-8672"
+        },
+        {
+          "name": "Ke Hao",
+          "orcid": "0000-0002-1815-9197"
+        },
+        {
+          "name": "Eimear E. Kenny",
+          "orcid": "0000-0001-9198-759X"
+        },
+        {
+          "name": "Zhidong Tu",
+          "orcid": "0000-0001-7721-1410"
+        },
+        {
+          "name": "Jun Zhu",
+          "orcid": "0000-0003-0834-8178"
+        },
+        {
+          "name": "Li‐Ming Gan",
+          "orcid": "0000-0003-2933-1404"
+        },
+        {
+          "name": "Ron Do",
+          "orcid": "0000-0002-3144-3627"
+        },
+        {
+          "name": "Chiara Giannarelli",
+          "orcid": "0000-0003-2473-6058"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Aldons Jake Lusis",
+          "orcid": "0000-0001-9013-0228"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Eric E. Schadt",
+          "orcid": "0000-0002-7892-8808"
+        }
+      ],
+      "venue": "Nature Communications",
+      "year": 2021,
+      "date": "2021-01-22",
+      "type": "article",
+      "oaUrl": "https://www.nature.com/articles/s41467-020-20750-8.pdf"
+    },
+    {
+      "id": "W3034882951",
+      "doi": "10.1073/pnas.2006348117",
+      "title": "Clonally expanding smooth muscle cells promote atherosclerosis by escaping efferocytosis and activating the complement cascade",
+      "authors": [
+        {
+          "name": "Ying Wang",
+          "orcid": "0000-0002-1444-5778"
+        },
+        {
+          "name": "Vivek Nanda",
+          "orcid": "0000-0003-1724-7168"
+        },
+        {
+          "name": "Daniel M. DiRenzo",
+          "orcid": "0000-0002-2610-353X"
+        },
+        {
+          "name": "Jianqin Ye",
+          "orcid": "0000-0003-4492-3897"
+        },
+        {
+          "name": "Sophia Xiao",
+          "orcid": "0000-0003-1096-595X"
+        },
+        {
+          "name": "Yoko Kojima",
+          "orcid": "0009-0000-9016-636X"
+        },
+        {
+          "name": "Kathryn L. Howe",
+          "orcid": "0000-0002-6519-2280"
+        },
+        {
+          "name": "Kai-Uwe Jarr",
+          "orcid": "0000-0003-3376-6478"
+        },
+        {
+          "name": "Alyssa Monica Flores",
+          "orcid": "0000-0002-4623-5521"
+        },
+        {
+          "name": "Pavlos Tsantilas",
+          "orcid": "0000-0002-7097-6776"
+        },
+        {
+          "name": "Noah L. Tsao",
+          "orcid": "0000-0002-5743-0795"
+        },
+        {
+          "name": "Abhiram S. Rao"
+        },
+        {
+          "name": "Alexandra A. C. Newman",
+          "orcid": "0000-0001-8938-2428"
+        },
+        {
+          "name": "Anne V. Eberhard",
+          "orcid": "0000-0002-3158-2686"
+        },
+        {
+          "name": "James Rush Priest",
+          "orcid": "0000-0002-8349-4784"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Gerard Pasterkamp",
+          "orcid": "0000-0001-5345-1022"
+        },
+        {
+          "name": "Lars Mäegdefessel",
+          "orcid": "0000-0001-5228-2634"
+        },
+        {
+          "name": "Clint L. Miller",
+          "orcid": "0000-0003-4276-3607"
+        },
+        {
+          "name": "Lars Lind",
+          "orcid": "0000-0003-2335-8542"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Gary K. Owens",
+          "orcid": "0000-0002-7119-9657"
+        },
+        {
+          "name": "Erik Ingelsson",
+          "orcid": "0000-0003-2256-6972"
+        },
+        {
+          "name": "Irving L. Weissman",
+          "orcid": "0000-0002-9077-7467"
+        },
+        {
+          "name": "Nicholas James Leeper",
+          "orcid": "0000-0002-0905-2806"
+        }
+      ],
+      "venue": "Proceedings of the National Academy of Sciences",
+      "year": 2020,
+      "date": "2020-06-15",
+      "type": "article",
+      "oaUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7354942/"
+    },
+    {
+      "id": "W3031036292",
+      "doi": "10.1038/s41588-020-0630-5",
+      "title": "Unraveling tumor–immune heterogeneity in advanced ovarian cancer uncovers immunogenic effect of chemotherapy",
+      "authors": [
+        {
+          "name": "Alejandro Jiménez-Sánchez",
+          "orcid": "0000-0003-1879-7057"
+        },
+        {
+          "name": "Paulina Cybulska",
+          "orcid": "0000-0002-6038-9906"
+        },
+        {
+          "name": "Katherine LaVigne Mager"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Oliver M. Cast",
+          "orcid": "0000-0002-5880-7726"
+        },
+        {
+          "name": "Dominique‐Laurent Couturier",
+          "orcid": "0000-0001-5774-5036"
+        },
+        {
+          "name": "Danish Memon",
+          "orcid": "0000-0002-1365-0710"
+        },
+        {
+          "name": "Pier Selenica",
+          "orcid": "0000-0003-0086-0513"
+        },
+        {
+          "name": "Ines Nikolovski",
+          "orcid": "0000-0002-0690-1411"
+        },
+        {
+          "name": "Yousef Mazaheri",
+          "orcid": "0000-0002-8493-1608"
+        },
+        {
+          "name": "Yonina Bykov",
+          "orcid": "0000-0002-0834-0953"
+        },
+        {
+          "name": "Felipe Correa Geyer",
+          "orcid": "0000-0002-9978-6650"
+        },
+        {
+          "name": "Geoff Macintyre",
+          "orcid": "0000-0003-3906-467X"
+        },
+        {
+          "name": "Lena Morrill Gavarró",
+          "orcid": "0000-0002-2242-4010"
+        },
+        {
+          "name": "Ruben M. Drews",
+          "orcid": "0000-0001-7360-4970"
+        },
+        {
+          "name": "Michael B. Gill",
+          "orcid": "0000-0001-6798-1550"
+        },
+        {
+          "name": "Anastasios D. Papanastasiou",
+          "orcid": "0000-0002-3508-1299"
+        },
+        {
+          "name": "Ramon E. Sosa"
+        },
+        {
+          "name": "Robert A. Soslow",
+          "orcid": "0000-0002-7269-5898"
+        },
+        {
+          "name": "Tyler Walther"
+        },
+        {
+          "name": "Ronglai Shen",
+          "orcid": "0000-0001-9694-584X"
+        },
+        {
+          "name": "S. Dennis",
+          "orcid": "0000-0002-3105-8913"
+        },
+        {
+          "name": "Kay J. Park",
+          "orcid": "0000-0001-8989-2938"
+        },
+        {
+          "name": "Travis J. Hollmann",
+          "orcid": "0000-0003-1599-0433"
+        },
+        {
+          "name": "Jorge Sergio Reis-Filho",
+          "orcid": "0000-0003-2969-3173"
+        },
+        {
+          "name": "Florian M. Markowetz",
+          "orcid": "0000-0002-2784-5308"
+        },
+        {
+          "name": "Pedro Beltrão",
+          "orcid": "0000-0002-2724-7703"
+        },
+        {
+          "name": "Hebert Alberto Vargas",
+          "orcid": "0000-0003-1169-133X"
+        },
+        {
+          "name": "Dmitriy Zamarin",
+          "orcid": "0000-0002-0094-0161"
+        },
+        {
+          "name": "James D. Brenton",
+          "orcid": "0000-0002-5738-6683"
+        },
+        {
+          "name": "Alexandra Snyder",
+          "orcid": "0000-0002-2606-3523"
+        },
+        {
+          "name": "Britta Weigelt",
+          "orcid": "0000-0001-9927-1270"
+        },
+        {
+          "name": "Evis Sala",
+          "orcid": "0000-0002-5518-9360"
+        },
+        {
+          "name": "Martin L. Miller",
+          "orcid": "0000-0003-3161-8690"
+        }
+      ],
+      "venue": "Nature Genetics",
+      "year": 2020,
+      "date": "2020-06-01",
+      "type": "article",
+      "oaUrl": "https://www.biorxiv.org/content/biorxiv/early/2018/10/17/441428.full.pdf"
+    },
+    {
+      "id": "W2951047742",
+      "doi": "10.1016/j.jacc.2019.03.520",
+      "title": "Contribution of Gene Regulatory Networks to Heritability of Coronary Artery Disease",
+      "authors": [
+        {
+          "name": "Lingyao Zeng",
+          "orcid": "0000-0001-9912-1520"
+        },
+        {
+          "name": "Husain Ahammad Talukdar",
+          "orcid": "0000-0002-7707-0248"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Chiara Giannarelli",
+          "orcid": "0000-0003-2473-6058"
+        },
+        {
+          "name": "Torbjörn Ivert",
+          "orcid": "0000-0002-4052-7574"
+        },
+        {
+          "name": "Li‐Ming Gan",
+          "orcid": "0000-0003-2933-1404"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Eric E. Schadt",
+          "orcid": "0000-0002-7892-8808"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        },
+        {
+          "name": "Aldons Jake Lusis",
+          "orcid": "0000-0001-9013-0228"
+        },
+        {
+          "name": "Tom Michoel",
+          "orcid": "0000-0003-4749-4725"
+        },
+        {
+          "name": "Heribert Schunkert",
+          "orcid": "0000-0001-6428-3001"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        }
+      ],
+      "venue": "Journal of the American College of Cardiology",
+      "year": 2019,
+      "date": "2019-06-01",
+      "type": "article",
+      "oaUrl": "https://www.sciencedirect.com/science/article/pii/S0735109719350028/pdf"
+    },
+    {
+      "id": "W2944382887",
+      "doi": "10.1161/circgen.118.002390",
+      "title": "Systems Pharmacology Identifies an Arterial Wall Regulatory Gene Network Mediating Coronary Artery Disease Side Effects of Antiretroviral Therapy",
+      "authors": [
+        {
+          "name": "Itziar Frades",
+          "orcid": "0000-0003-2968-2984"
+        },
+        {
+          "name": "Ben Readhead",
+          "orcid": "0000-0003-4353-9965"
+        },
+        {
+          "name": "Letizia Amadori",
+          "orcid": "0000-0003-1125-4631"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Husain Ahammad Talukdar",
+          "orcid": "0000-0002-7707-0248"
+        },
+        {
+          "name": "Heidi M. Crane",
+          "orcid": "0000-0002-3308-7005"
+        },
+        {
+          "name": "Paul K. Crane",
+          "orcid": "0000-0003-4278-7465"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        },
+        {
+          "name": "Joel T. Dudley",
+          "orcid": "0000-0002-7036-6492"
+        },
+        {
+          "name": "Chiara Giannarelli",
+          "orcid": "0000-0003-2473-6058"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Inga Peter",
+          "orcid": "0000-0002-5638-9137"
+        }
+      ],
+      "venue": "Circulation Genomic and Precision Medicine",
+      "year": 2019,
+      "date": "2019-06-01",
+      "type": "article",
+      "oaUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6601350/"
+    },
+    {
+      "id": "W2941240275",
+      "doi": "10.1101/621961",
+      "title": "Probability-based detection of phosphoproteomic uncertainty reveals rare signaling events driven by oncogenic kinase gene fusion",
+      "authors": [
+        {
+          "name": "Xavier Robin",
+          "orcid": "0000-0002-6813-3200"
+        },
+        {
+          "name": "Franziska Völlmy",
+          "orcid": "0000-0002-0345-1910"
+        },
+        {
+          "name": "Jesper Ferkinghoff‐Borg"
+        },
+        {
+          "name": "Conor J Howard",
+          "orcid": "0000-0001-5375-6248"
+        },
+        {
+          "name": "Tom Altenburg",
+          "orcid": "0000-0002-6435-4073"
+        },
+        {
+          "name": "Mathias Engel",
+          "orcid": "0000-0003-0728-2605"
+        },
+        {
+          "name": "Craig D. Simpson",
+          "orcid": "0000-0003-4535-5000"
+        },
+        {
+          "name": "Gaye Saginc",
+          "orcid": "0000-0002-4771-1788"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Edda Klipp",
+          "orcid": "0000-0002-0567-7075"
+        },
+        {
+          "name": "James Longden",
+          "orcid": "0000-0002-6608-8434"
+        },
+        {
+          "name": "Rune Linding",
+          "orcid": "0000-0003-0420-4839"
+        }
+      ],
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2019,
+      "date": "2019-04-29",
+      "type": "preprint",
+      "oaUrl": "https://www.biorxiv.org/content/biorxiv/early/2019/04/29/621961.full.pdf"
+    },
+    {
+      "id": "W2903416893",
+      "doi": "10.1038/s41467-018-07340-5",
+      "title": "GWAS and colocalization analyses implicate carotid intima-media thickness and carotid plaque loci in cardiovascular outcomes",
+      "authors": [
+        {
+          "name": "Nora Franceschini",
+          "orcid": "0009-0001-8346-3662"
+        },
+        {
+          "name": "Claudia Giambartolomei",
+          "orcid": "0000-0003-2786-1225"
+        },
+        {
+          "name": "Paul S. de Vries",
+          "orcid": "0000-0003-0964-0111"
+        },
+        {
+          "name": "Chris Finan",
+          "orcid": "0000-0002-3319-1937"
+        },
+        {
+          "name": "Joshua C. Bis",
+          "orcid": "0000-0002-3409-1110"
+        },
+        {
+          "name": "Rachael P. Huntley",
+          "orcid": "0000-0001-6718-3559"
+        },
+        {
+          "name": "Ruth C. Lovering",
+          "orcid": "0000-0002-9791-0064"
+        },
+        {
+          "name": "Salman M. Tajuddin",
+          "orcid": "0000-0002-7919-8528"
+        },
+        {
+          "name": "Thomas W. Winkler",
+          "orcid": "0000-0003-0292-5421"
+        },
+        {
+          "name": "Mariaelisa Graff",
+          "orcid": "0000-0001-6380-1735"
+        },
+        {
+          "name": "Maryam Kavousi",
+          "orcid": "0000-0001-5976-6519"
+        },
+        {
+          "name": "Caroline E Dale",
+          "orcid": "0000-0002-3889-8974"
+        },
+        {
+          "name": "Albert V. Smith",
+          "orcid": "0000-0003-1942-5845"
+        },
+        {
+          "name": "Edith Hofer",
+          "orcid": "0000-0003-2964-0987"
+        },
+        {
+          "name": "Elisabeth M. van Leeuwen"
+        },
+        {
+          "name": "Ilja Maria Nolte",
+          "orcid": "0000-0001-5047-4077"
+        },
+        {
+          "name": "Lingyi Lu",
+          "orcid": "0000-0001-6825-9754"
+        },
+        {
+          "name": "Markus R. Scholz",
+          "orcid": "0000-0002-4059-1779"
+        },
+        {
+          "name": "Muralidharan Sargurupremraj",
+          "orcid": "0000-0003-1684-3750"
+        },
+        {
+          "name": "Niina Pitkänen",
+          "orcid": "0000-0001-7383-4987"
+        },
+        {
+          "name": "Oscar Franzén",
+          "orcid": "0000-0002-7573-0812"
+        },
+        {
+          "name": "Peter K. Joshi",
+          "orcid": "0000-0002-6361-5059"
+        },
+        {
+          "name": "Raymond Noordam",
+          "orcid": "0000-0001-7801-809X"
+        },
+        {
+          "name": "Riccardo Emilio Marioni",
+          "orcid": "0000-0003-4430-4260"
+        },
+        {
+          "name": "Shih‐Jen Hwang",
+          "orcid": "0000-0002-2129-5704"
+        },
+        {
+          "name": "Solomon K. Musani"
+        },
+        {
+          "name": "Ulf Schminke",
+          "orcid": "0000-0002-7508-3176"
+        },
+        {
+          "name": "Walter Palmas"
+        },
+        {
+          "name": "Aaron J. Isaacs",
+          "orcid": "0000-0001-5037-4834"
+        },
+        {
+          "name": "Adolfo Correa",
+          "orcid": "0000-0002-9501-600X"
+        },
+        {
+          "name": "Alan B. Zonderman",
+          "orcid": "0000-0002-6523-4778"
+        },
+        {
+          "name": "Albert Hofman D",
+          "orcid": "0000-0002-9865-121X"
+        },
+        {
+          "name": "Alexander Teumer",
+          "orcid": "0000-0002-8309-094X"
+        },
+        {
+          "name": "Amanda J. Cox"
+        },
+        {
+          "name": "André Gerardus Uitterlinden",
+          "orcid": "0000-0002-7276-3387"
+        },
+        {
+          "name": "Andrew Wong",
+          "orcid": "0000-0003-2079-4779"
+        },
+        {
+          "name": "Andries Jan Smit",
+          "orcid": "0000-0002-8991-4532"
+        },
+        {
+          "name": "Anne B. Newman",
+          "orcid": "0000-0002-0106-1150"
+        },
+        {
+          "name": "Annie R Britton",
+          "orcid": "0000-0002-6412-5430"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Bengt Sennblad",
+          "orcid": "0000-0002-4360-8003"
+        },
+        {
+          "name": "Bo Hedblad"
+        },
+        {
+          "name": "Bogdan Paşaniuc",
+          "orcid": "0000-0002-0227-2056"
+        },
+        {
+          "name": "Brenda W.J.H. Penninx",
+          "orcid": "0000-0001-7779-9672"
+        },
+        {
+          "name": "Carl D. Langefeld",
+          "orcid": "0000-0002-4266-6949"
+        },
+        {
+          "name": "Christina L. Wassel",
+          "orcid": "0000-0002-6504-910X"
+        },
+        {
+          "name": "Christophe Tzourio",
+          "orcid": "0000-0002-6517-2984"
+        },
+        {
+          "name": "Cristiano Fava",
+          "orcid": "0000-0002-8910-7378"
+        },
+        {
+          "name": "Damiano Baldassarre",
+          "orcid": "0000-0002-2766-8882"
+        },
+        {
+          "name": "Daniel H. O’Leary"
+        },
+        {
+          "name": "Daniel Teupser",
+          "orcid": "0000-0001-9843-0145"
+        },
+        {
+          "name": "Diana J. Kuh",
+          "orcid": "0000-0001-7386-2857"
+        },
+        {
+          "name": "Elena Tremoli",
+          "orcid": "0000-0003-3426-6424"
+        },
+        {
+          "name": "Elmo Mannarino",
+          "orcid": "0000-0002-9771-8056"
+        },
+        {
+          "name": "Enzo Grossi",
+          "orcid": "0000-0003-0346-2684"
+        },
+        {
+          "name": "Eric Boerwinkle",
+          "orcid": "0000-0001-8813-0544"
+        },
+        {
+          "name": "Eric E. Schadt",
+          "orcid": "0000-0002-7892-8808"
+        },
+        {
+          "name": "Erik Ingelsson",
+          "orcid": "0000-0003-2256-6972"
+        },
+        {
+          "name": "Fabrizio Veglia",
+          "orcid": "0000-0002-9378-8874"
+        },
+        {
+          "name": "Fernando Rivadeneira",
+          "orcid": "0000-0001-9435-9441"
+        },
+        {
+          "name": "Frank Beutner"
+        },
+        {
+          "name": "Ganesh Chauhan",
+          "orcid": "0000-0002-8564-5021"
+        },
+        {
+          "name": "Gerardo M HEISS",
+          "orcid": "0000-0002-5418-5288"
+        },
+        {
+          "name": "Harold Snieder",
+          "orcid": "0000-0003-1949-2298"
+        },
+        {
+          "name": "Harry Campbell"
+        },
+        {
+          "name": "Henry Völzke"
+        },
+        {
+          "name": "Hugh Stephen Markus",
+          "orcid": "0000-0002-9794-5996"
+        },
+        {
+          "name": "Ian J. Deary",
+          "orcid": "0000-0002-1733-263X"
+        },
+        {
+          "name": "J. Wouter Jukema",
+          "orcid": "0000-0002-3246-8359"
+        },
+        {
+          "name": "Jacqueline d Graaf",
+          "orcid": "0000-0001-7662-9284"
+        },
+        {
+          "name": "Jacqueline Price"
+        },
+        {
+          "name": "Janne Pott",
+          "orcid": "0000-0002-5983-5331"
+        },
+        {
+          "name": "Jemma C. Hopewell",
+          "orcid": "0000-0002-3870-8018"
+        },
+        {
+          "name": "Jingjing Liang",
+          "orcid": "0009-0007-4698-4155"
+        },
+        {
+          "name": "Joachim Thiery",
+          "orcid": "0000-0001-7606-1852"
+        },
+        {
+          "name": "Jorgen Engmann",
+          "orcid": "0000-0001-7015-7773"
+        },
+        {
+          "name": "Karl Gertow"
+        },
+        {
+          "name": "Kenneth M. Rice",
+          "orcid": "0000-0002-3071-7278"
+        },
+        {
+          "name": "Kent D. Taylor"
+        },
+        {
+          "name": "Klodian Dhana",
+          "orcid": "0000-0002-6397-7009"
+        },
+        {
+          "name": "Lambertus A.L.M. Kiemeney",
+          "orcid": "0000-0002-2368-1326"
+        },
+        {
+          "name": "Lars Lind",
+          "orcid": "0000-0003-2335-8542"
+        },
+        {
+          "name": "Laura M. Raffield",
+          "orcid": "0000-0002-7892-193X"
+        },
+        {
+          "name": "Lenore J. Launer",
+          "orcid": "0000-0002-3238-7612"
+        },
+        {
+          "name": "Lesca Miriam Holdt",
+          "orcid": "0000-0001-5735-4975"
+        },
+        {
+          "name": "Marcus Dörr",
+          "orcid": "0000-0001-7471-475X"
+        },
+        {
+          "name": "Martin Dichgans",
+          "orcid": "0000-0002-0654-387X"
+        },
+        {
+          "name": "Matthew Traylor",
+          "orcid": "0000-0001-6624-8621"
+        },
+        {
+          "name": "Matthias Sitzer"
+        },
+        {
+          "name": "Meena Kumari B",
+          "orcid": "0000-0001-9716-1035"
+        },
+        {
+          "name": "Mika Kivimaki B",
+          "orcid": "0000-0002-4699-5627"
+        },
+        {
+          "name": "Mike A. Nalls",
+          "orcid": "0000-0003-0319-4325"
+        },
+        {
+          "name": "Olle Melander",
+          "orcid": "0000-0002-2581-484X"
+        },
+        {
+          "name": "Olli Tuomas Raitakari",
+          "orcid": "0000-0001-9365-3702"
+        },
+        {
+          "name": "Oscar H. Franco",
+          "orcid": "0000-0002-4606-4929"
+        },
+        {
+          "name": "Oscar Leonel Rueda-Ochoa",
+          "orcid": "0000-0003-2684-9005"
+        },
+        {
+          "name": "Panos Roussos",
+          "orcid": "0000-0002-4640-6239"
+        },
+        {
+          "name": "Peter Hynes Whincup",
+          "orcid": "0000-0002-5589-4107"
+        },
+        {
+          "name": "Philippe Amouyel",
+          "orcid": "0000-0001-9088-234X"
+        },
+        {
+          "name": "Philippe Giral",
+          "orcid": "0000-0002-1863-1711"
+        }
+      ],
+      "venue": "Nature Communications",
+      "year": 2018,
+      "date": "2018-11-27",
+      "type": "review",
+      "oaUrl": "https://www.nature.com/articles/s41467-018-07340-5.pdf"
+    },
+    {
+      "id": "W2901913479",
+      "doi": "10.1371/journal.pgen.1007755",
+      "title": "Functional regulatory mechanism of smooth muscle cell-restricted LMOD1 coronary artery disease locus",
+      "authors": [
+        {
+          "name": "Vivek Nanda",
+          "orcid": "0000-0003-1724-7168"
+        },
+        {
+          "name": "Ting Wang"
+        },
+        {
+          "name": "Milos Pjanic",
+          "orcid": "0000-0001-9746-8838"
+        },
+        {
+          "name": "Boxiang Liu",
+          "orcid": "0000-0002-2595-4463"
+        },
+        {
+          "name": "Trieu Nguyen",
+          "orcid": "0000-0001-5647-1301"
+        },
+        {
+          "name": "Ljubica Perisic Matic",
+          "orcid": "0000-0002-7294-9667"
+        },
+        {
+          "name": "Ulf Hedin",
+          "orcid": "0000-0001-9212-3945"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Lijiang Ma",
+          "orcid": "0000-0001-6498-5556"
+        },
+        {
+          "name": "Oscar Franzén",
+          "orcid": "0000-0002-7573-0812"
+        },
+        {
+          "name": "Arno Ruusalepp",
+          "orcid": "0000-0001-5816-8613"
+        },
+        {
+          "name": "Eric E. Schadt",
+          "orcid": "0000-0002-7892-8808"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Stephen B. Montgomery",
+          "orcid": "0000-0002-5200-3903"
+        },
+        {
+          "name": "Michael P. Snyder",
+          "orcid": "0000-0003-0784-7987"
+        },
+        {
+          "name": "Thomas Quertermous",
+          "orcid": "0000-0002-7645-9067"
+        },
+        {
+          "name": "Nicholas James Leeper",
+          "orcid": "0000-0002-0905-2806"
+        },
+        {
+          "name": "Clint L. Miller",
+          "orcid": "0000-0003-4276-3607"
+        }
+      ],
+      "venue": "PLoS Genetics",
+      "year": 2018,
+      "date": "2018-11-16",
+      "type": "article",
+      "oaUrl": "https://journals.plos.org/plosgenetics/article/file?id=10.1371/journal.pgen.1007755&type=printable"
+    },
+    {
+      "id": "W2898850489",
+      "doi": "10.1101/456855",
+      "title": "Resolving Tumour Clonal Heterogeneity and Spatial Complexity using Nuclear Tandem Epitope Protein (nTEP) Barcoding",
+      "authors": [
+        {
+          "name": "Michael B. Gill",
+          "orcid": "0000-0001-6798-1550"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Anne Christin Machel",
+          "orcid": "0000-0002-9542-9541"
+        },
+        {
+          "name": "Martin L. Miller",
+          "orcid": "0000-0003-3161-8690"
+        }
+      ],
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2018,
+      "date": "2018-10-30",
+      "type": "preprint",
+      "oaUrl": "https://www.biorxiv.org/content/biorxiv/early/2018/10/30/456855.full.pdf"
+    },
+    {
+      "id": "W2896119560",
+      "doi": "10.1016/j.jacc.2018.08.2147",
+      "title": "Macrophage Trafficking, Inflammatory Resolution, and Genomics in Atherosclerosis",
+      "authors": [
+        {
+          "name": "Kathryn J. Moore",
+          "orcid": "0000-0003-2505-2547"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Edward A A Fisher",
+          "orcid": "0000-0001-9802-143X"
+        },
+        {
+          "name": "Ira A. Tabas",
+          "orcid": "0000-0003-3429-1515"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Amanda C. Doran",
+          "orcid": "0000-0002-1576-6274"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        }
+      ],
+      "venue": "Journal of the American College of Cardiology",
+      "year": 2018,
+      "date": "2018-10-01",
+      "type": "review",
+      "oaUrl": "https://www.sciencedirect.com/science/article/pii/S0735109718382950/pdf"
+    },
+    {
+      "id": "W2810851522",
+      "doi": "10.1016/j.stemcr.2018.06.001",
+      "title": "CD90 Identifies Adventitial Mesenchymal Progenitor Cells in Adult Human Medium- and Large-Sized Arteries",
+      "authors": [
+        {
+          "name": "Katherine C. Michelis",
+          "orcid": "0000-0002-0613-2157"
+        },
+        {
+          "name": "Aya Nomura-Kitabayashi",
+          "orcid": "0000-0001-7733-5122"
+        },
+        {
+          "name": "Laura Lecce"
+        },
+        {
+          "name": "Oscar Franzén",
+          "orcid": "0000-0002-7573-0812"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Yang Xu",
+          "orcid": "0000-0003-4669-0003"
+        },
+        {
+          "name": "Maria Paola Santini",
+          "orcid": "0000-0002-9404-2185"
+        },
+        {
+          "name": "Valentina d’Escamard"
+        },
+        {
+          "name": "Jonathan TL Lee"
+        },
+        {
+          "name": "Valentín Fuster",
+          "orcid": "0000-0002-9043-9986"
+        },
+        {
+          "name": "Roger J. Hajjar",
+          "orcid": "0000-0003-2522-1507"
+        },
+        {
+          "name": "Ramachandra C. Reddy"
+        },
+        {
+          "name": "Joanna Chikwe",
+          "orcid": "0000-0002-6206-4259"
+        },
+        {
+          "name": "Paul E. Stelzer"
+        },
+        {
+          "name": "Farzan Filsoufi"
+        },
+        {
+          "name": "Allan S. Stewart"
+        },
+        {
+          "name": "Anelechi Anyanwu"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Jason Ciril Kovacic",
+          "orcid": "0000-0003-4555-769X"
+        }
+      ],
+      "venue": "Stem Cell Reports",
+      "year": 2018,
+      "date": "2018-06-28",
+      "type": "article",
+      "oaUrl": "https://doi.org/10.1016/j.stemcr.2018.06.001"
+    },
+    {
+      "id": "W2803339199",
+      "doi": "10.1161/atvbaha.118.310976",
+      "title": "JCAD, a Gene at the 10p11 Coronary Artery Disease Locus, Regulates Hippo Signaling in Endothelial Cells",
+      "authors": [
+        {
+          "name": "Peter D. Jones",
+          "orcid": "0000-0002-6667-7562"
+        },
+        {
+          "name": "Michael Kaiser"
+        },
+        {
+          "name": "Maryam Ghaderi Najafabadi"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Yuqi Zhao",
+          "orcid": "0000-0003-0730-5854"
+        },
+        {
+          "name": "Gillian Douglas",
+          "orcid": "0000-0002-9090-5326"
+        },
+        {
+          "name": "Theodosios Kyriakou",
+          "orcid": "0000-0001-7794-8789"
+        },
+        {
+          "name": "Sarah Andrews"
+        },
+        {
+          "name": "Rathinasabapathy Rajmohan"
+        },
+        {
+          "name": "Hugh C Watkins",
+          "orcid": "0000-0002-5287-9016"
+        },
+        {
+          "name": "Keith M. Channon",
+          "orcid": "0000-0002-1043-4342"
+        },
+        {
+          "name": "Shu Ye",
+          "orcid": "0000-0002-4126-4278"
+        },
+        {
+          "name": "Xia Yang",
+          "orcid": "0000-0002-3971-038X"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Nilesh J. Samani",
+          "orcid": "0000-0002-3286-8133"
+        },
+        {
+          "name": "Tom R. Webb",
+          "orcid": "0000-0001-5998-8226"
+        }
+      ],
+      "venue": "Arteriosclerosis Thrombosis and Vascular Biology",
+      "year": 2018,
+      "date": "2018-05-24",
+      "type": "article",
+      "oaUrl": "https://www.ahajournals.org/doi/pdf/10.1161/ATVBAHA.118.310976"
+    },
+    {
+      "id": "W2800449817",
+      "doi": "10.1016/j.yjmcc.2018.05.007",
+      "title": "Functional and transcriptomic insights into pathogenesis of R9C phospholamban mutation using human induced pluripotent stem cell-derived cardiomyocytes",
+      "authors": [
+        {
+          "name": "Delaine K. Ceholski",
+          "orcid": "0000-0001-7183-6284"
+        },
+        {
+          "name": "Irene C. Turnbull",
+          "orcid": "0000-0001-9105-8926"
+        },
+        {
+          "name": "Chi‐Wing Kong"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Joshua Mayourian",
+          "orcid": "0000-0002-2364-1260"
+        },
+        {
+          "name": "Przemek A. Gorski"
+        },
+        {
+          "name": "Francesca Stillitano",
+          "orcid": "0000-0003-1898-5058"
+        },
+        {
+          "name": "Angelos Skodras"
+        },
+        {
+          "name": "Mathieu E. Nonnenmacher",
+          "orcid": "0000-0002-4543-6217"
+        },
+        {
+          "name": "Ninette Cohen"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Daniel R. Stroik"
+        },
+        {
+          "name": "Rǎzvan L. Cornea",
+          "orcid": "0000-0001-5739-0992"
+        },
+        {
+          "name": "David Dale Thomas",
+          "orcid": "0000-0002-8822-2040"
+        },
+        {
+          "name": "Ronald A. Li",
+          "orcid": "0000-0002-2980-5019"
+        },
+        {
+          "name": "Kevin D. Costa",
+          "orcid": "0000-0003-4594-3742"
+        },
+        {
+          "name": "Roger J. Hajjar",
+          "orcid": "0000-0003-2522-1507"
+        }
+      ],
+      "venue": "Journal of Molecular and Cellular Cardiology",
+      "year": 2018,
+      "date": "2018-05-09",
+      "type": "article",
+      "oaUrl": "https://www.sciencedirect.com/science/article/am/pii/S0022282818301573"
+    },
+    {
+      "id": "W2800349415",
+      "doi": "10.1016/j.cmet.2018.03.015",
+      "title": "A Strategy for Discovery of Endocrine Interactions with Application to Whole-Body Metabolism",
+      "authors": [
+        {
+          "name": "Marcus Michael Seldin",
+          "orcid": "0000-0001-8026-4759"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Prashant Rajbhandari",
+          "orcid": "0000-0002-8146-3861"
+        },
+        {
+          "name": "Laurent Vergnes",
+          "orcid": "0000-0002-8804-589X"
+        },
+        {
+          "name": "Gregory M. Rosenberg",
+          "orcid": "0000-0002-1297-1715"
+        },
+        {
+          "name": "Yonghong Meng",
+          "orcid": "0000-0001-7217-7874"
+        },
+        {
+          "name": "Calvin Pan",
+          "orcid": "0000-0002-0752-833X"
+        },
+        {
+          "name": "Thuy M.N. Phuong"
+        },
+        {
+          "name": "Raffi Gharakhanian",
+          "orcid": "0000-0001-7625-0987"
+        },
+        {
+          "name": "Nam Che"
+        },
+        {
+          "name": "Selina Mäkinen",
+          "orcid": "0000-0002-7613-4238"
+        },
+        {
+          "name": "Diana M. Shih",
+          "orcid": "0000-0002-2848-3492"
+        },
+        {
+          "name": "Mete Civelek",
+          "orcid": "0000-0002-8141-0284"
+        },
+        {
+          "name": "Brian W. Parks",
+          "orcid": "0000-0003-4914-0269"
+        },
+        {
+          "name": "Eric D. Kim"
+        },
+        {
+          "name": "Frode Norheim",
+          "orcid": "0000-0002-5319-5679"
+        },
+        {
+          "name": "Karthickeyan Chella Krishnan",
+          "orcid": "0000-0002-4895-2495"
+        },
+        {
+          "name": "Yehudit Hasin-Brumshtein",
+          "orcid": "0000-0001-7528-603X"
+        },
+        {
+          "name": "Margarete Mehrabian",
+          "orcid": "0000-0002-8569-8852"
+        },
+        {
+          "name": "Markku Laakso",
+          "orcid": "0000-0002-3394-7749"
+        },
+        {
+          "name": "Christian Andre Drevon",
+          "orcid": "0000-0002-7216-2784"
+        },
+        {
+          "name": "Heikki A. Koistinen",
+          "orcid": "0000-0001-7870-070X"
+        },
+        {
+          "name": "Peter Tontonoz",
+          "orcid": "0000-0003-1259-0477"
+        },
+        {
+          "name": "Karen Reue",
+          "orcid": "0000-0002-7487-2624"
+        },
+        {
+          "name": "Rita M. Cantor",
+          "orcid": "0000-0003-4421-1259"
+        },
+        {
+          "name": "Johan Björkegren",
+          "orcid": "0000-0003-1945-7425"
+        },
+        {
+          "name": "Aldons Jake Lusis",
+          "orcid": "0000-0001-9013-0228"
+        }
+      ],
+      "venue": "Cell Metabolism",
+      "year": 2018,
+      "date": "2018-05-01",
+      "type": "article",
+      "oaUrl": "http://www.cell.com/article/S1550413118301931/pdf"
+    },
+    {
+      "id": "W2791863121",
+      "doi": "10.1038/s41588-018-0058-3",
+      "title": "Multiancestry genome-wide association study of 520,000 subjects identifies 32 loci associated with stroke and stroke subtypes",
+      "authors": [
+        {
+          "name": "Rainer Malik",
+          "orcid": "0000-0001-9212-2520"
+        },
+        {
+          "name": "Ganesh Chauhan",
+          "orcid": "0000-0002-8564-5021"
+        },
+        {
+          "name": "Matthew Traylor",
+          "orcid": "0000-0001-6624-8621"
+        },
+        {
+          "name": "Muralidharan Sargurupremraj"
+        },
+        {
+          "name": "Yukinori Okada",
+          "orcid": "0000-0002-0311-8472"
+        },
+        {
+          "name": "Aniket Mishra",
+          "orcid": "0000-0002-8141-1543"
+        },
+        {
+          "name": "Loes C.A. Rutten‐Jacobs",
+          "orcid": "0000-0003-3223-885X"
+        },
+        {
+          "name": "Anne‐Katrin Giese",
+          "orcid": "0000-0002-8500-2376"
+        },
+        {
+          "name": "Sander W. van der Laan",
+          "orcid": "0000-0001-6888-1404"
+        },
+        {
+          "name": "Sólveig Grétarsdóttir",
+          "orcid": "0000-0002-2616-7269"
+        },
+        {
+          "name": "Christopher D. Anderson",
+          "orcid": "0000-0002-0053-2002"
+        },
+        {
+          "name": "Michael Chong",
+          "orcid": "0000-0002-0555-4622"
+        },
+        {
+          "name": "Hieab H.H. Adams",
+          "orcid": "0000-0003-3687-2508"
+        },
+        {
+          "name": "Tetsuro Ago",
+          "orcid": "0000-0003-4560-6594"
+        },
+        {
+          "name": "Peter Almgren",
+          "orcid": "0000-0002-0473-0241"
+        },
+        {
+          "name": "Philippe Amouyel",
+          "orcid": "0000-0001-9088-234X"
+        },
+        {
+          "name": "Hakan Ay",
+          "orcid": "0000-0002-9146-0218"
+        },
+        {
+          "name": "Traci M. Bartz",
+          "orcid": "0000-0003-3403-8763"
+        },
+        {
+          "name": "Oscar Benavente"
+        },
+        {
+          "name": "Steve Bevan",
+          "orcid": "0000-0003-0490-6830"
+        },
+        {
+          "name": "Giorgio Battista Boncoraglio",
+          "orcid": "0000-0002-2551-525X"
+        },
+        {
+          "name": "Robert D. Brown",
+          "orcid": "0000-0002-7065-8807"
+        },
+        {
+          "name": "Adam S. Butterworth",
+          "orcid": "0000-0002-6915-9015"
+        },
+        {
+          "name": "Caty Carrera",
+          "orcid": "0000-0002-0804-0969"
+        },
+        {
+          "name": "Cara L. Carty",
+          "orcid": "0000-0002-6378-8195"
+        },
+        {
+          "name": "Daniel I. Chasman",
+          "orcid": "0000-0003-3357-0862"
+        },
+        {
+          "name": "Wei‐Min Chen",
+          "orcid": "0000-0002-5247-7826"
+        },
+        {
+          "name": "John W. Cole",
+          "orcid": "0000-0001-9263-8930"
+        },
+        {
+          "name": "Adolfo Correa",
+          "orcid": "0000-0002-9501-600X"
+        },
+        {
+          "name": "Ioana Cotlarciuc"
+        },
+        {
+          "name": "Carlos Cruchaga",
+          "orcid": "0000-0002-0276-2899"
+        },
+        {
+          "name": "John Danesh",
+          "orcid": "0000-0003-1158-6791"
+        },
+        {
+          "name": "Paul I. W. de Bakker",
+          "orcid": "0000-0001-7735-7858"
+        },
+        {
+          "name": "Anita L. DeStefano",
+          "orcid": "0000-0002-9335-2819"
+        },
+        {
+          "name": "Marcel den Hoed",
+          "orcid": "0000-0001-8081-428X"
+        },
+        {
+          "name": "Qing Duan",
+          "orcid": "0000-0003-4467-7024"
+        },
+        {
+          "name": "Stefan T. Engelter",
+          "orcid": "0000-0003-3855-6234"
+        },
+        {
+          "name": "Guido J. Falcone",
+          "orcid": "0000-0002-6407-0302"
+        },
+        {
+          "name": "Rebecca F. Gottesman"
+        },
+        {
+          "name": "Raji Paul Grewal"
+        },
+        {
+          "name": "Vilmundur G. Gudnason",
+          "orcid": "0000-0001-5696-0084"
+        },
+        {
+          "name": "Stefan Gustafsson",
+          "orcid": "0000-0001-5894-0351"
+        },
+        {
+          "name": "Jeffrey Haessler"
+        },
+        {
+          "name": "Tamara B. Harris",
+          "orcid": "0000-0002-0855-8477"
+        },
+        {
+          "name": "Ahamad Hassan",
+          "orcid": "0000-0001-9716-8587"
+        },
+        {
+          "name": "Aki Samuli Havulinna",
+          "orcid": "0000-0002-4787-8959"
+        },
+        {
+          "name": "Susan R. Heckbert",
+          "orcid": "0000-0002-7100-512X"
+        },
+        {
+          "name": "Elizabeth G. Holliday"
+        },
+        {
+          "name": "George Howard",
+          "orcid": "0000-0002-3068-5720"
+        },
+        {
+          "name": "Fang‐Chi Hsu",
+          "orcid": "0000-0001-6955-929X"
+        },
+        {
+          "name": "Hyacinth I. Hyacinth",
+          "orcid": "0000-0002-1991-7463"
+        },
+        {
+          "name": "M. Arfan Ikram",
+          "orcid": "0000-0003-0372-8585"
+        },
+        {
+          "name": "Erik Ingelsson",
+          "orcid": "0000-0003-2256-6972"
+        },
+        {
+          "name": "Marguerite R. Irvin",
+          "orcid": "0000-0002-1442-2023"
+        },
+        {
+          "name": "Xueqiu Jian",
+          "orcid": "0000-0002-0313-6494"
+        },
+        {
+          "name": "Jordi Jiménez-Conde",
+          "orcid": "0000-0002-2623-6199"
+        },
+        {
+          "name": "Julie A. Johnson",
+          "orcid": "0000-0001-9847-1932"
+        },
+        {
+          "name": "J. Wouter Jukema",
+          "orcid": "0000-0002-3246-8359"
+        },
+        {
+          "name": "Masahiro Kanai",
+          "orcid": "0000-0001-5165-4408"
+        },
+        {
+          "name": "Keith L. Keene",
+          "orcid": "0000-0002-7826-399X"
+        },
+        {
+          "name": "Brett M. Kissela M. D",
+          "orcid": "0000-0002-9773-4013"
+        },
+        {
+          "name": "Dawn Kleindorfer",
+          "orcid": "0000-0003-1361-3693"
+        },
+        {
+          "name": "Charles L Kooperberg",
+          "orcid": "0000-0002-7986-8560"
+        },
+        {
+          "name": "Michiaki Kubo",
+          "orcid": "0000-0002-0095-2322"
+        },
+        {
+          "name": "Leslie A. Lange"
+        },
+        {
+          "name": "Carl D. Langefeld",
+          "orcid": "0000-0002-4266-6949"
+        },
+        {
+          "name": "Claudia Langenberg",
+          "orcid": "0000-0002-5017-7344"
+        },
+        {
+          "name": "Lenore J. Launer",
+          "orcid": "0000-0002-3238-7612"
+        },
+        {
+          "name": "Jin‐Moo Lee",
+          "orcid": "0000-0002-3979-0906"
+        },
+        {
+          "name": "Robin Lemmens",
+          "orcid": "0000-0002-4948-5956"
+        },
+        {
+          "name": "Didier Leys",
+          "orcid": "0000-0003-4408-4392"
+        },
+        {
+          "name": "Cathryn M. Lewis",
+          "orcid": "0000-0002-8249-8476"
+        },
+        {
+          "name": "Wei‐Yu Lin",
+          "orcid": "0000-0002-9267-7988"
+        },
+        {
+          "name": "Arne G. Lindgren"
+        },
+        {
+          "name": "Erik Lorentzen",
+          "orcid": "0000-0001-8665-2752"
+        },
+        {
+          "name": "Patrik K. E. Magnusson",
+          "orcid": "0000-0002-7315-7899"
+        },
+        {
+          "name": "Jane Margaret Maguire",
+          "orcid": "0000-0001-5722-8311"
+        },
+        {
+          "name": "Ani W Manichaikul",
+          "orcid": "0000-0002-5998-795X"
+        },
+        {
+          "name": "Patrick F. McArdle",
+          "orcid": "0000-0001-6649-0717"
+        },
+        {
+          "name": "James Frederick Meschia",
+          "orcid": "0000-0002-4475-8142"
+        },
+        {
+          "name": "Braxton D. Mitchell",
+          "orcid": "0000-0003-4920-4744"
+        },
+        {
+          "name": "Thomas H. Mosley",
+          "orcid": "0000-0003-3343-1352"
+        },
+        {
+          "name": "Mike A. Nalls",
+          "orcid": "0000-0003-0319-4325"
+        },
+        {
+          "name": "Toshiharu Ninomiya"
+        },
+        {
+          "name": "Martin James O'Donnell",
+          "orcid": "0000-0002-7347-7761"
+        },
+        {
+          "name": "Bruce M. Psaty"
+        },
+        {
+          "name": "Sara L. Pulit",
+          "orcid": "0000-0002-2502-3669"
+        },
+        {
+          "name": "Kristiina Rannikmäe",
+          "orcid": "0000-0002-2384-7568"
+        },
+        {
+          "name": "Alex P. Reiner",
+          "orcid": "0000-0002-1427-4470"
+        },
+        {
+          "name": "Kathryn M. Rexrode",
+          "orcid": "0000-0003-3387-8429"
+        },
+        {
+          "name": "Kenneth M. Rice",
+          "orcid": "0000-0002-3071-7278"
+        },
+        {
+          "name": "Stephen S. Rich",
+          "orcid": "0000-0003-3872-7793"
+        },
+        {
+          "name": "Paul M. Ridker",
+          "orcid": "0000-0003-1249-4522"
+        },
+        {
+          "name": "Natalia S. Rost",
+          "orcid": "0000-0002-7056-8561"
+        },
+        {
+          "name": "Peter Malcolm Rothwell",
+          "orcid": "0000-0001-9739-9211"
+        },
+        {
+          "name": "Jerome I. Rotter",
+          "orcid": "0000-0001-7191-1723"
+        },
+        {
+          "name": "Tatjana Rundek",
+          "orcid": "0000-0002-7115-9815"
+        },
+        {
+          "name": "Ralph L. Sacco"
+        },
+        {
+          "name": "Saori Sakaue",
+          "orcid": "0000-0003-3618-9717"
+        },
+        {
+          "name": "Michèle M. Sale",
+          "orcid": "0000-0003-1644-9040"
+        }
+      ],
+      "venue": "Nature Genetics",
+      "year": 2018,
+      "date": "2018-03-12",
+      "type": "review",
+      "oaUrl": "https://research.rug.nl/en/publications/af8c015d-05b8-47de-a0e3-b0a23d805aee"
+    },
+    {
+      "id": "W2781983082",
+      "doi": "10.1371/journal.pcbi.1005911",
+      "title": "Integration of pan-cancer transcriptomics with RPPA proteomics reveals mechanisms of epithelial-mesenchymal transition",
+      "authors": [
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Katie Lin"
+        },
+        {
+          "name": "Anders B. Dohlman",
+          "orcid": "0000-0003-3473-2878"
+        },
+        {
+          "name": "Avi Ma’ayan",
+          "orcid": "0000-0002-6904-1017"
+        }
+      ],
+      "venue": "PLoS Computational Biology",
+      "year": 2018,
+      "date": "2018-01-02",
+      "type": "article",
+      "oaUrl": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1005911&type=printable"
+    },
+    {
+      "id": "W2768977980",
+      "doi": "10.1016/j.cels.2017.11.001",
+      "title": "The Library of Integrated Network-Based Cellular Signatures NIH Program: System-Level Cataloging of Human Cells Response to Perturbations",
+      "authors": [
+        {
+          "name": "Alexandra B. Keenan"
+        },
+        {
+          "name": "Sherry L. Jenkins",
+          "orcid": "0000-0003-1730-0977"
+        },
+        {
+          "name": "Kathleen M. Jagodnik",
+          "orcid": "0000-0002-2755-2097"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Edward He",
+          "orcid": "0000-0002-5519-5402"
+        },
+        {
+          "name": "Denis Torre",
+          "orcid": "0000-0003-4615-223X"
+        },
+        {
+          "name": "Zichen Wang",
+          "orcid": "0000-0002-1415-1286"
+        },
+        {
+          "name": "Anders B. Dohlman",
+          "orcid": "0000-0003-3473-2878"
+        },
+        {
+          "name": "Moshe C. Silverstein",
+          "orcid": "0000-0001-7050-6267"
+        },
+        {
+          "name": "Alexander Lachmann",
+          "orcid": "0000-0002-1982-7652"
+        },
+        {
+          "name": "Maxim V. Kuleshov",
+          "orcid": "0000-0002-7812-7752"
+        },
+        {
+          "name": "Avi Ma’ayan",
+          "orcid": "0000-0002-6904-1017"
+        },
+        {
+          "name": "Vasileios Stathias",
+          "orcid": "0000-0003-1986-5947"
+        },
+        {
+          "name": "Raymond Terryn"
+        },
+        {
+          "name": "Daniel J. Cooper",
+          "orcid": "0000-0003-4972-6737"
+        },
+        {
+          "name": "Michele Forlin"
+        },
+        {
+          "name": "Amar Koleti"
+        },
+        {
+          "name": "Dušica Vidović",
+          "orcid": "0000-0001-9798-2108"
+        },
+        {
+          "name": "Caty Chung"
+        },
+        {
+          "name": "Stephan C. Schürer",
+          "orcid": "0000-0001-7180-0978"
+        },
+        {
+          "name": "Jouzas Vasiliauskas"
+        },
+        {
+          "name": "Marcin Pilarczyk",
+          "orcid": "0000-0001-6862-0220"
+        },
+        {
+          "name": "Behrouz Shamsaei",
+          "orcid": "0000-0002-0672-5382"
+        },
+        {
+          "name": "Mehdi Fazel"
+        },
+        {
+          "name": "Yan Ren",
+          "orcid": "0000-0002-8327-5346"
+        },
+        {
+          "name": "Wen Niu"
+        },
+        {
+          "name": "Nicholas A. Clark",
+          "orcid": "0000-0003-0105-9605"
+        },
+        {
+          "name": "Shana White"
+        },
+        {
+          "name": "Naim Al Mahi",
+          "orcid": "0000-0003-4660-5809"
+        },
+        {
+          "name": "Lixia Zhang",
+          "orcid": "0000-0002-5288-0797"
+        },
+        {
+          "name": "Michal Kouril",
+          "orcid": "0000-0002-4786-7934"
+        },
+        {
+          "name": "John F. Reichard",
+          "orcid": "0000-0001-9886-1623"
+        },
+        {
+          "name": "Siva Sivaganesan",
+          "orcid": "0000-0001-7093-8078"
+        },
+        {
+          "name": "Mario Medvedovic",
+          "orcid": "0000-0003-4510-3102"
+        },
+        {
+          "name": "Jarek Meller",
+          "orcid": "0000-0002-1162-8253"
+        },
+        {
+          "name": "Rick J. Koch"
+        },
+        {
+          "name": "Marc R. Birtwistle",
+          "orcid": "0000-0002-0341-0705"
+        },
+        {
+          "name": "Ravi Iyengar",
+          "orcid": "0000-0002-7814-0180"
+        },
+        {
+          "name": "Eric A. Sobie",
+          "orcid": "0000-0001-7327-8538"
+        },
+        {
+          "name": "Evren U. Azeloglu",
+          "orcid": "0000-0001-6137-109X"
+        },
+        {
+          "name": "Julia Kaye",
+          "orcid": "0000-0001-7442-0882"
+        },
+        {
+          "name": "Jeannette M. Osterloh",
+          "orcid": "0000-0002-6985-6355"
+        },
+        {
+          "name": "Kelly M. Haston"
+        },
+        {
+          "name": "Jaslin Kalra",
+          "orcid": "0000-0001-9145-1170"
+        },
+        {
+          "name": "Steve Finkbiener"
+        },
+        {
+          "name": "Jonathan Li",
+          "orcid": "0000-0003-0782-2077"
+        },
+        {
+          "name": "Pamela Milani",
+          "orcid": "0000-0003-0250-0474"
+        },
+        {
+          "name": "Miriam Adam"
+        },
+        {
+          "name": "Renan Escalante-Chong",
+          "orcid": "0000-0001-6913-4910"
+        },
+        {
+          "name": "Karen Sachs"
+        },
+        {
+          "name": "Alex Lenail"
+        },
+        {
+          "name": "Divya Ramamoorthy",
+          "orcid": "0000-0001-9438-0419"
+        },
+        {
+          "name": "Ernest Fraenkel",
+          "orcid": "0000-0001-9249-8181"
+        },
+        {
+          "name": "Gavin Daigle"
+        },
+        {
+          "name": "Uzma Hussain"
+        },
+        {
+          "name": "Alyssa Coye"
+        },
+        {
+          "name": "Jeffrey Rothstein"
+        },
+        {
+          "name": "Dhruv Sareen",
+          "orcid": "0000-0002-0898-9656"
+        },
+        {
+          "name": "Loren Ornelas"
+        },
+        {
+          "name": "Maria G. Bañuelos"
+        },
+        {
+          "name": "Berhan Mandefro"
+        },
+        {
+          "name": "Ritchie Ho",
+          "orcid": "0000-0003-1496-4436"
+        },
+        {
+          "name": "Clive N. Svendsen",
+          "orcid": "0000-0001-8696-3446"
+        },
+        {
+          "name": "Ryan G. Lim",
+          "orcid": "0000-0001-6388-5158"
+        },
+        {
+          "name": "Jennifer T. Stocksdale",
+          "orcid": "0000-0002-4304-6266"
+        },
+        {
+          "name": "Malcolm Casale"
+        },
+        {
+          "name": "Terri G. Thompson",
+          "orcid": "0000-0002-5970-6601"
+        },
+        {
+          "name": "Jie Wu",
+          "orcid": "0000-0003-2759-5879"
+        },
+        {
+          "name": "Leslie Michels Thompson",
+          "orcid": "0000-0003-4573-9514"
+        },
+        {
+          "name": "Victoria J. Dardov",
+          "orcid": "0000-0001-8771-2649"
+        },
+        {
+          "name": "Vidya Venkatraman",
+          "orcid": "0000-0002-7549-6536"
+        },
+        {
+          "name": "Andrea D. Matlock",
+          "orcid": "0000-0003-3549-674X"
+        },
+        {
+          "name": "Jennifer E. Van Eyk",
+          "orcid": "0000-0001-9050-148X"
+        },
+        {
+          "name": "Jacob D. Jaffe",
+          "orcid": "0000-0001-9845-1210"
+        },
+        {
+          "name": "Malvina Papanastasiou",
+          "orcid": "0000-0003-3378-6612"
+        },
+        {
+          "name": "Aravind Subramanian",
+          "orcid": "0009-0006-5468-5916"
+        },
+        {
+          "name": "Todd R. Golub",
+          "orcid": "0000-0003-0113-2403"
+        },
+        {
+          "name": "Sean D. Erickson"
+        },
+        {
+          "name": "Mohammad Fallahi‐Sichani",
+          "orcid": "0000-0003-0917-3525"
+        },
+        {
+          "name": "Marc A. Hafner",
+          "orcid": "0000-0003-1337-7598"
+        },
+        {
+          "name": "Nathanael S. Gray",
+          "orcid": "0000-0001-5354-7403"
+        },
+        {
+          "name": "Jia‐Ren Lin",
+          "orcid": "0000-0003-4702-7705"
+        },
+        {
+          "name": "Caitlin E. Mills",
+          "orcid": "0000-0002-2608-4084"
+        },
+        {
+          "name": "Jeremy L. Muhlich",
+          "orcid": "0000-0002-0811-637X"
+        },
+        {
+          "name": "Mario Niepel",
+          "orcid": "0000-0003-1415-6295"
+        },
+        {
+          "name": "Caroline E. Shamu",
+          "orcid": "0000-0003-4081-6023"
+        },
+        {
+          "name": "Elizabeth H. Williams",
+          "orcid": "0000-0002-4665-1875"
+        },
+        {
+          "name": "David Wrobel"
+        },
+        {
+          "name": "Peter Karl Sorger",
+          "orcid": "0000-0002-3364-1838"
+        },
+        {
+          "name": "Laura M. Heiser",
+          "orcid": "0000-0003-3330-0950"
+        },
+        {
+          "name": "Joe W. Gray",
+          "orcid": "0000-0001-9225-6756"
+        },
+        {
+          "name": "James E. Korkola",
+          "orcid": "0000-0002-0030-6216"
+        },
+        {
+          "name": "Gordon Brent Mills",
+          "orcid": "0000-0002-0144-9614"
+        },
+        {
+          "name": "Mark A. LaBarge",
+          "orcid": "0000-0003-2405-4719"
+        },
+        {
+          "name": "Heidi S. Feiler",
+          "orcid": "0000-0002-6580-3547"
+        },
+        {
+          "name": "Mark A. Dane",
+          "orcid": "0000-0003-3742-9866"
+        },
+        {
+          "name": "Elmar Bucher",
+          "orcid": "0000-0002-2929-2460"
+        },
+        {
+          "name": "Michel A. Nederlof",
+          "orcid": "0000-0001-8838-7008"
+        },
+        {
+          "name": "Damir Sudar",
+          "orcid": "0000-0002-2510-7272"
+        },
+        {
+          "name": "Sean M. Gross",
+          "orcid": "0000-0002-9621-8551"
+        }
+      ],
+      "venue": "Cell Systems",
+      "year": 2017,
+      "date": "2017-11-29",
+      "type": "review",
+      "oaUrl": "http://www.cell.com/article/S2405471217304908/pdf"
+    },
+    {
+      "id": "W2755410983",
+      "doi": "10.1016/j.celrep.2017.08.095",
+      "title": "Dynamic Rearrangement of Cell States Detected by Systematic Screening of Sequential Anticancer Treatments",
+      "authors": [
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "James Longden",
+          "orcid": "0000-0002-6608-8434"
+        },
+        {
+          "name": "Jesper Ferkinghoff‐Borg"
+        },
+        {
+          "name": "Mathias Blicher Bjerregård",
+          "orcid": "0000-0001-9512-1080"
+        },
+        {
+          "name": "Thomas R. Cox",
+          "orcid": "0000-0001-9294-1745"
+        },
+        {
+          "name": "Janine Terra Erler",
+          "orcid": "0000-0001-8675-6527"
+        },
+        {
+          "name": "Jesper Torbøl Pedersen",
+          "orcid": "0000-0003-3094-1461"
+        },
+        {
+          "name": "Franziska Völlmy",
+          "orcid": "0000-0002-0345-1910"
+        },
+        {
+          "name": "Morten Otto Alexander Sommer",
+          "orcid": "0000-0003-4005-5674"
+        },
+        {
+          "name": "Rune Linding",
+          "orcid": "0000-0003-0420-4839"
+        }
+      ],
+      "venue": "Cell Reports",
+      "year": 2017,
+      "date": "2017-09-01",
+      "type": "article",
+      "oaUrl": "http://www.cell.com/article/S2211124717312378/pdf"
+    },
+    {
+      "id": "W2612343160",
+      "doi": "10.1016/j.jbi.2017.05.006",
+      "title": "Developing a framework for digital objects in the Big Data to Knowledge (BD2K) commons: Report from the Commons Framework Pilots workshop",
+      "authors": [
+        {
+          "name": "Kathleen M. Jagodnik",
+          "orcid": "0000-0002-2755-2097"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Sherry L. Jenkins",
+          "orcid": "0000-0003-1730-0977"
+        },
+        {
+          "name": "Lucila Ohno-machado A",
+          "orcid": "0000-0002-8005-7327"
+        },
+        {
+          "name": "Benedict Paten",
+          "orcid": "0000-0001-8863-3539"
+        },
+        {
+          "name": "Stephan C. Schürer",
+          "orcid": "0000-0001-7180-0978"
+        },
+        {
+          "name": "Michel Dumontier",
+          "orcid": "0000-0003-4727-9435"
+        },
+        {
+          "name": "Ruben Verborgh",
+          "orcid": "0000-0002-8596-222X"
+        },
+        {
+          "name": "Alex A. T. Bui",
+          "orcid": "0000-0002-4702-1373"
+        },
+        {
+          "name": "Peipei Ping",
+          "orcid": "0000-0003-3583-3881"
+        },
+        {
+          "name": "Neil J. McKenna",
+          "orcid": "0000-0001-6689-0104"
+        },
+        {
+          "name": "Ravi Madduri",
+          "orcid": "0000-0003-2130-2887"
+        },
+        {
+          "name": "Ajay Pillai",
+          "orcid": "0000-0002-9789-7189"
+        },
+        {
+          "name": "Avi Ma’ayan",
+          "orcid": "0000-0002-6904-1017"
+        }
+      ],
+      "venue": "Journal of Biomedical Informatics",
+      "year": 2017,
+      "date": "2017-05-10",
+      "type": "article",
+      "oaUrl": "https://ars.els-cdn.com/content/image/1-s2.0-S1532046417301016-fx1_lrg.jpg"
+    },
+    {
+      "id": "W2527926930",
+      "doi": "10.1097/qai.0000000000001191",
+      "title": "MicroRNA-210, MicroRNA-331, and MicroRNA-7 Are Differentially Regulated in Treated HIV-1–Infected Individuals and Are Associated With Markers of Systemic Inflammation",
+      "authors": [
+        {
+          "name": "Vibe Ballegaard"
+        },
+        {
+          "name": "Ulrik Ralfkiær",
+          "orcid": "0000-0003-2647-2148"
+        },
+        {
+          "name": "Karin Kaereby Pedersen"
+        },
+        {
+          "name": "Malene Hove‐Skovsgaard",
+          "orcid": "0000-0002-2148-5997"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Peter Brændstrup",
+          "orcid": "0000-0003-3360-7725"
+        },
+        {
+          "name": "Lars Peter Ryder",
+          "orcid": "0000-0002-4744-3496"
+        },
+        {
+          "name": "HANS OLE MADSEN",
+          "orcid": "0000-0001-5551-4787"
+        },
+        {
+          "name": "Jan Gerstoft",
+          "orcid": "0000-0002-1054-9748"
+        },
+        {
+          "name": "Kirsten Grønbæk",
+          "orcid": "0000-0002-1535-9601"
+        },
+        {
+          "name": "Susanne Dam Nielsen",
+          "orcid": "0000-0001-6391-7455"
+        }
+      ],
+      "venue": "JAIDS Journal of Acquired Immune Deficiency Syndromes",
+      "year": 2016,
+      "date": "2016-10-05",
+      "type": "article"
+    },
+    {
+      "id": "W2345356016",
+      "doi": "10.1093/nar/gkw377",
+      "title": "Enrichr: a comprehensive gene set enrichment analysis web server 2016 update",
+      "authors": [
+        {
+          "name": "Maxim V. Kuleshov",
+          "orcid": "0000-0002-7812-7752"
+        },
+        {
+          "name": "Matthew R. Jones"
+        },
+        {
+          "name": "Andrew D. Rouillard",
+          "orcid": "0000-0002-3502-7161"
+        },
+        {
+          "name": "Nicolas Fernandez",
+          "orcid": "0000-0001-7979-2941"
+        },
+        {
+          "name": "Qiaonan Duan"
+        },
+        {
+          "name": "Zichen Wang",
+          "orcid": "0000-0002-1415-1286"
+        },
+        {
+          "name": "Simon Koplev",
+          "orcid": "0000-0002-8586-5614"
+        },
+        {
+          "name": "Sherry L. Jenkins",
+          "orcid": "0000-0003-1730-0977"
+        },
+        {
+          "name": "Kathleen M. Jagodnik",
+          "orcid": "0000-0002-2755-2097"
+        },
+        {
+          "name": "Alexander Lachmann",
+          "orcid": "0000-0002-1982-7652"
+        },
+        {
+          "name": "Michael G. McDermott"
+        },
+        {
+          "name": "Caroline D. Monteiro"
+        },
+        {
+          "name": "Gregory W. Gundersen"
+        },
+        {
+          "name": "Avi Ma’ayan",
+          "orcid": "0000-0002-6904-1017"
+        }
+      ],
+      "venue": "Nucleic Acids Research",
+      "year": 2016,
+      "date": "2016-05-03",
+      "type": "article",
+      "oaUrl": "https://academic.oup.com/nar/article-pdf/44/W1/W90/18788036/gkw377.pdf"
+    }
+  ]
+}

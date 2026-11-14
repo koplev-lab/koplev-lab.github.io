@@ -17,7 +17,7 @@ export const DEFAULT_THEME: ThemeId = 'reference';
 export const PLACEHOLDER_SITE_URL = 'https://todo-github-org.github.io';
 
 /** PI's ORCID iD (form 0000-0000-0000-0000), used by the publications script. */
-export const PI_ORCID = 'TODO_PI_ORCID';
+export const PI_ORCID = '0000-0002-8586-5614';
 
 /** GitHub organization that hosts the repo. */
 export const GITHUB_ORG = 'TODO_GITHUB_ORG';
