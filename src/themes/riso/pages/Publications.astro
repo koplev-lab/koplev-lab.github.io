@@ -1,0 +1,104 @@
+---
+import type { ThemeContext } from '../../contract';
+import type { PublicationsData } from '../../../lib/types';
+import Layout from '../Layout.astro';
+import DraftMark from '../components/DraftMark.astro';
+import Print from '../components/Print.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+
+interface Props {
+  ctx: ThemeContext;
+  data: PublicationsData;
+}
+const { ctx, data } = Astro.props;
+const { sectionTitles: t } = ctx.site;
+---
+
+<Layout ctx={ctx} title={data.title}>
+  <h1>{data.title}</h1>
+
+  <section class="block" aria-labelledby="pubs-highlights">
+    <h2 id="pubs-highlights">{t.highlights}</h2>
+    {data.highlights.map((h) => (
+      <article class="highlight">
+        <Print
+          ctx={ctx}
+          figure={h.figure}
+          number={h.number}
+          sizes="(min-width: 1024px) 56rem, 100vw"
+        />
+        <div class="text">
+          <h3>{h.publication.title}</h3>
+          <p class="finding">
+            {h.blurb} <DraftMark ctx={ctx} placeholder={h.placeholder} />
+          </p>
+          <PublicationEntry ctx={ctx} pub={h.publication} hideTitle />
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="block" aria-labelledby="pubs-all">
+    <h2 id="pubs-all">{t.allPublications}</h2>
+    {data.byYear.map((group) => (
+      <section class="year" aria-labelledby={`y${group.year}`}>
+        <h3 id={`y${group.year}`} class="year-head">
+          {group.year}
+        </h3>
+        <ol>
+          {group.items.map((p) => (
+            <li>
+              <PublicationEntry ctx={ctx} pub={p} />
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+  .block {
+    margin-top: clamp(3rem, 6vw, 5rem);
+  }
+  .block > h2 {
+    margin-bottom: 2rem;
+  }
+  .highlight + .highlight {
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+  }
+  .highlight .text {
+    max-width: 44rem;
+    margin-top: 1.5rem;
+  }
+  .highlight h3 {
+    margin-bottom: 0.6rem;
+    font-size: var(--s1);
+  }
+  .finding {
+    font-size: var(--s0);
+  }
+  .year {
+    max-width: 50rem;
+  }
+  .year + .year {
+    margin-top: 2.5rem;
+  }
+  .year-head {
+    margin-bottom: 1rem;
+    color: var(--blue);
+    font-weight: 900;
+    font-size: var(--s2);
+    font-variant-numeric: tabular-nums;
+  }
+  .year ol {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+</style>

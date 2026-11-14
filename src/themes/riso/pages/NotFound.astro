@@ -1,0 +1,58 @@
+---
+import type { ThemeContext } from '../../contract';
+import Layout from '../Layout.astro';
+
+interface Props {
+  ctx: ThemeContext;
+}
+const { ctx } = Astro.props;
+const { notFound } = ctx.site.labels;
+const home = ctx.site.nav.find((n) => n.key === 'home')!;
+---
+
+<Layout ctx={ctx} title={notFound.title}>
+  <div class="nf">
+    <svg viewBox="0 0 200 120" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id="nf-lens">
+          <circle cx="118" cy="60" r="50"></circle>
+        </clipPath>
+      </defs>
+      <circle cx="118" cy="60" r="50" fill="var(--blue)"></circle>
+      <circle cx="78" cy="62" r="50" fill="var(--pink)"></circle>
+      <circle cx="78" cy="62" r="50" fill="var(--overprint)" clip-path="url(#nf-lens)"></circle>
+    </svg>
+    <div>
+      <h1>{notFound.title}</h1>
+      <p>{notFound.body}</p>
+      <p>
+        <a href={ctx.url(home.path)}>{home.label}</a>
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .nf {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: calc(var(--gutter) * 2);
+    align-items: center;
+    max-width: 52rem;
+  }
+  svg {
+    width: 100%;
+    height: auto;
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 719px) {
+    .nf {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    svg {
+      max-width: 16rem;
+    }
+  }
+</style>

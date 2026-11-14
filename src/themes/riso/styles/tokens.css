@@ -1,0 +1,45 @@
+/* Riso theme tokens. Paper and two inks; see DESIGN.md for contrast ratios. */
+@layer riso.tokens {
+  :root[data-theme='riso'] {
+    --paper: #f6f4ee;
+    --pink: #ff48b0; /* Fluorescent Pink: fills, image plates, marks. Never text. */
+    --blue: #0078bf; /* Blue: image plates, display headings 28px and up. */
+    --overprint: #002284; /* pink x blue: running text, links, small headings. */
+    --overprint-soft: #4d5b8c; /* credits and metadata (6.0 : 1 on paper) */
+    --pink-tint: #f6b7d4; /* 35% screen of pink */
+    --blue-tint: #b8d4df; /* 25% screen of blue */
+
+    --sans: 'Chivo Variable', ui-sans-serif, system-ui, sans-serif;
+    --mono: 'Chivo Mono Variable', ui-monospace, monospace;
+
+    /* Major third from 18px (1rem = 18px). */
+    --s-2: 0.7222rem; /* 13 */
+    --s-1: 0.8333rem; /* 15 */
+    --s0: 1rem; /* 18 */
+    --s1: 1.25rem; /* 22.5 */
+    --s2: 1.5625rem; /* 28 */
+    --s3: 1.9444rem; /* 35 */
+    --s4: 2.4444rem; /* 44 */
+
+    --gutter: 20px;
+    --margin: clamp(16px, 8vw, 112px);
+    --measure: 64ch;
+    --page-max: 76rem;
+    --misregister-x: 2px;
+    --misregister-y: 1px;
+
+    /* Shared data figure (Phase 4). */
+    --hero-bg: var(--paper);
+    --hero-fg: var(--overprint);
+    --hero-font: var(--mono);
+    --hero-point-size: 2px;
+    --hero-blend: multiply;
+    --hero-offset: 2px;
+    --hero-data-1: var(--pink);
+    --hero-data-2: var(--blue);
+    --hero-data-3: var(--overprint);
+    --hero-data-4: var(--pink-tint);
+    --hero-data-5: var(--blue-tint);
+    --hero-data-6: #8a6fb0; /* overprint tint */
+  }
+}
