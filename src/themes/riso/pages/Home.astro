@@ -35,14 +35,22 @@ const more = data.highlights;
     <h2 id="home-research">{t.projects}</h2>
     <ol class="projects">
       {data.projects.map((p) => (
-        <li>
-          <Print figure={p.figure} details={false} sizes="(min-width: 1024px) 30rem, 100vw" />
-          <div class="text">
-            <h3>
-              <a href={ctx.url(p.path)}>{p.title}</a>
-            </h3>
-            <p>{p.summary}</p>
+        <li class="project">
+          <h3>
+            <a href={ctx.url(p.path)}>{p.title}</a>
             <DraftMark ctx={ctx} placeholder={p.placeholder} />
+          </h3>
+          <div class="project-body">
+            <Print figure={p.figure} details={false} sizes="(min-width: 1024px) 34rem, 100vw" />
+            <div class="text">
+              <p>{p.summary}</p>
+              <p class="more">
+                <a href={ctx.url(p.path)}>
+                  {labels.readMore}
+                  <span class="sr"> {p.title}</span>
+                </a>
+              </p>
+            </div>
           </div>
         </li>
       ))}
@@ -125,27 +133,45 @@ const more = data.highlights;
     font-weight: 700;
   }
 
+  /* Each project is one unit: a pink rule, its title, then its figure beside its summary.
+     Space between projects is much larger than space inside one, so they read as groups. */
   .projects {
     display: grid;
-    gap: 3rem;
+    gap: clamp(3.5rem, 6vw, 5rem);
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  .projects li {
+  .project {
+    padding-top: 1.1rem;
+    border-top: 2px solid var(--pink);
+  }
+  .project-body {
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    /* The figure column hugs the figure, so the summary sits right beside it. */
+    grid-template-columns: fit-content(62%) minmax(16rem, 1fr);
     gap: var(--gutter) calc(var(--gutter) * 2);
     align-items: start;
   }
-  .projects li :global(.plate img) {
+  .project-body :global(.plate img) {
     width: auto;
     max-width: 100%;
     max-height: 22rem;
   }
   .projects h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
     font-size: var(--s1);
+  }
+  .project .text p:first-child {
+    margin-top: -0.2em;
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   .projects h3 a {
     text-decoration: none;
@@ -172,7 +198,7 @@ const more = data.highlights;
   }
 
   @media (max-width: 719px) {
-    .projects li,
+    .project-body,
     .highlights {
       grid-template-columns: minmax(0, 1fr);
     }

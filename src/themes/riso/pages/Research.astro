@@ -23,21 +23,21 @@ const { ctx, data } = Astro.props;
 
   {data.projects.map((p) => (
     <section class="spread" aria-labelledby={`p-${p.slug}`}>
-      <Print figure={p.figure} number={p.number} sizes="(min-width: 1024px) 56rem, 100vw" />
       <div class="text">
         <h2 id={`p-${p.slug}`}>
           <a href={ctx.url(p.path)}>{p.title}</a>
         </h2>
-        <p>
+        <p class="summary">
           {p.summary} <DraftMark ctx={ctx} placeholder={p.placeholder} />
         </p>
-        <p class="more">
-          <a href={ctx.url(p.path)}>
-            {ctx.site.labels.readMore}
-            <span class="sr"> {p.title}</span>
-          </a>
-        </p>
       </div>
+      <Print figure={p.figure} number={p.number} sizes="(min-width: 1024px) 56rem, 100vw" />
+      <p class="more">
+        <a href={ctx.url(p.path)}>
+          {ctx.site.labels.readMore}
+          <span class="sr"> {p.title}</span>
+        </a>
+      </p>
     </section>
   ))}
 </Layout>
@@ -54,12 +54,22 @@ const { ctx, data } = Astro.props;
     font-size: var(--s1);
     line-height: 1.45;
   }
+  /* Each project is one unit under a pink rule: title, summary, figure, link. */
+  .spread {
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--pink);
+  }
+  .spread :global(.plate img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 38rem;
+  }
   .spread + .spread {
-    margin-top: clamp(4rem, 8vw, 7rem);
+    margin-top: clamp(4rem, 8vw, 6.5rem);
   }
   .text {
     max-width: 44rem;
-    margin-top: 1.75rem;
+    margin-bottom: 1.5rem;
   }
   h2 {
     margin-bottom: 0.75rem;
@@ -71,11 +81,13 @@ const { ctx, data } = Astro.props;
   h2 a:hover {
     text-decoration: underline;
   }
-  .text p:first-of-type {
+  .summary {
+    margin-bottom: 0;
     font-size: var(--s1);
     line-height: 1.45;
   }
   .more {
+    margin-top: 1.25rem;
     font-weight: 700;
   }
   .sr {

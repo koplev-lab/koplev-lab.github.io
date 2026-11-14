@@ -180,6 +180,10 @@ Recorded from the review rounds (`tests/screenshots/riso/REVIEW.md`):
   copy is `aria-hidden`, so screen readers hear the name once. It stays smaller than the home
   tagline (shared rule 1).
 
+- **Projects are grouped units** (Mo found figures hard to match to projects): each opens with a
+  pink rule and the project title, followed by its figure and summary; spacing between projects
+  is much larger than within one.
+
 ## What this theme refuses to do
 
 - No gradient between the inks, ever; no third ink.

@@ -51,6 +51,16 @@ rule; hero at full content width; tagline reduced to about 32px and set beside t
 7/5 split, single column under 900px. Checked at 390, 768 and 1440 px; inner pages share the
 bar. The drawing's edges were checked closely: both are straight section cuts, left unchanged.
 
+## Round 5
+
+Mo: hard to tell which figure belongs to which project. Cause: on the home page each figure sat
+left of its text with similar spacing inside and between projects, and the figure caption fell
+between two projects; on the Research page the title came after the figure, so a figure read as
+belonging to the text above it. Fix: every project is now one unit opened by a pink rule and its
+title, then its figure (with caption) and summary; space between projects is about four times
+the space inside one. Home: figure column hugs the figure so the summary sits beside it. Research:
+title and summary above the figure, figure height capped at 38rem.
+
 ## Open issues
 
 - The home cover is a highlight figure until the interactive tissue map exists (Phase 4).
