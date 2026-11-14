@@ -174,6 +174,12 @@ Recorded from the review rounds (`tests/screenshots/riso/REVIEW.md`):
   tagline (about 32px) beside the intro paragraph, so image and statement share the first
   screen.
 
+- **The wordmark is printed in two inks** (Mo asked for a more flamboyant lab name): Chivo
+  Black at about 26–30px, a Fluorescent Pink impression 3px/2px off register under the Blue one,
+  overprinting to navy where they overlap; on hover the pink slides a little further. The pink
+  copy is `aria-hidden`, so screen readers hear the name once. It stays smaller than the home
+  tagline (shared rule 1).
+
 ## What this theme refuses to do
 
 - No gradient between the inks, ever; no third ink.
