@@ -37,9 +37,9 @@ describes every panel.
 ├──────────┬──────────┬──────┤                            │
 │ c  proj 1│ c′ proj 2│proj 3│                            │
 ├──────────┴──────────┴──────┴────────────────────────────┤
-│ d  selected publications (three panels)  │ e  people    │
-├──────────────────────────────────────────┴──────────────┤
-│ Fig. 1 | Caption title. a, … b, … c, … d, … e, …        │
+│ d  selected publications (three panels)                 │
+├─────────────────────────────────────────────────────────┤
+│ Fig. 1 | Caption title. a, … b, … c, … d, …             │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -143,7 +143,7 @@ Recorded from the review rounds (`tests/screenshots/figure/REVIEW.md`):
   journal style; single figures keep the credit under the image.
 - Fixed image frames apply from 760px up (images sit on the frame's bottom edge so titles align);
   on phones images keep their own proportions. Projects are one per row on phones, people two
-  (team page) or three (home) per row.
+  per row.
 - Images are never cropped by the layout. Source panel letters inside crops were removed from the
   image files (and the credit says so) so they do not collide with this theme's panel letters.
 - The project pager names neighbouring projects by their figure number ("Fig. 2b …").

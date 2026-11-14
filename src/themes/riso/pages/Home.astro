@@ -3,7 +3,6 @@ import type { ThemeContext } from '../../contract';
 import type { HomeData } from '../../../lib/types';
 import Layout from '../Layout.astro';
 import DraftMark from '../components/DraftMark.astro';
-import Portrait from '../components/Portrait.astro';
 import Print from '../components/Print.astro';
 import PublicationEntry from '../components/PublicationEntry.astro';
 
@@ -86,30 +85,6 @@ const more = data.highlights.filter((h) => h !== cover);
       </p>
     </section>
   )}
-
-  <section class="block" aria-labelledby="home-people">
-    <h2 id="home-people">{nav.team!.label}</h2>
-    <ul class="people">
-      {data.members.map((m) => (
-        <li>
-          <Portrait member={m} sizes="8rem" />
-          <span class="name">{m.name}</span>
-          <span class="role">{m.role}</span>
-        </li>
-      ))}
-    </ul>
-    <p class="more">
-      <a href={ctx.url(nav.team!.path)}>{labels.allMembers}</a>
-    </p>
-  </section>
-
-  <section class="block join" aria-labelledby="home-join">
-    <h2 id="home-join">{t.join}</h2>
-    <p>{data.join.lede}</p>
-    <p class="more">
-      <a href={ctx.url(data.join.path)}>{data.join.title}</a>
-    </p>
-  </section>
 </Layout>
 
 <style>
@@ -184,38 +159,6 @@ const more = data.highlights.filter((h) => h !== cover);
   .credit {
     margin-top: 0.6rem;
     color: var(--overprint-soft);
-  }
-
-  .people {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
-    gap: 1.75rem var(--gutter);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .people li {
-    font-size: var(--s-1);
-    line-height: 1.35;
-  }
-  .name {
-    display: block;
-    margin-top: 0.6rem;
-    font-weight: 700;
-  }
-  .role {
-    display: block;
-    color: var(--overprint-soft);
-  }
-
-  .join {
-    max-width: 44rem;
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    background: var(--pink-tint);
-  }
-  .join h2 {
-    color: var(--overprint);
-    margin-bottom: 1rem;
   }
 
   @media (max-width: 719px) {

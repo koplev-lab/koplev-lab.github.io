@@ -298,7 +298,6 @@ export async function getHomeData(): Promise<HomeData> {
   const site = await getSiteData();
   const home = await single('home');
   const about = await single('about');
-  const join = await single('join');
   const projects = await getProjects();
   const highlights = await getHighlights();
   const pick = <T extends { slug?: string; id?: string }>(all: T[], ids: string[], kind: string) =>
@@ -315,9 +314,7 @@ export async function getHomeData(): Promise<HomeData> {
     figure: { title: home.data.figureTitle, caption: home.data.figureCaption },
     projects: pick(projects, home.data.featuredProjects, 'project'),
     highlights: pick(highlights, home.data.featuredHighlights, 'highlight'),
-    members: (await getMembers()).filter((m) => m.current),
     about: { title: about.data.title, lede: about.data.lede, path: paths.about },
-    join: { title: join.data.title, lede: join.data.lede, path: paths.join },
     placeholder: home.data.placeholder || site.placeholder,
   };
 }

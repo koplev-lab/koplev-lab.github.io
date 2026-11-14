@@ -42,7 +42,6 @@ export const sectionTitlesSchema = z.object({
   currentMembers: text(),
   alumni: text(),
   vision: text(),
-  join: text(),
   contact: text(),
   affiliations: text(),
   funders: text(),
@@ -58,7 +57,6 @@ export const labelsSchema = z.object({
   readMore: text(),
   allProjects: text(),
   allPublications: text(),
-  allMembers: text(),
   /** Short name for a page's main text block (used e.g. in figure captions). */
   overview: text(),
   /** Shown in place of the data figure until its data exists. */

@@ -27,7 +27,6 @@ sectionTitles:
   currentMembers: Current members
   alumni: Alumni
   vision: Vision and culture
-  join: Join the lab
   contact: Contact
   affiliations: Affiliations
   funders: Funding
@@ -41,7 +40,6 @@ labels:
   readMore: Read more
   allProjects: All projects
   allPublications: All publications
-  allMembers: All members
   overview: Overview
   figurePending: The interactive figure will appear here.
   preprint: Preprint

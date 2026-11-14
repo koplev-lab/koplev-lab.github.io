@@ -133,9 +133,7 @@ export interface HomeData {
   figure: { title: string; caption: string };
   projects: ProjectSummary[];
   highlights: HighlightView[];
-  members: MemberView[];
   about: { title: string; lede: string; path: string };
-  join: { title: string; lede: string; path: string };
   placeholder: boolean;
 }
 

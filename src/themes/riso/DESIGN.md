@@ -96,8 +96,8 @@ contents │  [big two-ink tissue map: the data hero]
          │              (cols 2–4), title + summary right (cols 5–6)
          │  Selected publications ── one large duotone highlight +
          │              two smaller ones, captions in mono
-         │  People ── duotone portraits in a single row strip
-         │  Join ── short paragraph on a pink-tint fill
+         │  (no People or Join sections on the home page; both are in the
+         │   contents column)
          │
          │  colophon: "Printed in Fluorescent Pink and Blue" + affiliations
 ```
