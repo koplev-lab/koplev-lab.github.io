@@ -55,16 +55,6 @@ labels:
     scholar: Google Scholar
     website: Website
     email: Email
-  roleGroups:
-    PI: Principal investigator
-    Postdoc: Postdoctoral researchers
-    PhD student: PhD students
-    Research engineer: Research engineers
-    Research assistant: Research assistants
-    Master student: Master students
-    Bachelor student: Bachelor students
-    Visiting: Visiting researchers
-    Alumni: Alumni
   notFound:
     title: Page not found
     body: There is no page at this address. It may have moved, or the link may be wrong.

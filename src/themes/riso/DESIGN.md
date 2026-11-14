@@ -122,8 +122,8 @@ and the hover label, and the text alternative lists them.
   people as a small duotone portrait row, references.
 - **Publications**: highlights as large duotone figures (one per row), then the full list in a
   single column; years as Black headings; lab authors in Bold.
-- **Team**: duotone portraits in a 3-column grid (2 on mobile), name in Bold, role in Regular,
-  short bio.
+- **Team**: duotone portraits in one grid (2 columns on mobile) with no role headings, name in
+  Bold, role in Regular, short bio. Each lower role starts a new row.
 - **About / Join**: text pages with a single tint fill block for the lede.
 - **404**: a misregistered pair of circles (pink, blue) beside the not-found text.
 

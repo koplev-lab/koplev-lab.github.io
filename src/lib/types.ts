@@ -111,12 +111,6 @@ export interface MemberView {
   placeholder: boolean;
 }
 
-export interface RoleGroup {
-  role: Role;
-  label: string;
-  members: MemberView[];
-}
-
 /* -------------------------------------------------------------- projects */
 
 export interface ProjectSummary {
@@ -172,7 +166,11 @@ export interface PublicationsData {
 export interface TeamData {
   title: string;
   current: MemberView[];
-  groups: RoleGroup[];
+  /**
+   * Current members as one list, split into rows by role, most senior first. Themes show them
+   * as a single list without role headings and start each lower role on a new line.
+   */
+  rows: MemberView[][];
   alumni: MemberView[];
 }
 

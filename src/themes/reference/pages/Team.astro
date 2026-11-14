@@ -17,13 +17,12 @@ const { sectionTitles: t, labels } = ctx.site;
 
   <section aria-labelledby="team-current">
     <h2 id="team-current">{t.currentMembers}</h2>
-    {data.groups.map((g) => (
-      <section aria-labelledby={`role-${g.role.replace(/\W+/g, '-')}`}>
-        <h3 id={`role-${g.role.replace(/\W+/g, '-')}`}>{g.label}</h3>
-        {g.members.map((m) => (
-          <MemberEntry ctx={ctx} member={m} level="h4" />
+    {data.rows.map((row) => (
+      <div class="row">
+        {row.map((m) => (
+          <MemberEntry ctx={ctx} member={m} />
         ))}
-      </section>
+      </div>
     ))}
   </section>
 

@@ -11,7 +11,6 @@ interface Props {
 }
 const { ctx, data } = Astro.props;
 const { sectionTitles: t, labels } = ctx.site;
-const slug = (s: string) => s.toLowerCase().replace(/\W+/g, '-');
 ---
 
 <Layout ctx={ctx} title={data.title}>
@@ -19,32 +18,29 @@ const slug = (s: string) => s.toLowerCase().replace(/\W+/g, '-');
 
   <section class="block" aria-labelledby="team-current">
     <h2 id="team-current">{t.currentMembers}</h2>
-    {data.groups.map((g) => (
-      <section class="group" aria-labelledby={`role-${slug(g.role)}`}>
-        <h3 id={`role-${slug(g.role)}`}>{g.label}</h3>
-        <ul class="members">
-          {g.members.map((m) => (
-            <li>
-              <Portrait member={m} />
-              <p class="name">
-                {m.name} <DraftMark ctx={ctx} placeholder={m.placeholder} />
-              </p>
-              <p class="role">{m.role}</p>
-              {m.bioHtml && <div class="bio" set:html={m.bioHtml} />}
-              {m.links.length > 0 && (
-                <ul class="links">
-                  {m.links.map((l) => (
-                    <li>
-                      <a href={l.href}>{l.label}</a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
-        </ul>
-      </section>
-    ))}
+    <ul class="members">
+      {data.rows.map((row) =>
+        row.map((m, i) => (
+          <li class={i === 0 ? 'row-start' : undefined}>
+            <Portrait member={m} />
+            <p class="name">
+              {m.name} <DraftMark ctx={ctx} placeholder={m.placeholder} />
+            </p>
+            <p class="role">{m.role}</p>
+            {m.bioHtml && <div class="bio" set:html={m.bioHtml} />}
+            {m.links.length > 0 && (
+              <ul class="links">
+                {m.links.map((l) => (
+                  <li>
+                    <a href={l.href}>{l.label}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        )),
+      )}
+    </ul>
   </section>
 
   <section class="block" aria-labelledby="team-alumni">
@@ -70,14 +66,6 @@ const slug = (s: string) => s.toLowerCase().replace(/\W+/g, '-');
   .block > h2 {
     margin-bottom: 1.75rem;
   }
-  .group + .group {
-    margin-top: 3rem;
-  }
-  .group h3 {
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 2px solid var(--pink);
-  }
   .members {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -85,6 +73,10 @@ const slug = (s: string) => s.toLowerCase().replace(/\W+/g, '-');
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+  /* Each lower role starts a new line. */
+  .row-start {
+    grid-column-start: 1;
   }
   .name {
     margin: 0.75rem 0 0;

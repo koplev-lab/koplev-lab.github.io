@@ -20,7 +20,6 @@ import type {
   PublicationsData,
   PublicationView,
   ResearchData,
-  RoleGroup,
   SiteData,
   TeamData,
 } from './types';
@@ -351,17 +350,13 @@ export async function getTeamData(): Promise<TeamData> {
   const site = await getSiteData();
   const members = await getMembers();
   const current = members.filter((m) => m.current);
-  const groups: RoleGroup[] = ROLES.filter((r) => r !== 'Alumni')
-    .map((role) => ({
-      role,
-      label: site.labels.roleGroups[role],
-      members: current.filter((m) => m.role === role),
-    }))
-    .filter((g) => g.members.length > 0);
+  const rows = ROLES.filter((r) => r !== 'Alumni')
+    .map((role) => current.filter((m) => m.role === role))
+    .filter((row) => row.length > 0);
   return {
     title: site.nav.find((n) => n.key === 'team')!.label,
-    current,
-    groups,
+    current: rows.flat(),
+    rows,
     alumni: members.filter((m) => !m.current),
   };
 }

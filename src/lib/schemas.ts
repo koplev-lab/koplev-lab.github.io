@@ -75,10 +75,6 @@ export const labelsSchema = z.object({
     website: text(),
     email: text(),
   }),
-  /** Plural headings for grouping members by role on the team page. */
-  roleGroups: z.object(
-    Object.fromEntries(ROLES.map((r) => [r, text()])) as Record<Role, ReturnType<typeof text>>,
-  ),
   notFound: z.object({ title: text(), body: text() }),
 });
 

@@ -105,4 +105,5 @@ See `src/lib/types.ts` for the full list. Some that are easy to miss:
   authors.
 - `PublicationView.number`: a stable reference number (1 = newest), the same in every theme.
 - `HighlightView.number` and `ProjectSummary.number`: figure and project numbers, 1-based.
-- `TeamData.groups`: current members grouped by role, with plural headings.
+- `TeamData.rows`: current members split into rows by role, most senior first. Show them as
+  one list with no role headings, starting each lower role on a new line.

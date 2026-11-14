@@ -106,8 +106,8 @@ the caption's sentence for panel b while illustrative.
   figure credit.
 - **Publications** (Fig. 3): **a**, highlights as panels (figure + finding + citation); **b**,
   the full list by year, lab authors in bold.
-- **Team** (Fig. 4): small multiples of portraits (**a**, current members, grouped by role with
-  sub-letters), **b** alumni.
+- **Team** (Fig. 4): small multiples of portraits (**a**, current members as one list, no role headings,
+  each lower role starting a new row), **b** alumni.
 - **About / Join** (Figs. 5–6): text panels, with contact as its own panel.
 - **404**: an empty panel with axes and the not-found text in the caption.
 
