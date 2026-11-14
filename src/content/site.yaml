@@ -41,7 +41,8 @@ labels:
   allProjects: All projects
   allPublications: All publications
   overview: Overview
-  figurePending: The interactive figure will appear here.
+  pauseAnimation: Pause
+  playAnimation: Play
   preprint: Preprint
   openAccess: Open access
   code: Code

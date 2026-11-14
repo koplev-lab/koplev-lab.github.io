@@ -130,7 +130,8 @@ export interface HomeData {
   tagline: string;
   introHtml: string;
   /** The interactive data figure's title and plain-language caption. */
-  figure: { title: string; caption: string };
+  /** The hero figure: title, plain caption, text alternative and the staining steps. */
+  figure: { title: string; caption: string; alt: string; steps: string[] };
   projects: ProjectSummary[];
   highlights: HighlightView[];
   about: { title: string; lede: string; path: string };

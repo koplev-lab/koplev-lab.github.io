@@ -88,7 +88,7 @@ plain stacked list, full width, with generous tap targets. No hamburger.
 ## Home page structure, and why
 
 ```
-contents │  [big two-ink tissue map: the data hero]
+contents │  [the staining hero: H&E printed as two inks]
          │  tagline as a heading, sentence case, Black, blue ink (35–44px)
          │  intro paragraph
          │
@@ -102,18 +102,17 @@ contents │  [big two-ink tissue map: the data hero]
          │  colophon: "Printed in Fluorescent Pink and Blue" + affiliations
 ```
 
-The cover image is the science (the tissue map), not the name. The rest is calm: one column of
+The cover image is the science (a section being stained), not the name. The rest is calm: one column of
 reading with a handful of big images, so the loudness stays in the pictures.
 
-## The data figure
+## The hero figure
 
-The tissue map as a two-ink print: clusters mapped to **pink, blue, overprint, pink tint, blue
-tint, overprint tint** (six distinguishable groups at most). If the data has more clusters, the
-smallest are merged and the legend says so ("+ 4 smaller clusters merged"). The pink layer is
-drawn on its own canvas, offset by `--hero-offset` (2px), multiplied over the blue layer
-(`--hero-blend: multiply`). Legend in Chivo Mono under the figure; "Illustrative data" in the
-legend while illustrative. Because pink is below 3 : 1, every cluster is also named in the legend
-and the hover label, and the text alternative lists them.
+The shared staining island (`src/islands/staining-run/`): a drawn section of gut lining stained
+with hematoxylin, then eosin, on a loop. H&E is itself a two-colour print, so hematoxylin prints
+as the blue ink and eosin as the pink ink; nuclei multiply over the pink and come out in the
+overprint colour. The steps sit under the figure in Chivo Mono, the current one in bold
+overprint; the caption says it is an illustration, not a real sample. A Pause button stops the
+loop; with reduced motion it starts paused on the stained frame.
 
 ## Other pages
 
@@ -142,7 +141,8 @@ overprinting; otherwise blue ink. Lab name in Chivo Bold 18px, 10px gap.
 
 - Links: overprint colour, underlined; hover adds a pink tint behind the link text.
 - Focus: 3px blue outline with 2px paper-coloured offset ring, so it shows on tints too.
-- Motion: none on load. The hero tooltip only.
+- Motion: only the hero's staining loop, which can be paused and starts paused with reduced
+  motion.
 - Print (Team, Publications): images print as grayscale halftones, text in black, contents list
   removed.
 - Draft marker: `labels.draft` on a small pink-tint label beside the item.
@@ -163,7 +163,6 @@ Recorded from the review rounds (`tests/screenshots/riso/REVIEW.md`):
   described under "Signature element" above.
 - The current-page mark is a thick pink stroke through the bottom of the word (pink behind
   overprint text is 4.4 : 1, below AA for 18px text, so it cannot be a full block).
-- Until the tissue map exists, the home cover is the first landscape highlight figure.
 - Credits and metadata use `--overprint-soft` `#4D5B8C` (6.0 : 1 on paper).
 - There is no printed colophon line naming the inks: all visible text must come from content.
 - All global CSS is scoped under `:root[data-theme='riso']` in cascade layers.

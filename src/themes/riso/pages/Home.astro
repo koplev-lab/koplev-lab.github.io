@@ -1,6 +1,7 @@
 ---
 import type { ThemeContext } from '../../contract';
 import type { HomeData } from '../../../lib/types';
+import StainingRun from '../../../islands/staining-run/StainingRun.astro';
 import Layout from '../Layout.astro';
 import DraftMark from '../components/DraftMark.astro';
 import Print from '../components/Print.astro';
@@ -14,26 +15,22 @@ const { ctx, data } = Astro.props;
 const { site } = ctx;
 const { sectionTitles: t, labels } = site;
 const nav = Object.fromEntries(site.nav.map((n) => [n.key, n]));
-// Until the interactive tissue map exists (Phase 4), the cover is the first
-// landscape highlight figure (a tall one would push the tagline off the first
-// screen); the remaining highlights follow further down.
-const landscape = (h: (typeof data.highlights)[number]) =>
-  h.figure.src.width / h.figure.src.height >= 1.4;
-const cover = data.highlights.find(landscape) ?? data.highlights[0];
-const more = data.highlights.filter((h) => h !== cover);
+const more = data.highlights;
 ---
 
 <Layout ctx={ctx}>
-  {cover && (
-    <div class="cover">
-      <Print
-        figure={cover.figure}
-        caption={cover.publication.title}
-        number={cover.number}
-        sizes="(min-width: 1024px) 56rem, 100vw"
-      />
-    </div>
-  )}
+  <figure class="cover">
+    <StainingRun
+      alt={data.figure.alt}
+      steps={data.figure.steps}
+      pauseLabel={labels.pauseAnimation}
+      playLabel={labels.playAnimation}
+    />
+    <figcaption class="mono">
+      <span class="no">{data.figure.title}.</span>
+      <span>{data.figure.caption}</span>
+    </figcaption>
+  </figure>
 
   <section class="opening">
     <h1>{data.tagline}</h1>
@@ -89,7 +86,49 @@ const more = data.highlights.filter((h) => h !== cover);
 
 <style>
   .cover {
-    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    margin: 0 0 clamp(2rem, 4vw, 3.5rem);
+    /* H&E as two inks: hematoxylin prints blue, eosin prints pink; where they overlap the
+       nuclei multiply to the overprint colour. */
+    --hero-bg: var(--paper);
+    --hero-hematoxylin: var(--blue);
+    --hero-eosin: var(--pink);
+    --hero-unstained: #a8a294;
+  }
+  .cover :global(.staining-run-steps) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.5em;
+    font-family: var(--mono);
+    font-size: var(--s-1);
+    color: var(--overprint-soft);
+  }
+  .cover :global(.staining-run-steps [aria-current]) {
+    color: var(--overprint);
+    font-weight: 700;
+  }
+  .cover :global(.staining-run-toggle) {
+    min-height: 24px;
+    padding: 2px 10px;
+    border: 1.5px solid var(--overprint);
+    border-radius: 0;
+    background: var(--paper);
+    color: var(--overprint);
+    font: 700 var(--s-1) / 1.4 var(--mono);
+    cursor: pointer;
+  }
+  .cover :global(.staining-run-toggle:hover) {
+    background: var(--pink-tint);
+  }
+  .cover figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.9em;
+    max-width: 70ch;
+    margin-top: 1rem;
+  }
+  .cover .no {
+    color: var(--overprint);
+    font-weight: 700;
   }
   .opening {
     max-width: 44rem;

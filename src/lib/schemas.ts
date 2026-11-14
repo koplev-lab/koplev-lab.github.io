@@ -59,8 +59,10 @@ export const labelsSchema = z.object({
   allPublications: text(),
   /** Short name for a page's main text block (used e.g. in figure captions). */
   overview: text(),
-  /** Shown in place of the data figure until its data exists. */
-  figurePending: text(),
+  /** Button that pauses the home page animation. */
+  pauseAnimation: text(),
+  /** Button that resumes it. */
+  playAnimation: text(),
   preprint: text(),
   openAccess: text(),
   code: text(),
@@ -183,10 +185,14 @@ export const aboutSchema = z.object({ title: text(), lede: text(), placeholder: 
 export const joinSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });
 export const researchSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });
 export const homeSchema = z.object({
-  /** Title of the home page's data figure (the interactive tissue map). */
+  /** Title of the home page's hero figure (the staining illustration). */
   figureTitle: text(),
-  /** One or two sentences explaining the data figure to a non-specialist. */
+  /** One or two sentences explaining the hero figure to a non-specialist. */
   figureCaption: text(),
+  /** Text alternative for the hero drawing. */
+  figureAlt: text(),
+  /** The staining steps shown under the hero, in order. */
+  figureSteps: z.array(text()).length(3),
   /** Project slugs to feature on the home page. Empty: all projects by `order`. */
   featuredProjects: z.array(z.string()).default([]),
   /** Highlight ids to feature on the home page. Empty: all highlights by `order`. */

@@ -1,6 +1,7 @@
 ---
 import type { ThemeContext } from '../../contract';
 import type { HomeData } from '../../../lib/types';
+import StainingRun from '../../../islands/staining-run/StainingRun.astro';
 import Layout from '../Layout.astro';
 import DraftMark from '../components/DraftMark.astro';
 import FigureBlock from '../components/FigureBlock.astro';
@@ -22,7 +23,12 @@ const nav = Object.fromEntries(ctx.site.nav.map((n) => [n.key, n]));
 
   <section aria-labelledby="home-figure">
     <h2 id="home-figure">{data.figure.title}</h2>
-    <p>{labels.figurePending}</p>
+    <StainingRun
+      alt={data.figure.alt}
+      steps={data.figure.steps}
+      pauseLabel={labels.pauseAnimation}
+      playLabel={labels.playAnimation}
+    />
     <p>{data.figure.caption}</p>
   </section>
 

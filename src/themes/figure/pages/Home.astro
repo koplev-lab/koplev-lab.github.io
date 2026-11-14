@@ -1,10 +1,10 @@
 ---
 import type { ThemeContext } from '../../contract';
 import type { HomeData } from '../../../lib/types';
+import StainingRun from '../../../islands/staining-run/StainingRun.astro';
 import Layout from '../Layout.astro';
 import Caption from '../components/Caption.astro';
 import DraftMark from '../components/DraftMark.astro';
-import EmptyAxes from '../components/EmptyAxes.astro';
 import FigImage from '../components/FigImage.astro';
 import Panel from '../components/Panel.astro';
 import PublicationEntry from '../components/PublicationEntry.astro';
@@ -45,10 +45,13 @@ const P = panels([
     </Panel>
 
     <Panel letter={P[1]!.letter} area="b" title={data.figure.title}>
-      <div class="plot">
-        <EmptyAxes />
-        <p class="pending">{labels.figurePending}</p>
-      </div>
+      <StainingRun
+        class="stain"
+        alt={data.figure.alt}
+        steps={data.figure.steps}
+        pauseLabel={labels.pauseAnimation}
+        playLabel={labels.playAnimation}
+      />
     </Panel>
 
     <Panel letter={P[2]!.letter} area="c" title={t.projects}>
@@ -133,17 +136,35 @@ const P = panels([
     white-space: nowrap;
   }
 
-  .plot {
-    position: relative;
-    aspect-ratio: 4 / 3;
+  /* True H&E colours on the figure's white ground. */
+  .home :global(.stain) {
+    --hero-bg: var(--white);
+    --hero-hematoxylin: #47378a;
+    --hero-eosin: #db5b8a;
+    --hero-unstained: #a0968a;
   }
-  .pending {
-    position: absolute;
-    top: 1rem;
-    left: 1.5rem;
-    margin: 0;
+  .home :global(.staining-run-steps) {
     color: var(--grey);
     font-size: var(--s-1);
+    line-height: 1.5;
+  }
+  .home :global(.staining-run-steps [aria-current]) {
+    color: var(--black);
+    font-weight: 700;
+  }
+  .home :global(.staining-run-toggle) {
+    min-height: 24px;
+    padding: 2px 10px;
+    border: 1px solid var(--black);
+    border-radius: 0;
+    background: var(--white);
+    color: var(--black);
+    font: inherit;
+    font-size: var(--s-1);
+    cursor: pointer;
+  }
+  .home :global(.staining-run-toggle:hover) {
+    background: var(--empty);
   }
 
   .multiples {

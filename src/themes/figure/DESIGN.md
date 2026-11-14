@@ -32,7 +32,7 @@ describes every panel.
 ```
 ≥ 1100px   (a page = one figure, panels on a 12-column grid)
 ┌───────────────────────────┬────────────────────────────┐
-│ a  tagline + intro         │ b  tissue map (data hero)  │
+│ a  tagline + intro         │ b  staining hero           │
 │    (text panel, cols 1–5)  │    cols 6–12, tall         │
 ├──────────┬──────────┬──────┤                            │
 │ c  proj 1│ c′ proj 2│proj 3│                            │
@@ -83,20 +83,18 @@ three lines, no menu button.
 
 ## Home page structure, and why
 
-The mosaic above: **a**, the tagline and intro as a text panel; **b**, the tissue map, the largest
+The mosaic above: **a**, the tagline and intro as a text panel; **b**, the staining hero, the largest
 panel; **c**, the three projects as small multiples (thumbnail, title, summary); **d**, the
-highlights; **e**, people as a small grid of portraits; then the caption. The join text is
-the caption's final sentence plus a link panel **f** on mobile.
+highlights; then the caption.
 
 Why: scientists read figures before text. A page that behaves like a well-made figure shows the
 lab's computational and visual literacy directly, with nothing borrowed from product design.
 
-## The data figure
+## The hero figure
 
-Panel **b**: points at their coordinates, thin black L-shaped axes with a few ticks (no box),
-axis labels from the data file's metadata, legend flush-left beneath with Okabe–Ito swatches as
-buttons (isolate on click or Enter). Hover or tap shows the label. "Illustrative data" written in
-the caption's sentence for panel b while illustrative.
+Panel **b**: the shared staining island (`src/islands/staining-run/`) in true H&E colours on
+white, the steps listed beneath in grey with the current one in black, and a square-cornered
+Pause button. The caption's sentence for panel b says it is an illustration, not a real sample.
 
 ## Other pages
 

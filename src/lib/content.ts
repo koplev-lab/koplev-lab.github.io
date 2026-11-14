@@ -311,7 +311,12 @@ export async function getHomeData(): Promise<HomeData> {
   return {
     tagline: site.tagline,
     introHtml: html(home),
-    figure: { title: home.data.figureTitle, caption: home.data.figureCaption },
+    figure: {
+      title: home.data.figureTitle,
+      caption: home.data.figureCaption,
+      alt: home.data.figureAlt,
+      steps: home.data.figureSteps,
+    },
     projects: pick(projects, home.data.featuredProjects, 'project'),
     highlights: pick(highlights, home.data.featuredHighlights, 'highlight'),
     about: { title: about.data.title, lede: about.data.lede, path: paths.about },

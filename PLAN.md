@@ -338,7 +338,20 @@ Verify each font's license and availability (Fontsource or the foundry) before c
 - Home page JS ≤ 30 KB gzipped (the island).
 - Fonts: subset, `font-display: swap`, at most 4 font files per theme on first load, with the critical one preloaded.
 
-### 6.6 The shared data hero (`src/islands/tissue-map/`)
+### 6.6 The home hero
+
+**Current hero (chosen by Mo, 2026-11-14): `src/islands/staining-run/`.** A drawn section of gut
+lining being stained with hematoxylin, then eosin, on a 14-second loop (vanilla TS canvas, about
+3 KB gzipped). The tissue is generated from a seed, so the caption says it is an illustration,
+not a real sample. Step text, alt text and the Pause/Play labels come from content
+(`home.md`: `figureTitle`, `figureCaption`, `figureAlt`, `figureSteps`; `site.yaml` labels).
+Themes colour it only through `--hero-bg`, `--hero-hematoxylin`, `--hero-eosin` and
+`--hero-unstained`. It pauses when off screen, has a Pause button (WCAG 2.2.2), and starts paused
+on the stained frame with reduced motion.
+
+The tissue map below was the original hero plan. It is not built and not on the home page.
+
+#### The shared data hero (`src/islands/tissue-map/`, not built)
 
 A small interactive visual of spatial transcriptomics data: spots or cells at their tissue coordinates, coloured by cluster, with hover or tap showing the cluster label. It is a quiet, honest demonstration of what the lab works on.
 
