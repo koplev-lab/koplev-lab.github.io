@@ -1,0 +1,68 @@
+# Lab-wide settings and every piece of interface text used by the themes.
+placeholder: true
+labName: Koplev Lab
+tagline: We map how cells are arranged in human tissues, and how that arrangement changes in inflammation, cancer and heart disease.
+piName: Simon Koplev
+description: Computational biology group at KTH and SciLifeLab in Stockholm, studying tissue architecture in health and disease with single-cell and spatial omics.
+affiliations:
+  - name: KTH Royal Institute of Technology
+    url: https://www.kth.se
+  - name: SciLifeLab
+    url: https://www.scilifelab.se
+funders: []
+contact:
+  email: simon.koplev@scilifelab.se
+nav:
+  home: Home
+  research: Research
+  publications: Publications
+  team: People
+  about: About
+  join: Join us
+social: {}
+sectionTitles:
+  projects: Research projects
+  highlights: Selected publications
+  allPublications: All publications
+  currentMembers: Current members
+  alumni: Alumni
+  vision: Vision and culture
+  join: Join the lab
+  contact: Contact
+  affiliations: Affiliations
+  funders: Funding
+  projectPeople: People
+  projectPublications: Related publications
+labels:
+  skipToContent: Skip to content
+  mainNav: Main
+  draft: Draft
+  illustrativeData: Illustrative data
+  readMore: Read more
+  allProjects: All projects
+  allPublications: All publications
+  allMembers: All members
+  preprint: Preprint
+  openAccess: Open access
+  code: Code
+  etAl: et al.
+  noAlumni: No alumni yet.
+  links:
+    orcid: ORCID
+    github: GitHub
+    scholar: Google Scholar
+    website: Website
+    email: Email
+  roleGroups:
+    PI: Principal investigator
+    Postdoc: Postdoctoral researchers
+    PhD student: PhD students
+    Research engineer: Research engineers
+    Research assistant: Research assistants
+    Master student: Master students
+    Bachelor student: Bachelor students
+    Visiting: Visiting researchers
+    Alumni: Alumni
+  notFound:
+    title: Page not found
+    body: There is no page at this address. It may have moved, or the link may be wrong.
