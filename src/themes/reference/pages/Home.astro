@@ -20,6 +20,12 @@ const nav = Object.fromEntries(ctx.site.nav.map((n) => [n.key, n]));
   <DraftMark ctx={ctx} placeholder={data.placeholder} />
   <Fragment set:html={data.introHtml} />
 
+  <section aria-labelledby="home-figure">
+    <h2 id="home-figure">{data.figure.title}</h2>
+    <p>{labels.figurePending}</p>
+    <p>{data.figure.caption}</p>
+  </section>
+
   <section aria-labelledby="home-projects">
     <h2 id="home-projects">{t.projects}</h2>
     <ol>

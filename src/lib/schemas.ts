@@ -59,6 +59,10 @@ export const labelsSchema = z.object({
   allProjects: text(),
   allPublications: text(),
   allMembers: text(),
+  /** Short name for a page's main text block (used e.g. in figure captions). */
+  overview: text(),
+  /** Shown in place of the data figure until its data exists. */
+  figurePending: text(),
   preprint: text(),
   openAccess: text(),
   code: text(),
@@ -185,6 +189,10 @@ export const aboutSchema = z.object({ title: text(), lede: text(), placeholder: 
 export const joinSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });
 export const researchSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });
 export const homeSchema = z.object({
+  /** Title of the home page's data figure (the interactive tissue map). */
+  figureTitle: text(),
+  /** One or two sentences explaining the data figure to a non-specialist. */
+  figureCaption: text(),
   /** Project slugs to feature on the home page. Empty: all projects by `order`. */
   featuredProjects: z.array(z.string()).default([]),
   /** Highlight ids to feature on the home page. Empty: all highlights by `order`. */

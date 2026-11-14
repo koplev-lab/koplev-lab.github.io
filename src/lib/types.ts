@@ -135,6 +135,8 @@ export interface ProjectSummary {
 export interface HomeData {
   tagline: string;
   introHtml: string;
+  /** The interactive data figure's title and plain-language caption. */
+  figure: { title: string; caption: string };
   projects: ProjectSummary[];
   highlights: HighlightView[];
   members: MemberView[];

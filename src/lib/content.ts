@@ -313,6 +313,7 @@ export async function getHomeData(): Promise<HomeData> {
   return {
     tagline: site.tagline,
     introHtml: html(home),
+    figure: { title: home.data.figureTitle, caption: home.data.figureCaption },
     projects: pick(projects, home.data.featuredProjects, 'project'),
     highlights: pick(highlights, home.data.featuredHighlights, 'highlight'),
     members: (await getMembers()).filter((m) => m.current),

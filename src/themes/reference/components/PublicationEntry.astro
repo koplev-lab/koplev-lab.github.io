@@ -1,6 +1,7 @@
 ---
 import type { ThemeContext } from '../../contract';
 import type { PublicationView } from '../../../lib/types';
+import { authorParts } from '../../../lib/authors';
 
 interface Props {
   ctx: ThemeContext;
@@ -8,24 +9,20 @@ interface Props {
 }
 const { ctx, pub } = Astro.props;
 const { labels } = ctx.site;
+const authors = authorParts(pub.authorsBrief);
 ---
 
 <p>
-  {pub.authorsBrief.map((a, i) => (
-    <>
-      {i > 0 && ', '}
-      {a === null ? '…' : a.isMember ? <strong>{a.name}</strong> : a.name}
-    </>
-  ))}
-  .
+  <span>{authors.map((a) => (a.member ? <strong>{a.text}</strong> : a.text))}</span>
   {pub.url ? (
     <a href={pub.url}>
-      <cite>{pub.title}</cite>
+      <cite>{`${pub.title}.`}</cite>
     </a>
   ) : (
-    <cite>{pub.title}</cite>
+    <cite>{`${pub.title}.`}</cite>
   )}
-  .{pub.venue && <em>{pub.venue}</em>}({pub.year}).
+  {pub.venue && <em>{pub.venue}</em>}
+  <span>({pub.year}).</span>
   {pub.isPreprint && <span>{labels.preprint}.</span>}
   {pub.oaUrl && pub.oaUrl !== pub.url && <a href={pub.oaUrl}>{labels.openAccess}</a>}
   {pub.preprintUrl && <a href={pub.preprintUrl}>{labels.preprint}</a>}

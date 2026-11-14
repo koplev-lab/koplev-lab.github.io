@@ -42,6 +42,8 @@ labels:
   allProjects: All projects
   allPublications: All publications
   allMembers: All members
+  overview: Overview
+  figurePending: The interactive figure will appear here.
   preprint: Preprint
   openAccess: Open access
   code: Code
