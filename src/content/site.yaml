@@ -44,6 +44,7 @@ labels:
   allMembers: All members
   overview: Overview
   figurePending: The interactive figure will appear here.
+  originalFigure: Original in full colour
   preprint: Preprint
   openAccess: Open access
   code: Code

@@ -63,6 +63,8 @@ export const labelsSchema = z.object({
   overview: text(),
   /** Shown in place of the data figure until its data exists. */
   figurePending: text(),
+  /** Link to an image's unaltered original (themes that re-colour images). */
+  originalFigure: text(),
   preprint: text(),
   openAccess: text(),
   code: text(),
