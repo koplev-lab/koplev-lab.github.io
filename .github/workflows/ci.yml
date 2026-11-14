@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Formatting
+        run: npm run format:check
+      - name: Type check
+        run: npm run check
+      - name: Build active theme
+        run: npm run build
+      - name: Build all themes (preview mode)
+        run: npm run build
+        env:
+          PREVIEW_THEMES: 'true'
+      # Added in later phases: parity, link, axe, third-party URL and JS budget tests.
