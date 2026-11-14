@@ -318,7 +318,7 @@ corporate. Carry that into every theme:
 
 #### 6.3.2 The four themes (summary; see each DESIGN.md)
 
-- **`riso`**: a two-ink risograph zine. Chivo + Chivo Mono. Paper `#F6F4EE`, Fluorescent Pink `#FF48B0` and Blue `#0078BF`, overprinting to `#002284` (used for running text). Every image is printed in two inks with slight misregistration. Navigation: a contents column.
+- **`riso`**: a two-ink risograph zine. Chivo + Chivo Mono. Paper `#F6F4EE`, Fluorescent Pink `#FF48B0` and Blue `#0078BF`, overprinting to `#002284` (used for running text). The two inks carry type, rules, fills and placeholders; figures and photos keep their original colours. Navigation: a contents column.
 - **`atlas`**: a topographic map sheet. Spectral + Spectral SC. The map face carries the science; the collar carries title, legend, sources and the adjoining-sheets diagram as navigation. Signature: the map collar with real grid references.
 - **`slide`**: the glass slide and its label. Archivo (width axis: condensed for labels, normal for text). Every image sits on a slide with a frosted label end; the data figure sits in a Visium-style fiducial frame. Navigation: a slide box of numbered slots.
 - **`card-index`**: the lab as a card catalogue (after Linnaeus's paper slips). Libre Caslon Text + Courier Prime. Every item is a ruled card with a real call number (DOI, ORCID) and tracings. Navigation: staggered guide-card tabs.

@@ -1,26 +1,23 @@
 ---
 /**
- * An image printed in two inks (see the #riso-print filter in Layout.astro).
- * The caption is set in mono like a zine's figure note, with the credit and a
- * link to the unaltered original, because the two-ink version loses colour.
+ * A figure in its original colours, with a mono caption like a zine's figure
+ * note. White figure backgrounds multiply onto the paper so they don't sit in
+ * white boxes; colours are otherwise unchanged.
  */
 import { Picture } from 'astro:assets';
-import type { ThemeContext } from '../../contract';
 import type { Figure } from '../../../lib/types';
 
 interface Props {
-  ctx: ThemeContext;
   figure: Figure;
   sizes?: string | undefined;
   /** Optional caption text (defaults to the figure's own caption). */
   caption?: string | undefined;
   /** Figure number shown before the caption. */
   number?: number | undefined;
-  /** Show credit and original link (off for small thumbnails with a nearby credit). */
+  /** Show the credit (off for small thumbnails with a nearby credit). */
   details?: boolean | undefined;
 }
 const {
-  ctx,
   figure,
   sizes = '(min-width: 1024px) 50rem, 100vw',
   caption = figure.caption,
@@ -45,11 +42,6 @@ const {
       {number !== undefined && <span class="no">Fig. {number}</span>}
       {caption && <span>{caption}</span>}
       {details && figure.credit && <span class="credit">{figure.credit}</span>}
-      {details && (
-        <a class="original" href={figure.src.src}>
-          {ctx.site.labels.originalFigure}
-        </a>
-      )}
     </figcaption>
   )}
 </figure>
@@ -62,7 +54,7 @@ const {
     display: block;
     width: 100%;
     height: auto;
-    filter: url(#riso-print);
+    mix-blend-mode: multiply;
   }
   figcaption {
     display: flex;
@@ -76,9 +68,6 @@ const {
     font-weight: 700;
   }
   .credit {
-    color: var(--overprint-soft);
-  }
-  .original {
     color: var(--overprint-soft);
   }
 </style>

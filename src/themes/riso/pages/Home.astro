@@ -28,7 +28,6 @@ const more = data.highlights.filter((h) => h !== cover);
   {cover && (
     <div class="cover">
       <Print
-        ctx={ctx}
         figure={cover.figure}
         caption={cover.publication.title}
         number={cover.number}
@@ -48,12 +47,7 @@ const more = data.highlights.filter((h) => h !== cover);
     <ol class="projects">
       {data.projects.map((p) => (
         <li>
-          <Print
-            ctx={ctx}
-            figure={p.figure}
-            details={false}
-            sizes="(min-width: 1024px) 30rem, 100vw"
-          />
+          <Print figure={p.figure} details={false} sizes="(min-width: 1024px) 30rem, 100vw" />
           <div class="text">
             <h3>
               <a href={ctx.url(p.path)}>{p.title}</a>
@@ -76,7 +70,6 @@ const more = data.highlights.filter((h) => h !== cover);
         {more.map((h) => (
           <li>
             <Print
-              ctx={ctx}
               figure={h.figure}
               number={h.number}
               details={false}

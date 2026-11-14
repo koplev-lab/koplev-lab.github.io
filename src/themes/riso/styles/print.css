@@ -18,7 +18,6 @@
         display: none !important;
       }
       & .print-img {
-        filter: grayscale(1) !important;
         max-height: 70mm;
         width: auto !important;
       }

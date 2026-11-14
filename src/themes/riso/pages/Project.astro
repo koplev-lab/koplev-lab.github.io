@@ -24,12 +24,7 @@ const research = ctx.site.nav.find((n) => n.key === 'research')!;
     </p>
   </header>
 
-  <Print
-    ctx={ctx}
-    figure={data.figure}
-    number={data.number}
-    sizes="(min-width: 1024px) 56rem, 100vw"
-  />
+  <Print figure={data.figure} number={data.number} sizes="(min-width: 1024px) 56rem, 100vw" />
 
   <div class="body prose" set:html={data.bodyHtml} />
   {data.repo && (

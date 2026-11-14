@@ -35,9 +35,15 @@ Checked and acceptable: contents column moves to the top (three columns on table
 phones, tap targets ≥ 24px); project, publications, about and join pages; 404; print styles.
 All tests pass (parity, links, axe, no third-party URLs, zero JS).
 
+## Round 3
+
+Mo's direction: figures and photos must keep their original colours. The two-ink image filter is
+removed; images render as published, with white figure backgrounds multiplied onto the paper so
+they don't sit in white boxes. The "original in full colour" link and its label are removed
+(no longer needed). Inks remain on type, rules, fills, the nav mark and placeholder portraits.
+
 ## Open issues
 
-- The home cover is a highlight figure until the interactive tissue map exists (Phase 4); then
-  the map becomes the cover, printed with the theme's ink tokens.
-- Gut and heart project images are whole multi-panel figures; single panels would print better.
+- The home cover is a highlight figure until the interactive tissue map exists (Phase 4).
+- Gut and heart project images are whole multi-panel figures; single panels would read better.
 - No member photos yet.

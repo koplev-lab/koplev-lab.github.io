@@ -21,12 +21,7 @@ const { sectionTitles: t } = ctx.site;
     <h2 id="pubs-highlights">{t.highlights}</h2>
     {data.highlights.map((h) => (
       <article class="highlight">
-        <Print
-          ctx={ctx}
-          figure={h.figure}
-          number={h.number}
-          sizes="(min-width: 1024px) 56rem, 100vw"
-        />
+        <Print figure={h.figure} number={h.number} sizes="(min-width: 1024px) 56rem, 100vw" />
         <div class="text">
           <h3>{h.publication.title}</h3>
           <p class="finding">

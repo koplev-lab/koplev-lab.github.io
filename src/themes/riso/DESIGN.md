@@ -156,11 +156,11 @@ needed. Two to four files.
 
 Recorded from the review rounds (`tests/screenshots/riso/REVIEW.md`):
 
-- **Two-ink print via an SVG filter** (`#riso-print` in `Layout.astro`) instead of build-time
-  halftone plates: it splits each image into a pink and a blue plate with colour matrices,
-  offsets the pink plate 2px/1px, multiplies them on paper and adds grain on inked areas only.
-  It works automatically for images uploaded through the CMS, needs no build step or extra
-  files, and adds no JavaScript. Result: duotone with grain rather than a dot screen.
+- **Images keep their original colours** (Mo's decision after round 2). The two inks carry the
+  type, rules, tint fills, current-page mark and placeholders; figures and photos are never
+  re-coloured. Figures use `mix-blend-mode: multiply` only so their white backgrounds take the
+  paper tone instead of sitting in white boxes. This supersedes the two-ink image print
+  described under "Signature element" above.
 - The current-page mark is a thick pink stroke through the bottom of the word (pink behind
   overprint text is 4.4 : 1, below AA for 18px text, so it cannot be a full block).
 - Until the tissue map exists, the home cover is the first landscape highlight figure.

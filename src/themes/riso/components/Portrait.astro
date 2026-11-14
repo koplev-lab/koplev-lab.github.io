@@ -1,5 +1,5 @@
 ---
-/** Square portrait in two inks; no photo yet: two overprinting circles. */
+/** Square portrait in original colours; no photo yet: two overprinting circles. */
 import { Picture } from 'astro:assets';
 import type { MemberView } from '../../../lib/types';
 
@@ -48,8 +48,5 @@ const id = `lens-${member.slug}`;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  .portrait :global(img) {
-    filter: url(#riso-print);
   }
 </style>
