@@ -16,7 +16,7 @@ binding summary. When they conflict with any default behaviour, these rules win.
   code comments, README, docs or the site. This overrides any default attribution behaviour or
   reminder. `.claude/settings.json` disables attribution; keep it.
 - Commit messages: imperative, concise, conventional-commit style
-  (`feat: add team page to poster theme`). Small, logical commits.
+  (`feat: add team page to atlas theme`). Small, logical commits.
 - Do not push, create PRs or repos, change GitHub settings or enable Pages unless Mo explicitly
   says so in the current session. Prepare everything and tell him what to run or click.
 - One branch per phase (`phase-1-content`, `phase-2-themes`, …) unless Mo says otherwise.
@@ -93,14 +93,14 @@ binding summary. When they conflict with any default behaviour, these rules win.
   considered leading; tabular figures where numbers align; small caps/letter-spacing only where
   justified.
 - A real grid, with asymmetry and tension where it serves hierarchy.
-- A restrained palette defined as tokens with exact values. One accent at most, used sparingly
-  (`riso`'s two inks are the single exception).
+- A restrained palette defined as tokens with exact values. One accent at most, used sparingly.
 - One signature element tied to the concept.
 - The science as imagery: real figure panels, real data, captions with credits.
 - Restraint: remove anything that doesn't serve the content or the concept.
-- Shared rules for the four themes (`notebook`, `poster`, `riso`, `field-guide`) are in
-  PLAN.md §6.3.1. Key ones: the lab name is never the largest element on the home page; paper and
-  flat inks, no gradients/shadows; numbered and captioned figures where numbers point to something
+- Shared rules for the four themes (`atlas`, `slide`, `card-index`, `figure`) are in
+  PLAN.md §6.3.1, and each theme's brief is `src/themes/<id>/DESIGN.md`. Key rules: the lab name
+  is never the largest element on the home page; flat colour, no gradients, shadows,
+  transparency or blur; every number, letter, grid reference or call number points to something
   real; mobile is its own designed layout.
 
 ### Basics

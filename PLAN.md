@@ -198,10 +198,10 @@ Rules for themes:
 │   │   ├── contract.ts
 │   │   ├── index.ts
 │   │   ├── reference/                        # unstyled semantic baseline
-│   │   ├── notebook/{DESIGN.md,Layout.astro,pages/,components/,styles/,assets/}
-│   │   ├── poster/…
-│   │   ├── riso/…
-│   │   └── field-guide/…
+│   │   ├── atlas/{DESIGN.md,Layout.astro,pages/,components/,styles/,assets/}
+│   │   ├── slide/…
+│   │   ├── card-index/…
+│   │   └── figure/…
 │   ├── pages/                                # thin routes + preview routes
 │   └── site.config.ts
 └── tests/
@@ -290,62 +290,35 @@ The output must look like it was made by a person with taste and a point of view
 4. **Review loop** (at least 2 rounds per theme): run the site, use Playwright to screenshot every page at 390px, 768px and 1440px widths into `tests/screenshots/<theme>/`, view them, then critique each against §6.1 and the brief in writing (`tests/screenshots/<theme>/REVIEW.md`). Fix the issues and repeat. Be harsh: would a design-literate scientist believe a person made this?
 5. Check that the four themes are clearly **different from each other** in concept, typography, layout and navigation, not recolours of one layout.
 
-### 6.3 Design direction (chosen by Mo)
+### 6.3 Design direction
 
-Mo reviewed twelve rendered directions and chose four: **Notebook**, **Poster**, **Riso** and **Field guide**. Build these four themes. The earlier `specimen` and `instrument` concepts were not chosen; do not build them.
+The four themes are `atlas`, `slide`, `card-index` and `figure`. Each is grounded in the lab's own
+material (spatial maps of tissue, the glass slides its data comes from, the way scientific
+knowledge is filed, and the figures it publishes). Their full briefs are in
+`src/themes/<id>/DESIGN.md`; those briefs are binding for Phase 3. The earlier directions
+(`notebook`, `poster`, `riso`, `field-guide`, `specimen`, `instrument`) are not built.
 
-These are directions, not specs. Improve them, keep them distinct, and justify your changes in the briefs. Small details may be borrowed between themes, but each theme keeps its own concept, typography, layout and navigation.
+#### 6.3.1 Shared rules (all themes)
 
-#### 6.3.1 Shared rules (all four themes)
+What the themes have in common: each is an object or document that scientists make or use
+themselves (a map sheet, a labelled slide, a catalogue card, a journal figure). None of them is
+corporate. Carry that into every theme:
 
-What the four have in common: each is printed matter that scientists and naturalists make themselves (a manuscript, a conference poster, a zine, a field guide). None of them is corporate. Carry that into every theme:
-
-1. **The science is the hero, not the name.** The lab name is never the largest element on the home page. The largest thing is either a plain sentence about the science (`tagline`) or a figure. No giant all-caps lab name in any theme. Mo's feedback on the Riso preview: an oversized "KOPLEV LAB" read as commercial.
-2. **Paper and ink.** Design each theme as a printed object: one paper colour plus a small, named set of inks (text ink included). Flat colour only. No gradients, shadows or transparency effects, except overprint (`mix-blend-mode: multiply`) in `riso`.
-3. **Numbered, keyed and captioned.** Figures, plates and references are numbered (Fig. 1, Plate 2, [3]). Every image has a caption and a credit. A number must point to something real (a figure, a reference, a plate entry), never act as decoration.
-4. **One plain takeaway.** Write `tagline` as a poster takeaway: one sentence, in plain language, that both a funder and a prospective student understand. Treat each project's `summary` the same way.
-5. **People shown warmly and consistently.** Each theme gives team photos one consistent treatment (same crop ratio, same background handling; for example duotone in `riso`, plate entries in `field-guide`). Placeholder people (§1.2) get the same frame with the geometric placeholder.
-6. **Hand-made, not sloppy.** Imperfection appears only where the reference has it (riso misregistration, paper grain), and only on images and fills. Never on text legibility, alignment or spacing.
-7. **Mobile is its own layout.** Margin notes, poster columns and plate grids each need a designed narrow version (specified per theme below).
+1. **The science is the hero, not the name.** The lab name is never the largest element on the home page. The largest thing is either a plain sentence about the science (`tagline`) or a figure. No giant all-caps lab name in any theme. Mo's feedback on an earlier preview: an oversized "KOPLEV LAB" read as commercial.
+2. **Paper and ink.** Design each theme as a physical, printed object: one ground colour plus a small, named set of inks (text ink included). Flat colour only. No gradients, shadows, transparency or blur effects.
+3. **Numbered, keyed and captioned.** Figures, panels and references are numbered or lettered. Every image has a caption and a credit. A number, letter, grid reference or call number must point to something real, never act as decoration.
+4. **One plain takeaway.** Write `tagline` as one sentence, in plain language, that both a funder and a prospective student understand. Treat each project's `summary` the same way.
+5. **People shown warmly and consistently.** Each theme gives team photos one consistent treatment (same crop ratio, same framing). Placeholder people (§1.2) get the same frame with the theme's geometric placeholder.
+6. **Hand-made, not sloppy.** Imperfection only where the reference has it, and only on images and fills. Never on text legibility, alignment or spacing.
+7. **Mobile is its own layout.** Collars, slide labels, card stacks and panel mosaics each need a designed narrow version (specified in each brief).
 8. **One logo everywhere** (§6.7). The mark stays the same across themes; it takes the theme's ink and sits next to the lab name set in the theme's own typeface.
 
-#### 6.3.2 The four themes
+#### 6.3.2 The four themes (summary; see each DESIGN.md)
 
-**A. `notebook`: journal manuscript with a working margin.**
-- References: Edward Tufte's books (sidenotes, margin figures); 19th-century journal typesetting; bound lab notebooks.
-- Type: **Newsreader** for text and headings; letter-spaced capitals for the lab name; small caps for author and member names.
-- Palette: paper `#F5F3ED`, ink `#22262C`, ink blue `#2B4C7E` (links, note numbers), pencil `#AAA597` (rules). No orange or terracotta accent: warm paper + serif + terracotta is a generated-site cliché.
-- Layout: a text column of 60–65ch plus a margin column of about a third of the width. The margin carries footnotes, figure credits, dates and member links. On mobile, each note moves inline below its paragraph, smaller, keeping its number.
-- Publications: a numbered reference list; highlights appear as numbered figures with full captions.
-- Data hero: "Fig. 1" inside the text column, with a real caption.
-- Signature: the margin column, used meaningfully on every page.
-
-**B. `poster`: conference poster with one big takeaway.**
-- References: A0 scientific conference posters; Mike Morrison's #betterposter layout; Swiss public-information posters.
-- Type: **Libre Franklin**, at most three weights.
-- Palette: white `#FFFFFF`, ink `#111111`, band colour deep teal `#0B5D5E` (takeaway band, section heads). A second colour is allowed in data only.
-- Layout: home is a title bar and three columns: background and approach on the left, the takeaway band in the centre, the figure and a "prospective students" box on the right. Inner pages keep the poster logic: each project is its own poster (question, approach, key figure, takeaway band). Publications are a poster-session wall, with each highlight figure carrying a one-line finding. Team is the poster's author and affiliation block, with photos. On mobile, the takeaway band comes first and the columns stack in reading order.
-- Data hero: "Figure 1" in the right column.
-- Signature: the takeaway band in very large type.
-
-**C. `riso`: two-ink risograph zine.**
-- References: risograph zines and gig posters; small-run print studios; Riso's standard ink colours.
-- Type: **Chivo** (Black for short display headings only, Regular for text) and **Chivo Mono** for labels.
-- Palette: paper `#F6F4EE`, inks Fluorescent Pink `#FF48B0` and Blue `#0078BF`; overprinting them (multiply) gives the third colour. The two inks are the whole palette, which is the one allowed exception to "one accent at most" (§6.1). They are flat inks, never a gradient between them.
-- Contrast: fluorescent pink never sets body text. Check blue on paper against AA. If it fails, set running text in a darker ink (for example Riso Federal Blue) or near-black.
-- Scale: the lab name stays header-sized. The big moments are images printed in two inks, plus short headings in sentence case.
-- Images: photos and figures become two-ink duotone or halftone, either at build time with `sharp` or through CSS blending. Slight misregistration (1–3 px) and paper grain apply to images and fills only.
-- Restraint: this is the loudest theme. Keep the layout calm (one or two big images per page, generous margins) so it still works for funders. On mobile: single column, images full width, plain stacked navigation.
-- Data hero: clusters mapped to ink combinations (pink, blue, overprint, tints). Show at most about six distinguishable groups and label any merging honestly.
-- Signature: two inks overprinting to a third, wherever imagery appears.
-
-**D. `field-guide`: natural-history field guide.**
-- References: Collins and Peterson field guides (text facing plates); Ernst Haeckel's plates; herbarium specimen labels.
-- Type: **Crimson Pro** for text, **Alegreya Sans SC** for captions and labels (true small caps).
-- Palette: page `#F6F6F1`, ink `#262520`, plate `#E7E8DF`, rule `#CFCFC4`. Natural pigment tones for data only (olive `#6B7F3A`, ochre `#A9893F`, umber `#7A4E3B`, slate `#4E6E7E`, …). No cream + terracotta.
-- Layout: on desktop, a two-page spread, with a text page facing a plate. Plates are used for the data hero, projects, publication highlights (figure panels as plate entries) and the team (members as keyed entries: number, name, role). A "Key to the site" with page-style references serves as navigation. On mobile, the plate follows its text and plate grids use two columns.
-- Data hero: small multiples, one plate entry per cluster shown on its own, plus the full section. Hover or tap still shows cluster labels.
-- Signature: keyed plates, used the same way for clusters, projects and people.
+- **`atlas`**: a topographic map sheet. Spectral + Spectral SC. The map face carries the science; the collar carries title, legend, sources and the adjoining-sheets diagram as navigation. Signature: the map collar with real grid references.
+- **`slide`**: the glass slide and its label. Archivo (width axis: condensed for labels, normal for text). Every image sits on a slide with a frosted label end; the data figure sits in a Visium-style fiducial frame. Navigation: a slide box of numbered slots.
+- **`card-index`**: the lab as a card catalogue (after Linnaeus's paper slips). Libre Caslon Text + Courier Prime. Every item is a ruled card with a real call number (DOI, ORCID) and tracings. Navigation: staggered guide-card tabs.
+- **`figure`**: every page is a multi-panel journal figure. Atkinson Hyperlegible Next (distinguishes I/l/1 in gene names). Lettered panels on a mosaic grid, a full caption per page, Okabe–Ito data palette. Navigation: a list of figures.
 
 Verify each font's license and availability (Fontsource or the foundry) before committing to it. If a candidate isn't available or doesn't work, choose another that isn't on the banned list, and explain why.
 
@@ -367,7 +340,7 @@ A small interactive visual of spatial transcriptomics data: spots or cells at th
 
 - Vanilla TypeScript with canvas, or SVG if the point count allows. No libraries unless clearly justified. Lazy-initialized, under the budget above.
 - Reads `public/data/hero.json` (`{ meta: {source, license, illustrative}, clusters: [{id, label}], points: [[x, y, clusterId], …] }`).
-- **Styled only by CSS custom properties** set by the theme: `--hero-bg`, `--hero-fg`, `--hero-data-1 … --hero-data-12`, `--hero-font`, `--hero-point-size`, plus optional `--hero-blend` and `--hero-offset` (used by `riso` for overprint and misregistration). Each theme presents it differently, as specified in §6.3.2: a numbered figure in `notebook`, "Figure 1" in `poster`, two-ink overprint in `riso`, small multiples in `field-guide`.
+- **Styled only by CSS custom properties** set by the theme: `--hero-bg`, `--hero-fg`, `--hero-data-1 … --hero-data-12`, `--hero-font`, `--hero-point-size`, plus optional `--hero-blend` and `--hero-offset`. Each theme presents it differently, as specified in its DESIGN.md: the map face in `atlas`, a fiducial-framed capture area in `slide`, a card in `card-index`, panel b in `figure`.
 - Accessible: a text alternative describing the data, keyboard focusable, static rendering with reduced motion.
 - `scripts/make-hero-data.mjs` generates **illustrative** data (a plausible tissue-like layout with spatially coherent clusters, about 2–4k points). The UI shows "Illustrative data" while `meta.illustrative` is true.
 - `scripts/anndata_to_hero.py`: Mo will use it to export real data from an `.h5ad` file (`obsm['spatial']`, a chosen `obs` cluster column, a downsample count, coordinates normalized). Write it with clear CLI args and a docstring. Mo will run it himself.
@@ -376,7 +349,7 @@ A small interactive visual of spatial transcriptomics data: spots or cells at th
 
 - Mo picks the mark. He will put the chosen SVG at `src/assets/logo/mark.svg`. Until that file exists, every theme shows the lab name as text only. Do not design or invent a logo yourself.
 - The mark is a simple geometric SVG: one colour via `currentColor`, no gradients, no text inside the mark. It must stay legible at 16 px. If it doesn't, Mo supplies a simplified `favicon.svg`.
-- Each theme colours the mark with its own ink. `riso` may use a two-ink version, with the parts overprinting.
+- Each theme colours the mark with its own ink.
 - Lockup: the mark next to the lab name, with the name set in the theme's typeface. Each theme's `DESIGN.md` defines the lockup's size and spacing. Per §6.3.1 rule 1, it stays modest.
 - Generate the favicon set (`favicon.svg`, 32 px PNG, 180 px `apple-touch-icon`) and use the mark on each theme's default Open Graph image.
 
@@ -415,7 +388,7 @@ A small interactive visual of spatial transcriptomics data: spots or cells at th
 ## 10. Repo docs to create
 
 - **`CLAUDE.md`** (first thing in Phase 0): a condensed version of §1 (all of it), the theme contract rules (§3.2), the §6.1 banned/required lists, and the command list. Future sessions must follow it.
-- **`README.md`**: what this is, the links (live site, CMS, docs), a quickstart (`npm ci`, `npm run dev`, `THEME=notebook npm run dev`), where things live.
+- **`README.md`**: what this is, the links (live site, CMS, docs), a quickstart (`npm ci`, `npm run dev`, `THEME=atlas npm run dev`), where things live.
 - **`docs/THEMES.md`**, **`docs/EDITING.md`**, **`docs/DEVELOPING.md`**, as described above. Write them for the *next* person, who may be a student with little web experience.
 
 ---
@@ -451,7 +424,7 @@ Full screenshot set for every theme. A list of all placeholder content for Simon
 
 - [ ] Switching `THEME` changes the whole design. Content files are untouched and the parity tests pass.
 - [ ] Preview mode shows all themes side by side under `/themes/<id>/`.
-- [ ] Four themes (`notebook`, `poster`, `riso`, `field-guide`), each with a brief, a review log and a clearly distinct identity, none violating §6.1.
+- [ ] Four themes (`atlas`, `slide`, `card-index`, `figure`), each with a brief, a review log and a clearly distinct identity, none violating §6.1.
 - [ ] Simon can edit members, projects, highlights and the vision text through Pages CMS without git.
 - [ ] Publications refresh weekly without manual work. The build never needs the network.
 - [ ] Zero runtime third-party requests. JS only on the home hero.
