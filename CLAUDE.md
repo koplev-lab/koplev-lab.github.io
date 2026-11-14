@@ -97,10 +97,10 @@ binding summary. When they conflict with any default behaviour, these rules win.
 - One signature element tied to the concept.
 - The science as imagery: real figure panels, real data, captions with credits.
 - Restraint: remove anything that doesn't serve the content or the concept.
-- Shared rules for the four themes (`atlas`, `slide`, `card-index`, `figure`) are in
+- Shared rules for all themes (`riso` is the default; `figure` is also built) are in
   PLAN.md §6.3.1, and each theme's brief is `src/themes/<id>/DESIGN.md`. Key rules: the lab name
   is never the largest element on the home page; flat colour, no gradients, shadows,
-  transparency or blur; every number, letter, grid reference or call number points to something
+  transparency or blur (except `riso`'s multiply overprint); every number, letter, grid reference or call number points to something
   real; mobile is its own designed layout.
 
 ### Basics

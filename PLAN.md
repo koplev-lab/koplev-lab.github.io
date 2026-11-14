@@ -292,11 +292,14 @@ The output must look like it was made by a person with taste and a point of view
 
 ### 6.3 Design direction
 
-The four themes are `atlas`, `slide`, `card-index` and `figure`. Each is grounded in the lab's own
+**Built:** `riso` (the default) and `figure`. **Briefs only, not built:** `atlas`, `slide`,
+`card-index`. Mo chose `riso` to build first.
+
+The briefed themes are `riso`, `atlas`, `slide`, `card-index` and `figure`. Each is grounded in the lab's own
 material (spatial maps of tissue, the glass slides its data comes from, the way scientific
 knowledge is filed, and the figures it publishes). Their full briefs are in
 `src/themes/<id>/DESIGN.md`; those briefs are binding for Phase 3. The earlier directions
-(`notebook`, `poster`, `riso`, `field-guide`, `specimen`, `instrument`) are not built.
+(`notebook`, `poster`, `field-guide`, `specimen`, `instrument`) are not built.
 
 #### 6.3.1 Shared rules (all themes)
 
@@ -315,6 +318,7 @@ corporate. Carry that into every theme:
 
 #### 6.3.2 The four themes (summary; see each DESIGN.md)
 
+- **`riso`**: a two-ink risograph zine. Chivo + Chivo Mono. Paper `#F6F4EE`, Fluorescent Pink `#FF48B0` and Blue `#0078BF`, overprinting to `#002284` (used for running text). Every image is printed in two inks with slight misregistration. Navigation: a contents column.
 - **`atlas`**: a topographic map sheet. Spectral + Spectral SC. The map face carries the science; the collar carries title, legend, sources and the adjoining-sheets diagram as navigation. Signature: the map collar with real grid references.
 - **`slide`**: the glass slide and its label. Archivo (width axis: condensed for labels, normal for text). Every image sits on a slide with a frosted label end; the data figure sits in a Visium-style fiducial frame. Navigation: a slide box of numbered slots.
 - **`card-index`**: the lab as a card catalogue (after Linnaeus's paper slips). Libre Caslon Text + Courier Prime. Every item is a ruled card with a real call number (DOI, ORCID) and tracings. Navigation: staggered guide-card tabs.
