@@ -3,10 +3,10 @@
  * The tissue is generated from a seed, so it is an illustration, not a real sample.
  *
  * Markup (rendered by StainingRun.astro):
- *   <staining-run data-seed data-pause data-play>
+ *   <staining-run data-seed>
  *     <canvas role="img" aria-label>   the section
- *     <ol> three <li> steps             the current one gets aria-current="step"
- *     <button hidden>                  pause / play (shown once the script runs)
+ *     (optional) <ol> of <li> steps     the current one gets aria-current="step"
+ *     (optional) <button hidden>       pause / play, labelled from data-pause / data-play
  *
  * Colours come from CSS custom properties set by the theme:
  *   --hero-bg           the glass behind the section

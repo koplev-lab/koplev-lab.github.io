@@ -59,10 +59,6 @@ export const labelsSchema = z.object({
   allPublications: text(),
   /** Short name for a page's main text block (used e.g. in figure captions). */
   overview: text(),
-  /** Button that pauses the home page animation. */
-  pauseAnimation: text(),
-  /** Button that resumes it. */
-  playAnimation: text(),
   preprint: text(),
   openAccess: text(),
   code: text(),
@@ -191,8 +187,6 @@ export const homeSchema = z.object({
   figureCaption: text(),
   /** Text alternative for the hero drawing. */
   figureAlt: text(),
-  /** The staining steps shown under the hero, in order. */
-  figureSteps: z.array(text()).length(3),
   /** Project slugs to feature on the home page. Empty: all projects by `order`. */
   featuredProjects: z.array(z.string()).default([]),
   /** Highlight ids to feature on the home page. Empty: all highlights by `order`. */

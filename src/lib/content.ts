@@ -315,7 +315,6 @@ export async function getHomeData(): Promise<HomeData> {
       title: home.data.figureTitle,
       caption: home.data.figureCaption,
       alt: home.data.figureAlt,
-      steps: home.data.figureSteps,
     },
     projects: pick(projects, home.data.featuredProjects, 'project'),
     highlights: pick(highlights, home.data.featuredHighlights, 'highlight'),

@@ -19,18 +19,9 @@ const more = data.highlights;
 ---
 
 <Layout ctx={ctx}>
-  <figure class="cover">
-    <StainingRun
-      alt={data.figure.alt}
-      steps={data.figure.steps}
-      pauseLabel={labels.pauseAnimation}
-      playLabel={labels.playAnimation}
-    />
-    <figcaption class="mono">
-      <span class="no">{data.figure.title}.</span>
-      <span>{data.figure.caption}</span>
-    </figcaption>
-  </figure>
+  <div class="cover">
+    <StainingRun alt={data.figure.alt} />
+  </div>
 
   <section class="opening">
     <h1>{data.tagline}</h1>
@@ -93,42 +84,6 @@ const more = data.highlights;
     --hero-hematoxylin: var(--blue);
     --hero-eosin: var(--pink);
     --hero-unstained: #a8a294;
-  }
-  .cover :global(.staining-run-steps) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 1.5em;
-    font-family: var(--mono);
-    font-size: var(--s-1);
-    color: var(--overprint-soft);
-  }
-  .cover :global(.staining-run-steps [aria-current]) {
-    color: var(--overprint);
-    font-weight: 700;
-  }
-  .cover :global(.staining-run-toggle) {
-    min-height: 24px;
-    padding: 2px 10px;
-    border: 1.5px solid var(--overprint);
-    border-radius: 0;
-    background: var(--paper);
-    color: var(--overprint);
-    font: 700 var(--s-1) / 1.4 var(--mono);
-    cursor: pointer;
-  }
-  .cover :global(.staining-run-toggle:hover) {
-    background: var(--pink-tint);
-  }
-  .cover figcaption {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 0.9em;
-    max-width: 70ch;
-    margin-top: 1rem;
-  }
-  .cover .no {
-    color: var(--overprint);
-    font-weight: 700;
   }
   .opening {
     max-width: 44rem;

@@ -23,12 +23,7 @@ const nav = Object.fromEntries(ctx.site.nav.map((n) => [n.key, n]));
 
   <section aria-labelledby="home-figure">
     <h2 id="home-figure">{data.figure.title}</h2>
-    <StainingRun
-      alt={data.figure.alt}
-      steps={data.figure.steps}
-      pauseLabel={labels.pauseAnimation}
-      playLabel={labels.playAnimation}
-    />
+    <StainingRun alt={data.figure.alt} />
     <p>{data.figure.caption}</p>
   </section>
 

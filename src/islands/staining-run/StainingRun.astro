@@ -1,41 +1,20 @@
 ---
 /**
  * The home page's hero: a drawn tissue section being stained with hematoxylin, then eosin.
- * Themes style it only through the --hero-* custom properties (see staining-run.ts) and may
- * restyle the step list and the button through the class names below.
+ * Themes style it only through the --hero-* custom properties (see staining-run.ts).
  */
 interface Props {
   /** Text alternative for the drawing. */
   alt: string;
-  /** The three staining steps, in order. */
-  steps: string[];
-  pauseLabel: string;
-  playLabel: string;
   /** Changes the generated tissue. */
   seed?: number;
   class?: string;
 }
-const { alt, steps, pauseLabel, playLabel, seed = 11, class: className } = Astro.props;
-const last = steps.length - 1;
+const { alt, seed = 11, class: className } = Astro.props;
 ---
 
-<staining-run
-  class:list={['staining-run', className]}
-  data-seed={seed}
-  data-pause={pauseLabel}
-  data-play={playLabel}
->
+<staining-run class:list={['staining-run', className]} data-seed={seed}>
   <canvas class="staining-run-canvas" role="img" aria-label={alt}></canvas>
-  <div class="staining-run-bar">
-    <ol class="staining-run-steps">
-      {steps.map((s, i) => (
-        <li aria-current={i === last ? 'step' : undefined}>{s}</li>
-      ))}
-    </ol>
-    <button type="button" class="staining-run-toggle" hidden>
-      {pauseLabel}
-    </button>
-  </div>
 </staining-run>
 
 <script>
@@ -51,21 +30,5 @@ const last = steps.length - 1;
     width: 100%;
     aspect-ratio: 686 / 300;
     background: var(--hero-bg, #fbf7f8);
-  }
-  .staining-run-bar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.5rem 1.5rem;
-    margin-top: 0.6rem;
-  }
-  .staining-run-steps {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .staining-run-toggle[hidden] {
-    display: none;
   }
 </style>
