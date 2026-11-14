@@ -42,6 +42,15 @@ removed; images render as published, with white figure backgrounds multiplied on
 they don't sit in white boxes. The "original in full colour" link and its label are removed
 (no longer needed). Inks remain on type, rules, fills, the nav mark and placeholder portraits.
 
+## Round 4
+
+Mo: "the structure looks a bit odd". Diagnosis: the left contents column left a third of the
+page empty and pushed everything off-centre; the hero and a five-line 44px headline competed;
+the hero floated with nothing aligned to it. Changes: navigation moved to a top bar with a pink
+rule; hero at full content width; tagline reduced to about 32px and set beside the intro in a
+7/5 split, single column under 900px. Checked at 390, 768 and 1440 px; inner pages share the
+bar. The drawing's edges were checked closely: both are straight section cuts, left unchanged.
+
 ## Open issues
 
 - The home cover is a highlight figure until the interactive tissue map exists (Phase 4).

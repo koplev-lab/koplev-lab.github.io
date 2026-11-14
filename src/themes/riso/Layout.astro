@@ -41,7 +41,7 @@ const current = (path: string) =>
       {site.labels.skipToContent}
     </a>
     <div class="page">
-      <header class="contents">
+      <header class="masthead">
         <a class="lockup" href={ctx.url('/')}>
           {site.logoSvg && <span class="mark" aria-hidden="true" set:html={site.logoSvg} />}
           <span>{site.labName}</span>
@@ -91,32 +91,29 @@ const current = (path: string) =>
   }
 
   .page {
-    display: grid;
-    grid-template-columns: minmax(9rem, 1fr) minmax(0, 5fr);
-    column-gap: calc(var(--gutter) * 2);
     max-width: var(--page-max);
     margin-inline: auto;
-    padding: clamp(1.5rem, 4vw, 3.5rem) var(--margin) 0;
-  }
-  .contents {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    font-weight: 700;
-  }
-  main {
-    grid-column: 2;
-    min-width: 0;
-  }
-  .colophon {
-    grid-column: 2;
+    padding-inline: var(--margin);
   }
 
+  /* Top bar: lab name left, sections right, a rule of pink ink beneath. */
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 2.5rem;
+    margin-bottom: clamp(1.75rem, 3.5vw, 3rem);
+    padding: clamp(1.25rem, 3vw, 2rem) 0 0.9rem;
+    border-bottom: 2px solid var(--pink);
+    font-weight: 700;
+  }
   .lockup {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 2rem;
     color: var(--overprint);
+    font-size: var(--s1);
     text-decoration: none;
   }
   .lockup:hover {
@@ -127,25 +124,34 @@ const current = (path: string) =>
     width: auto;
     color: var(--blue);
   }
-  .contents ul {
-    display: grid;
-    gap: 0.15rem;
+  .masthead ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.75rem;
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  .contents nav a {
+  .masthead nav a {
     display: inline-block;
-    padding-block: 3px;
+    padding-block: 4px;
     text-decoration: none;
   }
+  .masthead nav a:hover {
+    text-decoration: underline;
+    background: none;
+  }
   /* Current page: a stroke of pink ink through the bottom of the word. */
-  .contents nav a[aria-current] {
+  .masthead nav a[aria-current] {
     text-decoration-line: underline;
     text-decoration-color: var(--pink);
     text-decoration-thickness: 0.45em;
     text-underline-offset: -0.2em;
     text-decoration-skip-ink: none;
+  }
+
+  main {
+    min-width: 0;
   }
 
   .colophon {
@@ -172,34 +178,16 @@ const current = (path: string) =>
     font-style: normal;
   }
 
-  @media (max-width: 1023px) {
-    .page {
-      grid-template-columns: minmax(0, 1fr);
-    }
-    .contents,
-    main,
-    .colophon {
-      grid-column: 1;
-      grid-row: auto;
-    }
-    .contents {
-      margin-bottom: 2.5rem;
-    }
-    .lockup {
-      margin-bottom: 1rem;
-    }
-    .contents ul {
-      grid-template-columns: repeat(3, max-content);
-      column-gap: 2rem;
-    }
-  }
   @media (max-width: 719px) {
-    .contents ul {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: var(--gutter);
+    .masthead {
+      flex-direction: column;
+      align-items: flex-start;
     }
-    .contents nav a {
-      padding-block: 8px;
+    .masthead ul {
+      column-gap: 1.25rem;
+    }
+    .masthead nav a {
+      padding-block: 6px;
     }
   }
 </style>

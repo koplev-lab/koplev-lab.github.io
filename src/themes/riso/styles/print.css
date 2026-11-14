@@ -12,7 +12,7 @@
       & a {
         color: #000000;
       }
-      & .contents,
+      & .masthead nav,
       & .preview-bar,
       & .skip {
         display: none !important;

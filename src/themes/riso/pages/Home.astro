@@ -24,8 +24,10 @@ const more = data.highlights;
   </div>
 
   <section class="opening">
-    <h1>{data.tagline}</h1>
-    <DraftMark ctx={ctx} placeholder={data.placeholder} />
+    <div class="statement">
+      <h1>{data.tagline}</h1>
+      <DraftMark ctx={ctx} placeholder={data.placeholder} />
+    </div>
     <div class="intro" set:html={data.introHtml} />
   </section>
 
@@ -77,7 +79,7 @@ const more = data.highlights;
 
 <style>
   .cover {
-    margin: 0 0 clamp(2rem, 4vw, 3.5rem);
+    margin: 0 0 clamp(1.75rem, 3vw, 2.75rem);
     /* H&E as two inks: hematoxylin prints blue, eosin prints pink; where they overlap the
        nuclei multiply to the overprint colour. */
     --hero-bg: var(--paper);
@@ -85,17 +87,31 @@ const more = data.highlights;
     --hero-eosin: var(--pink);
     --hero-unstained: #a8a294;
   }
+  /* Statement and intro side by side under the image. */
   .opening {
-    max-width: 44rem;
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 1rem calc(var(--gutter) * 3);
+    align-items: start;
   }
   h1 {
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.6rem, 0.9rem + 1.3vw, 1.8rem);
+    line-height: 1.08;
   }
   .intro {
-    max-width: var(--measure);
-    margin-top: 1rem;
-    font-size: var(--s1);
-    line-height: 1.5;
+    max-width: 34rem;
+    padding-top: 0.2rem;
+    font-size: 1.1rem;
+    line-height: 1.55;
+  }
+  .intro :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  @media (max-width: 899px) {
+    .opening {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 
   .block {

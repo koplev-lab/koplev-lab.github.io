@@ -167,6 +167,13 @@ Recorded from the review rounds (`tests/screenshots/riso/REVIEW.md`):
 - There is no printed colophon line naming the inks: all visible text must come from content.
 - All global CSS is scoped under `:root[data-theme='riso']` in cascade layers.
 
+- **Navigation is a top bar** (Mo's decision after round 3): lab name left, sections right, a
+  2px pink rule beneath; on phones the links wrap under the name. It replaces the contents
+  column described under "Navigation" above, which left a third of the page empty and pushed
+  the content off-centre. The home page opens with the hero at full content width, then the
+  tagline (about 32px) beside the intro paragraph, so image and statement share the first
+  screen.
+
 ## What this theme refuses to do
 
 - No gradient between the inks, ever; no third ink.
