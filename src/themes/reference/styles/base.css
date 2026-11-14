@@ -18,5 +18,11 @@
       max-width: 100%;
       height: auto;
     }
+    /* The inline lab mark has no intrinsic size. */
+    & header svg {
+      height: 2em;
+      width: auto;
+      vertical-align: middle;
+    }
   }
 }

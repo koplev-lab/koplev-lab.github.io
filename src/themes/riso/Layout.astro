@@ -160,10 +160,17 @@ const current = (path: string) =>
       transition: none;
     }
   }
+  /* The mark prints in both inks: pink multiplied over blue, so the arrow comes out in overprint. */
+  .mark {
+    display: block;
+    --mark-blue: var(--blue);
+    --mark-pink: var(--pink);
+    --mark-blend: multiply;
+  }
   .mark :global(svg) {
-    height: 22px;
+    display: block;
+    height: 40px;
     width: auto;
-    color: var(--blue);
   }
   .masthead ul {
     display: flex;

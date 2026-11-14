@@ -364,6 +364,13 @@ A small interactive visual of spatial transcriptomics data: spots or cells at th
 
 ### 6.7 Logo
 
+**Chosen (Mo, 2026-11-14): mark G, "Read-out"**, a promoter arrow on its strand with the signal
+it produces in spots below. `src/assets/logo/mark.svg` has two plates (blue: strand, arrow,
+empty positions, deep spots; pink: arrow, read-out spots). Both use `currentColor` unless a theme
+sets `--mark-blue`, `--mark-pink` and `--mark-blend`; riso sets its two inks with multiply, so
+the arrow prints in overprint. `favicon.svg` is a one-ink navy version on paper;
+`scripts/make-favicons.mjs` renders the PNGs into `public/`. Open Graph images are not made yet.
+
 - Mo picks the mark. He will put the chosen SVG at `src/assets/logo/mark.svg`. Until that file exists, every theme shows the lab name as text only. Do not design or invent a logo yourself.
 - The mark is a simple geometric SVG: one colour via `currentColor`, no gradients, no text inside the mark. It must stay legible at 16 px. If it doesn't, Mo supplies a simplified `favicon.svg`.
 - Each theme colours the mark with its own ink.
