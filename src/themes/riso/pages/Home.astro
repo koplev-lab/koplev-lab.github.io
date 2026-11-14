@@ -70,7 +70,7 @@ const more = data.highlights;
               figure={h.figure}
               number={h.number}
               details={false}
-              sizes="(min-width: 1024px) 26rem, 100vw"
+              sizes="(min-width: 1024px) 24rem, 100vw"
             />
             <p class="finding">{h.blurb}</p>
             <PublicationEntry ctx={ctx} pub={h.publication} />
@@ -146,6 +146,10 @@ const more = data.highlights;
     padding-top: 1.1rem;
     border-top: 2px solid var(--pink);
   }
+  .project:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
   .project-body {
     display: grid;
     /* The figure column hugs the figure, so the summary sits right beside it. */
@@ -182,11 +186,30 @@ const more = data.highlights;
 
   .highlights {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 3rem calc(var(--gutter) * 2);
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+  /* Figures share one modest height so the row stays even; never cropped. */
+  .highlights :global(.plate) {
+    display: flex;
+    align-items: flex-end;
+    height: 14rem;
+  }
+  .highlights :global(.plate picture) {
+    display: contents;
+  }
+  .highlights :global(.plate img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  @media (max-width: 1023px) {
+    .highlights {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
   .finding {
     margin: 1rem 0 0.6rem;
@@ -201,6 +224,12 @@ const more = data.highlights;
     .project-body,
     .highlights {
       grid-template-columns: minmax(0, 1fr);
+    }
+    .highlights :global(.plate) {
+      height: auto;
+    }
+    .highlights :global(.plate img) {
+      max-height: 18rem;
     }
     .intro {
       font-size: var(--s0);

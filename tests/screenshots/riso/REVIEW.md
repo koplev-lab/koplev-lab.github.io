@@ -61,6 +61,15 @@ title, then its figure (with caption) and summary; space between projects is abo
 the space inside one. Home: figure column hugs the figure so the summary sits beside it. Research:
 title and summary above the figure, figure height capped at 38rem.
 
+## Round 6
+
+Mo: no rule above the first project on the Research page; publication images too large on the
+Publications and home pages. Changes: the first project (Research and home) and the first
+highlight (Publications) drop the rule, since the section heading already opens the list. Home
+highlights are a row of three (two on tablets, one on phones) with figures sharing a 14rem
+height, never cropped. Publications highlights are grouped like projects (rule, title, then
+figure beside the finding and citation), figures capped at 22rem.
+
 ## Open issues
 
 - The home cover is a highlight figure until the interactive tissue map exists (Phase 4).

@@ -64,6 +64,10 @@ const { ctx, data } = Astro.props;
     max-width: 100%;
     max-height: 38rem;
   }
+  .spread:first-of-type {
+    padding-top: 0;
+    border-top: 0;
+  }
   .spread + .spread {
     margin-top: clamp(4rem, 8vw, 6.5rem);
   }
