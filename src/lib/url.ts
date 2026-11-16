@@ -1,5 +1,6 @@
 /**
- * Site-relative page paths and the URL builder behind ctx.url().
+ * Site-relative page paths and the link builder. Every internal link goes
+ * through url() so the site works under any BASE_PATH.
  */
 
 export const paths = {
@@ -10,28 +11,31 @@ export const paths = {
   team: '/team/',
   about: '/about/',
   join: '/join/',
-  notFound: '/404/',
 } as const;
-
-/** Prefix under which preview mode renders each theme. */
-export const previewPrefix = (themeId: string) => `themes/${themeId}/`;
 
 const EXTERNAL = /^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i;
 const HAS_EXTENSION = /\.[a-z0-9]{1,5}$/i;
 
 /**
- * Build a url() function for a given base path (import.meta.env.BASE_URL) and
- * optional preview prefix. Page paths get a trailing slash; external URLs,
- * hash links and file paths pass through unchanged (files skip the preview prefix).
+ * Turn a site-relative path into a link under the base path. Page paths get a
+ * trailing slash; external URLs, hash links and file paths pass through as they are.
  */
-export function makeUrl(base: string, prefix = ''): (path: string) => string {
+export function makeUrl(base: string): (path: string) => string {
   const root = base.endsWith('/') ? base : `${base}/`;
   return (path: string) => {
     if (EXTERNAL.test(path)) return path;
     const [pathname = '', hash = ''] = path.split(/(?=[?#])/);
     let clean = pathname.replace(/^\/+/, '');
-    if (HAS_EXTENSION.test(clean)) return `${root}${clean}${hash}`;
-    if (clean !== '' && !clean.endsWith('/')) clean += '/';
-    return `${root}${prefix}${clean}${hash}`;
+    if (clean !== '' && !HAS_EXTENSION.test(clean) && !clean.endsWith('/')) clean += '/';
+    return `${root}${clean}${hash}`;
   };
+}
+
+export const url = makeUrl(import.meta.env.BASE_URL);
+
+/** The current page's path relative to the base (e.g. "/team/"), for nav states. */
+export function sitePath(pathname: string): string {
+  const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+  const rel = pathname.startsWith(base) ? pathname.slice(base.length) : pathname.replace(/^\//, '');
+  return `/${rel}`.replace(/\/?$/, '/');
 }

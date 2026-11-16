@@ -1,10 +1,10 @@
 /**
- * View models: the typed, normalized data that themes receive.
- * Produced only by src/lib/content.ts. Themes import types from here,
- * never from astro:content or the content files.
+ * View models: the typed, normalized data the pages render.
+ * Produced only by src/lib/content.ts; pages and components import types
+ * from here, never from astro:content or the content files.
  *
- * `path` fields are site-relative page paths (e.g. "/research/x/"); themes
- * turn them into links with ctx.url(path).
+ * `path` fields are site-relative page paths (e.g. "/research/x/"); turn
+ * them into links with url(path) from src/lib/url.ts.
  */
 import type { ImageMetadata } from 'astro';
 import type { Labels, Role, SectionTitles } from './schemas';
@@ -63,7 +63,7 @@ export interface AuthorView {
 
 export interface PublicationView {
   id: string;
-  /** Position in the full reference list, 1 = newest. Stable across themes. */
+  /** Position in the full reference list, 1 = newest. Stable. */
   number: number;
   doi: string | null;
   /** Canonical link: the DOI resolver, or the open-access copy if there is no DOI. */
@@ -166,8 +166,8 @@ export interface TeamData {
   title: string;
   current: MemberView[];
   /**
-   * Current members as one list, split into rows by role, most senior first. Themes show them
-   * as a single list without role headings and start each lower role on a new line.
+   * Current members as one list, split into rows by role, most senior first. The team page shows
+   * them as a single list without role headings and start each lower role on a new line.
    */
   rows: MemberView[][];
   alumni: MemberView[];

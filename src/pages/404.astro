@@ -1,6 +1,56 @@
 ---
-import { THEME } from 'astro:env/server';
-import PageRenderer from '../lib/components/PageRenderer.astro';
+import { getSiteData } from '../lib/content';
+import { url } from '../lib/url';
+import Layout from '../layouts/Layout.astro';
+
+const site = await getSiteData();
+const { notFound } = site.labels;
+const home = site.nav.find((n) => n.key === 'home')!;
 ---
 
-<PageRenderer kind="notFound" themeId={THEME} />
+<Layout title={notFound.title}>
+  <div class="nf">
+    <svg viewBox="0 0 200 120" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id="nf-lens">
+          <circle cx="118" cy="60" r="50"></circle>
+        </clipPath>
+      </defs>
+      <circle cx="118" cy="60" r="50" fill="var(--blue)"></circle>
+      <circle cx="78" cy="62" r="50" fill="var(--pink)"></circle>
+      <circle cx="78" cy="62" r="50" fill="var(--overprint)" clip-path="url(#nf-lens)"></circle>
+    </svg>
+    <div>
+      <h1>{notFound.title}</h1>
+      <p>{notFound.body}</p>
+      <p>
+        <a href={url(home.path)}>{home.label}</a>
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .nf {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: calc(var(--gutter) * 2);
+    align-items: center;
+    max-width: 52rem;
+  }
+  svg {
+    width: 100%;
+    height: auto;
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 719px) {
+    .nf {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    svg {
+      max-width: 16rem;
+    }
+  }
+</style>

@@ -1,6 +1,102 @@
 ---
-import { THEME } from 'astro:env/server';
-import PageRenderer from '../../lib/components/PageRenderer.astro';
+import { getSiteData, getResearchData } from '../../lib/content';
+import { url } from '../../lib/url';
+import Layout from '../../layouts/Layout.astro';
+import DraftMark from '../../components/DraftMark.astro';
+import Print from '../../components/Print.astro';
+
+const site = await getSiteData();
+const data = await getResearchData();
 ---
 
-<PageRenderer kind="research" themeId={THEME} />
+<Layout title={data.title} description={data.lede}>
+  <header class="head">
+    <h1>{data.title}</h1>
+    <p class="lede">
+      {data.lede} <DraftMark placeholder={data.placeholder} />
+    </p>
+    {data.introHtml && <div class="prose" set:html={data.introHtml} />}
+  </header>
+
+  {data.projects.map((p) => (
+    <section class="spread" aria-labelledby={`p-${p.slug}`}>
+      <div class="text">
+        <h2 id={`p-${p.slug}`}>
+          <a href={url(p.path)}>{p.title}</a>
+        </h2>
+        <p class="summary">
+          {p.summary} <DraftMark placeholder={p.placeholder} />
+        </p>
+      </div>
+      <Print figure={p.figure} sizes="(min-width: 1024px) 56rem, 100vw" />
+      <p class="more">
+        <a href={url(p.path)}>
+          {site.labels.readMore}
+          <span class="sr"> {p.title}</span>
+        </a>
+      </p>
+    </section>
+  ))}
+</Layout>
+
+<style>
+  .head {
+    max-width: 44rem;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+  .lede {
+    font-size: var(--s1);
+    line-height: 1.45;
+  }
+  /* Each project is one unit under a pink rule: title, summary, figure, link. */
+  .spread {
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--pink);
+  }
+  .spread :global(.plate img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 38rem;
+  }
+  .spread:first-of-type {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .spread + .spread {
+    margin-top: clamp(4rem, 8vw, 6.5rem);
+  }
+  .text {
+    max-width: 44rem;
+    margin-bottom: 1.5rem;
+  }
+  h2 {
+    margin-bottom: 0.75rem;
+  }
+  h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  h2 a:hover {
+    text-decoration: underline;
+  }
+  .summary {
+    margin-bottom: 0;
+    font-size: var(--s1);
+    line-height: 1.45;
+  }
+  .more {
+    margin-top: 1.25rem;
+    font-weight: 700;
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+</style>

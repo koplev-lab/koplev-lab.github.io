@@ -2,13 +2,13 @@ import type { AuthorView } from './types';
 
 export interface AuthorPart {
   text: string;
-  /** True for a lab member (themes usually emphasise these). */
+  /** True for a lab member (shown in bold). */
   member: boolean;
 }
 
 /**
  * Flatten a shortened author list into text pieces with separators included,
- * so themes can render it without whitespace between elements.
+ * so it can be rendered without whitespace between elements.
  * `null` entries (omissions) become an ellipsis.
  */
 export function authorParts(authors: (AuthorView | null)[], end = '.'): AuthorPart[] {

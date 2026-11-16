@@ -1,6 +1,71 @@
 ---
-import { THEME } from 'astro:env/server';
-import PageRenderer from '../lib/components/PageRenderer.astro';
+import { getSiteData, getAboutData } from '../lib/content';
+import Layout from '../layouts/Layout.astro';
+import DraftMark from '../components/DraftMark.astro';
+
+const site = await getSiteData();
+const data = await getAboutData();
+const { sectionTitles: t } = site;
 ---
 
-<PageRenderer kind="about" themeId={THEME} />
+<Layout title={data.title} description={data.lede}>
+  <h1>{data.title}</h1>
+  <p class="lede">
+    {data.lede} <DraftMark placeholder={data.placeholder} />
+  </p>
+  <div class="prose" set:html={data.bodyHtml} />
+
+  <section class="block" aria-labelledby="about-aff">
+    <h2 id="about-aff">{t.affiliations}</h2>
+    <ul class="plain">
+      {data.affiliations.map((a) => (
+        <li>
+          <a href={a.url}>{a.name}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  {data.funders.length > 0 && (
+    <section class="block" aria-labelledby="about-funders">
+      <h2 id="about-funders">{t.funders}</h2>
+      <ul class="plain">
+        {data.funders.map((f) => (
+          <li>
+            <a href={f.url}>{f.name}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 1.75rem;
+  }
+  .lede {
+    max-width: 40rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: var(--blue-tint);
+    font-size: var(--s1);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .block {
+    margin-top: clamp(3rem, 6vw, 4.5rem);
+  }
+  .block h2 {
+    margin-bottom: 1rem;
+  }
+  .plain {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .plain a {
+    display: inline-block;
+    padding-block: 4px;
+  }
+</style>

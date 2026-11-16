@@ -1,0 +1,65 @@
+---
+/**
+ * A figure in its original colours, with a mono caption like a zine's figure
+ * note. White figure backgrounds multiply onto the paper so they don't sit in
+ * white boxes; colours are otherwise unchanged.
+ */
+import { Picture } from 'astro:assets';
+import type { Figure } from '../lib/types';
+
+interface Props {
+  figure: Figure;
+  sizes?: string | undefined;
+  /** Optional caption text (defaults to the figure's own caption). */
+  caption?: string | undefined;
+  /** Show the credit (off for small thumbnails with a nearby credit). */
+  details?: boolean | undefined;
+}
+const {
+  figure,
+  sizes = '(min-width: 1024px) 50rem, 100vw',
+  caption = figure.caption,
+  details = true,
+} = Astro.props;
+---
+
+<figure class="print">
+  <div class="plate">
+    <Picture
+      src={figure.src}
+      alt={figure.alt}
+      widths={[480, 960, 1440, 1920]}
+      sizes={sizes}
+      formats={['avif', 'webp']}
+      class="print-img"
+    />
+  </div>
+  {(caption || (details && figure.credit)) && (
+    <figcaption class="mono">
+      {caption && <span>{caption}</span>}
+      {details && figure.credit && <span class="credit">{figure.credit}</span>}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  .print {
+    margin: 0;
+  }
+  .plate :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    mix-blend-mode: multiply;
+  }
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.9em;
+    margin-top: 0.6rem;
+    max-width: 70ch;
+  }
+  .credit {
+    color: var(--overprint-soft);
+  }
+</style>

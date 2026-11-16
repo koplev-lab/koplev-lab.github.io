@@ -1,6 +1,54 @@
 ---
-import { THEME } from 'astro:env/server';
-import PageRenderer from '../lib/components/PageRenderer.astro';
+import { getSiteData, getJoinData } from '../lib/content';
+import Layout from '../layouts/Layout.astro';
+import DraftMark from '../components/DraftMark.astro';
+
+const site = await getSiteData();
+const data = await getJoinData();
+const { sectionTitles: t } = site;
 ---
 
-<PageRenderer kind="join" themeId={THEME} />
+<Layout title={data.title} description={data.lede}>
+  <h1>{data.title}</h1>
+  <p class="lede">
+    {data.lede} <DraftMark placeholder={data.placeholder} />
+  </p>
+  <div class="prose" set:html={data.bodyHtml} />
+
+  <section class="contact" aria-labelledby="join-contact">
+    <h2 id="join-contact">{t.contact}</h2>
+    <p class="email">
+      <a href={`mailto:${data.contact.email}`}>{data.contact.email}</a>
+    </p>
+    {data.contact.address && <address>{data.contact.address}</address>}
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 1.75rem;
+  }
+  .lede {
+    max-width: 40rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: var(--pink-tint);
+    font-size: var(--s1);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .contact {
+    max-width: 40rem;
+    margin-top: clamp(3rem, 6vw, 4.5rem);
+  }
+  .contact h2 {
+    margin-bottom: 0.75rem;
+  }
+  .email {
+    font-size: var(--s1);
+    font-weight: 700;
+  }
+  address {
+    font-style: normal;
+  }
+</style>

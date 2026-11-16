@@ -1,6 +1,229 @@
 ---
-import { THEME } from 'astro:env/server';
-import PageRenderer from '../lib/components/PageRenderer.astro';
+import { getSiteData, getHomeData } from '../lib/content';
+import { url } from '../lib/url';
+import StainingRun from '../components/StainingRun.astro';
+import Layout from '../layouts/Layout.astro';
+import DraftMark from '../components/DraftMark.astro';
+import Print from '../components/Print.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+
+const site = await getSiteData();
+const data = await getHomeData();
+const { sectionTitles: t, labels } = site;
+const nav = Object.fromEntries(site.nav.map((n) => [n.key, n]));
+const more = data.highlights;
 ---
 
-<PageRenderer kind="home" themeId={THEME} />
+<Layout>
+  <div class="cover">
+    <StainingRun alt={data.figure.alt} />
+  </div>
+
+  <section class="opening">
+    <div class="statement">
+      <h1>{data.tagline}</h1>
+      <DraftMark placeholder={data.placeholder} />
+    </div>
+    <div class="intro" set:html={data.introHtml} />
+  </section>
+
+  <section class="block" aria-labelledby="home-research">
+    <h2 id="home-research">{t.projects}</h2>
+    <ol class="projects">
+      {data.projects.map((p) => (
+        <li class="project">
+          <h3>
+            <a href={url(p.path)}>{p.title}</a>
+            <DraftMark placeholder={p.placeholder} />
+          </h3>
+          <div class="project-body">
+            <Print figure={p.figure} details={false} sizes="(min-width: 1024px) 34rem, 100vw" />
+            <div class="text">
+              <p>{p.summary}</p>
+              <p class="more">
+                <a href={url(p.path)}>
+                  {labels.readMore}
+                  <span class="sr"> {p.title}</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <p class="more">
+      <a href={url(nav.research!.path)}>{labels.allProjects}</a>
+    </p>
+  </section>
+
+  {more.length > 0 && (
+    <section class="block" aria-labelledby="home-highlights">
+      <h2 id="home-highlights">{t.highlights}</h2>
+      <ul class="highlights">
+        {more.map((h) => (
+          <li>
+            <Print figure={h.figure} details={false} sizes="(min-width: 1024px) 24rem, 100vw" />
+            <p class="finding">{h.blurb}</p>
+            <PublicationEntry pub={h.publication} />
+            <p class="credit mono">{h.figure.credit}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="more">
+        <a href={url(nav.publications!.path)}>{labels.allPublications}</a>
+      </p>
+    </section>
+  )}
+</Layout>
+
+<style>
+  .cover {
+    margin: 0 0 clamp(1.75rem, 3vw, 2.75rem);
+    /* H&E as two inks: hematoxylin prints blue, eosin prints pink; where they overlap the
+       nuclei multiply to the overprint colour. */
+    --hero-bg: var(--paper);
+    --hero-hematoxylin: var(--blue);
+    --hero-eosin: var(--pink);
+    --hero-unstained: #a8a294;
+  }
+  /* Statement and intro side by side under the image. */
+  .opening {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 1rem calc(var(--gutter) * 3);
+    align-items: start;
+  }
+  h1 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.6rem, 0.9rem + 1.3vw, 1.8rem);
+    line-height: 1.08;
+  }
+  .intro {
+    max-width: 34rem;
+    padding-top: 0.2rem;
+    font-size: 1.1rem;
+    line-height: 1.55;
+  }
+  .intro :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  @media (max-width: 899px) {
+    .opening {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .block {
+    margin-top: clamp(4rem, 8vw, 7rem);
+  }
+  .block h2 {
+    margin-bottom: 1.75rem;
+  }
+  .more {
+    margin-top: 1.5rem;
+    font-weight: 700;
+  }
+
+  /* Each project is one unit: a pink rule, its title, then its figure beside its summary.
+     Space between projects is much larger than space inside one, so they read as groups. */
+  .projects {
+    display: grid;
+    gap: clamp(3.5rem, 6vw, 5rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .project {
+    padding-top: 1.1rem;
+    border-top: 2px solid var(--pink);
+  }
+  .project:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .project-body {
+    display: grid;
+    /* The figure column hugs the figure, so the summary sits right beside it. */
+    grid-template-columns: fit-content(62%) minmax(16rem, 1fr);
+    gap: var(--gutter) calc(var(--gutter) * 2);
+    align-items: start;
+  }
+  .project-body :global(.plate img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 22rem;
+  }
+  .projects h3 {
+    margin-bottom: 1.25rem;
+    font-size: var(--s1);
+  }
+  .project .text p:first-child {
+    margin-top: -0.2em;
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .projects h3 a {
+    text-decoration: none;
+  }
+  .projects h3 a:hover {
+    text-decoration: underline;
+  }
+
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem calc(var(--gutter) * 2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  /* Figures share one modest height so the row stays even; never cropped. */
+  .highlights :global(.plate) {
+    display: flex;
+    align-items: flex-end;
+    height: 14rem;
+  }
+  .highlights :global(.plate picture) {
+    display: contents;
+  }
+  .highlights :global(.plate img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  @media (max-width: 1023px) {
+    .highlights {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .finding {
+    margin: 1rem 0 0.6rem;
+    font-weight: 700;
+  }
+  .credit {
+    margin-top: 0.6rem;
+    color: var(--overprint-soft);
+  }
+
+  @media (max-width: 719px) {
+    .project-body,
+    .highlights {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .highlights :global(.plate) {
+      height: auto;
+    }
+    .highlights :global(.plate img) {
+      max-height: 18rem;
+    }
+    .intro {
+      font-size: var(--s0);
+    }
+  }
+</style>

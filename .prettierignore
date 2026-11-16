@@ -2,8 +2,7 @@ dist/
 .astro/
 node_modules/
 package-lock.json
-PLAN.md
+docs/PLAN.md
 # generated data keeps its own stable formatting
 src/data/publications.json
-public/data/
-tests/screenshots/
+screenshots/

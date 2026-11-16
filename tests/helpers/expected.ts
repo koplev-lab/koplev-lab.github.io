@@ -1,6 +1,6 @@
 /**
  * Reads the content files directly (independently of the site's data layer)
- * to know which text every theme must render.
+ * to know which text the pages must render.
  */
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

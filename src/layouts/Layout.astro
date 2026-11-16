@@ -1,0 +1,252 @@
+---
+/**
+ * The page shell: a two-ink risograph zine (see docs/DESIGN.md).
+ */
+import '@fontsource-variable/chivo/wght.css';
+import '@fontsource-variable/chivo/wght-italic.css';
+import '@fontsource-variable/chivo-mono/wght.css';
+import fontUrl from '@fontsource-variable/chivo/files/chivo-latin-wght-normal.woff2?url';
+import { getSiteData } from '../lib/content';
+import { sitePath, url } from '../lib/url';
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/print.css';
+
+interface Props {
+  /** Page title. Omit on the home page to use the lab name alone. */
+  title?: string | undefined;
+  description?: string | undefined;
+}
+
+const site = await getSiteData();
+const { title, description = site.description } = Astro.props;
+const fullTitle = title ? `${title} · ${site.labName}` : site.labName;
+/** Favicons live in public/ (made by scripts/make-favicons.mjs). */
+const root = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const currentPath = sitePath(Astro.url.pathname);
+const current = (path: string) =>
+  currentPath === path ? 'page' : path !== '/' && currentPath.startsWith(path) ? 'true' : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href={`${root}favicon.svg`} type="image/svg+xml" />
+    <link rel="icon" href={`${root}favicon-32.png`} sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href={`${root}apple-touch-icon.png`} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={site.labName} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <link rel="preload" href={fontUrl} as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      {site.labels.skipToContent}
+    </a>
+    <div class="page">
+      <header class="masthead">
+        <a class="lockup" href={url('/')}>
+          {site.logoSvg && <span class="mark" aria-hidden="true" set:html={site.logoSvg} />}
+          <span class="wordmark">
+            <span class="ink-pink" aria-hidden="true">
+              {site.labName}
+            </span>
+            <span class="ink-blue">{site.labName}</span>
+          </span>
+        </a>
+        <nav aria-label={site.labels.mainNav}>
+          <ul>
+            {site.nav.map((item) => (
+              <li>
+                <a href={url(item.path)} aria-current={current(item.path)}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </header>
+      <main id="main">
+        <slot />
+      </main>
+      <footer class="colophon mono">
+        <ul>
+          {site.affiliations.map((a) => (
+            <li>
+              <a href={a.url}>{a.name}</a>
+            </li>
+          ))}
+          <li>
+            <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+          </li>
+        </ul>
+        {site.contact.address && <address>{site.contact.address}</address>}
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  .skip {
+    position: absolute;
+    left: var(--margin);
+    top: -100px;
+    padding: 6px 10px;
+    background: var(--paper);
+  }
+  .skip:focus {
+    top: 8px;
+  }
+
+  .page {
+    max-width: var(--page-max);
+    margin-inline: auto;
+    padding-inline: var(--margin);
+  }
+
+  /* Top bar: lab name left, sections right, a rule of pink ink beneath. */
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 2.5rem;
+    margin-bottom: clamp(1.75rem, 3.5vw, 3rem);
+    padding: clamp(1.25rem, 3vw, 2rem) 0 0.9rem;
+    border-bottom: 2px solid var(--pink);
+    font-weight: 700;
+  }
+  .lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .lockup:hover {
+    background: none;
+  }
+
+  /*
+   * The wordmark, printed in two inks: a Fluorescent Pink impression slightly off
+   * register under the Blue one; where they overlap they overprint to navy.
+   * Kept smaller than the home tagline so the science stays the largest statement.
+   */
+  .wordmark {
+    position: relative;
+    display: inline-grid;
+    font-family: var(--sans);
+    font-weight: 900;
+    font-size: clamp(1.45rem, 1rem + 1vw, 1.65rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    isolation: isolate;
+  }
+  .wordmark > span {
+    grid-area: 1 / 1;
+    white-space: nowrap;
+  }
+  .ink-pink {
+    color: var(--pink);
+    transform: translate(3px, 2px);
+    transition: transform 160ms ease-out;
+  }
+  .ink-blue {
+    color: var(--blue);
+    mix-blend-mode: multiply;
+  }
+  .lockup:hover .ink-pink,
+  .lockup:focus-visible .ink-pink {
+    transform: translate(5px, 3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ink-pink {
+      transition: none;
+    }
+  }
+  /* The mark prints in both inks: pink multiplied over blue, so the arrow comes out in overprint. */
+  .mark {
+    display: block;
+    --mark-blue: var(--blue);
+    --mark-pink: var(--pink);
+    --mark-blend: multiply;
+  }
+  .mark :global(svg) {
+    display: block;
+    height: 40px;
+    width: auto;
+  }
+  .masthead ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .masthead nav a {
+    display: inline-block;
+    padding-block: 4px;
+    text-decoration: none;
+  }
+  .masthead nav a:hover {
+    text-decoration: underline;
+    background: none;
+  }
+  /* Current page: a stroke of pink ink through the bottom of the word. */
+  .masthead nav a[aria-current] {
+    text-decoration-line: underline;
+    text-decoration-color: var(--pink);
+    text-decoration-thickness: 0.45em;
+    text-underline-offset: -0.2em;
+    text-decoration-skip-ink: none;
+  }
+
+  main {
+    min-width: 0;
+  }
+
+  .colophon {
+    margin-top: 6rem;
+    padding: 1.25rem 0 2.5rem;
+    border-top: 2px solid var(--pink);
+    color: var(--overprint-soft);
+  }
+  .colophon ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .colophon a {
+    display: inline-block;
+    padding-block: 4px;
+    color: var(--overprint-soft);
+  }
+  .colophon address {
+    margin-top: 0.5rem;
+    font-style: normal;
+  }
+
+  @media (max-width: 719px) {
+    .masthead {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .masthead ul {
+      column-gap: 1.25rem;
+    }
+    .masthead nav a {
+      padding-block: 6px;
+    }
+  }
+</style>

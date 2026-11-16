@@ -18,13 +18,9 @@ jobs:
         run: npm run format:check
       - name: Type check
         run: npm run check
-      - name: Build active theme
+      - name: Build
         run: npm run build
-      - name: Build all themes (preview mode)
-        run: npm run build
-        env:
-          PREVIEW_THEMES: 'true'
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
-      - name: Tests (parity, links, accessibility, third-party URLs, JS budget)
+      - name: Tests (content, links, accessibility, third-party URLs, JS budget)
         run: npm test

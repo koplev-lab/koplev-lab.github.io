@@ -1,0 +1,52 @@
+---
+/** Square portrait in original colours; no photo yet: two overprinting circles. */
+import { Picture } from 'astro:assets';
+import type { MemberView } from '../lib/types';
+
+interface Props {
+  member: MemberView;
+  sizes?: string | undefined;
+}
+const { member, sizes = '(min-width: 1024px) 14rem, 45vw' } = Astro.props;
+const id = `lens-${member.slug}`;
+---
+
+<div class="portrait">
+  {member.photo ? (
+    <Picture
+      src={member.photo.src}
+      alt={member.photo.alt}
+      widths={[240, 480, 720]}
+      sizes={sizes}
+      formats={['avif', 'webp']}
+      class="print-img"
+    />
+  ) : (
+    <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id={id}>
+          <circle cx="61" cy="50" r="34" />
+        </clipPath>
+      </defs>
+      <circle cx="61" cy="50" r="34" fill="var(--blue)" />
+      <circle cx="39" cy="51" r="34" fill="var(--pink)" />
+      <circle cx="39" cy="51" r="34" fill="var(--overprint)" clip-path={`url(#${id})`} />
+    </svg>
+  )}
+</div>
+
+<style>
+  .portrait {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .portrait :global(picture),
+  .portrait :global(img),
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

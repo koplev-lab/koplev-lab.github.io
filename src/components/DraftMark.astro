@@ -1,0 +1,23 @@
+---
+/** Quiet "draft" marker on placeholder content; shown only in `npm run dev`. */
+import { getSiteData } from '../lib/content';
+
+interface Props {
+  placeholder: boolean;
+}
+const { placeholder } = Astro.props;
+const { labels } = await getSiteData();
+---
+
+{import.meta.env.DEV && placeholder && <span class="draft mono">{labels.draft}</span>}
+
+<style>
+  .draft {
+    display: inline-block;
+    padding: 0 0.4em;
+    background: var(--pink-tint);
+    color: var(--overprint);
+    font-weight: 400;
+    vertical-align: 0.15em;
+  }
+</style>

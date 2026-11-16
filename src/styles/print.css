@@ -1,0 +1,32 @@
+@layer print {
+  @media print {
+    :root {
+      font-size: 10.5pt;
+      & body {
+        background: #ffffff;
+        color: #000000;
+      }
+      & h1,
+      & h2,
+      & h3,
+      & a {
+        color: #000000;
+      }
+      & .masthead nav,
+      & .skip {
+        display: none !important;
+      }
+      & .print-img {
+        max-height: 70mm;
+        width: auto !important;
+      }
+      & .portrait {
+        max-width: 30mm;
+      }
+      & section,
+      & li {
+        break-inside: avoid;
+      }
+    }
+  }
+}

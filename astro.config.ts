@@ -1,11 +1,10 @@
-import { defineConfig, envField } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import placeholderReport from './src/integrations/placeholder-report';
-import { THEME_IDS } from './src/themes/ids';
-import { DEFAULT_THEME, PLACEHOLDER_SITE_URL } from './src/site.config';
+import { PLACEHOLDER_SITE_URL } from './src/site.config';
 
-// astro:env is not available inside this file, so SITE_URL and BASE_PATH
-// are read from the process environment (set by CI or your shell).
+// SITE_URL and BASE_PATH come from the shell or CI, e.g.
+//   SITE_URL=https://example.org BASE_PATH=/website npm run build
 const site = process.env.SITE_URL || PLACEHOLDER_SITE_URL;
 const base = process.env.BASE_PATH || '/';
 
@@ -14,28 +13,7 @@ export default defineConfig({
   base,
   output: 'static',
   // Collapse whitespace like HTML (Astro 7 defaults to JSX-style removal, which drops
-  // spaces between inline elements and is easy to get wrong in themes).
+  // spaces between inline elements).
   compressHTML: true,
-  integrations: [
-    sitemap({
-      // Theme preview pages are not meant to be indexed.
-      filter: (page) => !new URL(page).pathname.includes('/themes/'),
-    }),
-    placeholderReport(),
-  ],
-  env: {
-    schema: {
-      THEME: envField.enum({
-        context: 'server',
-        access: 'public',
-        values: [...THEME_IDS],
-        default: DEFAULT_THEME,
-      }),
-      PREVIEW_THEMES: envField.boolean({
-        context: 'server',
-        access: 'public',
-        default: false,
-      }),
-    },
-  },
+  integrations: [sitemap(), placeholderReport()],
 });

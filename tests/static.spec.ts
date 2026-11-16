@@ -1,6 +1,5 @@
 /**
- * Static checks on the build output and source: no third-party requests,
- * the JS budget, and theme isolation from the content layer.
+ * Static checks on the build output: no third-party requests and the JS budget.
  */
 import { gzipSync } from 'node:zlib';
 import { readFileSync } from 'node:fs';
@@ -45,8 +44,7 @@ test('JS budget: none on inner pages, home within budget', () => {
     const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].filter(
       ([, attrs]) => !/type="application\/(ld\+)?json"/.test(attrs!),
     );
-    const isHome = url === BASE || /\/themes\/[^/]+\/$/.test(url);
-    if (!isHome) {
+    if (url !== BASE) {
       if (scripts.length) problems.push(`${url}: ${scripts.length} script(s) on a non-home page`);
       continue;
     }
@@ -62,11 +60,4 @@ test('JS budget: none on inner pages, home within budget', () => {
       problems.push(`${url}: ${bytes} bytes gzipped JS (budget ${HOME_JS_BUDGET})`);
   }
   expect(problems).toEqual([]);
-});
-
-test('themes never import the content layer directly', () => {
-  const offenders = walk(join(process.cwd(), 'src/themes'), /\.(astro|ts)$/).filter((f) =>
-    /from\s+['"](astro:content|[^'"]*\/(content|data)\/[^'"]*)['"]/.test(read(f)),
-  );
-  expect(offenders).toEqual([]);
 });

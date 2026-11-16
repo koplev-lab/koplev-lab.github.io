@@ -1,0 +1,47 @@
+---
+import type { PublicationView } from '../lib/types';
+import { authorParts } from '../lib/authors';
+import { getSiteData } from '../lib/content';
+
+interface Props {
+  pub: PublicationView;
+  /** Leave out the title (when a heading above already shows it). */
+  hideTitle?: boolean | undefined;
+}
+const { pub, hideTitle = false } = Astro.props;
+const { labels } = await getSiteData();
+const authors = authorParts(pub.authorsBrief);
+---
+
+<p class="ref">
+  <span class="authors">{authors.map((a) => (a.member ? <strong>{a.text}</strong> : a.text))}</span>
+  {!hideTitle &&
+    (pub.url ? (
+      <a class="title" href={pub.url} set:text={`${pub.title}.`} />
+    ) : (
+      <span class="title" set:text={`${pub.title}.`} />
+    ))}
+  {pub.venue && <em>{pub.venue}</em>}
+  <span>({pub.year}).</span>
+  {hideTitle && pub.url && <a href={pub.url}>{`doi:${pub.doi}`}</a>}
+  {pub.isPreprint && <span class="tag mono">{labels.preprint}</span>}
+  {pub.preprintUrl && <a href={pub.preprintUrl}>{labels.preprint}</a>}
+</p>
+
+<style>
+  .ref {
+    margin: 0;
+    font-size: var(--s-1);
+    line-height: 1.5;
+  }
+  .authors strong {
+    font-weight: 700;
+  }
+  .title {
+    font-weight: 700;
+  }
+  .tag {
+    padding: 0 0.35em;
+    background: var(--blue-tint);
+  }
+</style>

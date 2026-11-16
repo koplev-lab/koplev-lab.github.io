@@ -1,4 +1,4 @@
-/** Axe: no serious or critical violations on any page of any theme. */
+/** Axe: no serious or critical violations on any page. */
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { pages } from './helpers/dist';

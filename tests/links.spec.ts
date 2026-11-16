@@ -1,4 +1,4 @@
-/** No broken internal links, image sources or in-page anchors in any theme. */
+/** No broken internal links, image sources or in-page anchors. */
 import { expect, test } from '@playwright/test';
 import { BASE } from './helpers/config';
 import { pages, read, resolveInternal } from './helpers/dist';

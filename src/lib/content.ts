@@ -1,6 +1,6 @@
 /**
  * The data layer: the only module that reads content collections and data
- * files. Returns normalized view models (src/lib/types.ts) for themes.
+ * files. Returns normalized view models (src/lib/types.ts) for the pages.
  */
 import { getCollection, type CollectionEntry } from 'astro:content';
 import publicationsFile from '../data/publications.json';
