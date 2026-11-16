@@ -99,7 +99,7 @@ content:
           media: portraits
       - name: photoAlt
         label: Photo description
-        description: Required with a photo, e.g. "Simon Koplev in the lab". Read aloud by screen readers.
+        description: Read aloud by screen readers. Leave empty to use the person's name.
         type: string
       - name: order
         label: Order

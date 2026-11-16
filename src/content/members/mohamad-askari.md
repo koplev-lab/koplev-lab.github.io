@@ -2,6 +2,7 @@
 name: Mohamad Askari
 role: Research assistant
 photo: ../../assets/images/team/MohamadAskari.jpg
+photoAlt: Mohamad Askari
 order: 2
 current: true
 placeholder: true

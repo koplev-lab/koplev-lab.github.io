@@ -17,8 +17,8 @@ Every **Save** publishes the change. The site rebuilds by itself and is live at
 <https://koplev-lab.github.io> about **two minutes** later. Each save is kept in the site's
 history, so nothing is ever lost and any change can be undone.
 
-If the site doesn't update, a field may not have passed the site's checks (for example a photo
-without a description). Ask Mo; he can see what went wrong.
+If the site doesn't update, a field may not have passed the site's checks (for example a
+featured publication whose entry was removed). Ask Mo; he can see what went wrong.
 
 ## Common tasks
 
@@ -26,13 +26,13 @@ without a description). Ask Mo; he can see what went wrong.
 
 **People** → **Add an entry**. Fill in name, role and order (lower numbers come first within a
 role), and write a short bio: 3–4 sentences, academic background then research interests. Add a
-photo if you have one (square works best) and a one-line photo description, e.g. "Yishan Hu".
+photo if you have one (square works best); the photo description defaults to the person's name.
 Without a photo the site shows the two-circle placeholder.
 
 ### Update a bio or swap a photo
 
 **People** → click the person → edit → **Save**. To change the photo, click it and upload a new
-one; remember to update the description.
+one.
 
 ### Someone leaves (alumni)
 

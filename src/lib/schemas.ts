@@ -148,31 +148,27 @@ export const siteSchema = (image: ImageHelper) =>
 /* --------------------------------------------------------------- members */
 
 export const memberSchema = (image: ImageHelper) =>
-  z
-    .object({
-      name: text(),
-      role: z.enum(ROLES),
-      photo: image().optional(),
-      photoAlt: z.string().optional(),
-      order: z.number().int().default(100),
-      current: z.boolean().default(true),
-      /** Alumni only: the confirmed position the person moved on to. Never a pending application. */
-      nextPosition: z.string().trim().min(1).optional(),
-      orcid: z
-        .string()
-        .regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/, 'Expected an ORCID iD like 0000-0002-1825-0097')
-        .optional(),
-      github: z.string().optional(),
-      scholar: url().optional(),
-      website: url().optional(),
-      email: z.email().optional(),
-      startYear: z.number().int().min(1990).max(2100).optional(),
-      placeholder: placeholder(),
-    })
-    .refine((m) => !m.photo || (m.photoAlt && m.photoAlt.trim().length > 0), {
-      message: 'photoAlt is required when a photo is set',
-      path: ['photoAlt'],
-    });
+  z.object({
+    name: text(),
+    role: z.enum(ROLES),
+    photo: image().optional(),
+    /** Text alternative for the photo. Defaults to the person's name. */
+    photoAlt: z.string().optional(),
+    order: z.number().int().default(100),
+    current: z.boolean().default(true),
+    /** Alumni only: the confirmed position the person moved on to. Never a pending application. */
+    nextPosition: z.string().trim().min(1).optional(),
+    orcid: z
+      .string()
+      .regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/, 'Expected an ORCID iD like 0000-0002-1825-0097')
+      .optional(),
+    github: z.string().optional(),
+    scholar: url().optional(),
+    website: url().optional(),
+    email: z.email().optional(),
+    startYear: z.number().int().min(1990).max(2100).optional(),
+    placeholder: placeholder(),
+  });
 
 /* -------------------------------------------------------------- projects */
 

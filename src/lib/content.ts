@@ -146,7 +146,7 @@ export const getMembers = memo(async (): Promise<MemberView[]> => {
       slug: id,
       name: m.name,
       role: m.role,
-      photo: m.photo ? { src: m.photo, alt: m.photoAlt ?? '' } : null,
+      photo: m.photo ? { src: m.photo, alt: m.photoAlt?.trim() || m.name } : null,
       bioHtml: html(rest),
       links,
       ...(m.orcid ? { orcid: m.orcid } : {}),
