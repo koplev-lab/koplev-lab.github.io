@@ -10,7 +10,7 @@ Cells are the basic units of life, but they do their work by organising into tis
 
 Comparing cells and their tissue niches across organs and diseases, with a focus on immune-related structures, gives a broad view of human cell biology. Better models of how the genome is regulated in different cellular contexts should also help explain how the risk of complex disease is inherited.
 
-## How we work
+## Our work
 
 Single-cell and spatial omics now measure the molecular state of individual cells where they sit in the tissue. Making sense of these data is a computational problem, and machine learning is a large part of how we approach it. Doing this well takes people with different skills working on the same questions.
 
