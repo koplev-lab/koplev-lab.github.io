@@ -3,6 +3,8 @@ name: Simon Koplev
 role: PI
 order: 0
 current: true
+photo: ../../assets/images/team/SimonKoplev.png
+photoAlt: Simon Koplev
 orcid: 0000-0002-8586-5614
 scholar: https://scholar.google.com/citations?user=Gw09nY4AAAAJ&hl=en
 email: simon.koplev@scilifelab.se

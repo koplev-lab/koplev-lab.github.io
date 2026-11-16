@@ -65,6 +65,12 @@ async function single<C extends 'site' | 'home' | 'research' | 'team' | 'about' 
 
 const html = (entry: { rendered?: { html: string } }) => entry.rendered?.html ?? '';
 
+/**
+ * An entry id from a reference: "simon-koplev", "simon-koplev.md" (as Pages CMS writes it) or
+ * "src/content/members/simon-koplev.md" all give "simon-koplev".
+ */
+const slugOf = (ref: string) => ref.replace(/^.*\//, '').replace(/\.md$/, '');
+
 /** Lower-case, strip accents and punctuation: "Bára Vavřinková" → "bara vavrinkova". */
 const normName = (s: string) =>
   s
@@ -273,7 +279,7 @@ export async function getProjectData(slug: string): Promise<ProjectData> {
 
   const members = await getMembers();
   const bySlug = new Map(members.map((m) => [m.slug, m]));
-  const projectMembers = entry.data.members.map((s) => {
+  const projectMembers = entry.data.members.map(slugOf).map((s) => {
     const m = bySlug.get(s);
     if (!m) throw new Error(`Project "${slug}" lists unknown member "${s}"`);
     return m;
@@ -368,7 +374,7 @@ export async function getHomeData(): Promise<HomeData> {
   const pick = <T extends { slug?: string; id?: string }>(all: T[], ids: string[], kind: string) =>
     ids.length === 0
       ? all
-      : ids.map((id) => {
+      : ids.map(slugOf).map((id) => {
           const found = all.find((x) => (x.slug ?? x.id) === id);
           if (!found) throw new Error(`home.md features unknown ${kind} "${id}"`);
           return found;

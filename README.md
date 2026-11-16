@@ -3,6 +3,10 @@
 Public website of the Koplev Lab (KTH Royal Institute of Technology · SciLifeLab). A static site
 built with [Astro](https://astro.build); no server, database or third-party scripts.
 
+- Live site: <https://koplev-lab.github.io>
+- Edit content: [Pages CMS](https://app.pagescms.org), guide in [docs/EDITING.md](docs/EDITING.md)
+- Hosting, deploys and CMS setup: [docs/DEVELOPING.md](docs/DEVELOPING.md)
+
 ## Getting started
 
 Requires Node (version in `.nvmrc`).
@@ -32,6 +36,7 @@ Set `SITE_URL` and `BASE_PATH` in the shell when building for a sub-path, e.g.
 | `tests/`          | Content, link, accessibility and static-output checks              |
 | `scripts/`        | Publications fetch, favicons, screenshots, test server             |
 | `docs/DESIGN.md`  | The design brief and the decisions behind it                       |
+| `.pages.yml`      | Pages CMS forms for every content file                             |
 
 Content marked `placeholder: true` is a draft awaiting Simon's approval. Nothing on the site marks
 it; every build lists these files at the end.
@@ -58,7 +63,7 @@ build run) after the closing date. Old files can stay; they are simply not shown
 lab, and add `nextPosition` (e.g. `Master's student, Karolinska Institutet`) once it is confirmed.
 Never list pending applications.
 
-**Group photos.** Save the photo in `src/assets/images/team/` and add it under `photos` in
+**Group photos.** Save the photo in `src/assets/images/group/` and add it under `photos` in
 `src/content/pages/team.md` (the file has an example). Photos appear at the top of the People page.
 
 **Hold back a highlight.** A file in `src/content/highlights/` whose name starts with `_` is not

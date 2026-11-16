@@ -1,0 +1,575 @@
+# Pages CMS configuration (https://pagescms.org): the forms Simon and the lab use to edit the site.
+# Every field mirrors the Zod schemas in src/lib/schemas.ts; keep the two in sync.
+#
+# Image paths: Astro needs paths relative to the content file, so each media folder writes a
+# relative `output` that matches the depth of the files that use it.
+
+settings:
+  content:
+    # Keep keys that a form does not show (several forms edit parts of site.yaml).
+    merge: true
+  commit:
+    # Commit each save under the editor's own name, not the Pages CMS app.
+    identity: user
+
+media:
+  - name: portraits
+    label: Portraits
+    input: src/assets/images/team
+    output: ../../assets/images/team
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
+  - name: group-photos
+    label: Group photos
+    input: src/assets/images/group
+    output: ../../assets/images/group
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
+  - name: project-figures
+    label: Project figures
+    input: src/assets/images/projects
+    output: ../../assets/images/projects
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
+  - name: publication-figures
+    label: Publication figures
+    input: src/assets/images/publications
+    output: ../../assets/images/publications
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
+  - name: funder-logos
+    label: Funder logos
+    input: src/assets/funders
+    output: ../assets/funders
+    extensions: [svg, png, jpg, jpeg, webp]
+    rename: safe
+
+content:
+  # ------------------------------------------------------------------ people
+  - name: members
+    label: People
+    description: Current members and alumni. One entry per person.
+    type: collection
+    path: src/content/members
+    format: yaml-frontmatter
+    filename: '{fields.name}.md'
+    view:
+      primary: name
+      fields: [name, role, current]
+      sort: [order, name]
+      search: [name, role]
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: role
+        label: Role
+        description: For alumni, the position they held in the lab.
+        type: select
+        required: true
+        options:
+          values:
+            [
+              PI,
+              Postdoc,
+              PhD student,
+              Research engineer,
+              Research assistant,
+              Master student,
+              Bachelor student,
+              Summer intern,
+              Visiting,
+              Alumni,
+            ]
+      - name: current
+        label: Current member
+        description: Turn off when someone leaves; they move to the Alumni list.
+        type: boolean
+        default: true
+      - name: nextPosition
+        label: Next position (alumni only)
+        description: Only a confirmed position, e.g. "Master's student, Karolinska Institutet". Never a pending application.
+        type: string
+      - name: photo
+        label: Photo
+        description: Square crop works best. Without a photo the site shows the two-circle placeholder.
+        type: image
+        options:
+          media: portraits
+      - name: photoAlt
+        label: Photo description
+        description: Required with a photo, e.g. "Simon Koplev in the lab". Read aloud by screen readers.
+        type: string
+      - name: order
+        label: Order
+        description: Lower numbers come first within the same role.
+        type: number
+        default: 100
+      - name: orcid
+        label: ORCID iD
+        description: Like 0000-0002-1825-0097
+        type: string
+        pattern:
+          regex: '^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$'
+          message: Expected an ORCID iD like 0000-0002-1825-0097
+      - name: github
+        label: GitHub username
+        type: string
+      - name: scholar
+        label: Google Scholar URL
+        type: string
+      - name: website
+        label: Website URL
+        type: string
+      - name: email
+        label: Email
+        type: string
+      - name: startYear
+        label: Start year
+        type: number
+      - name: placeholder
+        label: Awaiting Simon's approval
+        description: Not shown on the site; the build lists entries that are still waiting.
+        type: boolean
+        default: false
+      - name: body
+        label: Bio
+        description: 3–4 sentences, academic background then research interests.
+        type: rich-text
+        options:
+          media: false
+
+  # ---------------------------------------------------------------- research
+  - name: projects
+    label: Research projects
+    type: collection
+    path: src/content/projects
+    format: yaml-frontmatter
+    filename: '{fields.title}.md'
+    view:
+      primary: title
+      fields: [title, order]
+      sort: [order, title]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: summary
+        label: Summary
+        description: One plain sentence.
+        type: text
+        required: true
+      - name: image
+        label: Figure
+        type: image
+        required: true
+        options:
+          media: project-figures
+      - name: imageAlt
+        label: Figure description
+        description: What the figure shows, for screen readers.
+        type: text
+        required: true
+      - name: imageCaption
+        label: Caption
+        type: text
+        required: true
+      - name: imageSource
+        label: Short source
+        description: Shown under the figure, e.g. "Koplev et al., Nat. Immunol. 2026".
+        type: string
+      - name: imageCredit
+        label: Full credit
+        description: Listed under Figure credits on the About page, with any changes made, e.g. "…, Fig. 2b, cropped".
+        type: string
+      - name: imageLicense
+        label: Figure licence
+        type: select
+        options:
+          values: [CC BY 4.0, CC BY-NC-ND 4.0]
+      - name: members
+        label: People
+        type: reference
+        options:
+          collection: members
+          multiple: true
+          value: '{name}'
+          label: '{fields.name}'
+          search: name
+      - name: publications
+        label: Related publications (DOIs)
+        description: e.g. 10.1038/s41586-024-07571-1. The paper must be in the publications list.
+        type: string
+        list: true
+      - name: repo
+        label: Code repository URL
+        type: string
+      - name: order
+        label: Order
+        type: number
+        default: 100
+      - name: placeholder
+        label: Awaiting Simon's approval
+        type: boolean
+        default: false
+      - name: body
+        label: Description
+        description: Use the headings Question, Approach and Why it matters.
+        type: rich-text
+        options:
+          media: false
+
+  - name: highlights
+    label: Selected publications
+    description: Papers shown with a figure on the Publications page. A file whose name starts with "_" is kept off the site.
+    type: collection
+    path: src/content/highlights
+    format: yaml-frontmatter
+    filename: '{fields.doi}.md'
+    view:
+      fields: [doi, order]
+      sort: [order]
+    fields:
+      - name: doi
+        label: DOI
+        description: e.g. 10.1038/s41586-024-07571-1. The paper must be in the publications list.
+        type: string
+        required: true
+      - name: image
+        label: Figure
+        type: image
+        required: true
+        options:
+          media: publication-figures
+      - name: imageAlt
+        label: Figure description
+        type: text
+        required: true
+      - name: imageKind
+        label: Image kind
+        type: select
+        required: true
+        default: figure
+        options:
+          values: [figure, cover]
+      - name: imageCredit
+        label: Full credit
+        description: Listed under Figure credits on the About page.
+        type: string
+        required: true
+      - name: imageLicense
+        label: Figure licence
+        type: select
+        options:
+          values: [CC BY 4.0, CC BY-NC-ND 4.0]
+      - name: blurb
+        label: Finding
+        description: One or two plain sentences.
+        type: text
+        required: true
+      - name: order
+        label: Order
+        type: number
+        default: 100
+      - name: placeholder
+        label: Awaiting Simon's approval
+        type: boolean
+        default: false
+
+  # --------------------------------------------------------------- positions
+  - name: positions
+    label: Job ads
+    description: Shown on the Join page and the home page until the deadline has passed.
+    type: collection
+    path: src/content/positions
+    format: yaml-frontmatter
+    filename: '{fields.title}.md'
+    view:
+      primary: title
+      fields: [title, deadline]
+      sort: [deadline]
+    fields:
+      - name: title
+        label: Title
+        description: As advertised.
+        type: string
+        required: true
+      - name: url
+        label: Link to the advertisement
+        type: string
+        required: true
+      - name: deadline
+        label: Last day to apply
+        type: date
+        required: true
+      - name: summary
+        label: Summary
+        description: One or two plain sentences.
+        type: text
+        required: true
+      - name: placeholder
+        label: Awaiting Simon's approval
+        type: boolean
+        default: false
+
+  # ------------------------------------------------------------------- pages
+  - name: home
+    label: 'Page: Home'
+    type: file
+    path: src/content/pages/home.md
+    format: yaml-frontmatter
+    fields:
+      - name: figureTitle
+        label: Hero figure title
+        type: string
+        required: true
+      - name: figureCaption
+        label: Hero figure caption
+        type: text
+        required: true
+      - name: figureAlt
+        label: Hero figure description
+        type: text
+        required: true
+      - name: featuredProjects
+        label: Featured projects
+        description: Leave empty to show all projects.
+        type: reference
+        options:
+          collection: projects
+          multiple: true
+          value: '{name}'
+          label: '{fields.title}'
+          search: title
+      - name: featuredHighlights
+        label: Featured publications
+        description: Three work best. Leave empty to show all.
+        type: reference
+        options:
+          collection: highlights
+          multiple: true
+          value: '{name}'
+          label: '{fields.doi}'
+          search: doi
+      - name: placeholder
+        label: Awaiting Simon's approval
+        type: boolean
+      - name: body
+        label: Introduction
+        type: rich-text
+        options:
+          media: false
+
+  - name: research
+    label: 'Page: Research'
+    type: file
+    path: src/content/pages/research.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: lede, label: Lede, type: text, required: true }
+      - { name: placeholder, label: "Awaiting Simon's approval", type: boolean }
+      - { name: body, label: Introduction, type: rich-text, options: { media: false } }
+
+  - name: team
+    label: 'Page: People'
+    type: file
+    path: src/content/pages/team.md
+    format: yaml-frontmatter
+    fields:
+      - name: photos
+        label: Group photos
+        description: Shown at the top of the People page, in this order.
+        type: object
+        list: true
+        fields:
+          - name: image
+            label: Photo
+            type: image
+            required: true
+            options:
+              media: group-photos
+          - name: alt
+            label: Photo description
+            description: Who is in it and where, e.g. "The lab on the steps outside SciLifeLab".
+            type: text
+            required: true
+          - name: caption
+            label: Caption
+            type: string
+            required: true
+          - name: credit
+            label: Photo credit
+            type: string
+      - { name: placeholder, label: "Awaiting Simon's approval", type: boolean }
+
+  - name: about
+    label: 'Page: About'
+    type: file
+    path: src/content/pages/about.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: lede, label: Lede, type: text, required: true }
+      - { name: placeholder, label: "Awaiting Simon's approval", type: boolean }
+      - { name: body, label: Text, type: rich-text, options: { media: false } }
+
+  - name: join
+    label: 'Page: Join us'
+    type: file
+    path: src/content/pages/join.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: lede, label: Lede, type: text, required: true }
+      - { name: placeholder, label: "Awaiting Simon's approval", type: boolean }
+      - { name: body, label: Text, type: rich-text, options: { media: false } }
+
+  # -------------------------------------------------------------- site.yaml
+  # Two forms over one file: lab details (often edited) and interface wording (rarely).
+  - name: lab
+    label: Lab details and funders
+    type: file
+    path: src/content/site.yaml
+    format: yaml
+    fields:
+      - { name: labName, label: Lab name, type: string, required: true }
+      - name: tagline
+        label: Tagline
+        description: The one-sentence statement on the home page.
+        type: text
+        required: true
+      - { name: piName, label: PI name, type: string, required: true }
+      - name: description
+        label: Description
+        description: Used by search engines and link previews.
+        type: text
+        required: true
+      - name: affiliations
+        label: Affiliations
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - { name: url, label: URL, type: string, required: true }
+      - name: fundersNote
+        label: Thank-you note to funders
+        type: text
+        required: true
+      - name: funders
+        label: Funders
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - { name: url, label: Website, type: string }
+          - name: logo
+            label: Logo
+            description: Single-colour logos look best (printed in the site's navy ink).
+            type: image
+            options:
+              media: funder-logos
+          - { name: logoAlt, label: Logo description, type: string }
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - { name: email, label: Email, type: string, required: true }
+          - { name: address, label: Address, type: text }
+          - { name: mapUrl, label: Map link, type: string }
+      - name: social
+        label: Profile links (footer)
+        type: object
+        fields:
+          - { name: github, label: GitHub, type: string }
+          - { name: scholar, label: Google Scholar, type: string }
+          - { name: linkedin, label: LinkedIn, type: string }
+          - { name: x, label: X, type: string }
+          - { name: bluesky, label: Bluesky, type: string }
+          - { name: mastodon, label: Mastodon, type: string }
+      - { name: placeholder, label: "Awaiting Simon's approval", type: boolean }
+
+  - name: wording
+    label: Interface wording
+    description: Menu labels, section titles and small bits of text used across the site.
+    type: file
+    path: src/content/site.yaml
+    format: yaml
+    fields:
+      - name: nav
+        label: Menu
+        type: object
+        fields:
+          - { name: home, type: string, required: true }
+          - { name: research, type: string, required: true }
+          - { name: publications, type: string, required: true }
+          - { name: team, label: People, type: string, required: true }
+          - { name: about, type: string, required: true }
+          - { name: join, type: string, required: true }
+      - name: sectionTitles
+        label: Section titles
+        type: object
+        fields:
+          - { name: projects, type: string, required: true }
+          - { name: highlights, type: string, required: true }
+          - { name: allPublications, type: string, required: true }
+          - { name: currentMembers, type: string, required: true }
+          - { name: alumni, type: string, required: true }
+          - { name: vision, type: string, required: true }
+          - { name: contact, type: string, required: true }
+          - { name: affiliations, type: string, required: true }
+          - { name: funders, type: string, required: true }
+          - { name: projectPeople, type: string, required: true }
+          - { name: projectPublications, type: string, required: true }
+          - { name: positions, type: string, required: true }
+          - { name: figureCredits, type: string, required: true }
+          - { name: groupPhotos, type: string, required: true }
+      - name: labels
+        label: Small text
+        type: object
+        fields:
+          - { name: skipToContent, type: string, required: true }
+          - { name: mainNav, type: string, required: true }
+          - { name: illustrativeData, type: string, required: true }
+          - { name: readMore, type: string, required: true }
+          - { name: allProjects, type: string, required: true }
+          - { name: allPublications, type: string, required: true }
+          - { name: overview, type: string, required: true }
+          - { name: preprint, type: string, required: true }
+          - { name: openAccess, type: string, required: true }
+          - { name: code, type: string, required: true }
+          - { name: etAl, type: string, required: true }
+          - { name: noAlumni, type: string, required: true }
+          - name: alumni
+            label: Alumni table headings
+            type: object
+            fields:
+              - { name: name, type: string, required: true }
+              - { name: role, type: string, required: true }
+              - { name: next, type: string, required: true }
+          - { name: noPositions, type: text, required: true }
+          - { name: deadline, type: string, required: true }
+          - { name: positionAd, type: string, required: true }
+          - { name: hiring, type: string, required: true }
+          - { name: figureCredits, type: string, required: true }
+          - name: links
+            label: Link names
+            type: object
+            fields:
+              - { name: orcid, type: string, required: true }
+              - { name: github, type: string, required: true }
+              - { name: scholar, type: string, required: true }
+              - { name: website, type: string, required: true }
+              - { name: email, type: string, required: true }
+              - { name: linkedin, type: string, required: true }
+              - { name: x, type: string, required: true }
+              - { name: bluesky, type: string, required: true }
+              - { name: mastodon, type: string, required: true }
+          - name: notFound
+            label: Page not found
+            type: object
+            fields:
+              - { name: title, type: string, required: true }
+              - { name: body, type: text, required: true }

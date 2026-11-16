@@ -48,5 +48,7 @@ const id = `lens-${member.slug}`;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Portrait photos are usually taller than wide: keep the face, not the middle, in the square. */
+    object-position: 50% 20%;
   }
 </style>
