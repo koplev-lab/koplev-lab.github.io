@@ -10,6 +10,8 @@ export const paths = {
   publications: '/publications/',
   team: '/team/',
   about: '/about/',
+  /** The Figure credits section of the About page. */
+  figureCredits: '/about/#figure-credits',
   join: '/join/',
 } as const;
 

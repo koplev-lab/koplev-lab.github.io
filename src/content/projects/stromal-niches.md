@@ -4,7 +4,9 @@ summary: How inflammation pushes fibroblasts into disease-driving states, and wh
 image: ../../assets/images/projects/koplev-2026-crohns-fig2b.png
 imageAlt: Spatial transcriptomics images of Crohn's disease bowel tissue around an ulcer, with expression maps for marker genes such as COL7A1, IL1B, VWF and CD19.
 imageCaption: Gene expression mapped at single-cell resolution across an ulcer in the bowel wall of a patient with Crohn's disease.
-imageCredit: Koplev et al., Nat. Immunol. 27, 1954–1968 (2026), Fig. 2b (cropped, panel label removed). CC BY 4.0.
+imageSource: Koplev et al., Nat. Immunol. 2026
+imageCredit: Koplev et al., Nat. Immunol. 27, 1954–1968 (2026), Fig. 2b, cropped and panel label removed.
+imageLicense: CC BY 4.0
 members:
   - simon-koplev
 publications:

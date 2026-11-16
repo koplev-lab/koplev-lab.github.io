@@ -72,7 +72,7 @@ Wherever imagery appears, it is separated into the two inks and overprinted:
 - **Figures and photos**: converted at build time (sharp) into two halftone separations, the pink
   plate and the blue plate, stacked with `mix-blend-mode: multiply`; the pink plate offset by
   1–3px (a fixed, per-image offset so it is stable, not random on every load).
-- **Fills**: section bands and the draft marker use flat tints of a single ink.
+- **Fills**: section bands use flat tints of a single ink.
 - **Paper grain**: a subtle noise texture on image areas only.
 
 The original full-colour figure is available by link ("View original figure"), because duotone
@@ -145,7 +145,7 @@ overprinting; otherwise blue ink. Lab name in Chivo Bold 18px, 10px gap.
   motion.
 - Print (Team, Publications): images print as grayscale halftones, text in black, contents list
   removed.
-- Draft marker: `labels.draft` on a small pink-tint label beside the item.
+- No draft marker on the site (removed at Mo's request); the build lists placeholder files.
 
 ## Fonts on first load
 
@@ -183,6 +183,18 @@ Recorded from the design review rounds:
 - **Projects are grouped units** (Mo found figures hard to match to projects): each opens with a
   pink rule and the project title, followed by its figure and summary; spacing between projects
   is much larger than within one.
+
+- **Credits move out of the captions** (Simon's feedback, Nov 2026): captions keep a short source
+  ("Koplev et al., Nat. Immunol. 2026"); on Home and Publications not even that, because the paper
+  is cited right beside the figure. Full sources, changes and licences are one list, "Figure
+  credits", on the About page, linked from the footer.
+- **Funder logos print in one ink**: each funder's own single-colour logo, recoloured to the
+  overprint `#002284`, on a shared logo slot with a pink rule and the name beneath. A funder
+  without a logo keeps the empty slot so the rules line up.
+- **Open positions** appear as a flat pink-tint band under the home statement ("We are hiring",
+  title linking to the ad, closing date) and as a list on the Join page. Built only while open.
+- **Alumni are a register**: a three-column table (name, position in the lab, next position),
+  one block per person on phones with the next position labelled.
 
 ## What the design refuses to do
 

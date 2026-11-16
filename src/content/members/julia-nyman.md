@@ -1,6 +1,6 @@
 ---
 name: Julia Nyman
-role: Master student
+role: Research engineer
 order: 3
 current: true
 placeholder: true

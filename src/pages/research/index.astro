@@ -2,7 +2,6 @@
 import { getSiteData, getResearchData } from '../../lib/content';
 import { url } from '../../lib/url';
 import Layout from '../../layouts/Layout.astro';
-import DraftMark from '../../components/DraftMark.astro';
 import Print from '../../components/Print.astro';
 
 const site = await getSiteData();
@@ -12,9 +11,7 @@ const data = await getResearchData();
 <Layout title={data.title} description={data.lede}>
   <header class="head">
     <h1>{data.title}</h1>
-    <p class="lede">
-      {data.lede} <DraftMark placeholder={data.placeholder} />
-    </p>
+    <p class="lede">{data.lede}</p>
     {data.introHtml && <div class="prose" set:html={data.introHtml} />}
   </header>
 
@@ -24,9 +21,7 @@ const data = await getResearchData();
         <h2 id={`p-${p.slug}`}>
           <a href={url(p.path)}>{p.title}</a>
         </h2>
-        <p class="summary">
-          {p.summary} <DraftMark placeholder={p.placeholder} />
-        </p>
+        <p class="summary">{p.summary}</p>
       </div>
       <Print figure={p.figure} sizes="(min-width: 1024px) 56rem, 100vw" />
       <p class="more">

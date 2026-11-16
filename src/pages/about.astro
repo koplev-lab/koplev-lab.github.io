@@ -1,7 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { getSiteData, getAboutData } from '../lib/content';
+import { url } from '../lib/url';
 import Layout from '../layouts/Layout.astro';
-import DraftMark from '../components/DraftMark.astro';
 
 const site = await getSiteData();
 const data = await getAboutData();
@@ -10,9 +11,7 @@ const { sectionTitles: t } = site;
 
 <Layout title={data.title} description={data.lede}>
   <h1>{data.title}</h1>
-  <p class="lede">
-    {data.lede} <DraftMark placeholder={data.placeholder} />
-  </p>
+  <p class="lede">{data.lede}</p>
   <div class="prose" set:html={data.bodyHtml} />
 
   <section class="block" aria-labelledby="about-aff">
@@ -29,10 +28,37 @@ const { sectionTitles: t } = site;
   {data.funders.length > 0 && (
     <section class="block" aria-labelledby="about-funders">
       <h2 id="about-funders">{t.funders}</h2>
-      <ul class="plain">
-        {data.funders.map((f) => (
+      <p class="note">{data.fundersNote}</p>
+      <ul class="funders">
+        {data.funders.map((f) => {
+          const name = f.url ? <a href={f.url}>{f.name}</a> : <span>{f.name}</span>;
+          return (
+            <li>
+              <div class="logo">{f.logo && <Image src={f.logo.src} alt="" height={96} />}</div>
+              <p class="funder-name">{name}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  )}
+
+  {data.credits.length > 0 && (
+    <section class="block" aria-labelledby="figure-credits">
+      <h2 id="figure-credits">{t.figureCredits}</h2>
+      <ul class="credits mono">
+        {data.credits.map((c) => (
           <li>
-            <a href={f.url}>{f.name}</a>
+            <a href={url(c.usedOn.path)}>{c.usedOn.title}</a>
+            <span>
+              {c.credit}
+              {c.license && (
+                <>
+                  {' '}
+                  <a href={c.license.url}>{c.license.name}</a>.
+                </>
+              )}
+            </span>
           </li>
         ))}
       </ul>
@@ -67,5 +93,61 @@ const { sectionTitles: t } = site;
   .plain a {
     display: inline-block;
     padding-block: 4px;
+  }
+  .note {
+    max-width: 40rem;
+    margin-bottom: 1.75rem;
+  }
+  /* Funders: each logo printed in the overprint ink on a common baseline, the name beneath. */
+  .funders {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem calc(var(--gutter) * 2);
+    align-items: start;
+    max-width: 60rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  /* Every funder gets the same logo slot (empty if there is no logo), so the rules line up. */
+  .logo {
+    display: flex;
+    align-items: flex-end;
+    height: 3.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .logo :global(img) {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(100%, 10rem);
+    max-height: 100%;
+  }
+  .funder-name {
+    margin: 0;
+    padding-top: 0.5rem;
+    border-top: 2px solid var(--pink);
+    font-size: var(--s-1);
+    line-height: 1.4;
+  }
+  @media (max-width: 899px) {
+    .funders {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .credits {
+    display: grid;
+    gap: 0.9rem;
+    max-width: 52rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .credits li {
+    display: grid;
+    gap: 0.1rem;
+  }
+  .credits span {
+    color: var(--overprint-soft);
   }
 </style>

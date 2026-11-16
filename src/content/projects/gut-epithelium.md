@@ -4,7 +4,9 @@ summary: How long-term inflammation changes intestinal stem cells, and with them
 image: ../../assets/images/projects/oliver-2024-gut-atlas-fig1.png
 imageAlt: Overview of the gut cell atlas. A ring diagram describes the healthy reference of 1.1 million cells and 136 cell types with disease datasets around it, next to a chart of datasets by gut region and study.
 imageCaption: Design of an integrated single-cell atlas of the human gastrointestinal tract in health and disease.
-imageCredit: Oliver et al., Nature 635, 699–707 (2024), Fig. 1. CC BY 4.0.
+imageSource: Oliver et al., Nature 2024
+imageCredit: Oliver et al., Nature 635, 699–707 (2024), Fig. 1.
+imageLicense: CC BY 4.0
 members:
   - simon-koplev
 publications:

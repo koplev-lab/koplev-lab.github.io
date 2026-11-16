@@ -1,19 +1,41 @@
 ---
 import { getSiteData, getJoinData } from '../lib/content';
 import Layout from '../layouts/Layout.astro';
-import DraftMark from '../components/DraftMark.astro';
 
 const site = await getSiteData();
 const data = await getJoinData();
-const { sectionTitles: t } = site;
+const { sectionTitles: t, labels } = site;
 ---
 
 <Layout title={data.title} description={data.lede}>
   <h1>{data.title}</h1>
-  <p class="lede">
-    {data.lede} <DraftMark placeholder={data.placeholder} />
-  </p>
+  <p class="lede">{data.lede}</p>
   <div class="prose" set:html={data.bodyHtml} />
+
+  <section class="positions" aria-labelledby="join-positions">
+    <h2 id="join-positions">{t.positions}</h2>
+    {data.positions.length > 0 ? (
+      <ul>
+        {data.positions.map((p) => (
+          <li>
+            <h3>{p.title}</h3>
+            <p class="deadline">
+              {labels.deadline} <time datetime={p.deadline}>{p.deadlineText}</time>
+            </p>
+            <p>{p.summary}</p>
+            <p class="ad">
+              <a href={p.url}>
+                {labels.positionAd}
+                <span class="sr">: {p.title}</span>
+              </a>
+            </p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>{labels.noPositions}</p>
+    )}
+  </section>
 
   <section class="contact" aria-labelledby="join-contact">
     <h2 id="join-contact">{t.contact}</h2>
@@ -36,6 +58,44 @@ const { sectionTitles: t } = site;
     font-size: var(--s1);
     font-weight: 700;
     line-height: 1.4;
+  }
+  .positions {
+    max-width: 44rem;
+    margin-top: clamp(3rem, 6vw, 4.5rem);
+  }
+  .positions > h2 {
+    margin-bottom: 1.25rem;
+  }
+  .positions ul {
+    display: grid;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .positions li {
+    padding-top: 1rem;
+    border-top: 2px solid var(--pink);
+  }
+  .positions h3 {
+    margin-bottom: 0.4rem;
+    font-size: var(--s1);
+  }
+  .deadline {
+    margin-bottom: 0.75rem;
+    color: var(--overprint-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .ad {
+    font-weight: 700;
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   .contact {
     max-width: 40rem;

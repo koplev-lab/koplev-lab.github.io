@@ -1,6 +1,6 @@
 ---
 name: Mihkel Jesse
-role: Master student
+role: Research assistant
 order: 1
 current: true
 placeholder: true

@@ -15,6 +15,7 @@ export const ROLES = [
   'Research assistant',
   'Master student',
   'Bachelor student',
+  'Summer intern',
   'Visiting',
   'Alumni',
 ] as const;
@@ -33,6 +34,10 @@ const doi = () =>
 
 const placeholder = () => z.boolean().default(false);
 
+/** Licences of figures reused from papers. The data layer adds the licence URL. */
+export const LICENSES = ['CC BY 4.0', 'CC BY-NC-ND 4.0'] as const;
+export type License = (typeof LICENSES)[number];
+
 /* ------------------------------------------------------------------ site */
 
 export const sectionTitlesSchema = z.object({
@@ -47,12 +52,14 @@ export const sectionTitlesSchema = z.object({
   funders: text(),
   projectPeople: text(),
   projectPublications: text(),
+  positions: text(),
+  figureCredits: text(),
+  groupPhotos: text(),
 });
 
 export const labelsSchema = z.object({
   skipToContent: text(),
   mainNav: text(),
-  draft: text(),
   illustrativeData: text(),
   readMore: text(),
   allProjects: text(),
@@ -64,12 +71,28 @@ export const labelsSchema = z.object({
   code: text(),
   etAl: text(),
   noAlumni: text(),
+  /** Column headings of the alumni table. */
+  alumni: z.object({ name: text(), role: text(), next: text() }),
+  /** Shown on the Join page when no advertised position is open. */
+  noPositions: text(),
+  /** Label before a position's closing date, e.g. "Apply by". */
+  deadline: text(),
+  /** Link text to the full advertisement. */
+  positionAd: text(),
+  /** Home page notice that positions are open, before the list of titles. */
+  hiring: text(),
+  /** Footer link to the figure credits on the About page. */
+  figureCredits: text(),
   links: z.object({
     orcid: text(),
     github: text(),
     scholar: text(),
     website: text(),
     email: text(),
+    linkedin: text(),
+    x: text(),
+    bluesky: text(),
+    mastodon: text(),
   }),
   notFound: z.object({ title: text(), body: text() }),
 });
@@ -81,11 +104,13 @@ export const siteSchema = (image: ImageHelper) =>
     piName: text(),
     description: text(),
     affiliations: z.array(z.object({ name: text(), url: url() })).min(1),
+    /** One or two sentences of thanks shown above the funders on the About page. */
+    fundersNote: text(),
     funders: z
       .array(
         z.object({
           name: text(),
-          url: url(),
+          url: url().optional(),
           logo: image().optional(),
           logoAlt: z.string().optional(),
         }),
@@ -104,12 +129,15 @@ export const siteSchema = (image: ImageHelper) =>
       about: text(),
       join: text(),
     }),
+    /** Lab profiles elsewhere, shown in the footer and on the About page, in this order. */
     social: z
       .object({
         github: url().optional(),
+        scholar: url().optional(),
+        linkedin: url().optional(),
+        x: url().optional(),
         bluesky: url().optional(),
         mastodon: url().optional(),
-        linkedin: url().optional(),
       })
       .default({}),
     sectionTitles: sectionTitlesSchema,
@@ -128,6 +156,8 @@ export const memberSchema = (image: ImageHelper) =>
       photoAlt: z.string().optional(),
       order: z.number().int().default(100),
       current: z.boolean().default(true),
+      /** Alumni only: the confirmed position the person moved on to. Never a pending application. */
+      nextPosition: z.string().trim().min(1).optional(),
       orcid: z
         .string()
         .regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/, 'Expected an ORCID iD like 0000-0002-1825-0097')
@@ -153,7 +183,11 @@ export const projectSchema = (image: ImageHelper) =>
     image: image(),
     imageAlt: text(),
     imageCaption: text(),
+    /** Short source shown under the figure, e.g. "Koplev et al., Nat. Immunol. 2026". */
+    imageSource: z.string().trim().min(1).optional(),
+    /** Full source and any changes made, listed under Figure credits on the About page. */
     imageCredit: z.string().optional(),
+    imageLicense: z.enum(LICENSES).optional(),
     members: z.array(z.string()).default([]),
     publications: z.array(doi()).default([]),
     repo: url().optional(),
@@ -169,16 +203,42 @@ export const highlightSchema = (image: ImageHelper) =>
     image: image(),
     imageAlt: text(),
     imageKind: z.enum(['figure', 'cover']),
+    /** Full source and any changes made, listed under Figure credits on the About page. */
     imageCredit: text(),
+    imageLicense: z.enum(LICENSES).optional(),
     blurb: text(),
     order: z.number().int().default(100),
     placeholder: placeholder(),
   });
 
+/* ------------------------------------------------------------- positions */
+
+export const positionSchema = z.object({
+  /** Job title as advertised. */
+  title: text(),
+  /** The advertisement (SciLifeLab, KTH or Varbi page). */
+  url: url(),
+  /** Last day to apply (YYYY-MM-DD). The position is hidden from builds after this day. */
+  deadline: z.coerce.date(),
+  /** One or two plain sentences about the position. */
+  summary: text(),
+  placeholder: placeholder(),
+});
+
 /* ----------------------------------------------------------------- pages */
 
 export const aboutSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });
 export const joinSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });
+export const teamSchema = (image: ImageHelper) =>
+  z.object({
+    /** Group photos, shown at the top of the People page in this order. Empty: none shown. */
+    photos: z
+      .array(
+        z.object({ image: image(), alt: text(), caption: text(), credit: z.string().optional() }),
+      )
+      .default([]),
+    placeholder: placeholder(),
+  });
 export const researchSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });
 export const homeSchema = z.object({
   /** Title of the home page's hero figure (the staining illustration). */

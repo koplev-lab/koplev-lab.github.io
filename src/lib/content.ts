@@ -9,12 +9,14 @@ import type {
   AboutData,
   AuthorView,
   ExternalLink,
+  FigureCredit,
   HighlightView,
   HomeData,
   JoinData,
   MemberView,
   NavItem,
   NavKey,
+  PositionView,
   ProjectData,
   ProjectSummary,
   PublicationsData,
@@ -23,7 +25,7 @@ import type {
   SiteData,
   TeamData,
 } from './types';
-import { ROLES } from './schemas';
+import { ROLES, type License } from './schemas';
 
 /* ----------------------------------------------------------- raw types */
 
@@ -55,7 +57,7 @@ const memo = <T>(fn: () => Promise<T>) => {
 const byOrder = <T extends { data: { order: number }; id: string }>(a: T, b: T) =>
   a.data.order - b.data.order || a.id.localeCompare(b.id);
 
-async function single<C extends 'site' | 'home' | 'research' | 'about' | 'join'>(name: C) {
+async function single<C extends 'site' | 'home' | 'research' | 'team' | 'about' | 'join'>(name: C) {
   const [entry] = await getCollection(name);
   if (!entry) throw new Error(`Missing content file for "${name}"`);
   return entry as CollectionEntry<C>;
@@ -86,18 +88,19 @@ const logoFiles = import.meta.glob<string>('/src/assets/logo/mark.svg', {
 export const getSiteData = memo(async (): Promise<SiteData> => {
   const { data: s } = await single('site');
   const nav: NavItem[] = NAV_ORDER.map((key) => ({ key, label: s.nav[key], path: paths[key] }));
-  const social: ExternalLink[] = Object.entries(s.social)
-    .filter((e): e is [string, string] => typeof e[1] === 'string')
-    .map(([kind, href]) => ({ kind, label: kind, href }));
+  const social: ExternalLink[] = (Object.keys(s.social) as (keyof typeof s.social)[])
+    .filter((kind) => s.social[kind])
+    .map((kind) => ({ kind, label: s.labels.links[kind], href: s.social[kind]! }));
   return {
     labName: s.labName,
     tagline: s.tagline,
     piName: s.piName,
     description: s.description,
     affiliations: s.affiliations,
+    fundersNote: s.fundersNote,
     funders: s.funders.map((f) => ({
       name: f.name,
-      url: f.url,
+      ...(f.url ? { url: f.url } : {}),
       ...(f.logo ? { logo: { src: f.logo, alt: f.logoAlt || f.name } } : {}),
     })),
     contact: s.contact,
@@ -143,6 +146,7 @@ export const getMembers = memo(async (): Promise<MemberView[]> => {
       ...(m.orcid ? { orcid: m.orcid } : {}),
       ...(m.startYear ? { startYear: m.startYear } : {}),
       current: m.current && m.role !== 'Alumni',
+      ...(m.nextPosition ? { nextPosition: m.nextPosition } : {}),
       placeholder: m.placeholder,
     };
   });
@@ -225,7 +229,8 @@ export const getHighlights = memo(async (): Promise<HighlightView[]> => {
       id,
       number: i + 1,
       publication,
-      figure: { src: h.image, alt: h.imageAlt, credit: h.imageCredit },
+      // No credit line: the publication is cited right beside the figure.
+      figure: { src: h.image, alt: h.imageAlt },
       kind: h.imageKind,
       blurb: h.blurb,
       placeholder: h.placeholder,
@@ -248,7 +253,7 @@ export const getProjects = memo(async (): Promise<ProjectSummary[]> =>
       src: p.image,
       alt: p.imageAlt,
       caption: p.imageCaption,
-      ...(p.imageCredit ? { credit: p.imageCredit } : {}),
+      ...(p.imageSource ? { credit: p.imageSource } : {}),
     },
     placeholder: p.placeholder,
   })),
@@ -292,6 +297,66 @@ export async function getProjectData(slug: string): Promise<ProjectData> {
   };
 }
 
+/* -------------------------------------------------------- figure credits */
+
+const LICENSE_URLS: Record<License, string> = {
+  'CC BY 4.0': 'https://creativecommons.org/licenses/by/4.0/',
+  'CC BY-NC-ND 4.0': 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
+};
+const license = (name: License | undefined) =>
+  name ? { license: { name, url: LICENSE_URLS[name] } } : {};
+
+/** Full credits for every reused figure: projects first, then highlights. */
+export const getFigureCredits = memo(async (): Promise<FigureCredit[]> => {
+  const projects = await getProjectEntries();
+  const highlights = (await getCollection('highlights')).sort(byOrder);
+  const byDoi = await publicationByDoi();
+  const publicationsPath = paths.publications;
+  return [
+    ...projects
+      .filter((p) => p.data.imageCredit)
+      .map((p) => ({
+        usedOn: { title: p.data.title, path: paths.project(p.id) },
+        credit: p.data.imageCredit!,
+        ...license(p.data.imageLicense),
+      })),
+    ...highlights.map((h) => ({
+      usedOn: { title: byDoi.get(h.data.doi)?.title ?? h.data.doi, path: publicationsPath },
+      credit: h.data.imageCredit,
+      ...license(h.data.imageLicense),
+    })),
+  ];
+});
+
+/* ----------------------------------------------------------- positions */
+
+const dateText = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+/**
+ * Advertised positions whose deadline is today or later, at build time, soonest first. A closed
+ * position disappears at the next build after its deadline.
+ */
+export const getOpenPositions = memo(async (): Promise<PositionView[]> => {
+  const today = new Date().toISOString().slice(0, 10);
+  return (await getCollection('positions'))
+    .map(({ id, data: p }) => ({
+      slug: id,
+      title: p.title,
+      url: p.url,
+      deadline: p.deadline.toISOString().slice(0, 10),
+      deadlineText: dateText.format(p.deadline),
+      summary: p.summary,
+      placeholder: p.placeholder,
+    }))
+    .filter((p) => p.deadline >= today)
+    .sort((a, b) => a.deadline.localeCompare(b.deadline) || a.slug.localeCompare(b.slug));
+});
+
 /* ----------------------------------------------------------- page data */
 
 export async function getHomeData(): Promise<HomeData> {
@@ -319,6 +384,8 @@ export async function getHomeData(): Promise<HomeData> {
     projects: pick(projects, home.data.featuredProjects, 'project'),
     highlights: pick(highlights, home.data.featuredHighlights, 'highlight'),
     about: { title: about.data.title, lede: about.data.lede, path: paths.about },
+    positions: await getOpenPositions(),
+    joinPath: paths.join,
     placeholder: home.data.placeholder || site.placeholder,
   };
 }
@@ -349,6 +416,7 @@ export async function getPublicationsData(): Promise<PublicationsData> {
 
 export async function getTeamData(): Promise<TeamData> {
   const site = await getSiteData();
+  const team = await single('team');
   const members = await getMembers();
   const current = members.filter((m) => m.current);
   const rows = ROLES.filter((r) => r !== 'Alumni')
@@ -359,6 +427,13 @@ export async function getTeamData(): Promise<TeamData> {
     current: rows.flat(),
     rows,
     alumni: members.filter((m) => !m.current),
+    photos: team.data.photos.map((p) => ({
+      src: p.image,
+      alt: p.alt,
+      caption: p.caption,
+      ...(p.credit ? { credit: p.credit } : {}),
+    })),
+    placeholder: team.data.placeholder,
   };
 }
 
@@ -370,7 +445,9 @@ export async function getAboutData(): Promise<AboutData> {
     lede: about.data.lede,
     bodyHtml: html(about),
     affiliations: site.affiliations,
+    fundersNote: site.fundersNote,
     funders: site.funders,
+    credits: await getFigureCredits(),
     placeholder: about.data.placeholder,
   };
 }
@@ -383,6 +460,7 @@ export async function getJoinData(): Promise<JoinData> {
     lede: join.data.lede,
     bodyHtml: html(join),
     contact: site.contact,
+    positions: await getOpenPositions(),
     placeholder: join.data.placeholder,
   };
 }

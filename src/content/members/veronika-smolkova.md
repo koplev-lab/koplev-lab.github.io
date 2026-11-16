@@ -1,7 +1,8 @@
 ---
 name: Veronika Smolkova
-role: Master student
-order: 4
-current: true
+role: Research assistant
+order: 104
+current: false
+nextPosition: Master's student, Karolinska Institutet
 placeholder: true
 ---

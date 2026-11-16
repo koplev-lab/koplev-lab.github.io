@@ -33,5 +33,37 @@ Set `SITE_URL` and `BASE_PATH` in the shell when building for a sub-path, e.g.
 | `scripts/`        | Publications fetch, favicons, screenshots, test server             |
 | `docs/DESIGN.md`  | The design brief and the decisions behind it                       |
 
-Content marked `placeholder: true` is a draft awaiting approval; `npm run dev` shows it with a
-"draft" marker and every build lists it.
+Content marked `placeholder: true` is a draft awaiting Simon's approval. Nothing on the site marks
+it; every build lists these files at the end.
+
+## Common edits
+
+**Advertise a position.** Add a file to `src/content/positions/`, e.g. `phd-spatial-models.md`:
+
+```md
+---
+title: PhD student in statistical models of tissue architecture # as advertised
+url: https://www.scilifelab.se/career/… # the advertisement
+deadline: 2027-03-31 # last day to apply
+summary: One or two plain sentences about the position.
+---
+```
+
+While the deadline has not passed, the position is listed under "Open positions" on the Join page
+and in a "We are hiring" band on the home page, linking straight to the advertisement. The site is
+static, so a position disappears at the first build after its deadline: rebuild (or let a scheduled
+build run) after the closing date. Old files can stay; they are simply not shown.
+
+**Alumni.** Set `current: false` on the member's file, keep `role` as the position they held in the
+lab, and add `nextPosition` (e.g. `Master's student, Karolinska Institutet`) once it is confirmed.
+Never list pending applications.
+
+**Group photos.** Save the photo in `src/assets/images/team/` and add it under `photos` in
+`src/content/pages/team.md` (the file has an example). Photos appear at the top of the People page.
+
+**Hold back a highlight.** A file in `src/content/highlights/` whose name starts with `_` is not
+built (useful while its figure is missing). Remove the `_` to publish it.
+
+**Figure credits.** Captions show only a short source (`imageSource`). The full source, any changes
+made (`imageCredit`) and the licence (`imageLicense`) are listed under "Figure credits" on the About
+page, which is what the CC licences require.

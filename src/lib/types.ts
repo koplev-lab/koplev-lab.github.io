@@ -7,9 +7,9 @@
  * them into links with url(path) from src/lib/url.ts.
  */
 import type { ImageMetadata } from 'astro';
-import type { Labels, Role, SectionTitles } from './schemas';
+import type { Labels, License, Role, SectionTitles } from './schemas';
 
-export type { Labels, Role, SectionTitles };
+export type { Labels, License, Role, SectionTitles };
 
 export interface Img {
   src: ImageMetadata;
@@ -18,7 +18,16 @@ export interface Img {
 
 export interface Figure extends Img {
   caption?: string;
+  /** Short source shown with the figure, e.g. "Koplev et al., Nat. Immunol. 2026". */
   credit?: string;
+}
+
+/** One entry in the Figure credits list: full source, changes made and licence. */
+export interface FigureCredit {
+  /** Where the figure appears on this site. */
+  usedOn: { title: string; path: string };
+  credit: string;
+  license?: { name: License; url: string };
 }
 
 export interface ExternalLink {
@@ -41,7 +50,8 @@ export interface SiteData {
   piName: string;
   description: string;
   affiliations: { name: string; url: string }[];
-  funders: { name: string; url: string; logo?: Img }[];
+  fundersNote: string;
+  funders: { name: string; url?: string; logo?: Img }[];
   contact: { email: string; address?: string; mapUrl?: string };
   nav: NavItem[];
   social: ExternalLink[];
@@ -108,6 +118,22 @@ export interface MemberView {
   orcid?: string;
   startYear?: number;
   current: boolean;
+  /** Alumni: the confirmed position they moved on to. */
+  nextPosition?: string;
+  placeholder: boolean;
+}
+
+/* ------------------------------------------------------------- positions */
+
+export interface PositionView {
+  slug: string;
+  title: string;
+  url: string;
+  /** Closing date, ISO (YYYY-MM-DD), for <time datetime>. */
+  deadline: string;
+  /** Closing date as text, e.g. "29 November 2026". */
+  deadlineText: string;
+  summary: string;
   placeholder: boolean;
 }
 
@@ -129,12 +155,14 @@ export interface ProjectSummary {
 export interface HomeData {
   tagline: string;
   introHtml: string;
-  /** The interactive data figure's title and plain-language caption. */
   /** The hero figure: title, plain caption and text alternative. */
   figure: { title: string; caption: string; alt: string };
   projects: ProjectSummary[];
   highlights: HighlightView[];
   about: { title: string; lede: string; path: string };
+  /** Advertised positions still open at build time. */
+  positions: PositionView[];
+  joinPath: string;
   placeholder: boolean;
 }
 
@@ -171,6 +199,9 @@ export interface TeamData {
    */
   rows: MemberView[][];
   alumni: MemberView[];
+  /** Group photos (empty until the lab adds some). */
+  photos: Figure[];
+  placeholder: boolean;
 }
 
 export interface AboutData {
@@ -178,7 +209,9 @@ export interface AboutData {
   lede: string;
   bodyHtml: string;
   affiliations: SiteData['affiliations'];
+  fundersNote: string;
   funders: SiteData['funders'];
+  credits: FigureCredit[];
   placeholder: boolean;
 }
 
@@ -187,5 +220,7 @@ export interface JoinData {
   lede: string;
   bodyHtml: string;
   contact: SiteData['contact'];
+  /** Advertised positions still open at build time. */
+  positions: PositionView[];
   placeholder: boolean;
 }

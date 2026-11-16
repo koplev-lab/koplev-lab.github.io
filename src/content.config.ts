@@ -6,9 +6,11 @@ import {
   homeSchema,
   joinSchema,
   memberSchema,
+  positionSchema,
   projectSchema,
   researchSchema,
   siteSchema,
+  teamSchema,
 } from './lib/schemas';
 
 const base = './src/content';
@@ -26,12 +28,21 @@ export const collections = {
     loader: glob({ base: `${base}/projects`, pattern: '*.md' }),
     schema: ({ image }) => projectSchema(image),
   }),
+  /* Files starting with "_" are held back (e.g. waiting for their figure) and not built. */
   highlights: defineCollection({
-    loader: glob({ base: `${base}/highlights`, pattern: '*.md' }),
+    loader: glob({ base: `${base}/highlights`, pattern: ['*.md', '!_*.md'] }),
     schema: ({ image }) => highlightSchema(image),
+  }),
+  positions: defineCollection({
+    loader: glob({ base: `${base}/positions`, pattern: ['*.md', '!_*.md'] }),
+    schema: positionSchema,
   }),
   home: defineCollection({ loader: single('pages/home.md'), schema: homeSchema }),
   research: defineCollection({ loader: single('pages/research.md'), schema: researchSchema }),
+  team: defineCollection({
+    loader: single('pages/team.md'),
+    schema: ({ image }) => teamSchema(image),
+  }),
   about: defineCollection({ loader: single('pages/about.md'), schema: aboutSchema }),
   join: defineCollection({ loader: single('pages/join.md'), schema: joinSchema }),
 };

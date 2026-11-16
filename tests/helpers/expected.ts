@@ -44,10 +44,24 @@ function frontmatter(file: string): Record<string, string> {
   return m ? topLevel(m[1]!) : {};
 }
 
+/** Entries of a collection; files starting with "_" are held back from the site. */
 function collection(dir: string) {
   return readdirSync(join(CONTENT, dir))
-    .filter((f) => f.endsWith('.md'))
+    .filter((f) => f.endsWith('.md') && !f.startsWith('_'))
     .map((f) => ({ slug: f.replace(/\.md$/, ''), data: frontmatter(join(CONTENT, dir, f)) }));
+}
+
+/** `name:` values of the list under a top-level key, e.g. listNames(yaml, 'funders'). */
+function listNames(yaml: string, key: string): string[] {
+  const lines = yaml.split('\n');
+  const start = lines.findIndex((l) => l.startsWith(`${key}:`));
+  const out: string[] = [];
+  for (const line of lines.slice(start + 1)) {
+    if (!/^\s/.test(line) && line.trim() !== '' && !line.startsWith('#')) break;
+    const m = line.match(/^ {2}- name:\s*(.+)$/);
+    if (m) out.push(unquote(m[1]!));
+  }
+  return out;
 }
 
 const siteYaml = readFileSync(join(CONTENT, 'site.yaml'), 'utf8');
@@ -64,6 +78,14 @@ export const expected = {
   currentMembers: collection('members')
     .filter((m) => m.data.current !== 'false' && m.data.role !== 'Alumni')
     .map((m) => m.data.name!),
+  alumni: collection('members')
+    .filter((m) => m.data.current === 'false' || m.data.role === 'Alumni')
+    .map((m) => ({ name: m.data.name!, next: m.data.nextPosition })),
+  funders: listNames(siteYaml, 'funders'),
+  /** Positions still open today (the build runs the same day as the tests). */
+  openPositions: collection('positions')
+    .filter((p) => p.data.deadline! >= new Date().toISOString().slice(0, 10))
+    .map((p) => p.data.title!),
   projects: collection('projects').map((p) => ({ slug: p.slug, title: p.data.title! })),
   highlightTitles: collection('highlights').map((h) => {
     const doi = h.data.doi!.toLowerCase();

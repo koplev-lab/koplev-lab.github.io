@@ -1,8 +1,8 @@
 ---
 import { getSiteData, getTeamData } from '../lib/content';
 import Layout from '../layouts/Layout.astro';
-import DraftMark from '../components/DraftMark.astro';
 import Portrait from '../components/Portrait.astro';
+import Print from '../components/Print.astro';
 
 const site = await getSiteData();
 const data = await getTeamData();
@@ -12,6 +12,14 @@ const { sectionTitles: t, labels } = site;
 <Layout title={data.title}>
   <h1>{data.title}</h1>
 
+  {data.photos.length > 0 && (
+    <section class="photos" aria-label={t.groupPhotos}>
+      {data.photos.map((photo) => (
+        <Print figure={photo} sizes="(min-width: 1024px) 64rem, 100vw" />
+      ))}
+    </section>
+  )}
+
   <section class="block" aria-labelledby="team-current">
     <h2 id="team-current">{t.currentMembers}</h2>
     <ul class="members">
@@ -19,9 +27,7 @@ const { sectionTitles: t, labels } = site;
         row.map((m, i) => (
           <li class={i === 0 ? 'row-start' : undefined}>
             <Portrait member={m} />
-            <p class="name">
-              {m.name} <DraftMark placeholder={m.placeholder} />
-            </p>
+            <p class="name">{m.name}</p>
             <p class="role">{m.role}</p>
             {m.bioHtml && <div class="bio" set:html={m.bioHtml} />}
             {m.links.length > 0 && (
@@ -42,13 +48,24 @@ const { sectionTitles: t, labels } = site;
   <section class="block" aria-labelledby="team-alumni">
     <h2 id="team-alumni">{t.alumni}</h2>
     {data.alumni.length > 0 ? (
-      <ul class="alumni">
-        {data.alumni.map((m) => (
-          <li>
-            <strong>{m.name}</strong> {m.role}
-          </li>
-        ))}
-      </ul>
+      <table class="alumni">
+        <thead>
+          <tr>
+            <th scope="col">{labels.alumni.name}</th>
+            <th scope="col">{labels.alumni.role}</th>
+            <th scope="col">{labels.alumni.next}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.alumni.map((m) => (
+            <tr>
+              <th scope="row">{m.name}</th>
+              <td>{m.role}</td>
+              <td data-label={labels.alumni.next}>{m.nextPosition ?? ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     ) : (
       <p class="empty">{labels.noAlumni}</p>
     )}
@@ -99,10 +116,69 @@ const { sectionTitles: t, labels } = site;
     display: inline-block;
     padding-block: 4px;
   }
+  .photos {
+    display: grid;
+    gap: 2rem;
+    margin-top: 1.75rem;
+  }
+  .photos :global(.plate img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 40rem;
+  }
+  /* Alumni as a small register: name, position in the lab, where they went next. */
   .alumni {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    width: 100%;
+    max-width: 52rem;
+    border-collapse: collapse;
+  }
+  .alumni th,
+  .alumni td {
+    padding: 0.55rem 1.5rem 0.55rem 0;
+    border-bottom: 1px solid var(--blue-tint);
+    text-align: left;
+    vertical-align: baseline;
+  }
+  .alumni thead th {
+    padding-top: 0;
+    border-bottom: 2px solid var(--pink);
+    color: var(--overprint-soft);
+    font-size: var(--s-1);
+    font-weight: 400;
+  }
+  .alumni tbody th {
+    font-weight: 700;
+  }
+  @media (max-width: 719px) {
+    /* One person per block on phones: name, then role and next position on their own lines. */
+    .alumni thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+    .alumni tr,
+    .alumni th,
+    .alumni td {
+      display: block;
+    }
+    .alumni tr {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--blue-tint);
+    }
+    .alumni th,
+    .alumni td {
+      padding: 0;
+      border: 0;
+    }
+    .alumni td:empty {
+      display: none;
+    }
+    .alumni td[data-label]::before {
+      content: attr(data-label) ': ';
+      color: var(--overprint-soft);
+    }
   }
   .empty {
     color: var(--overprint-soft);

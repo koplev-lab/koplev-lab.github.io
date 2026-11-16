@@ -1,10 +1,12 @@
 ---
 title: Gene regulation and genetic risk in the heart
-summary: Placing inherited risk for heart disease in the specific cells and heart regions where it acts.
+summary: Placing inherited risk for cardiovascular disease in the specific cells and heart regions where it acts.
 image: ../../assets/images/projects/cranley-2026-heart-atlas-fig1.jpg
 imageAlt: Overview of the adult human heart atlas. An annotated photograph of a heart marks the sampled regions, beside a diagram of the profiling methods and a heatmap of cell states across regions.
 imageCaption: Twenty-eight regions of the adult human heart, profiled with paired single-nucleus RNA and chromatin accessibility assays and with spatial transcriptomics.
-imageCredit: Cranley et al., bioRxiv (2026), Fig. 1. CC BY-NC-ND 4.0.
+imageSource: Cranley et al., bioRxiv 2026
+imageCredit: Cranley et al., bioRxiv (2026), Fig. 1.
+imageLicense: CC BY-NC-ND 4.0
 members:
   - simon-koplev
 publications:

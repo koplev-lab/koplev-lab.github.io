@@ -3,7 +3,6 @@ import { getSiteData, getHomeData } from '../lib/content';
 import { url } from '../lib/url';
 import StainingRun from '../components/StainingRun.astro';
 import Layout from '../layouts/Layout.astro';
-import DraftMark from '../components/DraftMark.astro';
 import Print from '../components/Print.astro';
 import PublicationEntry from '../components/PublicationEntry.astro';
 
@@ -22,10 +21,28 @@ const more = data.highlights;
   <section class="opening">
     <div class="statement">
       <h1>{data.tagline}</h1>
-      <DraftMark placeholder={data.placeholder} />
     </div>
     <div class="intro" set:html={data.introHtml} />
   </section>
+
+  {data.positions.length > 0 && (
+    <aside class="hiring" aria-labelledby="home-hiring">
+      <h2 id="home-hiring">{labels.hiring}</h2>
+      <ul>
+        {data.positions.map((p) => (
+          <li>
+            <a href={p.url}>{p.title}</a>
+            <span class="deadline">
+              {labels.deadline} <time datetime={p.deadline}>{p.deadlineText}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p>
+        <a href={url(data.joinPath)}>{nav.join!.label}</a>
+      </p>
+    </aside>
+  )}
 
   <section class="block" aria-labelledby="home-research">
     <h2 id="home-research">{t.projects}</h2>
@@ -34,7 +51,6 @@ const more = data.highlights;
         <li class="project">
           <h3>
             <a href={url(p.path)}>{p.title}</a>
-            <DraftMark placeholder={p.placeholder} />
           </h3>
           <div class="project-body">
             <Print figure={p.figure} details={false} sizes="(min-width: 1024px) 34rem, 100vw" />
@@ -65,7 +81,6 @@ const more = data.highlights;
             <Print figure={h.figure} details={false} sizes="(min-width: 1024px) 24rem, 100vw" />
             <p class="finding">{h.blurb}</p>
             <PublicationEntry pub={h.publication} />
-            <p class="credit mono">{h.figure.credit}</p>
           </li>
         ))}
       </ul>
@@ -206,9 +221,48 @@ const more = data.highlights;
     margin: 1rem 0 0.6rem;
     font-weight: 700;
   }
-  .credit {
-    margin-top: 0.6rem;
-    color: var(--overprint-soft);
+
+  /* Open positions: a flat pink-tint band, label left and the advertised titles right. */
+  .hiring {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    gap: 0.5rem calc(var(--gutter) * 2);
+    align-items: baseline;
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    padding: clamp(1rem, 2.5vw, 1.5rem) clamp(1.25rem, 3vw, 2rem);
+    background: var(--pink-tint);
+  }
+  .hiring h2 {
+    margin: 0;
+    color: var(--overprint);
+    font-size: var(--s1);
+  }
+  .hiring ul {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .hiring li a {
+    font-weight: 700;
+  }
+  .hiring .deadline {
+    display: block;
+    font-size: var(--s-1);
+  }
+  .hiring p {
+    grid-column: 2;
+    margin: 0.25rem 0 0;
+    font-size: var(--s-1);
+  }
+  @media (max-width: 719px) {
+    .hiring {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .hiring p {
+      grid-column: 1;
+    }
   }
 
   @media (max-width: 719px) {

@@ -7,7 +7,7 @@ import '@fontsource-variable/chivo/wght-italic.css';
 import '@fontsource-variable/chivo-mono/wght.css';
 import fontUrl from '@fontsource-variable/chivo/files/chivo-latin-wght-normal.woff2?url';
 import { getSiteData } from '../lib/content';
-import { sitePath, url } from '../lib/url';
+import { paths, sitePath, url } from '../lib/url';
 import '../styles/tokens.css';
 import '../styles/base.css';
 import '../styles/print.css';
@@ -88,7 +88,19 @@ const current = (path: string) =>
             <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
           </li>
         </ul>
+        {site.social.length > 0 && (
+          <ul>
+            {site.social.map((l) => (
+              <li>
+                <a href={l.href}>{l.label}</a>
+              </li>
+            ))}
+          </ul>
+        )}
         {site.contact.address && <address>{site.contact.address}</address>}
+        <p class="credits">
+          <a href={url(paths.figureCredits)}>{site.labels.figureCredits}</a>
+        </p>
       </footer>
     </div>
   </body>
@@ -232,9 +244,15 @@ const current = (path: string) =>
     padding-block: 4px;
     color: var(--overprint-soft);
   }
+  .colophon ul + ul {
+    margin-top: 0.25rem;
+  }
   .colophon address {
     margin-top: 0.5rem;
     font-style: normal;
+  }
+  .colophon .credits {
+    margin: 0.25rem 0 0;
   }
 
   @media (max-width: 719px) {

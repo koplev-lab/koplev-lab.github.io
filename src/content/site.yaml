@@ -1,15 +1,32 @@
 # Lab-wide settings and every piece of interface text on the site.
 placeholder: true
 labName: Koplev Lab
-tagline: We map how cells are arranged in human tissues, and how that arrangement changes in inflammation, cancer and heart disease.
+tagline: We develop computational and statistical methods to map how cells are arranged in human tissues, and how that arrangement changes in inflammation, cancer and cardiovascular disease.
 piName: Simon Koplev
-description: Computational biology group at KTH and SciLifeLab in Stockholm, studying tissue architecture in health and disease with single-cell and spatial omics.
+description: Computational biology group in the Department of Gene Technology at KTH and at SciLifeLab in Stockholm. We develop machine learning and statistical methods for single-cell and spatial omics to study tissue architecture in health and disease.
 affiliations:
   - name: KTH Royal Institute of Technology
     url: https://www.kth.se
+  - name: Department of Gene Technology
+    url: https://www.kth.se/gte
   - name: SciLifeLab
     url: https://www.scilifelab.se
-funders: []
+fundersNote: We are grateful to the foundations and infrastructure that fund and support our research.
+# Logos are the funders' own single-colour logos, printed in the overprint ink (#002284).
+funders:
+  - name: Knut and Alice Wallenberg Foundation
+    url: https://kaw.wallenberg.org/en
+    logo: ../assets/funders/kaw.svg
+    logoAlt: Knut and Alice Wallenberg Foundation
+  - name: Digital Futures
+    url: https://www.digitalfutures.kth.se
+    logo: ../assets/funders/digital-futures.png
+    logoAlt: Digital Futures
+  - name: Dr Margaretha Nilssons Stiftelse för medicinsk forskning
+  - name: National Academic Infrastructure for Supercomputing in Sweden (NAISS)
+    url: https://www.naiss.se
+    logo: ../assets/funders/naiss.png
+    logoAlt: NAISS
 contact:
   email: simon.koplev@scilifelab.se
 nav:
@@ -19,7 +36,12 @@ nav:
   team: People
   about: About
   join: Join us
-social: {}
+# Lab profiles, shown in the footer in this order. Scholar, LinkedIn and X are Simon's.
+social:
+  github: https://github.com/koplev-lab
+  scholar: https://scholar.google.com/citations?user=Gw09nY4AAAAJ&hl=en
+  linkedin: https://www.linkedin.com/in/simon-koplev-46b847a7
+  x: https://x.com/KoplevS
 sectionTitles:
   projects: Research projects
   highlights: Selected publications
@@ -32,10 +54,12 @@ sectionTitles:
   funders: Funding
   projectPeople: People
   projectPublications: Related publications
+  positions: Open positions
+  figureCredits: Figure credits
+  groupPhotos: Group photos
 labels:
   skipToContent: Skip to content
   mainNav: Main
-  draft: Draft
   illustrativeData: Illustrative data
   readMore: Read more
   allProjects: All projects
@@ -46,12 +70,25 @@ labels:
   code: Code
   etAl: et al.
   noAlumni: No alumni yet.
+  alumni:
+    name: Name
+    role: In the lab
+    next: Next position
+  noPositions: No positions are advertised at the moment, but we are always glad to hear from people who would like to work with us.
+  deadline: Apply by
+  positionAd: Read the advertisement
+  hiring: We are hiring
+  figureCredits: Figure credits
   links:
     orcid: ORCID
     github: GitHub
     scholar: Google Scholar
     website: Website
     email: Email
+    linkedin: LinkedIn
+    x: X
+    bluesky: Bluesky
+    mastodon: Mastodon
   notFound:
     title: Page not found
     body: There is no page at this address. It may have moved, or the link may be wrong.

@@ -1,7 +1,6 @@
 ---
 import { getSiteData, getPublicationsData } from '../lib/content';
 import Layout from '../layouts/Layout.astro';
-import DraftMark from '../components/DraftMark.astro';
 import Print from '../components/Print.astro';
 import PublicationEntry from '../components/PublicationEntry.astro';
 
@@ -17,9 +16,7 @@ const { sectionTitles: t } = site;
     <h2 id="pubs-highlights">{t.highlights}</h2>
     {data.highlights.map((h) => (
       <article class="highlight">
-        <h3>
-          {h.publication.title} <DraftMark placeholder={h.placeholder} />
-        </h3>
+        <h3>{h.publication.title}</h3>
         <div class="highlight-body">
           <Print figure={h.figure} sizes="(min-width: 1024px) 30rem, 100vw" />
           <div class="text">

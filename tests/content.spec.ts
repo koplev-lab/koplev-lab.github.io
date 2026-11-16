@@ -15,7 +15,11 @@ function expectAll(text: string, items: string[], where: string) {
 }
 
 test('home', async ({ page }) => {
-  expectAll(await bodyText(page, ''), [expected.tagline, ...expected.navLabels], 'home');
+  expectAll(
+    await bodyText(page, ''),
+    [expected.tagline, ...expected.navLabels, ...expected.openPositions],
+    'home',
+  );
 });
 
 test('research and project pages', async ({ page }) => {
@@ -37,14 +41,26 @@ test('publications', async ({ page }) => {
 
 test('team', async ({ page }) => {
   const text = await bodyText(page, 'team/');
-  expectAll(text, [...expected.navLabels, ...expected.currentMembers], 'team');
+  expectAll(
+    text,
+    [
+      ...expected.navLabels,
+      ...expected.currentMembers,
+      ...expected.alumni.flatMap((a) => [a.name, ...(a.next ? [a.next] : [])]),
+    ],
+    'team',
+  );
 });
 
 test('about', async ({ page }) => {
   const text = await bodyText(page, 'about/');
-  expectAll(text, [...expected.navLabels, expected.aboutLede], 'about');
+  expectAll(text, [...expected.navLabels, expected.aboutLede, ...expected.funders], 'about');
 });
 
 test('join', async ({ page }) => {
-  expectAll(await bodyText(page, 'join/'), expected.navLabels, 'join');
+  expectAll(
+    await bodyText(page, 'join/'),
+    [...expected.navLabels, ...expected.openPositions],
+    'join',
+  );
 });

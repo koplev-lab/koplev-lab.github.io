@@ -4,6 +4,7 @@ role: PI
 order: 0
 current: true
 orcid: 0000-0002-8586-5614
+scholar: https://scholar.google.com/citations?user=Gw09nY4AAAAJ&hl=en
 email: simon.koplev@scilifelab.se
 placeholder: true
 ---
