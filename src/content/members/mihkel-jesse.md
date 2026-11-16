@@ -1,7 +1,7 @@
 ---
 name: Mihkel Jesse
 role: Research assistant
-photo: ../../assets/images/team/MihkelJesse.jpeg
+photo: ../../assets/images/team/MihkelJesse.png
 photoAlt: Mihkel Jesse
 order: 1
 current: true
