@@ -37,6 +37,7 @@ test('research and project pages', async ({ page }) => {
 test('publications', async ({ page }) => {
   const text = await bodyText(page, 'publications/');
   expectAll(text, [...expected.navLabels, ...expected.highlightTitles], 'publications');
+  await expect(page.locator('.cover-band img')).toHaveCount(expected.coverCount);
 });
 
 test('team', async ({ page }) => {

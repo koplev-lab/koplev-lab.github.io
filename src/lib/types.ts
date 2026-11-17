@@ -123,6 +123,15 @@ export interface MemberView {
   placeholder: boolean;
 }
 
+/* ---------------------------------------------------------------- covers */
+
+/** A journal cover featuring the lab's work, shown as a decorative band (no alt text). */
+export interface CoverView {
+  id: string;
+  src: ImageMetadata;
+  placeholder: boolean;
+}
+
 /* ------------------------------------------------------------- positions */
 
 export interface PositionView {
@@ -186,6 +195,8 @@ export interface ProjectData extends ProjectSummary {
 export interface PublicationsData {
   title: string;
   highlights: HighlightView[];
+  /** Journal covers printed behind the heading, in `order` (at most three). */
+  covers: CoverView[];
   publications: PublicationView[];
   byYear: { year: number; items: PublicationView[] }[];
 }

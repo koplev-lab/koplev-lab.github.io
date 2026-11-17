@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import {
   aboutSchema,
+  coverSchema,
   highlightSchema,
   homeSchema,
   joinSchema,
@@ -32,6 +33,10 @@ export const collections = {
   highlights: defineCollection({
     loader: glob({ base: `${base}/highlights`, pattern: ['*.md', '!_*.md'] }),
     schema: ({ image }) => highlightSchema(image),
+  }),
+  covers: defineCollection({
+    loader: glob({ base: `${base}/covers`, pattern: ['*.md', '!_*.md'] }),
+    schema: ({ image }) => coverSchema(image),
   }),
   positions: defineCollection({
     loader: glob({ base: `${base}/positions`, pattern: ['*.md', '!_*.md'] }),

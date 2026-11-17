@@ -2,6 +2,7 @@
 import { getSiteData, getPublicationsData } from '../lib/content';
 import Layout from '../layouts/Layout.astro';
 import Print from '../components/Print.astro';
+import CoverBand from '../components/CoverBand.astro';
 import PublicationEntry from '../components/PublicationEntry.astro';
 
 const site = await getSiteData();
@@ -11,6 +12,7 @@ const { sectionTitles: t } = site;
 
 <Layout title={data.title}>
   <h1>{data.title}</h1>
+  {data.covers.length > 0 && <CoverBand covers={data.covers} />}
 
   <section class="block" aria-labelledby="pubs-highlights">
     <h2 id="pubs-highlights">{t.highlights}</h2>

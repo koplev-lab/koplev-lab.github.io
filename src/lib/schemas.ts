@@ -219,6 +219,23 @@ export const highlightSchema = (image: ImageHelper) =>
     placeholder: placeholder(),
   });
 
+/* ---------------------------------------------------------------- covers */
+
+/**
+ * A journal cover whose cover story includes the lab's papers. The first three (by `order`) are
+ * printed as a pale band behind the Publications heading; decorative, with no text on the page.
+ */
+export const coverSchema = (image: ImageHelper) =>
+  z.object({
+    /** Which issue, e.g. "Nature 635 (8039), 21 November 2024". Names the entry in the CMS. */
+    issue: text(),
+    image: image(),
+    /** Full credit, listed under Figure credits on the About page. */
+    imageCredit: text(),
+    order: z.number().int().default(100),
+    placeholder: placeholder(),
+  });
+
 /* ------------------------------------------------------------- positions */
 
 export const positionSchema = z.object({

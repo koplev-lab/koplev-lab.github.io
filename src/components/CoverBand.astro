@@ -1,0 +1,68 @@
+---
+/**
+ * A band of journal covers whose cover stories include the lab's papers, under the Publications
+ * heading (after the Teichmann lab's publications banner). The covers keep their own colours,
+ * slightly muted so they sit back behind the content. Decorative: no alt text.
+ */
+import { Picture } from 'astro:assets';
+import type { CoverView } from '../lib/types';
+
+interface Props {
+  covers: CoverView[];
+}
+const { covers } = Astro.props;
+---
+
+<div class="cover-band">
+  <div class="covers" aria-hidden="true">
+    {covers.map((c) => (
+      <Picture
+        src={c.src}
+        alt=""
+        widths={[220, 440]}
+        sizes="(min-width: 720px) 26vw, 45vw"
+        formats={['avif', 'webp']}
+      />
+    ))}
+  </div>
+</div>
+
+<style>
+  .cover-band {
+    position: relative;
+    margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  }
+  .covers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gutter);
+    height: clamp(13rem, 28vw, 23rem);
+    padding-inline: clamp(1rem, 4vw, 3.5rem);
+    overflow: hidden;
+    /* A 12% screen of overprint-soft. */
+    background: color-mix(in srgb, var(--overprint-soft) 12%, var(--paper));
+  }
+  .covers :global(picture),
+  .covers :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .covers :global(img) {
+    object-fit: cover;
+    object-position: 50% 30%;
+    /* Own colours, a little quieter: less saturation and contrast. */
+    filter: saturate(0.6) contrast(0.85) brightness(1.04);
+  }
+  @media (max-width: 719px) {
+    /* Two covers; low enough that they are cropped top and bottom, not at the sides. */
+    .covers {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      height: 11rem;
+    }
+    .covers :global(picture:nth-child(n + 3)) {
+      display: none;
+    }
+  }
+</style>

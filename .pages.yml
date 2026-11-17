@@ -37,6 +37,12 @@ media:
     output: ../../assets/images/publications
     extensions: [jpg, jpeg, png, webp, avif]
     rename: safe
+  - name: covers
+    label: Journal covers
+    input: src/assets/images/covers
+    output: ../../assets/images/covers
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
   - name: funder-logos
     label: Funder logos
     input: src/assets/funders
@@ -272,6 +278,46 @@ content:
         required: true
       - name: order
         label: Order
+        type: number
+        default: 100
+      - name: placeholder
+        label: Awaiting Simon's approval
+        type: boolean
+        default: false
+
+  # ------------------------------------------------------------------ covers
+  - name: covers
+    label: Journal covers
+    description: Covers whose cover story includes our papers. The first three (by order) are shown in a band under the Publications heading. A file whose name starts with "_" is kept off the site.
+    type: collection
+    path: src/content/covers
+    format: yaml-frontmatter
+    filename: '{fields.issue}.md'
+    view:
+      primary: issue
+      fields: [issue, order]
+      sort: [order]
+    fields:
+      - name: issue
+        label: Issue
+        description: Names the entry here, e.g. "Nature 635 (8039), 21 November 2024". Not shown on the site.
+        type: string
+        required: true
+      - name: image
+        label: Cover
+        description: The whole front cover, upright.
+        type: image
+        required: true
+        options:
+          media: covers
+      - name: imageCredit
+        label: Full credit
+        description: Listed under Figure credits on the About page, e.g. "Cover of Nature 635, issue 8039 (21 November 2024). © Springer Nature Limited."
+        type: string
+        required: true
+      - name: order
+        label: Order
+        description: Left to right. Only the first three are shown.
         type: number
         default: 100
       - name: placeholder

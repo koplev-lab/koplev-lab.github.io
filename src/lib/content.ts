@@ -8,6 +8,7 @@ import { paths } from './url';
 import type {
   AboutData,
   AuthorView,
+  CoverView,
   ExternalLink,
   FigureCredit,
   HighlightView,
@@ -244,6 +245,23 @@ export const getHighlights = memo(async (): Promise<HighlightView[]> => {
   });
 });
 
+/* -------------------------------------------------------------- covers */
+
+/** Journal covers featuring the lab's work, in `order`. */
+const getCoverEntries = memo(async () => (await getCollection('covers')).sort(byOrder));
+
+/** How many covers the band behind the Publications heading shows. */
+const COVERS_SHOWN = 3;
+
+/** The covers printed behind the Publications heading: the first three. */
+export const getCovers = memo(async (): Promise<CoverView[]> =>
+  (await getCoverEntries()).slice(0, COVERS_SHOWN).map(({ id, data: c }) => ({
+    id,
+    src: c.image,
+    placeholder: c.placeholder,
+  })),
+);
+
 /* ------------------------------------------------------------ projects */
 
 const getProjectEntries = memo(async () => (await getCollection('projects')).sort(byOrder));
@@ -312,12 +330,13 @@ const LICENSE_URLS: Record<License, string> = {
 const license = (name: License | undefined) =>
   name ? { license: { name, url: LICENSE_URLS[name] } } : {};
 
-/** Full credits for every reused figure: projects first, then highlights. */
+/** Full credits for every reused figure: projects, then highlights, then journal covers. */
 export const getFigureCredits = memo(async (): Promise<FigureCredit[]> => {
   const projects = await getProjectEntries();
   const highlights = (await getCollection('highlights')).sort(byOrder);
   const byDoi = await publicationByDoi();
   const publicationsPath = paths.publications;
+  const publicationsTitle = (await getSiteData()).nav.find((n) => n.key === 'publications')!.label;
   return [
     ...projects
       .filter((p) => p.data.imageCredit)
@@ -330,6 +349,10 @@ export const getFigureCredits = memo(async (): Promise<FigureCredit[]> => {
       usedOn: { title: byDoi.get(h.data.doi)?.title ?? h.data.doi, path: publicationsPath },
       credit: h.data.imageCredit,
       ...license(h.data.imageLicense),
+    })),
+    ...(await getCoverEntries()).slice(0, COVERS_SHOWN).map((c) => ({
+      usedOn: { title: publicationsTitle, path: publicationsPath },
+      credit: c.data.imageCredit,
     })),
   ];
 });
@@ -415,6 +438,7 @@ export async function getPublicationsData(): Promise<PublicationsData> {
   return {
     title: site.nav.find((n) => n.key === 'publications')!.label,
     highlights: await getHighlights(),
+    covers: await getCovers(),
     publications,
     byYear: [...years].sort((a, b) => b[0] - a[0]).map(([year, items]) => ({ year, items })),
   };
