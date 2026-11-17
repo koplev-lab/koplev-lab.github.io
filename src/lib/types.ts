@@ -129,6 +129,8 @@ export interface MemberView {
 export interface CoverView {
   id: string;
   src: ImageMetadata;
+  /** The lab's paper in the issue: the cover links to it and is named by its title. */
+  publication: PublicationView;
   placeholder: boolean;
 }
 
@@ -195,7 +197,7 @@ export interface ProjectData extends ProjectSummary {
 export interface PublicationsData {
   title: string;
   highlights: HighlightView[];
-  /** Journal covers printed behind the heading, in `order` (at most three). */
+  /** Journal covers in the band under the heading, in `order` (at most five). */
   covers: CoverView[];
   publications: PublicationView[];
   byYear: { year: number; items: PublicationView[] }[];

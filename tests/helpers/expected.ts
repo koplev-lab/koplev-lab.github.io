@@ -93,7 +93,7 @@ export const expected = {
     if (!pub) throw new Error(`Highlight ${h.slug}: DOI ${doi} not in publications.json`);
     return pub.title;
   }),
-  /** Journal covers printed behind the Publications heading: at most three. */
-  coverCount: Math.min(collection('covers').length, 3),
+  /** Journal covers in the band under the Publications heading: at most five. */
+  coverCount: Math.min(collection('covers').length, 5),
   aboutLede: frontmatter(join(CONTENT, 'pages/about.md')).lede!,
 };

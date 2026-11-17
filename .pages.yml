@@ -288,7 +288,7 @@ content:
   # ------------------------------------------------------------------ covers
   - name: covers
     label: Journal covers
-    description: Covers whose cover story includes our papers. The first three (by order) are shown in a band under the Publications heading. A file whose name starts with "_" is kept off the site.
+    description: Covers of journal issues that include our papers (ideally featured on the cover). The first five (by order) are shown in a band under the Publications heading. A file whose name starts with "_" is kept off the site.
     type: collection
     path: src/content/covers
     format: yaml-frontmatter
@@ -310,6 +310,11 @@ content:
         required: true
         options:
           media: covers
+      - name: doi
+        label: Our paper in this issue (DOI)
+        description: The cover links to it, e.g. 10.1161/circresaha.123.323184. It must be in the publications list.
+        type: string
+        required: true
       - name: imageCredit
         label: Full credit
         description: Listed under Figure credits on the About page, e.g. "Cover of Nature 635, issue 8039 (21 November 2024). © Springer Nature Limited."
@@ -317,7 +322,7 @@ content:
         required: true
       - name: order
         label: Order
-        description: Left to right. Only the first three are shown.
+        description: Left to right. Only the first five are shown.
         type: number
         default: 100
       - name: placeholder

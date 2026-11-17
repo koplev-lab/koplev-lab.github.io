@@ -121,12 +121,15 @@ loop; with reduced motion it starts paused on the stained frame.
   people as a small duotone portrait row, references.
 - **Publications**: highlights as large duotone figures (one per row), then the full list in a
   single column; years as Black headings; lab authors in Bold. Under the heading,
-  the **cover band** (after the Teichmann lab's publications banner): up to three journal covers
-  whose cover stories include the lab's papers, in their own colours slightly muted
-  (saturation and contrast lowered with CSS filters; no transparency or blur), cropped
-  top and bottom on a 12% screen of overprint-soft. Decorative, with no text about the covers;
-  their credits are under Figure credits. Two covers on phones. Only real cover stories, never
-  covers of issues that merely contain a paper.
+  the **cover band** (after the Teichmann lab's publications banner): up to five journal covers
+  of issues that include the lab's papers, in their own colours slightly muted (saturation
+  and contrast lowered with CSS filters; no transparency or blur), shown whole (never cropped,
+  Simon's request) in five equal slots spaced evenly on a 12% screen of overprint-soft, so a
+  cover keeps its size as more are added. Decorative, with no text about the covers; their
+  credits are under Figure credits. Three covers on phones. Only issues that contain a lab paper (most
+  are cover stories; Nat. Cardiovasc. Res. 1 (1) is the launch-issue artwork). The band has no
+  visible text, so it makes no cover-story claim. Each cover links to the lab's paper in that
+  issue (the paper's title is its alt text) and returns to full colour on hover and focus.
 - **Team**: duotone portraits in one grid (2 columns on mobile) with no role headings, name in
   Bold, role in Regular, short bio. Members fill the grid in role order without a new row per
   role (Simon's request: an overview without scrolling that reads less hierarchical).

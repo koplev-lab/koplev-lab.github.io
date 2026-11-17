@@ -222,14 +222,16 @@ export const highlightSchema = (image: ImageHelper) =>
 /* ---------------------------------------------------------------- covers */
 
 /**
- * A journal cover whose cover story includes the lab's papers. The first three (by `order`) are
- * printed as a pale band behind the Publications heading; decorative, with no text on the page.
+ * The cover of a journal issue that includes the lab's papers. The first five (by `order`) are
+ * shown in a band under the Publications heading, each linking to the lab's paper in that issue.
  */
 export const coverSchema = (image: ImageHelper) =>
   z.object({
     /** Which issue, e.g. "Nature 635 (8039), 21 November 2024". Names the entry in the CMS. */
     issue: text(),
     image: image(),
+    /** The lab's paper in this issue that the cover links to (the featured one, if any). */
+    doi: doi(),
     /** Full credit, listed under Figure credits on the About page. */
     imageCredit: text(),
     order: z.number().int().default(100),

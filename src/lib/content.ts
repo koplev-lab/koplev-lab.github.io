@@ -251,16 +251,21 @@ export const getHighlights = memo(async (): Promise<HighlightView[]> => {
 const getCoverEntries = memo(async () => (await getCollection('covers')).sort(byOrder));
 
 /** How many covers the band behind the Publications heading shows. */
-const COVERS_SHOWN = 3;
+const COVERS_SHOWN = 5;
 
-/** The covers printed behind the Publications heading: the first three. */
-export const getCovers = memo(async (): Promise<CoverView[]> =>
-  (await getCoverEntries()).slice(0, COVERS_SHOWN).map(({ id, data: c }) => ({
-    id,
-    src: c.image,
-    placeholder: c.placeholder,
-  })),
-);
+/** The covers in the band under the Publications heading: the first five. */
+export const getCovers = memo(async (): Promise<CoverView[]> => {
+  const byDoi = await publicationByDoi();
+  return (await getCoverEntries()).slice(0, COVERS_SHOWN).map(({ id, data: c }) => {
+    const publication = byDoi.get(c.doi);
+    if (!publication)
+      throw new Error(
+        `Cover "${id}" points to DOI ${c.doi}, which is not in publications.json. ` +
+          `Run "npm run pubs" or add it under "add" in publications.overrides.json.`,
+      );
+    return { id, src: c.image, publication, placeholder: c.placeholder };
+  });
+});
 
 /* ------------------------------------------------------------ projects */
 

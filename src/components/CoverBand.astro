@@ -1,8 +1,9 @@
 ---
 /**
- * A band of journal covers whose cover stories include the lab's papers, under the Publications
+ * A band of covers of journal issues that include the lab's papers, under the Publications
  * heading (after the Teichmann lab's publications banner). The covers keep their own colours,
- * slightly muted so they sit back behind the content. Decorative: no alt text.
+ * slightly muted so they sit back behind the content. Each links to the lab's paper in that
+ * issue; the paper's title is the image's text alternative, so it names the link.
  */
 import { Picture } from 'astro:assets';
 import type { CoverView } from '../lib/types';
@@ -14,54 +15,82 @@ const { covers } = Astro.props;
 ---
 
 <div class="cover-band">
-  <div class="covers" aria-hidden="true">
+  <ul class="covers">
     {covers.map((c) => (
-      <Picture
-        src={c.src}
-        alt=""
-        widths={[220, 440]}
-        sizes="(min-width: 720px) 26vw, 45vw"
-        formats={['avif', 'webp']}
-      />
+      <li>
+        {c.publication.url ? (
+          <a href={c.publication.url}>
+            <Picture
+              src={c.src}
+              alt={c.publication.title}
+              widths={[160, 320, 440]}
+              sizes="(min-width: 1200px) 12rem, (min-width: 720px) 16vw, 30vw"
+              formats={['avif', 'webp']}
+            />
+          </a>
+        ) : (
+          <Picture
+            src={c.src}
+            alt={c.publication.title}
+            widths={[160, 320, 440]}
+            sizes="(min-width: 1200px) 12rem, (min-width: 720px) 16vw, 30vw"
+            formats={['avif', 'webp']}
+          />
+        )}
+      </li>
     ))}
-  </div>
+  </ul>
 </div>
 
 <style>
   .cover-band {
-    position: relative;
+    --slots: 5;
+    --gap: var(--gutter);
     margin-top: clamp(1.25rem, 2.5vw, 2rem);
   }
+  /*
+   * Whole covers, never cropped, in equal slots (five across) spaced evenly over the band, so a
+   * cover keeps its size whether there are three or five.
+   */
   .covers {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--gutter);
-    height: clamp(13rem, 28vw, 23rem);
-    padding-inline: clamp(1rem, 4vw, 3.5rem);
-    overflow: hidden;
+    display: flex;
+    margin: 0;
+    list-style: none;
+    justify-content: space-evenly;
+    gap: var(--gap);
+    padding: clamp(0.75rem, 2vw, 1.25rem) clamp(0.75rem, 2.5vw, 2rem);
     /* A 12% screen of overprint-soft. */
     background: color-mix(in srgb, var(--overprint-soft) 12%, var(--paper));
   }
-  .covers :global(picture),
+  .covers li {
+    flex: 0 0 calc((100% - (var(--slots) - 1) * var(--gap)) / var(--slots));
+  }
+  .covers a,
+  .covers :global(picture) {
+    display: block;
+  }
+  /* Full colour on hover and focus: the cover comes forward as the link to its paper. */
+  .covers a:hover :global(img),
+  .covers a:focus-visible :global(img) {
+    filter: none;
+  }
   .covers :global(img) {
     display: block;
     width: 100%;
-    height: 100%;
-  }
-  .covers :global(img) {
+    height: auto;
+    /* One shape for all, so the bottoms line up (trims at most a sliver off an odd-sized scan). */
+    aspect-ratio: 440 / 584;
     object-fit: cover;
-    object-position: 50% 30%;
     /* Own colours, a little quieter: less saturation and contrast. */
     filter: saturate(0.6) contrast(0.85) brightness(1.04);
   }
+  /* Phones: three covers. */
   @media (max-width: 719px) {
-    /* Two covers; low enough that they are cropped top and bottom, not at the sides. */
-    .covers {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      height: 11rem;
+    .cover-band {
+      --slots: 3;
+      --gap: 10px;
     }
-    .covers :global(picture:nth-child(n + 3)) {
+    .covers li:nth-child(n + 4) {
       display: none;
     }
   }

@@ -62,10 +62,12 @@ Rename it without the `_` to publish it.
 
 ### Add a journal cover
 
-Only for an issue whose **cover story includes one of our papers**. **Journal covers** → **Add an
-entry**: name the issue (only for this list), upload the whole front cover and give the full
-credit, e.g. "Cover of Nature 635, issue 8039 (21 November 2024). © Springer Nature Limited." The
-first three by **Order** are shown in a band under the Publications heading, left to right.
+Only for an issue that **includes one of our papers**; best when the cover features it.
+**Journal covers** → **Add an entry**: name the issue (only for this list), upload the whole front
+cover, add the DOI of our paper in that issue (the cover links to it; it must be in the
+publications list) and give the full credit, e.g. "Cover of Nature 635, issue 8039 (21 November 2024).
+© Springer Nature Limited." Name the cover artist when the journal credits one. The
+first five by **Order** are shown in a band under the Publications heading, left to right.
 
 ### Add a group photo
 
