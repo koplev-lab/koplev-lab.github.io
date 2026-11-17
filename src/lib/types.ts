@@ -192,12 +192,11 @@ export interface PublicationsData {
 
 export interface TeamData {
   title: string;
-  current: MemberView[];
   /**
-   * Current members as one list, split into rows by role, most senior first. The team page shows
-   * them as a single list without role headings and start each lower role on a new line.
+   * Current members in role order (most senior first, then by `order`). The Team page fills them
+   * straight across the grid, without role headings or a new row per role.
    */
-  rows: MemberView[][];
+  current: MemberView[];
   alumni: MemberView[];
   /** Group photos (empty until the lab adds some). */
   photos: Figure[];

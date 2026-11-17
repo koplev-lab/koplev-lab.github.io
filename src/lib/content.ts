@@ -425,13 +425,9 @@ export async function getTeamData(): Promise<TeamData> {
   const team = await single('team');
   const members = await getMembers();
   const current = members.filter((m) => m.current);
-  const rows = ROLES.filter((r) => r !== 'Alumni')
-    .map((role) => current.filter((m) => m.role === role))
-    .filter((row) => row.length > 0);
   return {
     title: site.nav.find((n) => n.key === 'team')!.label,
-    current: rows.flat(),
-    rows,
+    current: ROLES.flatMap((role) => current.filter((m) => m.role === role)),
     alumni: members.filter((m) => !m.current),
     photos: team.data.photos.map((p) => ({
       src: p.image,

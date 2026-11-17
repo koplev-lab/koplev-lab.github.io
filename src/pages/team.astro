@@ -24,25 +24,23 @@ const { sectionTitles: t, labels } = site;
   <section class="block" aria-labelledby="team-current">
     <h2 id="team-current">{t.currentMembers}</h2>
     <ul class="members">
-      {data.rows.map((row) =>
-        row.map((m, i) => (
-          <li class={i === 0 ? 'row-start' : undefined}>
-            <Portrait member={m} />
-            <p class="name">{m.name}</p>
-            <p class="role">{m.role}</p>
-            {m.bioHtml && <div class="bio" set:html={m.bioHtml} />}
-            {m.links.length > 0 && (
-              <ul class="links">
-                {m.links.map((l) => (
-                  <li>
-                    <a href={l.href}>{l.label}</a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        )),
-      )}
+      {data.current.map((m) => (
+        <li>
+          <Portrait member={m} />
+          <p class="name">{m.name}</p>
+          <p class="role">{m.role}</p>
+          {m.bioHtml && <div class="bio" set:html={m.bioHtml} />}
+          {m.links.length > 0 && (
+            <ul class="links">
+              {m.links.map((l) => (
+                <li>
+                  <a href={l.href}>{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
     </ul>
   </section>
 
@@ -87,10 +85,6 @@ const { sectionTitles: t, labels } = site;
     margin: 0;
     padding: 0;
     list-style: none;
-  }
-  /* Each lower role starts a new line. */
-  .row-start {
-    grid-column-start: 1;
   }
   .name {
     margin: 0.75rem 0 0;
