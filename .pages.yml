@@ -47,7 +47,7 @@ media:
 content:
   # ------------------------------------------------------------------ people
   - name: members
-    label: People
+    label: Team
     description: Current members and alumni. One entry per person.
     type: collection
     path: src/content/members
@@ -374,14 +374,14 @@ content:
       - { name: body, label: Introduction, type: rich-text, options: { media: false } }
 
   - name: team
-    label: 'Page: People'
+    label: 'Page: Team'
     type: file
     path: src/content/pages/team.md
     format: yaml-frontmatter
     fields:
       - name: photos
         label: Group photos
-        description: Shown at the top of the People page, in this order.
+        description: Shown at the top of the Team page, in this order.
         type: object
         list: true
         fields:
@@ -403,6 +403,10 @@ content:
           - name: credit
             label: Photo credit
             type: string
+      - name: photoPlaceholderCaption
+        label: Caption while there is no group photo
+        description: Shown under the line-up graphic that stands in until a group photo is added.
+        type: string
       - { name: placeholder, label: "Awaiting Simon's approval", type: boolean }
 
   - name: about
@@ -505,7 +509,7 @@ content:
           - { name: home, type: string, required: true }
           - { name: research, type: string, required: true }
           - { name: publications, type: string, required: true }
-          - { name: team, label: People, type: string, required: true }
+          - { name: team, label: Team, type: string, required: true }
           - { name: about, type: string, required: true }
           - { name: join, type: string, required: true }
       - name: sectionTitles

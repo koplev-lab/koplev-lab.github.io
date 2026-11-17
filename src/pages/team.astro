@@ -3,6 +3,7 @@ import { getSiteData, getTeamData } from '../lib/content';
 import Layout from '../layouts/Layout.astro';
 import Portrait from '../components/Portrait.astro';
 import Print from '../components/Print.astro';
+import GroupPlaceholder from '../components/GroupPlaceholder.astro';
 
 const site = await getSiteData();
 const data = await getTeamData();
@@ -12,13 +13,13 @@ const { sectionTitles: t, labels } = site;
 <Layout title={data.title}>
   <h1>{data.title}</h1>
 
-  {data.photos.length > 0 && (
-    <section class="photos" aria-label={t.groupPhotos}>
-      {data.photos.map((photo) => (
-        <Print figure={photo} sizes="(min-width: 1024px) 64rem, 100vw" />
-      ))}
-    </section>
-  )}
+  <section class="photos" aria-label={t.groupPhotos}>
+    {data.photos.length > 0 ? (
+      data.photos.map((photo) => <Print figure={photo} sizes="(min-width: 1024px) 64rem, 100vw" />)
+    ) : (
+      <GroupPlaceholder count={data.current.length} caption={data.photoPlaceholderCaption} />
+    )}
+  </section>
 
   <section class="block" aria-labelledby="team-current">
     <h2 id="team-current">{t.currentMembers}</h2>

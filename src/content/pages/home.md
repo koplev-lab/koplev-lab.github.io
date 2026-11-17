@@ -3,12 +3,10 @@ figureTitle: Staining a tissue section
 figureCaption: An illustration drawn by code, not a real sample. A thin section of gut lining is stained with hematoxylin and then eosin, the two most widely used stains in histology.
 figureAlt: Drawing of a thin section of gut lining, first unstained, then with its nuclei stained by hematoxylin, then with the surrounding tissue stained by eosin.
 featuredProjects: []
-# Shown in this order. Swap in koplev-2022-cardiometabolic for steele-2025-skin-fibroblasts once
-# its visual abstract is added.
 featuredHighlights:
   - koplev-2026-crohns
+  - koplev-2022-cardiometabolic
   - koplev-2017-sequential-drugs
-  - steele-2025-skin-fibroblasts
 placeholder: true
 ---
 

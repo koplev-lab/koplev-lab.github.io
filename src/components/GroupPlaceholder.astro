@@ -1,0 +1,69 @@
+---
+/**
+ * Stand-in for the group photo until there is one: the lab as a line-up of the portrait
+ * placeholder mark, one overprinting pink-and-blue pair per current member, in two staggered rows
+ * like a group photo. Decorative only (the caption says what it is).
+ */
+interface Props {
+  /** Number of current members: one mark each. */
+  count: number;
+  caption?: string | undefined;
+}
+const { count, caption } = Astro.props;
+
+const W = 1200;
+const H = 440;
+const back = Math.ceil(count / 2);
+const front = count - back;
+const spacing = (W * 0.8) / Math.max(back, 1);
+const r = Math.min(spacing * 0.32, H * 0.13);
+// Rows of equal length shift a quarter step each way so the front row stands in the gaps.
+const shift = back === front ? spacing / 4 : 0;
+
+const row = (n: number, y: number, dx: number, radius: number) =>
+  Array.from({ length: n }, (_, i) => ({
+    x: W / 2 + (i - (n - 1) / 2) * spacing + dx,
+    y,
+    r: radius,
+    d: radius * 0.32, // offset of the two inks, as in the portrait placeholder
+  }));
+// The front row is a little larger, as if closer to the camera.
+const people = [...row(back, H * 0.4, -shift, r), ...row(front, H * 0.66, shift, r * 1.08)];
+---
+
+<figure class="group-placeholder">
+  <svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true" focusable="false">
+    <rect width={W} height={H} fill="var(--blue-tint)" />
+    <g class="inks">
+      {people.map((p) => (
+        <circle cx={p.x + p.d} cy={p.y} r={p.r} fill="var(--blue)" />
+      ))}
+      {people.map((p) => (
+        <circle class="pink" cx={p.x - p.d} cy={p.y + 1} r={p.r} fill="var(--pink)" />
+      ))}
+    </g>
+  </svg>
+  {caption && <figcaption class="mono">{caption}</figcaption>}
+</figure>
+
+<style>
+  .group-placeholder {
+    margin: 0;
+  }
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  /* The two inks overprint where they meet: pink multiplied over blue gives the overprint navy. */
+  .inks {
+    isolation: isolate;
+  }
+  .pink {
+    mix-blend-mode: multiply;
+  }
+  figcaption {
+    margin-top: 0.6rem;
+    color: var(--overprint-soft);
+  }
+</style>

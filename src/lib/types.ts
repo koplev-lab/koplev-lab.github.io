@@ -201,6 +201,8 @@ export interface TeamData {
   alumni: MemberView[];
   /** Group photos (empty until the lab adds some). */
   photos: Figure[];
+  /** Caption for the line-up graphic shown while `photos` is empty. */
+  photoPlaceholderCaption?: string;
   placeholder: boolean;
 }
 

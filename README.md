@@ -64,7 +64,7 @@ lab, and add `nextPosition` (e.g. `Master's student, Karolinska Institutet`) onc
 Never list pending applications.
 
 **Group photos.** Save the photo in `src/assets/images/group/` and add it under `photos` in
-`src/content/pages/team.md` (the file has an example). Photos appear at the top of the People page.
+`src/content/pages/team.md` (the file has an example). Photos appear at the top of the Team page.
 
 **Hold back a highlight.** A file in `src/content/highlights/` whose name starts with `_` is not
 built (useful while its figure is missing). Remove the `_` to publish it.

@@ -24,23 +24,23 @@ featured publication whose entry was removed). Ask Mo; he can see what went wron
 
 ### Add a lab member
 
-**People** → **Add an entry**. Fill in name, role and order (lower numbers come first within a
+**Team** → **Add an entry**. Fill in name, role and order (lower numbers come first within a
 role), and write a short bio: 3–4 sentences, academic background then research interests. Add a
 photo if you have one (square works best); the photo description defaults to the person's name.
 Without a photo the site shows the two-circle placeholder.
 
 ### Update a bio or swap a photo
 
-**People** → click the person → edit → **Save**. To change the photo, click it and upload a new
+**Team** → click the person → edit → **Save**. To change the photo, click it and upload a new
 one.
 
 ### Someone leaves (alumni)
 
-Open the person in **People**, switch off **Current member**, keep **Role** as the position they
+Open the person in **Team**, switch off **Current member**, keep **Role** as the position they
 held in the lab, and fill in **Next position** once it is confirmed, e.g. "PhD student, ETH
 Zurich". Leave it empty until then. Never mention ongoing applications.
 
-<!-- Screenshot: the People form with the alumni fields -->
+<!-- Screenshot: the Team form with the alumni fields -->
 
 ### Advertise a position
 
@@ -62,8 +62,10 @@ Rename it without the `_` to publish it.
 
 ### Add a group photo
 
-**Page: People** → **Group photos** → add: upload the photo, describe who is in it and where,
-and add a short caption. Photos appear at the top of the People page in the order listed.
+**Page: Team** → **Group photos** → add: upload the photo, describe who is in it and where,
+and add a short caption. Photos appear at the top of the Team page in the order listed.
+Until there is one, the page shows a line-up graphic (one pink-and-blue mark per current member);
+its caption is under **Caption while there is no group photo**.
 
 ### Change page text
 

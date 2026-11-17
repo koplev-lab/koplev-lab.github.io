@@ -439,6 +439,9 @@ export async function getTeamData(): Promise<TeamData> {
       caption: p.caption,
       ...(p.credit ? { credit: p.credit } : {}),
     })),
+    ...(team.data.photoPlaceholderCaption
+      ? { photoPlaceholderCaption: team.data.photoPlaceholderCaption }
+      : {}),
     placeholder: team.data.placeholder,
   };
 }

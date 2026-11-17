@@ -227,12 +227,14 @@ export const aboutSchema = z.object({ title: text(), lede: text(), placeholder: 
 export const joinSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });
 export const teamSchema = (image: ImageHelper) =>
   z.object({
-    /** Group photos, shown at the top of the People page in this order. Empty: none shown. */
+    /** Group photos, shown at the top of the Team page in this order. Empty: none shown. */
     photos: z
       .array(
         z.object({ image: image(), alt: text(), caption: text(), credit: z.string().optional() }),
       )
       .default([]),
+    /** Caption under the line-up graphic shown while there is no group photo. */
+    photoPlaceholderCaption: z.string().trim().min(1).optional(),
     placeholder: placeholder(),
   });
 export const researchSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });

@@ -1,6 +1,6 @@
 ---
-# Group photos, shown at the top of the People page in this order. Nothing is shown while the
-# list is empty. Easiest through Pages CMS ("Page: People"); by hand, save the photo in
+# Group photos, shown at the top of the Team page in this order. While the list is empty the
+# page shows a line-up graphic (one mark per current member) with the caption below. Easiest through Pages CMS ("Page: Team"); by hand, save the photo in
 # src/assets/images/group/ and add an entry:
 #
 # photos:
@@ -9,5 +9,6 @@
 #     caption: The lab in spring 2027.
 #     credit: Photo by …          # optional
 photos: []
+photoPlaceholderCaption: Group photo coming soon.
 placeholder: false
 ---
