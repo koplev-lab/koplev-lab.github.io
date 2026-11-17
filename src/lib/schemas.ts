@@ -34,6 +34,16 @@ const doi = () =>
 
 const placeholder = () => z.boolean().default(false);
 
+/**
+ * An optional field. A blank value counts as not set: Pages CMS can save a cleared field as an
+ * empty string, which would otherwise fail the format checks (URL, ORCID, e-mail, image).
+ */
+const optional = <T extends z.ZodType>(schema: T) =>
+  z.preprocess(
+    (v) => (v === null || (typeof v === 'string' && v.trim() === '') ? undefined : v),
+    schema.optional(),
+  );
+
 /** Licences of figures reused from papers. The data layer adds the licence URL. */
 export const LICENSES = ['CC BY 4.0', 'CC BY-NC-ND 4.0'] as const;
 export type License = (typeof LICENSES)[number];
@@ -110,16 +120,16 @@ export const siteSchema = (image: ImageHelper) =>
       .array(
         z.object({
           name: text(),
-          url: url().optional(),
-          logo: image().optional(),
-          logoAlt: z.string().optional(),
+          url: optional(url()),
+          logo: optional(image()),
+          logoAlt: optional(z.string()),
         }),
       )
       .default([]),
     contact: z.object({
       email: z.email(),
-      address: z.string().optional(),
-      mapUrl: url().optional(),
+      address: optional(z.string()),
+      mapUrl: optional(url()),
     }),
     nav: z.object({
       home: text(),
@@ -132,12 +142,12 @@ export const siteSchema = (image: ImageHelper) =>
     /** Lab profiles elsewhere, shown in the footer and on the About page, in this order. */
     social: z
       .object({
-        github: url().optional(),
-        scholar: url().optional(),
-        linkedin: url().optional(),
-        x: url().optional(),
-        bluesky: url().optional(),
-        mastodon: url().optional(),
+        github: optional(url()),
+        scholar: optional(url()),
+        linkedin: optional(url()),
+        x: optional(url()),
+        bluesky: optional(url()),
+        mastodon: optional(url()),
       })
       .default({}),
     sectionTitles: sectionTitlesSchema,
@@ -151,22 +161,24 @@ export const memberSchema = (image: ImageHelper) =>
   z.object({
     name: text(),
     role: z.enum(ROLES),
-    photo: image().optional(),
+    photo: optional(image()),
     /** Text alternative for the photo. Defaults to the person's name. */
-    photoAlt: z.string().optional(),
+    photoAlt: optional(z.string()),
     order: z.number().int().default(100),
     current: z.boolean().default(true),
     /** Alumni only: the confirmed position the person moved on to. Never a pending application. */
-    nextPosition: z.string().trim().min(1).optional(),
-    orcid: z
-      .string()
-      .regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/, 'Expected an ORCID iD like 0000-0002-1825-0097')
-      .optional(),
-    github: z.string().optional(),
-    scholar: url().optional(),
-    website: url().optional(),
-    email: z.email().optional(),
-    startYear: z.number().int().min(1990).max(2100).optional(),
+    nextPosition: optional(z.string().trim().min(1)),
+    orcid: optional(
+      z
+        .string()
+        .trim()
+        .regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/, 'Expected an ORCID iD like 0000-0002-1825-0097'),
+    ),
+    github: optional(z.string()),
+    scholar: optional(url()),
+    website: optional(url()),
+    email: optional(z.email()),
+    startYear: optional(z.number().int().min(1990).max(2100)),
     placeholder: placeholder(),
   });
 
@@ -180,13 +192,13 @@ export const projectSchema = (image: ImageHelper) =>
     imageAlt: text(),
     imageCaption: text(),
     /** Short source shown under the figure, e.g. "Koplev et al., Nat. Immunol. 2026". */
-    imageSource: z.string().trim().min(1).optional(),
+    imageSource: optional(z.string().trim().min(1)),
     /** Full source and any changes made, listed under Figure credits on the About page. */
-    imageCredit: z.string().optional(),
-    imageLicense: z.enum(LICENSES).optional(),
+    imageCredit: optional(z.string()),
+    imageLicense: optional(z.enum(LICENSES)),
     members: z.array(z.string()).default([]),
     publications: z.array(doi()).default([]),
-    repo: url().optional(),
+    repo: optional(url()),
     order: z.number().int().default(100),
     placeholder: placeholder(),
   });
@@ -201,7 +213,7 @@ export const highlightSchema = (image: ImageHelper) =>
     imageKind: z.enum(['figure', 'cover']),
     /** Full source and any changes made, listed under Figure credits on the About page. */
     imageCredit: text(),
-    imageLicense: z.enum(LICENSES).optional(),
+    imageLicense: optional(z.enum(LICENSES)),
     blurb: text(),
     order: z.number().int().default(100),
     placeholder: placeholder(),
@@ -230,11 +242,11 @@ export const teamSchema = (image: ImageHelper) =>
     /** Group photos, shown at the top of the Team page in this order. Empty: none shown. */
     photos: z
       .array(
-        z.object({ image: image(), alt: text(), caption: text(), credit: z.string().optional() }),
+        z.object({ image: image(), alt: text(), caption: text(), credit: optional(z.string()) }),
       )
       .default([]),
     /** Caption under the line-up graphic shown while there is no group photo. */
-    photoPlaceholderCaption: z.string().trim().min(1).optional(),
+    photoPlaceholderCaption: optional(z.string().trim().min(1)),
     placeholder: placeholder(),
   });
 export const researchSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });

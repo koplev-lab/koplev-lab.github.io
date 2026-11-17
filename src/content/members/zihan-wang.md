@@ -1,6 +1,8 @@
 ---
 name: Zihan Wang
 role: Master student
+photo: ../../assets/images/team/ZihanWang.jpg
+photoAlt: Zihan Wang
 order: 11
 current: true
 placeholder: true

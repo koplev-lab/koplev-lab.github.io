@@ -108,11 +108,12 @@ content:
         default: 100
       - name: orcid
         label: ORCID iD
-        description: Like 0000-0002-1825-0097
+        description: Optional. Like 0000-0002-1825-0097
         type: string
         pattern:
-          regex: '^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$'
-          message: Expected an ORCID iD like 0000-0002-1825-0097
+          # Empty is allowed: the CMS checks the pattern even on fields left blank.
+          regex: '^(\d{4}-\d{4}-\d{4}-\d{3}[\dX])?$'
+          message: Expected an ORCID iD like 0000-0002-1825-0097, or leave it empty
       - name: github
         label: GitHub username
         type: string
