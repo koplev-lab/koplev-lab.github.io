@@ -1,7 +1,7 @@
 ---
 title: Digital Futures grant with Wei Ouyang's lab
 date: 2026-10-15
-image: ../../assets/images/news/a-multiagent-virtual.png
+image: ../../assets/images/news/a-multiagent-virtual-subset.png
 imageAlt: Project overview and plan
 link: https://www.digitalfutures.kth.se/project/a-multiagent-virtual-scientist-for-spatial-transcriptomics-of-gastrointestinal-diseases/
 placeholder: true
