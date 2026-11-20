@@ -9,6 +9,7 @@ export const paths = {
   project: (slug: string) => `/research/${slug}/`,
   publications: '/publications/',
   team: '/team/',
+  news: '/news/',
   about: '/about/',
   /** The Figure credits section of the About page. */
   figureCredits: '/about/#figure-credits',

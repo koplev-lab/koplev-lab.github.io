@@ -194,6 +194,12 @@ Recorded from the design review rounds:
   copy is `aria-hidden`, so screen readers hear the name once. It stays smaller than the home
   tagline (shared rule 1).
 
+- **News is a dated log** (Mo, Nov 2026: grants, talks, lab events, added by the lab in Pages
+  CMS): each item opens on a pink rule with the date in mono in the left margin, a picture
+  shown whole (photos, figures and logos alike, capped in height) in its original colours, then the title and a few sentences. On tablets the
+  date moves above picture and text; on phones everything stacks. Newest first. With no items
+  the page says so in one line (`labels.noNews`).
+
 - **Projects are grouped units** (Mo found figures hard to match to projects): each opens with a
   pink rule and the project title, followed by its figure and summary; spacing between projects
   is much larger than within one.

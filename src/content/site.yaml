@@ -34,6 +34,7 @@ nav:
   research: Research
   publications: Publications
   team: Team
+  news: News
   about: About
   join: Join us
 # Lab profiles, shown in the footer in this order. Scholar, LinkedIn and X are Simon's.
@@ -75,6 +76,7 @@ labels:
     role: In the lab
     next: Next position
   noPositions: No positions are advertised at the moment, but we are always glad to hear from people who would like to work with us.
+  noNews: No news yet.
   deadline: Apply by
   positionAd: Read the advertisement
   hiring: We are hiring

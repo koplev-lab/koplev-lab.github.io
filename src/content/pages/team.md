@@ -6,9 +6,11 @@
 # photos:
 #   - image: ../../assets/images/group/group-2027-spring.jpg
 #     alt: The lab standing on the steps outside SciLifeLab in Solna.
-#     caption: The lab in spring 2027.
+#     caption: The lab in spring 2027.   # optional
 #     credit: Photo by …          # optional
-photos: []
+photos:
+  - image: ../../assets/images/group/lab-2026-first-snow.jpeg
+    alt: Six lab members in winter coats on a snow-covered lawn, with bare trees and a red brick building behind them.
 photoPlaceholderCaption: Group photo coming soon.
 placeholder: false
 ---

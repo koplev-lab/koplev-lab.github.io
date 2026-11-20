@@ -43,6 +43,12 @@ media:
     output: ../../assets/images/covers
     extensions: [jpg, jpeg, png, webp, avif]
     rename: safe
+  - name: news-pictures
+    label: News pictures
+    input: src/assets/images/news
+    output: ../../assets/images/news
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
   - name: funder-logos
     label: Funder logos
     input: src/assets/funders
@@ -366,6 +372,61 @@ content:
         type: boolean
         default: false
 
+  # -------------------------------------------------------------------- news
+  - name: news
+    label: News
+    description: Grants, talks, lab events. Shown on the News page, newest first. A file whose name starts with "_" is kept off the site.
+    type: collection
+    path: src/content/news
+    format: yaml-frontmatter
+    filename: '{year}-{month}-{day}-{fields.title}.md'
+    view:
+      primary: title
+      fields: [title, date]
+      sort: [date]
+    fields:
+      - name: title
+        label: Title
+        description: Short and plain. Say what happened, with no adjectives.
+        type: string
+        required: true
+      - name: date
+        label: Date
+        description: When it happened or was announced. Sets the order on the page.
+        type: date
+        required: true
+      - name: image
+        label: Picture
+        description: A photo, figure or logo. It is shown whole; landscape works best.
+        type: image
+        required: true
+        options:
+          media: news-pictures
+      - name: imageAlt
+        label: Picture description
+        description: What the picture shows, for screen readers.
+        type: text
+        required: true
+      - name: imageCredit
+        label: Picture credit
+        description: 'Optional, shown under the picture, e.g. "Photo: Julia Nyman".'
+        type: string
+      - name: link
+        label: Link
+        description: Optional. The announcement, the talk page or the event, if there is one.
+        type: string
+      - name: placeholder
+        label: Awaiting Simon's approval
+        type: boolean
+        default: false
+      - name: body
+        label: Description
+        description: Two to four plain sentences.
+        type: rich-text
+        required: true
+        options:
+          media: false
+
   # ------------------------------------------------------------------- pages
   - name: home
     label: 'Page: Home'
@@ -450,8 +511,8 @@ content:
             required: true
           - name: caption
             label: Caption
+            description: Optional.
             type: string
-            required: true
           - name: credit
             label: Photo credit
             type: string
@@ -562,6 +623,7 @@ content:
           - { name: research, type: string, required: true }
           - { name: publications, type: string, required: true }
           - { name: team, label: Team, type: string, required: true }
+          - { name: news, label: News, type: string, required: true }
           - { name: about, type: string, required: true }
           - { name: join, type: string, required: true }
       - name: sectionTitles
@@ -606,6 +668,7 @@ content:
               - { name: role, type: string, required: true }
               - { name: next, type: string, required: true }
           - { name: noPositions, type: text, required: true }
+          - { name: noNews, type: string, required: true }
           - { name: deadline, type: string, required: true }
           - { name: positionAd, type: string, required: true }
           - { name: hiring, type: string, required: true }

@@ -86,6 +86,8 @@ export const expected = {
   openPositions: collection('positions')
     .filter((p) => p.data.deadline! >= new Date().toISOString().slice(0, 10))
     .map((p) => p.data.title!),
+  /** Titles of every News item. */
+  newsTitles: collection('news').map((n) => n.data.title!),
   projects: collection('projects').map((p) => ({ slug: p.slug, title: p.data.title! })),
   highlightTitles: collection('highlights').map((h) => {
     const doi = h.data.doi!.toLowerCase();

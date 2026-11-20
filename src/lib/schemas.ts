@@ -85,6 +85,8 @@ export const labelsSchema = z.object({
   alumni: z.object({ name: text(), role: text(), next: text() }),
   /** Shown on the Join page when no advertised position is open. */
   noPositions: text(),
+  /** Shown on the News page before the first item is added. */
+  noNews: text(),
   /** Label before a position's closing date, e.g. "Apply by". */
   deadline: text(),
   /** Link text to the full advertisement. */
@@ -136,6 +138,7 @@ export const siteSchema = (image: ImageHelper) =>
       research: text(),
       publications: text(),
       team: text(),
+      news: text(),
       about: text(),
       join: text(),
     }),
@@ -252,6 +255,23 @@ export const positionSchema = z.object({
   placeholder: placeholder(),
 });
 
+/* ------------------------------------------------------------------ news */
+
+/** One item on the News page: grants, talks, lab events. Newest first. */
+export const newsSchema = (image: ImageHelper) =>
+  z.object({
+    title: text(),
+    /** When it happened or was announced (YYYY-MM-DD). */
+    date: z.coerce.date(),
+    image: image(),
+    imageAlt: text(),
+    /** Optional short credit shown under the picture, e.g. "Photo: Julia Nyman". */
+    imageCredit: optional(z.string().trim().min(1)),
+    /** Optional link to more (the announcement, the talk page, the event). */
+    link: optional(url()),
+    placeholder: placeholder(),
+  });
+
 /* ----------------------------------------------------------------- pages */
 
 export const aboutSchema = z.object({ title: text(), lede: text(), placeholder: placeholder() });
@@ -261,7 +281,12 @@ export const teamSchema = (image: ImageHelper) =>
     /** Group photos, shown at the top of the Team page in this order. Empty: none shown. */
     photos: z
       .array(
-        z.object({ image: image(), alt: text(), caption: text(), credit: optional(z.string()) }),
+        z.object({
+          image: image(),
+          alt: text(),
+          caption: optional(z.string().trim().min(1)),
+          credit: optional(z.string()),
+        }),
       )
       .default([]),
     /** Caption under the line-up graphic shown while there is no group photo. */

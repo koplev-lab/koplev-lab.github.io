@@ -36,7 +36,7 @@ export interface ExternalLink {
   href: string;
 }
 
-export type NavKey = 'home' | 'research' | 'publications' | 'team' | 'about' | 'join';
+export type NavKey = 'home' | 'research' | 'publications' | 'team' | 'news' | 'about' | 'join';
 
 export interface NavItem {
   key: NavKey;
@@ -148,6 +148,22 @@ export interface PositionView {
   placeholder: boolean;
 }
 
+/* ------------------------------------------------------------------ news */
+
+export interface NewsItemView {
+  slug: string;
+  title: string;
+  /** ISO date (YYYY-MM-DD), for <time datetime>. */
+  date: string;
+  /** The date as text, e.g. "20 November 2026". */
+  dateText: string;
+  /** The picture, with its optional credit. */
+  figure: Figure;
+  bodyHtml: string;
+  link?: string;
+  placeholder: boolean;
+}
+
 /* -------------------------------------------------------------- projects */
 
 export interface ProjectSummary {
@@ -216,6 +232,12 @@ export interface TeamData {
   /** Caption for the line-up graphic shown while `photos` is empty. */
   photoPlaceholderCaption?: string;
   placeholder: boolean;
+}
+
+export interface NewsData {
+  title: string;
+  /** Newest first. */
+  items: NewsItemView[];
 }
 
 export interface AboutData {

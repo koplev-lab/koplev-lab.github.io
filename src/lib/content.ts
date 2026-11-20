@@ -17,6 +17,7 @@ import type {
   MemberView,
   NavItem,
   NavKey,
+  NewsData,
   PositionView,
   ProjectData,
   ProjectSummary,
@@ -84,7 +85,7 @@ const normName = (s: string) =>
 
 /* ---------------------------------------------------------------- site */
 
-const NAV_ORDER: NavKey[] = ['home', 'research', 'publications', 'team', 'about', 'join'];
+const NAV_ORDER: NavKey[] = ['home', 'research', 'publications', 'team', 'news', 'about', 'join'];
 
 const logoFiles = import.meta.glob<string>('/src/assets/logo/mark.svg', {
   query: '?raw',
@@ -391,6 +392,32 @@ export const getOpenPositions = memo(async (): Promise<PositionView[]> => {
     .sort((a, b) => a.deadline.localeCompare(b.deadline) || a.slug.localeCompare(b.slug));
 });
 
+/* ---------------------------------------------------------------- news */
+
+export async function getNewsData(): Promise<NewsData> {
+  const site = await getSiteData();
+  const items = (await getCollection('news'))
+    .map((entry) => {
+      const n = entry.data;
+      return {
+        slug: entry.id,
+        title: n.title,
+        date: n.date.toISOString().slice(0, 10),
+        dateText: dateText.format(n.date),
+        figure: {
+          src: n.image,
+          alt: n.imageAlt,
+          ...(n.imageCredit ? { credit: n.imageCredit } : {}),
+        },
+        bodyHtml: html(entry),
+        ...(n.link ? { link: n.link } : {}),
+        placeholder: n.placeholder,
+      };
+    })
+    .sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
+  return { title: site.nav.find((n) => n.key === 'news')!.label, items };
+}
+
 /* ----------------------------------------------------------- page data */
 
 export async function getHomeData(): Promise<HomeData> {
@@ -461,7 +488,7 @@ export async function getTeamData(): Promise<TeamData> {
     photos: team.data.photos.map((p) => ({
       src: p.image,
       alt: p.alt,
-      caption: p.caption,
+      ...(p.caption ? { caption: p.caption } : {}),
       ...(p.credit ? { credit: p.credit } : {}),
     })),
     ...(team.data.photoPlaceholderCaption

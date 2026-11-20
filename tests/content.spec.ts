@@ -56,6 +56,10 @@ test('team', async ({ page }) => {
   );
 });
 
+test('news', async ({ page }) => {
+  expectAll(await bodyText(page, 'news/'), [...expected.navLabels, ...expected.newsTitles], 'news');
+});
+
 test('about', async ({ page }) => {
   const text = await bodyText(page, 'about/');
   expectAll(text, [...expected.navLabels, expected.aboutLede, ...expected.funders], 'about');

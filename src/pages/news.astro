@@ -1,0 +1,142 @@
+---
+import { getSiteData, getNewsData } from '../lib/content';
+import Layout from '../layouts/Layout.astro';
+import Print from '../components/Print.astro';
+
+const site = await getSiteData();
+const data = await getNewsData();
+const { labels } = site;
+---
+
+<Layout title={data.title}>
+  <h1>{data.title}</h1>
+
+  {data.items.length > 0 ? (
+    <ul class="news">
+      {data.items.map((n) => (
+        <li class="item">
+          <p class="date mono">
+            <time datetime={n.date}>{n.dateText}</time>
+          </p>
+          <div class="pic">
+            <Print figure={n.figure} sizes="(min-width: 900px) 30rem, 100vw" />
+          </div>
+          <div class="text">
+            <h2>{n.title}</h2>
+            <div class="body" set:html={n.bodyHtml} />
+            {n.link && (
+              <p class="more">
+                <a href={n.link}>
+                  {labels.readMore}
+                  <span class="sr">: {n.title}</span>
+                </a>
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="empty">{labels.noNews}</p>
+  )}
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: clamp(1.75rem, 4vw, 3rem);
+  }
+
+  /* A dated log: each item opens on a pink rule, date in the margin, picture, then the text. */
+  .news {
+    display: grid;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .item {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 5fr) minmax(0, 6fr);
+    grid-template-areas: 'date pic text';
+    gap: 0 calc(var(--gutter) * 1.5);
+    padding-top: 1rem;
+    border-top: 2px solid var(--pink);
+  }
+  .item:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .date {
+    grid-area: date;
+    margin: 0;
+    color: var(--overprint-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .pic {
+    grid-area: pic;
+  }
+  /* Shown whole (photos, figures and logos alike), capped so a tall picture can't take over. */
+  .pic :global(.print-img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 24rem;
+  }
+  .text {
+    grid-area: text;
+    max-width: 36rem;
+  }
+  h2 {
+    margin-bottom: 0.6rem;
+    color: var(--overprint);
+    font-size: var(--s1);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .more {
+    margin: 0.75rem 0 0;
+    font-weight: 700;
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .empty {
+    max-width: 40rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--pink);
+  }
+
+  /* Tablet: date as a line above, picture and text side by side. */
+  @media (max-width: 899px) {
+    .item {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-areas:
+        'date date'
+        'pic text';
+    }
+    .date {
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  /* Phone: one column, the picture full width under the date. */
+  @media (max-width: 599px) {
+    .item {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        'date'
+        'pic'
+        'text';
+    }
+    .pic {
+      margin-bottom: 1rem;
+    }
+  }
+</style>

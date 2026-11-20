@@ -15,7 +15,7 @@ const { sectionTitles: t, labels } = site;
 
   <section class="photos" aria-label={t.groupPhotos}>
     {data.photos.length > 0 ? (
-      data.photos.map((photo) => <Print figure={photo} sizes="(min-width: 1024px) 64rem, 100vw" />)
+      data.photos.map((photo) => <Print figure={photo} sizes="(min-width: 1400px) 76rem, 100vw" />)
     ) : (
       <GroupPlaceholder count={data.current.length} caption={data.photoPlaceholderCaption} />
     )}
@@ -116,10 +116,12 @@ const { sectionTitles: t, labels } = site;
     gap: 2rem;
     margin-top: 1.75rem;
   }
+  /* Full width, trimmed top and bottom to 16:9; anchored low so faces stay in frame. */
   .photos :global(.plate img) {
-    width: auto;
-    max-width: 100%;
-    max-height: 40rem;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: 50% 75%;
   }
   /* Alumni as a small register: name, position in the lab, where they went next. */
   .alumni {
