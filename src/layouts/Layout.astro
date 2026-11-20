@@ -174,9 +174,10 @@ const current = (path: string) =>
     color: var(--blue);
     mix-blend-mode: multiply;
   }
+  /* On hover or focus the two plates pull into register: the inks overprint to one clean navy. */
   .lockup:hover .ink-pink,
   .lockup:focus-visible .ink-pink {
-    transform: translate(5px, 3px);
+    transform: translate(0, 0);
   }
   @media (prefers-reduced-motion: reduce) {
     .ink-pink {
@@ -212,12 +213,12 @@ const current = (path: string) =>
     text-decoration: underline;
     background: none;
   }
-  /* Current page: a stroke of pink ink through the bottom of the word. */
+  /* Current page: a bar of pink ink set clear beneath the word, never touching the letters. */
   .masthead nav a[aria-current] {
     text-decoration-line: underline;
     text-decoration-color: var(--pink);
-    text-decoration-thickness: 0.45em;
-    text-underline-offset: -0.2em;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.35em;
     text-decoration-skip-ink: none;
   }
 

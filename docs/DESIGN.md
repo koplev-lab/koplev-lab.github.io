@@ -178,7 +178,9 @@ Recorded from the design review rounds:
 - Global CSS lives in `src/styles/`, in cascade layers so component styles win.
 
 - **Navigation is a top bar** (Mo's decision after round 3): lab name left, sections right, a
-  2px pink rule beneath; on phones the links wrap under the name. It replaces the contents
+  2px pink rule beneath; on phones the links wrap under the name. The current page is marked by
+  a 3px pink bar set clear below the word (Simon, Nov 2026: the earlier stroke through the
+  letters hurt legibility). It replaces the contents
   column described under "Navigation" above, which left a third of the page empty and pushed
   the content off-centre. The home page opens with the hero at full content width, then the
   tagline (about 32px) beside the intro paragraph, so image and statement share the first
@@ -186,7 +188,9 @@ Recorded from the design review rounds:
 
 - **The wordmark is printed in two inks** (Mo asked for a more flamboyant lab name): Chivo
   Black at about 26–30px, a Fluorescent Pink impression 3px/2px off register under the Blue one,
-  overprinting to navy where they overlap; on hover the pink slides a little further. The pink
+  overprinting to navy where they overlap; on hover or keyboard focus the pink slides into
+  register, so the name resolves to clean navy (Simon's feedback, Nov 2026: the off-register
+  name is striking but hard to read; interacting with it should make it clear). The pink
   copy is `aria-hidden`, so screen readers hear the name once. It stays smaller than the home
   tagline (shared rule 1).
 
