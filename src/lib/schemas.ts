@@ -65,6 +65,8 @@ export const sectionTitlesSchema = z.object({
   positions: text(),
   figureCredits: text(),
   groupPhotos: text(),
+  /** The rotating news block on the home page. */
+  featuredNews: text(),
 });
 
 export const labelsSchema = z.object({
@@ -87,6 +89,10 @@ export const labelsSchema = z.object({
   noPositions: text(),
   /** Shown on the News page before the first item is added. */
   noNews: text(),
+  /** Link from the home page's news block to the News page. */
+  allNews: text(),
+  /** Slide numbering of the home page's rotating news block ("1 of 2"), for screen readers. */
+  carousel: z.object({ of: text() }),
   /** Label before a position's closing date, e.g. "Apply by". */
   deadline: text(),
   /** Link text to the full advertisement. */
@@ -305,6 +311,8 @@ export const homeSchema = z.object({
   featuredProjects: z.array(z.string()).default([]),
   /** Highlight ids to feature on the home page. Empty: all highlights by `order`. */
   featuredHighlights: z.array(z.string()).default([]),
+  /** News items that rotate on the home page, in this order. Empty: the block is not shown. */
+  featuredNews: z.array(z.string()).default([]),
   placeholder: placeholder(),
 });
 

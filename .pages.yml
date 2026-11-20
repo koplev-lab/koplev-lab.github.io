@@ -466,6 +466,16 @@ content:
           value: '{name}'
           label: '{fields.doi}'
           search: doi
+      - name: featuredNews
+        label: Featured news
+        description: Shown one at a time in a rotating block on the home page, in this order. Leave empty to hide the block.
+        type: reference
+        options:
+          collection: news
+          multiple: true
+          value: '{name}'
+          label: '{fields.title}'
+          search: title
       - name: placeholder
         label: Awaiting Simon's approval
         type: boolean
@@ -644,6 +654,7 @@ content:
           - { name: positions, type: string, required: true }
           - { name: figureCredits, type: string, required: true }
           - { name: groupPhotos, type: string, required: true }
+          - { name: featuredNews, type: string, required: true }
       - name: labels
         label: Small text
         type: object
@@ -669,6 +680,12 @@ content:
               - { name: next, type: string, required: true }
           - { name: noPositions, type: text, required: true }
           - { name: noNews, type: string, required: true }
+          - { name: allNews, type: string, required: true }
+          - name: carousel
+            label: Home page news block
+            type: object
+            fields:
+              - { name: of, label: 'Word in "1 of 2"', type: string, required: true }
           - { name: deadline, type: string, required: true }
           - { name: positionAd, type: string, required: true }
           - { name: hiring, type: string, required: true }

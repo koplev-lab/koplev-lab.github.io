@@ -5,6 +5,7 @@ import StainingRun from '../components/StainingRun.astro';
 import Layout from '../layouts/Layout.astro';
 import Print from '../components/Print.astro';
 import PublicationEntry from '../components/PublicationEntry.astro';
+import NewsCarousel from '../components/NewsCarousel.astro';
 
 const site = await getSiteData();
 const data = await getHomeData();
@@ -86,6 +87,16 @@ const more = data.highlights;
       </ul>
       <p class="more">
         <a href={url(nav.publications!.path)}>{labels.allPublications}</a>
+      </p>
+    </section>
+  )}
+
+  {data.news.length > 0 && (
+    <section class="block" aria-labelledby="home-news">
+      <h2 id="home-news">{t.featuredNews}</h2>
+      <NewsCarousel items={data.news} label={t.featuredNews} labels={labels} />
+      <p class="more">
+        <a href={url(data.newsPath)}>{labels.allNews}</a>
       </p>
     </section>
   )}

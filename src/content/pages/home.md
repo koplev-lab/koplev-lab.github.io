@@ -7,6 +7,9 @@ featuredHighlights:
   - koplev-2026-crohns
   - koplev-2022-cardiometabolic
   - koplev-2017-sequential-drugs
+featuredNews:
+  - 2026-11-13-scientifika-talk
+  - 2026-10-15-digital-futures-grant
 placeholder: true
 ---
 

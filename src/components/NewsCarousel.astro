@@ -1,0 +1,210 @@
+---
+/**
+ * Featured news on the home page, one item at a time. A pink rule fills while an item is
+ * shown; when it is full the next item comes up. Pauses only while keyboard focus is inside it
+ * (no pause on hover: a resting cursor, or a tap on a phone, froze it with no visible reason).
+ * Without JS, or under prefers-reduced-motion, the items are simply listed.
+ */
+import Print from './Print.astro';
+import type { Labels, NewsItemView } from '../lib/types';
+
+interface Props {
+  items: NewsItemView[];
+  /** Accessible name of the carousel (the section title). */
+  label: string;
+  labels: Labels;
+}
+const { items, label, labels } = Astro.props;
+const l = labels.carousel;
+---
+
+<div class="carousel" data-carousel aria-roledescription="carousel" aria-label={label}>
+  <div class="rule" aria-hidden="true">
+    <span class="fill" data-fill></span>
+  </div>
+  <div class="slides" aria-live="off">
+    {items.map((n, i) => (
+      <div
+        class:list={['slide', { 'is-active': i === 0 }]}
+        role="group"
+        aria-roledescription="slide"
+        aria-label={`${i + 1} ${l.of} ${items.length}`}
+        data-slide
+      >
+        <div class="pic">
+          <Print figure={n.figure} details={false} sizes="(min-width: 900px) 34rem, 100vw" />
+        </div>
+        <div class="text">
+          <p class="date mono">
+            <time datetime={n.date}>{n.dateText}</time>
+          </p>
+          <h3>{n.title}</h3>
+          <div class="body" set:html={n.bodyHtml} />
+          {n.link && (
+            <p class="more">
+              <a href={n.link}>
+                {labels.readMore}
+                <span class="sr">: {n.title}</span>
+              </a>
+            </p>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+  {items.length > 1 && (
+    <p class="count mono" aria-hidden="true" data-controls hidden>
+      <span data-count>1</span> / {items.length}
+    </p>
+  )}
+</div>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-carousel]')) {
+    const slides = [...root.querySelectorAll<HTMLElement>('[data-slide]')];
+    const controls = root.querySelector<HTMLElement>('[data-controls]');
+    const fill = root.querySelector<HTMLElement>('[data-fill]');
+    const count = root.querySelector<HTMLElement>('[data-count]');
+    // Reduced motion: no rotation and no buttons to step with, so leave the items listed.
+    if (reduce.matches || slides.length < 2 || !controls || !fill || !count) continue;
+
+    root.classList.add('is-enhanced');
+    controls.hidden = false;
+    let current = 0;
+
+    /** Restart the rule's fill from empty (it drives the timing: see animationend below). */
+    const restart = () => {
+      fill.style.animation = 'none';
+      void fill.offsetWidth;
+      fill.style.animation = '';
+    };
+
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+      count.textContent = String(current + 1);
+      restart();
+    };
+
+    fill.addEventListener('animationend', () => show(current + 1));
+  }
+</script>
+
+<style>
+  .carousel {
+    --interval: 6s;
+  }
+
+  /* The pink rule that opens every item doubles as the timer. */
+  .rule {
+    height: 2px;
+    margin-bottom: 1.1rem;
+    background: var(--pink);
+  }
+  .fill {
+    display: none;
+  }
+  .is-enhanced .rule {
+    background: var(--pink-tint);
+  }
+  .is-enhanced .fill {
+    display: block;
+    height: 100%;
+    background: var(--pink);
+    transform-origin: left;
+    animation: fill var(--interval) linear forwards;
+  }
+  /* Paused while keyboard focus is inside it, so a keyboard user can reach "Read more". */
+  .is-enhanced:has(:focus-visible) .fill {
+    animation-play-state: paused;
+  }
+  @keyframes fill {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Without JS: the items one under another. With JS: stacked in one cell, so the block keeps
+     the height of the tallest item and nothing below it jumps. */
+  .slides {
+    display: grid;
+    gap: 3rem;
+  }
+  .is-enhanced .slides {
+    gap: 0;
+  }
+  .is-enhanced .slide {
+    grid-area: 1 / 1;
+    visibility: hidden;
+  }
+  .is-enhanced .slide.is-active {
+    visibility: visible;
+  }
+
+  /* Picture column sized for a 4:3 photo at the block's height, so the text sits right beside
+     it and stays in the same place from item to item. */
+  .slide {
+    display: grid;
+    grid-template-columns: minmax(0, 30rem) minmax(0, 1fr);
+    gap: 1.25rem calc(var(--gutter) * 2);
+    align-content: start;
+    align-items: start;
+  }
+  /* Pictures keep their own shape, capped in height; the block takes the tallest item's height. */
+  .pic :global(.plate img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 22rem;
+  }
+  .text {
+    max-width: 34rem;
+  }
+  .date {
+    margin: 0 0 0.5rem;
+    color: var(--overprint-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  h3 {
+    margin-bottom: 0.6rem;
+    font-size: var(--s1);
+    line-height: 1.2;
+  }
+  .body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .more {
+    margin: 0.75rem 0 0;
+    font-weight: 700;
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .count {
+    margin: 1rem 0 0;
+    color: var(--overprint-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .count[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 899px) {
+    .slide {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .pic :global(.plate img) {
+      max-height: 18rem;
+    }
+  }
+</style>

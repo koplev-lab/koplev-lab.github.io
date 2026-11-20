@@ -426,6 +426,7 @@ export async function getHomeData(): Promise<HomeData> {
   const about = await single('about');
   const projects = await getProjects();
   const highlights = await getHighlights();
+  const { items: news } = await getNewsData();
   const pick = <T extends { slug?: string; id?: string }>(all: T[], ids: string[], kind: string) =>
     ids.length === 0
       ? all
@@ -444,6 +445,9 @@ export async function getHomeData(): Promise<HomeData> {
     },
     projects: pick(projects, home.data.featuredProjects, 'project'),
     highlights: pick(highlights, home.data.featuredHighlights, 'highlight'),
+    news:
+      home.data.featuredNews.length === 0 ? [] : pick(news, home.data.featuredNews, 'news item'),
+    newsPath: paths.news,
     about: { title: about.data.title, lede: about.data.lede, path: paths.about },
     positions: await getOpenPositions(),
     joinPath: paths.join,

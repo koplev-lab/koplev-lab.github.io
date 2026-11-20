@@ -200,6 +200,15 @@ Recorded from the design review rounds:
   date moves above picture and text; on phones everything stacks. Newest first. With no items
   the page says so in one line (`labels.noNews`).
 
+- **Featured news rotates on the home page** (Mo, Nov 2026), after Research and Publications:
+  one item at a time, picture beside date, title and text. The pink rule that opens every item
+  doubles as the timer: it fills over 6 seconds, then the next item comes up (instant change, no
+  fade), with a mono "1 / 2" under it. No buttons (Mo removed Previous, Next and Pause): it
+  pauses only while keyboard focus is inside it (pausing on hover was removed: a resting cursor, or a tap on a phone, froze it with no visible reason). Under `prefers-reduced-motion`,
+  or without JS, the items are simply listed. Which items appear is set in `home.md`
+  (`featuredNews`). Known trade-off: WCAG 2.2.2 (Pause, Stop, Hide) asks for a pause control on
+  content that moves by itself for more than 5 seconds; focus pausing only partly meets it.
+
 - **Projects are grouped units** (Mo found figures hard to match to projects): each opens with a
   pink rule and the project title, followed by its figure and summary; spacing between projects
   is much larger than within one.

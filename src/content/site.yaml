@@ -58,6 +58,7 @@ sectionTitles:
   positions: Open positions
   figureCredits: Figure credits
   groupPhotos: Group photos
+  featuredNews: News
 labels:
   skipToContent: Skip to content
   mainNav: Main
@@ -77,6 +78,9 @@ labels:
     next: Next position
   noPositions: No positions are advertised at the moment, but we are always glad to hear from people who would like to work with us.
   noNews: No news yet.
+  allNews: All news
+  carousel:
+    of: of
   deadline: Apply by
   positionAd: Read the advertisement
   hiring: We are hiring

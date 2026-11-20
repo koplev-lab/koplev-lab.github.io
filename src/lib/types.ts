@@ -186,6 +186,9 @@ export interface HomeData {
   figure: { title: string; caption: string; alt: string };
   projects: ProjectSummary[];
   highlights: HighlightView[];
+  /** News items that rotate on the home page (empty: no news block). */
+  news: NewsItemView[];
+  newsPath: string;
   about: { title: string; lede: string; path: string };
   /** Advertised positions still open at build time. */
   positions: PositionView[];
