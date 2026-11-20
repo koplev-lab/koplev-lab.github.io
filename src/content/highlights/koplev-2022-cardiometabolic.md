@@ -14,5 +14,5 @@ blurb: Gene regulatory networks built from genotypes, clinical data and RNA
   heritability of coronary artery disease, and point to signals sent from fat
   tissue to the liver.
 order: 4
-placeholder: true
+placeholder: false
 ---
