@@ -1,6 +1,6 @@
 ---
 title: New potential for Crohn’s treatment
-date: 2026-09-15
+date: 2026-09-11
 image: ../../assets/images/news/simon-koplev-jon-lindhe-kth-2.webp
 imageAlt: Simon Koplev, assistant professor of computational biology at KTH.
 imageCredit: "Photo: Jon Lindhe, KTH"
